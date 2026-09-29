@@ -1,0 +1,19 @@
+[W ParallelNative.cpp:230] Warning: Cannot set number of intraop threads after parallel work has started or after set_num_threads call when using native parallel backend (function set_num_threads)
+       95.11 real        91.96 user        17.68 sys
+          1047003136  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              501587  page reclaims
+               34406  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                  27  messages sent
+                  65  messages received
+                   0  signals received
+                6189  voluntary context switches
+             1533039  involuntary context switches
+        709614964527  instructions retired
+        255931218449  cycles elapsed
+          1476561344  peak memory footprint

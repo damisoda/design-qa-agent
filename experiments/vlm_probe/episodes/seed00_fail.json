@@ -1,0 +1,28 @@
+{
+  "seed": 0,
+  "success": false,
+  "facts": {
+    "steps": 400,
+    "cube_start_xyz": [
+      0.026,
+      -0.026,
+      0.82
+    ],
+    "min_hand_cube_dist_m": 0.013,
+    "t_min_dist": 28,
+    "gripper_closed": true,
+    "t_gripper_close": 222,
+    "cube_max_lift_m": 0.006,
+    "cube_final_lift_m": 0.001,
+    "cube_pushed_xy_m": 0.077,
+    "hand_cube_dist_at_close_m": 0.41
+  },
+  "frames_shown_steps": [
+    1,
+    20,
+    28,
+    222,
+    247,
+    400
+  ]
+}

@@ -1,0 +1,14 @@
+# 재생성 가능한 대용량 (README의 설치 명령으로 복원)
+.venv/
+src/
+
+# 데이터셋 원본 (HF에서 재다운로드, sha256은 README에 기록)
+datasets/**/*.hdf5
+
+# 학습된 모델 체크포인트 (설정·로그·성공률만 보존, 같은 설정으로 재학습 가능)
+*.pth
+
+# 파이썬·macOS 부산물
+__pycache__/
+*.pyc
+.DS_Store
