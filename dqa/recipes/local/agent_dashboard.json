@@ -1,0 +1,12 @@
+{
+  "id": "local/agent_dashboard",
+  "version": 1,
+  "title": "로봇 데이터 에이전트 대시보드",
+  "app": "local",
+  "start": { "path": "/" },
+  "allow_hosts": [],
+  "steps": [],
+  "ready": { "text": "에이전트 실행 추적", "stable_ms": 400 },
+  "scan": { "root": "body", "scroll": "auto", "ignore": [] },
+  "widths": "web4"
+}

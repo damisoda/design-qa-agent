@@ -1,0 +1,16 @@
+{
+  "cbh": {
+    "title": "돌아오길(Come-back-home)",
+    "github": "Donghaeng-AI-ROOKIE/Come-back-home",
+    "clone": "~/design-qa-cases/cbh-gh",
+    "app_dir": "frontend",
+    "src_dir": "frontend/src",
+    "lock": "frontend/package-lock.json",
+    "patches": "frontend/patches",
+    "tokens": "frontend/src/theme/tokens.ts",
+    "build_env": { "EXPO_PUBLIC_USE_MOCK": "true", "EXPO_OFFLINE": "1", "EXPO_NO_TELEMETRY": "1", "CI": "1" },
+    "build_args": ["expo", "export", "--platform", "web", "--no-minify"],
+    "seed_node_modules": ["~/design-qa-cases/cbh-221-post/frontend/node_modules", "~/design-qa-cases/cbh-221-pre/frontend/node_modules"],
+    "recipes": ["cbh/report", "cbh/guardian_home"]
+  }
+}

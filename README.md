@@ -1,61 +1,43 @@
-# robot-kernel — L1 실험 커널 (로봇 학습 데이터 에이전트 프로젝트)
+# design-qa-agent
 
-학습·평가 수치를 만드는 유일한 곳. 에이전트(L2, Dify)는 여기서 나온 결과 파일만 인용한다.
-프로젝트 문서: `~/Desktop/서강대학교/6학기/AI에이전트/` (한글 경로는 빌드 도구 문제를 피하려고 커널만 여기 둔다)
+웹앱 화면을 여러 크기로 실제로 열어 디자인-구현 결함을 찾고, 고치는 패치까지 검증해 주는 로컬 에이전트(dqa). 서강대학교 AI 에이전트 수업 최종 프로젝트.
 
-## 환경 (2026-09-29 설치, Apple M5 · 16GB · CUDA 없음)
-
-| 항목 | 설치 값 | 공식 문서 권장 | 차이 이유 |
-|---|---|---|---|
-| Python | 3.10.20 (uv) | 3.8.0 | robosuite 1.5.1이 요구하는 mujoco>=3.3.0이 Python 3.9 이상만 지원 |
-| torch / torchvision | 2.0.0 / 0.15.1 | 같음 | — |
-| numpy | 1.26.4 | — | torch 2.0 호환을 위해 2.0 미만 고정 |
-| robosuite | 1.5.1 (소스, 태그 v1.5.1) | v1.5.1 | 공개 데이터셋 v1.5와 맞춤 |
-| mujoco | 3.3.0 | — | 3.14.0에서 환경 생성 실패(관절 종류 assert). 3.3.0으로 고정 후 정상 |
-| robomimic | 0.5.0 (소스, 태그 v0.5.0, `--no-deps`) | 소스 설치 | PyPI는 0.3.0뿐 |
-| egl_probe | 미설치 | 의존성 | macOS에서 빌드 불가(리눅스 EGL 전용). 오프스크린 렌더링을 켤 때만 import되므로 low_dim·영상 끔에서는 불필요 |
-
-재현:
 ```
-uv python install 3.10 && uv venv .venv --python 3.10
-uv pip install --python .venv/bin/python "torch==2.0.0" "torchvision==0.15.1" "numpy<2"
-git clone --depth 1 --branch v1.5.1 https://github.com/ARISE-Initiative/robosuite.git src/robosuite
-git clone --depth 1 --branch v0.5.0 https://github.com/ARISE-Initiative/robomimic.git src/robomimic
-uv pip install --python .venv/bin/python -e src/robosuite "mujoco==3.3.0"
-uv pip install --python .venv/bin/python --no-deps -e src/robomimic
-uv pip install --python .venv/bin/python h5py psutil tqdm termcolor tensorboard tensorboardX imageio imageio-ffmpeg matplotlib "huggingface_hub==0.23.4" "transformers==4.41.2" "diffusers==0.11.1"
+검사(측정·비교·원인) → 보고서 에이전트(문제 정의) → 코드 에이전트(수정·검증) → PR 준비
 ```
 
-주의: robomimic 첫 import는 transformers·diffusers 적재로 약 36초 걸린다(멈춘 것이 아님).
-
-## 데이터
-
-| 파일 | 크기 | sha256 (HF LFS 값과 일치 확인) |
+| 역할 | 하는 일 | 위치 |
 |---|---|---|
-| datasets/lift/ph/low_dim_v15.hdf5 | 21,084,088 B | 2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540 |
+| 진행자 | 대상 해석, 빌드(커밋별 캐시), 단계 순서. 순서는 코드가 정하고 모델은 정하지 않는다 | `dqa/core/` |
+| 측정자 | 레시피로 화면 진입, 크기·스크롤 단계별 규칙 R1~R7과 진단, 묶기, 재측정 | `dqa/measure/`, `dqa/recipes/` |
+| 비교·원인 | 변경 전과 대조(새로 생김·악화·기존·해결), 원인 파일 후보 | `dqa/diff/`, `dqa/code/` |
+| 보고서 에이전트 | 결함마다 문제 정의(무엇이 문제인가, 원본·기대, 결함인가 의도인가). 사실에 없는 숫자는 버린다 | `dqa/judge/` |
+| 코드 에이전트 | 문제 정의를 받아 수정 → 사본에서 빌드·재측정해 결함이 사라지고 회귀가 없을 때만 채택 | `dqa/fix/` |
+| PR | 검증된 패치로 브랜치·커밋·타입 검사·본문. 올리기는 확인 문구 "PR 올리기"가 있을 때만, 병합은 하지 않는다 | `dqa/fix/pr.js` |
 
-Lift PH: 시연 200개, 길이 평균 48.3(36~64) 스텝, 행동 7차원, 필터 키 train/valid 및 20·50% 부분집합. 로봇 Panda.
+모델은 맥미니 로컬 Ollama의 Gemma 4 E4B(생각 끔)만 쓴다. 팀 코드와 화면은 이 컴퓨터와 맥미니 밖으로 나가지 않는다.
 
-## 실행 기록
+## 시작
 
-| run | 설정 | 결과 |
-|---|---|---|
-| lift_ph_lowdim_bc_e50_s1 | `configs/lift_ph_lowdim_bc_e50_s1.json` — BC(MLP), 50 에폭×100 스텝, 배치 100, seed 1, 평가 50회·최대 400 스텝 | **성공률 0.88 (44/50)**, 평균 에피소드 길이 84.6 스텝. 전체 84초(학습 약 20초 + 평가 53초 + 적재), 최대 메모리 1.44GB. 체크포인트 `runs/lift_ph_lowdim_bc_e50_s1/20260929181133/models/model_epoch_50_low_dim_v15_success_0.88.pth` |
+```bash
+cd dqa
+npm install
+node cli.js doctor
+node cli.js serve      # 웹 화면 http://127.0.0.1:8792
+```
 
-해석 주의 (lift_ph_lowdim_bc_e50_s1):
-- 시드 1개·평가 50회라 성공률의 불확실성이 크다(대략 ±9%p). 비교 실험에는 다중 시드와 고정된 평가 초기 상태가 필요하다.
-- 학습 스크립트 내장 평가(무작위 초기 상태)이며, 프로젝트의 개발/최종 평가셋 분리는 아직 적용하지 않았다.
-- 기본 학습량(2,000 에폭)의 2.5%만 돌린 점검용 실행이다.
+명령과 규칙 설명은 [dqa/README.md](dqa/README.md).
 
-## 직접 실행해 보기
+## 폴더
 
-- 브라우저 뷰어: `.venv/bin/python viewer/app.py` → http://127.0.0.1:8770 . 모델·시도 횟수·시드를 고르고 실행하면 시뮬레이터 화면이 실시간으로 나오고, 성공 여부는 `env.is_success()`로 판정한다. macOS는 그래픽 컨텍스트를 메인 스레드에서만 허용하므로 시뮬레이션은 메인 스레드, 웹 서버는 보조 스레드에서 돈다(보조 스레드에서 렌더링하면 SIGTRAP으로 종료됨, 실측).
-- 영상 파일: `PYTHONPATH=shims .venv/bin/python src/robomimic/robomimic/scripts/run_trained_agent.py --agent <ckpt> --n_rollouts 5 --horizon 400 --seed 0 --video_path videos/<이름>.mp4 --video_skip 1 --camera_names agentview`
-- `shims/egl_probe`: macOS용 대체 모듈(빈 장치 목록 반환). 오프스크린 렌더링 때만 경로에 넣는다.
+| 경로 | 내용 |
+|---|---|
+| `dqa/` | 도구 본체(CLI, 웹 화면, Dify 연결) |
+| `knowledge/` | 판정 기준·지식 문서 P01~P04. 진단 코드가 단락을 골라 보고서 에이전트에 넣는다 |
+| `docs/` | 구조 설계 문서와 그림 |
+| `dify_import.py` | Dify DSL 가져오기(`dqa/dify/`의 앱) |
 
-## 에이전트 대시보드 (2026-09-30)
+## 이력
 
-- 실행: `.venv/bin/python dashboard/server.py` → http://127.0.0.1:8780 (로컬 전용, 다른 사이트의 요청은 403으로 차단). 설계 기준은 `dashboard/CONTRACT.md`.
-- 기능: 질문창(Dify 에이전트 실시간 추적·도구 호출·전/후 답변 비교), 질문 기록(4주차 기록 포함), 실험 결과(성공률·손실 곡선), 실험 승인 대기열(제안 → 승인해야 실제 학습 시작, 한 번에 1개), 로봇 뷰어(대시보드 내장, 체크포인트 자동 재스캔), 데이터셋, 시스템 상태, 활동 기록, 다음 행동 결정(미구현 표시).
-- Dify 연결은 컨테이너 안 상주 워커(`dashboard/dify_worker.py`, docker cp → docker exec)로 한다. API 키를 쓰지 않는다.
-- 검증 학습 1회: `lift_ph_lowdim_bc_p20_e50_s1`(학습용 20% = 시연 36개) 성공률 0.92, 95.11초. 전체 데이터(180개) 0.88과 시드 1개 기준으로 차이가 없다 — Lift는 데이터가 적어도 쉽게 성공하는 작업이라 판단 실험용으로는 부족하다는 근거.
+- 1~6주차 수업 산출물(문제 정의, RAG, 도구, 모델 선택)은 수업 저장소 `ai-agent-course`의 `design_qa/`에 있다. 이 저장소의 `dqa/`는 그곳에서 옮겨 왔고, 이후 개발은 이 저장소에서 한다.
+- 이 저장소는 처음에 로봇 학습 데이터 에이전트 실험(`robot-kernel`)이었다. 그 코드는 `archive/robot` 브랜치와 `robot-final` 태그에 그대로 남아 있다.

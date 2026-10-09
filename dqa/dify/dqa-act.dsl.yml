@@ -1,0 +1,236 @@
+app:
+  name: dqa · 검사→문제 정의→수정→PR
+  mode: workflow
+  icon: 🛠️
+  icon_background: '#EFF1F5'
+  icon_type: emoji
+  use_icon_as_answer_icon: false
+  description: 작업을 고르면 dqa가 검사(보고서 에이전트의 문제 정의), 수정(코드 에이전트, 재측정 검증), PR 준비·올리기(확인
+    문구 필요)를 한다. 작업 순서는 사람이 고른다.
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features: {}
+  graph:
+    nodes:
+    - id: start
+      type: custom
+      data:
+        type: start
+        title: 시작
+        variables:
+        - variable: action
+          label: 작업
+          type: select
+          required: true
+          max_length: 80
+          options:
+          - 검사
+          - 상태
+          - 수정 시작
+          - PR 준비
+          - PR 올리기
+        - variable: ref
+          label: '검사: 브랜치나 커밋(돌아오길)'
+          type: text-input
+          required: false
+          max_length: 80
+          options: []
+        - variable: base
+          label: '검사: 비교 기준 브랜치나 커밋(선택)'
+          type: text-input
+          required: false
+          max_length: 80
+          options: []
+        - variable: recipe
+          label: '검사: 화면'
+          type: select
+          required: false
+          max_length: 80
+          options:
+          - cbh/report
+          - cbh/guardian_home
+        - variable: run_id
+          label: '상태·수정·PR: 실행 ID'
+          type: text-input
+          required: false
+          max_length: 80
+          options: []
+        - variable: onto
+          label: 'PR: 향할 브랜치(선택)'
+          type: text-input
+          required: false
+          max_length: 80
+          options: []
+        - variable: confirm
+          label: 'PR 올리기: 확인 문구(PR 올리기)'
+          type: text-input
+          required: false
+          max_length: 80
+          options: []
+      position:
+        x: 0
+        y: 200
+      positionAbsolute:
+        x: 0
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: dqa
+      type: custom
+      data:
+        type: tool
+        title: dqa 작업(보고서·코드 에이전트)
+        provider_id: f6db0b73-3004-460a-b182-a607800f1f44
+        provider_name: dqa
+        provider_type: api
+        tool_name: dqa_act
+        tool_label: dqa_act
+        tool_description: 사람이 고른 작업을 dqa에 시킨다
+        tool_configurations: {}
+        is_team_authorization: true
+        tool_parameters:
+          action:
+            type: mixed
+            value: '{{#start.action#}}'
+          ref:
+            type: mixed
+            value: '{{#start.ref#}}'
+          base:
+            type: mixed
+            value: '{{#start.base#}}'
+          recipe:
+            type: mixed
+            value: '{{#start.recipe#}}'
+          run_id:
+            type: mixed
+            value: '{{#start.run_id#}}'
+          onto:
+            type: mixed
+            value: '{{#start.onto#}}'
+          confirm:
+            type: mixed
+            value: '{{#start.confirm#}}'
+      position:
+        x: 320
+        y: 200
+      positionAbsolute:
+        x: 320
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: fmt
+      type: custom
+      data:
+        type: code
+        title: 결과 정리
+        code_language: python3
+        code: "import json\n\ndef main(text: str) -> dict:\n    try:\n        r =\
+          \ json.loads(text)\n    except Exception:\n        return {\"result\": \"\
+          dqa 응답을 읽지 못했다: \" + str(text)[:300]}\n    if not r.get(\"ok\"):\n     \
+          \   return {\"result\": \"실패(\" + str(r.get(\"error_type\")) + \"): \" +\
+          \ str(r.get(\"message\"))}\n    L = [\"실행 \" + str(r.get(\"run_id\")) +\
+          \ (\" (진행 중)\" if r.get(\"running\") else \"\")]\n    if r.get(\"note\"\
+          ):\n        L.append(r[\"note\"])\n    c = r.get(\"check\")\n    if c:\n\
+          \        s = c.get(\"summary\", {})\n        L.append(\"검사: 새로 생김 %d · 악화\
+          \ %d · 상태 없음 %d · 해결 %d\" % (s.get(\"new\", 0), s.get(\"worsened\", 0),\
+          \ s.get(\"no_base\", 0), s.get(\"resolved\", 0)))\n        for d in c.get(\"\
+          defects\", [])[:6]:\n            L.append(\"- [%s] %s %s: %s%s\" % (d.get(\"\
+          status\"), d.get(\"rule\"), d.get(\"rule_name\"), \", \".join(d.get(\"labels\"\
+          , [])), (\" / 원인 후보 \" + d[\"cause\"]) if d.get(\"cause\") else \"\"))\n\
+          \    f = r.get(\"fix\")\n    if f and f.get(\"summary\"):\n        s = f[\"\
+          summary\"]\n        L.append(\"수정: 대상 %d건 중 검증된 수정 %d건, 함께 적용 시 %d건 사라짐\"\
+          \ % (s.get(\"targets\", 0), s.get(\"verified\", 0), s.get(\"combined_fixed\"\
+          , 0)))\n    p = r.get(\"pr\")\n    if p:\n        L.append(\"PR: %s → %s,\
+          \ 커밋 %s, 검사 %s, %s\" % (p.get(\"branch\"), p.get(\"base\"), str(p.get(\"\
+          commit\"))[:8], \", \".join((\"통과\" if k.get(\"ok\") else \"실패\") + \" \"\
+          \ + k.get(\"name\", \"\") for k in p.get(\"checks\", [])), (\"올림 \" + str(p.get(\"\
+          url\"))) if p.get(\"pushed\") else \"올리지 않음\"))\n    L.append(\"자세히: \"\
+          \ + str(r.get(\"view_url\")))\n    return {\"result\": \"\\n\".join(L)}\n"
+        variables:
+        - variable: text
+          value_selector:
+          - dqa
+          - text
+        outputs:
+          result:
+            type: string
+            children: null
+      position:
+        x: 640
+        y: 200
+      positionAbsolute:
+        x: 640
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: end
+      type: custom
+      data:
+        type: end
+        title: 끝
+        outputs:
+        - variable: result
+          value_selector:
+          - fmt
+          - result
+      position:
+        x: 960
+        y: 200
+      positionAbsolute:
+        x: 960
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    edges:
+    - id: start-dqa
+      source: start
+      target: dqa
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: start
+        targetType: tool
+        isInIteration: false
+      zIndex: 0
+    - id: dqa-fmt
+      source: dqa
+      target: fmt
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: tool
+        targetType: code
+        isInIteration: false
+      zIndex: 0
+    - id: fmt-end
+      source: fmt
+      target: end
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: code
+        targetType: end
+        isInIteration: false
+      zIndex: 0
+    viewport:
+      x: 0
+      y: 0
+      zoom: 1

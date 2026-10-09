@@ -1,0 +1,5 @@
+{
+  "note": "돌아오길 목 모드(EXPO_PUBLIC_USE_MOCK=true) 시험용 값. 서버로 전송되지 않는다. 목 로그인은 아이디에 guardian이 들어가면 보호자 역할.",
+  "mock_guardian_email": "guardian.qa@example.test",
+  "mock_password": "mockpass1234"
+}

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" font-family="-apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker>
+  </defs>
+  <rect width="980" height="470" fill="#fff"/>
+  <text x="20" y="28" font-size="16" font-weight="700" fill="#111">dqa 구조 — 측정은 코드, 문제 정의는 보고서 에이전트, 수정은 코드 에이전트</text>
+
+  <!-- 입력 -->
+  <g fill="none" stroke="#111" stroke-width="1.2">
+    <rect x="20" y="60" width="150" height="120" rx="8"/>
+  </g>
+  <text x="34" y="82" font-weight="700" fill="#111">입력</text>
+  <text x="34" y="104" fill="#111">빌드 이름(dist)</text>
+  <text x="34" y="124" fill="#111">로컬 주소(url)</text>
+  <text x="34" y="144" fill="#111">저장소 PR·ref</text>
+  <text x="34" y="164" fill="#555" font-size="11">명령 한 줄 · 웹 화면 · Dify</text>
+
+  <!-- 진행자 -->
+  <rect x="200" y="60" width="160" height="120" rx="8" fill="#111"/>
+  <text x="214" y="84" font-weight="700" fill="#fff">진행자(코드)</text>
+  <text x="214" y="106" fill="#fff" font-size="12">core/run.js</text>
+  <text x="214" y="126" fill="#fff" font-size="12">대상 열기·빌드</text>
+  <text x="214" y="146" fill="#fff" font-size="12">단계 순서·시간 기록</text>
+  <text x="214" y="166" fill="#fff" font-size="12">종료 코드 0/1/2</text>
+
+  <!-- 측정자 -->
+  <g fill="none" stroke="#111" stroke-width="1.2"><rect x="390" y="60" width="180" height="120" rx="8"/></g>
+  <text x="404" y="84" font-weight="700" fill="#111">측정자(Playwright)</text>
+  <text x="404" y="106" fill="#111" font-size="12">레시피로 화면 진입</text>
+  <text x="404" y="126" fill="#111" font-size="12">크기 5개 · 스크롤 단계</text>
+  <text x="404" y="146" fill="#111" font-size="12">규칙 R1~R7 · 진단 사실</text>
+  <text x="404" y="166" fill="#111" font-size="12">묶기 · 재측정 · 캡처</text>
+
+  <!-- 비교·원인 -->
+  <g fill="none" stroke="#111" stroke-width="1.2"><rect x="600" y="60" width="170" height="120" rx="8"/></g>
+  <text x="614" y="84" font-weight="700" fill="#111">비교 · 원인(코드)</text>
+  <text x="614" y="106" fill="#111" font-size="12">변경 전과 대조</text>
+  <text x="614" y="126" fill="#111" font-size="12">새로 생김·악화·해결</text>
+  <text x="614" y="146" fill="#111" font-size="12">라벨 → 소스 검색(rg)</text>
+  <text x="614" y="166" fill="#111" font-size="12">공통 스타일 모듈</text>
+
+  <!-- 판정자 -->
+  <g fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="5 3"><rect x="800" y="60" width="160" height="120" rx="8"/></g>
+  <text x="814" y="84" font-weight="700" fill="#111">보고서 에이전트</text>
+  <text x="814" y="106" fill="#111" font-size="12">문제 · 원본(기대) · 판정</text>
+  <text x="814" y="126" fill="#111" font-size="12">사실 + 진단 + 지식(P01~P03)</text>
+  <text x="814" y="146" fill="#111" font-size="12">Gemma 4 E4B · 생각 끔</text>
+  <text x="814" y="166" fill="#111" font-size="12">숫자 검증 · 한눈 요약 1회</text>
+
+  <!-- 화살표 위 줄 -->
+  <g stroke="#111" stroke-width="1.4" marker-end="url(#a)">
+    <line x1="170" y1="120" x2="198" y2="120"/>
+    <line x1="360" y1="120" x2="388" y2="120"/>
+    <line x1="570" y1="120" x2="598" y2="120"/>
+    <line x1="770" y1="120" x2="798" y2="120"/>
+  </g>
+
+  <!-- 아래 줄: 보고자, 수정자, 채점자 -->
+  <g fill="none" stroke="#111" stroke-width="1.2"><rect x="800" y="250" width="160" height="110" rx="8"/></g>
+  <text x="814" y="274" font-weight="700" fill="#111">보고서 출력</text>
+  <text x="814" y="296" fill="#111" font-size="12">report.md · html(템플릿)</text>
+  <text x="814" y="316" fill="#111" font-size="12">웹 화면 · 결함 분류</text>
+  <text x="814" y="336" fill="#111" font-size="12">PR 댓글 초안(게시 안 함)</text>
+
+  <g fill="none" stroke="#111" stroke-width="1.2"><rect x="520" y="250" width="250" height="110" rx="8"/></g>
+  <text x="534" y="274" font-weight="700" fill="#111">코드 에이전트(문제 정의서를 받아)</text>
+  <text x="534" y="296" fill="#111" font-size="12">규칙 수정안 → 읽기·검색·수정 루프</text>
+  <text x="534" y="316" fill="#111" font-size="12">사본 빌드·재측정으로 검증</text>
+  <text x="534" y="336" fill="#111" font-size="12">브랜치·커밋 → 초안 PR(사람 확인)</text>
+
+  <g fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="2 3"><rect x="20" y="250" width="250" height="110" rx="8"/></g>
+  <text x="34" y="274" font-weight="700" fill="#111">채점자(분리, 2단계)</text>
+  <text x="34" y="296" fill="#111" font-size="12">과거 수정 PR = 정답 세트</text>
+  <text x="34" y="316" fill="#111" font-size="12">재현율 · 오탐 · 원인 정확도</text>
+  <text x="34" y="336" fill="#111" font-size="12">기준선 B1·B2·B3과 비교</text>
+
+  <g stroke="#111" stroke-width="1.4" fill="none" marker-end="url(#a)">
+    <line x1="880" y1="180" x2="880" y2="248"/>
+    <path d="M 880 362 L 880 400 L 645 400 L 645 362"/>
+    <path d="M 600 248 L 600 215 L 480 215 L 480 182"/>
+  </g>
+  <text x="652" y="418" fill="#555" font-size="11">"수정안 만들고 검증" · Dify "수정 시작"</text>
+  <text x="488" y="210" fill="#555" font-size="11">재측정</text>
+
+  <!-- 하단 경계 -->
+  <line x1="20" y1="440" x2="960" y2="440" stroke="#111" stroke-width="1"/>
+  <text x="20" y="460" fill="#555" font-size="11">모두 로컬: 노트북(측정·빌드·웹 화면) + 맥미니(Ollama, 터널). 외부 요청 0건, 원본 소스·작업본에 쓰지 않음.</text>
+</svg>

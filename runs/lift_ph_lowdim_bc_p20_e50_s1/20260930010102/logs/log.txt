@@ -1,1465 +1,0 @@
-
-============= Initialized Observation Utils with Obs Spec =============
-
-using obs modality: low_dim with keys: ['robot0_eef_pos', 'robot0_eef_quat', 'robot0_gripper_qpos', 'object']
-using obs modality: rgb with keys: []
-using obs modality: depth with keys: []
-using obs modality: scan with keys: []
-
-============= Loaded Environment Metadata =============
-obs key object with shape (10,)
-obs key robot0_eef_pos with shape (3,)
-obs key robot0_eef_quat with shape (4,)
-obs key robot0_gripper_qpos with shape (2,)
-[robosuite WARNING] No private macro file found! (macros.py:53)
-[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
-[robosuite WARNING] To setup, run: python /Users/damisoda/robot-kernel/src/robosuite/robosuite/scripts/setup_macros.py (macros.py:55)
-[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
-[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly, otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:40)
-Created environment with name Lift
-Action size is 7
-Lift
-{
-    "camera_depths": false,
-    "camera_heights": 84,
-    "camera_widths": 84,
-    "control_freq": 20,
-    "controller_configs": {
-        "body_parts": {
-            "right": {
-                "control_delta": true,
-                "damping": 1,
-                "damping_limits": [
-                    0,
-                    10
-                ],
-                "gripper": {
-                    "type": "GRIP"
-                },
-                "impedance_mode": "fixed",
-                "input_max": 1,
-                "input_min": -1,
-                "input_ref_frame": "world",
-                "interpolation": null,
-                "kp": 150,
-                "kp_limits": [
-                    0,
-                    300
-                ],
-                "orientation_limits": null,
-                "output_max": [
-                    0.05,
-                    0.05,
-                    0.05,
-                    0.5,
-                    0.5,
-                    0.5
-                ],
-                "output_min": [
-                    -0.05,
-                    -0.05,
-                    -0.05,
-                    -0.5,
-                    -0.5,
-                    -0.5
-                ],
-                "position_limits": null,
-                "ramp_ratio": 0.2,
-                "type": "OSC_POSE",
-                "uncouple_pos_ori": true
-            }
-        },
-        "type": "BASIC"
-    },
-    "has_offscreen_renderer": false,
-    "has_renderer": false,
-    "ignore_done": true,
-    "lite_physics": false,
-    "reward_shaping": false,
-    "robots": [
-        "Panda"
-    ],
-    "use_camera_obs": false,
-    "use_object_obs": true
-}
-
-SequenceDataset: loading dataset into memory...
-  0%|          | 0/36 [00:00<?, ?it/s]100%|##########| 36/36 [00:00<00:00, 625.36it/s]
-SequenceDataset: caching get_item calls...
-  0%|          | 0/1769 [00:00<?, ?it/s]SequenceDataset: normalizing actions...
-
-  0%|          | 0/35 [00:00<?, ?it/s][A100%|##########| 35/35 [00:00<00:00, 9097.71it/s]
-100%|##########| 1769/1769 [00:00<00:00, 22508.91it/s]
-
-============= Training Dataset =============
-SequenceDataset (
-	path=/Users/damisoda/robot-kernel/datasets/lift/ph/low_dim_v15.hdf5
-	obs_keys=('object', 'robot0_eef_pos', 'robot0_eef_quat', 'robot0_gripper_qpos')
-	seq_length=1
-	filter_key=20_percent_train
-	frame_stack=1
-	pad_seq_length=True
-	pad_frame_stack=True
-	goal_mode=none
-	cache_mode=all
-	num_demos=36
-	num_sequences=1769
-)
-
-
-============= Model Summary =============
-ObservationKeyToModalityDict: action not found, adding action to mapping with assumed low_dim modality!
-BC (
-  ModuleDict(
-    (policy): ActorNetwork(
-        action_dim=7
-  
-        encoder=ObservationGroupEncoder(
-            group=obs
-            ObservationEncoder(
-                Key(
-                    name=object
-                    shape=[10]
-                    modality=low_dim
-                    randomizer=ModuleList(
-                      (0): None
-                    )
-                    net=None
-                    sharing_from=None
-                )
-                Key(
-                    name=robot0_eef_pos
-                    shape=[3]
-                    modality=low_dim
-                    randomizer=ModuleList(
-                      (0): None
-                    )
-                    net=None
-                    sharing_from=None
-                )
-                Key(
-                    name=robot0_eef_quat
-                    shape=[4]
-                    modality=low_dim
-                    randomizer=ModuleList(
-                      (0): None
-                    )
-                    net=None
-                    sharing_from=None
-                )
-                Key(
-                    name=robot0_gripper_qpos
-                    shape=[2]
-                    modality=low_dim
-                    randomizer=ModuleList(
-                      (0): None
-                    )
-                    net=None
-                    sharing_from=None
-                )
-                output_shape=[19]
-            )
-        )
-  
-        mlp=MLP(
-            input_dim=19
-            output_dim=1024
-            layer_dims=[1024]
-            layer_func=Linear
-            dropout=None
-            act=ReLU
-            output_act=ReLU
-        )
-  
-        decoder=ObservationDecoder(
-            Key(
-                name=action
-                shape=(7,)
-                modality=low_dim
-                net=(Linear(in_features=1024, out_features=7, bias=True))
-            )
-        )
-    )
-  )
-)
-
-**************************************************
-Warnings generated by robomimic have been duplicated here (from above) for convenience. Please check them carefully.
-ROBOMIMIC WARNING(
-    No private macro file found!
-    It is recommended to use a private macro file
-    To setup, run: python /Users/damisoda/robot-kernel/src/robomimic/robomimic/scripts/setup_macros.py
-)
-**************************************************
-
-  0%|          | 0/100 [00:00<?, ?it/s] 15%|#5        | 15/100 [00:00<00:00, 144.32it/s] 36%|###6      | 36/100 [00:00<00:00, 180.30it/s] 55%|#####5    | 55/100 [00:00<00:00, 177.75it/s] 73%|#######3  | 73/100 [00:00<00:00, 176.41it/s] 91%|#########1| 91/100 [00:00<00:00, 136.86it/s]100%|##########| 100/100 [00:00<00:00, 145.67it/s]
-Train Epoch 1
-{
-    "Cosine_Loss": 0.5337869185209274,
-    "L1_Loss": 0.07491569392383099,
-    "L2_Loss": 0.1545297735184431,
-    "Loss": 0.1545297735184431,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.027417324307407398,
-    "Time_Data_Loading": 0.0024355729420979817,
-    "Time_Epoch": 0.011471617221832275,
-    "Time_Log_Info": 2.0686785380045573e-05,
-    "Time_Process_Batch": 0.00014785528182983398,
-    "Time_Train_Batch": 0.008779784043629965
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 1 Memory Usage: 611 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 10%|#         | 10/100 [00:00<00:00, 98.64it/s] 26%|##6       | 26/100 [00:00<00:00, 130.53it/s] 45%|####5     | 45/100 [00:00<00:00, 156.81it/s] 63%|######3   | 63/100 [00:00<00:00, 164.38it/s] 81%|########1 | 81/100 [00:00<00:00, 169.84it/s] 98%|#########8| 98/100 [00:00<00:00, 167.62it/s]100%|##########| 100/100 [00:00<00:00, 158.06it/s]
-Train Epoch 2
-{
-    "Cosine_Loss": 0.4249578979611397,
-    "L1_Loss": 0.05515872098505497,
-    "L2_Loss": 0.11088046349585057,
-    "Loss": 0.11088046349585057,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.026385977461422953,
-    "Time_Data_Loading": 0.0021216511726379395,
-    "Time_Epoch": 0.010562717914581299,
-    "Time_Log_Info": 2.4155775705973306e-05,
-    "Time_Process_Batch": 0.00015554428100585937,
-    "Time_Train_Batch": 0.008197605609893799
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 2 Memory Usage: 433 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 17%|#7        | 17/100 [00:00<00:00, 161.77it/s] 34%|###4      | 34/100 [00:00<00:00, 119.79it/s] 47%|####6     | 47/100 [00:00<00:00, 115.29it/s] 64%|######4   | 64/100 [00:00<00:00, 133.34it/s] 81%|########1 | 81/100 [00:00<00:00, 144.46it/s] 97%|#########7| 97/100 [00:00<00:00, 147.94it/s]100%|##########| 100/100 [00:00<00:00, 139.06it/s]
-Train Epoch 3
-{
-    "Cosine_Loss": 0.3981142100691795,
-    "L1_Loss": 0.040443427823483945,
-    "L2_Loss": 0.08105707574635744,
-    "Loss": 0.08105707574635744,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.0466022003109174,
-    "Time_Data_Loading": 0.0024922410647074383,
-    "Time_Epoch": 0.012003103892008463,
-    "Time_Log_Info": 2.611875534057617e-05,
-    "Time_Process_Batch": 0.00016619364420572918,
-    "Time_Train_Batch": 0.00924310286839803
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 3 Memory Usage: 271 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 20%|##        | 20/100 [00:00<00:00, 198.06it/s] 41%|####1     | 41/100 [00:00<00:00, 202.81it/s] 62%|######2   | 62/100 [00:00<00:00, 202.15it/s] 83%|########2 | 83/100 [00:00<00:00, 203.72it/s]100%|##########| 100/100 [00:00<00:00, 203.36it/s]
-Train Epoch 4
-{
-    "Cosine_Loss": 0.3757496124505997,
-    "L1_Loss": 0.032273608054965736,
-    "L2_Loss": 0.06478961121290921,
-    "Loss": 0.06478961121290921,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.04658277803412602,
-    "Time_Data_Loading": 0.0016887744267781576,
-    "Time_Epoch": 0.008209415276845296,
-    "Time_Log_Info": 1.6812483469645182e-05,
-    "Time_Process_Batch": 0.0001208662986755371,
-    "Time_Train_Batch": 0.006329866250356039
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 4 Memory Usage: 231 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 18%|#8        | 18/100 [00:00<00:00, 178.30it/s] 39%|###9      | 39/100 [00:00<00:00, 195.81it/s] 61%|######1   | 61/100 [00:00<00:00, 202.85it/s] 83%|########2 | 83/100 [00:00<00:00, 206.69it/s]100%|##########| 100/100 [00:00<00:00, 203.96it/s]
-Train Epoch 5
-{
-    "Cosine_Loss": 0.33551775708794596,
-    "L1_Loss": 0.02675940752029419,
-    "L2_Loss": 0.053840739205479625,
-    "Loss": 0.053840739205479625,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.04522748804064577,
-    "Time_Data_Loading": 0.0016599019368489583,
-    "Time_Epoch": 0.008184484640757243,
-    "Time_Log_Info": 1.5914440155029297e-05,
-    "Time_Process_Batch": 0.00011620918909708659,
-    "Time_Train_Batch": 0.006346658865610758
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 5 Memory Usage: 221 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 203.71it/s] 42%|####2     | 42/100 [00:00<00:00, 203.81it/s] 63%|######3   | 63/100 [00:00<00:00, 204.89it/s] 85%|########5 | 85/100 [00:00<00:00, 209.29it/s]100%|##########| 100/100 [00:00<00:00, 206.90it/s]
-Train Epoch 6
-{
-    "Cosine_Loss": 0.30150131493806837,
-    "L1_Loss": 0.023338208105415106,
-    "L2_Loss": 0.0470992162451148,
-    "Loss": 0.0470992162451148,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.06578771983379739,
-    "Time_Data_Loading": 0.001688687006632487,
-    "Time_Epoch": 0.008067015806833904,
-    "Time_Log_Info": 1.658201217651367e-05,
-    "Time_Process_Batch": 0.00010712146759033203,
-    "Time_Train_Batch": 0.006204946835835775
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 6 Memory Usage: 212 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 15%|#5        | 15/100 [00:00<00:00, 147.91it/s] 35%|###5      | 35/100 [00:00<00:00, 176.95it/s] 55%|#####5    | 55/100 [00:00<00:00, 185.39it/s] 74%|#######4  | 74/100 [00:00<00:00, 179.98it/s] 93%|#########3| 93/100 [00:00<00:00, 176.34it/s]100%|##########| 100/100 [00:00<00:00, 171.43it/s]
-Train Epoch 7
-{
-    "Cosine_Loss": 0.27856198981404307,
-    "L1_Loss": 0.021003608889877796,
-    "L2_Loss": 0.04249011501669884,
-    "Loss": 0.04249011501669884,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.0665980062344397,
-    "Time_Data_Loading": 0.0019622961680094402,
-    "Time_Epoch": 0.009733100732167562,
-    "Time_Log_Info": 2.0142396291097005e-05,
-    "Time_Process_Batch": 0.00013578335444132487,
-    "Time_Train_Batch": 0.007560718059539795
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 7 Memory Usage: 209 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 15%|#5        | 15/100 [00:00<00:00, 121.10it/s] 28%|##8       | 28/100 [00:00<00:00, 121.22it/s] 41%|####1     | 41/100 [00:00<00:00, 116.84it/s] 57%|#####6    | 57/100 [00:00<00:00, 131.70it/s] 71%|#######1  | 71/100 [00:00<00:00, 125.86it/s] 86%|########6 | 86/100 [00:00<00:00, 132.79it/s]100%|##########| 100/100 [00:00<00:00, 134.43it/s]100%|##########| 100/100 [00:00<00:00, 129.35it/s]
-Train Epoch 8
-{
-    "Cosine_Loss": 0.25753251031041147,
-    "L1_Loss": 0.019133765334263444,
-    "L2_Loss": 0.03877704272046685,
-    "Loss": 0.03877704272046685,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.04599797008452242,
-    "Time_Data_Loading": 0.002791313330332438,
-    "Time_Epoch": 0.01291278600692749,
-    "Time_Log_Info": 2.568960189819336e-05,
-    "Time_Process_Batch": 0.00019714037577311198,
-    "Time_Train_Batch": 0.009782151381174723
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 8 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 12%|#2        | 12/100 [00:00<00:00, 114.27it/s] 24%|##4       | 24/100 [00:00<00:00, 116.76it/s] 38%|###8      | 38/100 [00:00<00:00, 125.02it/s] 51%|#####1    | 51/100 [00:00<00:00, 125.49it/s] 65%|######5   | 65/100 [00:00<00:00, 127.88it/s] 79%|#######9  | 79/100 [00:00<00:00, 131.35it/s] 93%|#########3| 93/100 [00:00<00:00, 105.62it/s]100%|##########| 100/100 [00:00<00:00, 113.62it/s]
-Train Epoch 9
-{
-    "Cosine_Loss": 0.24484930329024793,
-    "L1_Loss": 0.017958689043298365,
-    "L2_Loss": 0.03646225778385997,
-    "Loss": 0.03646225778385997,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.055289087149722034,
-    "Time_Data_Loading": 0.0027384877204895018,
-    "Time_Epoch": 0.014702904224395751,
-    "Time_Log_Info": 3.530184427897135e-05,
-    "Time_Process_Batch": 0.00020026365915934246,
-    "Time_Train_Batch": 0.011633491516113282
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 9 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s]  6%|6         | 6/100 [00:00<00:01, 52.75it/s] 14%|#4        | 14/100 [00:00<00:01, 63.60it/s] 21%|##1       | 21/100 [00:00<00:02, 29.66it/s] 33%|###3      | 33/100 [00:00<00:01, 48.83it/s] 49%|####9     | 49/100 [00:00<00:00, 74.12it/s] 67%|######7   | 67/100 [00:00<00:00, 100.19it/s] 84%|########4 | 84/100 [00:01<00:00, 117.44it/s] 98%|#########8| 98/100 [00:01<00:00, 113.23it/s]100%|##########| 100/100 [00:01<00:00, 84.79it/s]
-Train Epoch 10
-{
-    "Cosine_Loss": 0.2369832853972912,
-    "L1_Loss": 0.01693445198237896,
-    "L2_Loss": 0.034410090502351526,
-    "Loss": 0.034410090502351526,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.05270527469871013,
-    "Time_Data_Loading": 0.0030744274457295737,
-    "Time_Epoch": 0.019696569442749022,
-    "Time_Log_Info": 3.5707155863444014e-05,
-    "Time_Process_Batch": 0.00021776358286539714,
-    "Time_Train_Batch": 0.01598450740178426
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 10 Memory Usage: 207 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 16%|#6        | 16/100 [00:00<00:00, 156.33it/s] 34%|###4      | 34/100 [00:00<00:00, 170.01it/s] 54%|#####4    | 54/100 [00:00<00:00, 180.24it/s] 74%|#######4  | 74/100 [00:00<00:00, 186.90it/s] 94%|#########3| 94/100 [00:00<00:00, 191.44it/s]100%|##########| 100/100 [00:00<00:00, 184.43it/s]
-Train Epoch 11
-{
-    "Cosine_Loss": 0.2227923283725977,
-    "L1_Loss": 0.01661699863150716,
-    "L2_Loss": 0.03382395440712571,
-    "Loss": 0.03382395440712571,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08483432841645482,
-    "Time_Data_Loading": 0.0018653631210327148,
-    "Time_Epoch": 0.00907073418299357,
-    "Time_Log_Info": 1.8330415089925132e-05,
-    "Time_Process_Batch": 0.0001320481300354004,
-    "Time_Train_Batch": 0.006972054640452067
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 11 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 20%|##        | 20/100 [00:00<00:00, 197.74it/s] 40%|####      | 40/100 [00:00<00:00, 196.57it/s] 60%|######    | 60/100 [00:00<00:00, 180.85it/s] 80%|########  | 80/100 [00:00<00:00, 187.85it/s]100%|##########| 100/100 [00:00<00:00, 190.91it/s]
-Train Epoch 12
-{
-    "Cosine_Loss": 0.2148589725792408,
-    "L1_Loss": 0.01565238761715591,
-    "L2_Loss": 0.031852586921304465,
-    "Loss": 0.031852586921304465,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.054980710957088376,
-    "Time_Data_Loading": 0.0017602364222208658,
-    "Time_Epoch": 0.008740651607513427,
-    "Time_Log_Info": 1.685619354248047e-05,
-    "Time_Process_Batch": 0.00012433926264444987,
-    "Time_Train_Batch": 0.006793427467346192
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 12 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 20%|##        | 20/100 [00:00<00:00, 198.66it/s] 42%|####2     | 42/100 [00:00<00:00, 206.93it/s] 63%|######3   | 63/100 [00:00<00:00, 203.18it/s] 84%|########4 | 84/100 [00:00<00:00, 205.16it/s]100%|##########| 100/100 [00:00<00:00, 205.07it/s]
-Train Epoch 13
-{
-    "Cosine_Loss": 0.21019647888839244,
-    "L1_Loss": 0.01520250498317182,
-    "L2_Loss": 0.03096309769898653,
-    "Loss": 0.03096309769898653,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.0603368064109327,
-    "Time_Data_Loading": 0.0016549269358317057,
-    "Time_Epoch": 0.008137365182240805,
-    "Time_Log_Info": 1.4603137969970703e-05,
-    "Time_Process_Batch": 0.00011154413223266602,
-    "Time_Train_Batch": 0.0063124974568684895
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 13 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 215.38it/s] 44%|####4     | 44/100 [00:00<00:00, 204.76it/s] 65%|######5   | 65/100 [00:00<00:00, 204.07it/s] 87%|########7 | 87/100 [00:00<00:00, 207.45it/s]100%|##########| 100/100 [00:00<00:00, 207.61it/s]
-Train Epoch 14
-{
-    "Cosine_Loss": 0.20672679595649243,
-    "L1_Loss": 0.014927031025290489,
-    "L2_Loss": 0.03042841615155339,
-    "Loss": 0.03042841615155339,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.07386036689216781,
-    "Time_Data_Loading": 0.0016386191050211589,
-    "Time_Epoch": 0.008040134112040203,
-    "Time_Log_Info": 1.4571348826090495e-05,
-    "Time_Process_Batch": 0.00010845661163330078,
-    "Time_Train_Batch": 0.006233517328898112
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 14 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 12%|#2        | 12/100 [00:00<00:00, 111.85it/s] 24%|##4       | 24/100 [00:00<00:00, 82.37it/s]  35%|###5      | 35/100 [00:00<00:00, 90.90it/s] 50%|#####     | 50/100 [00:00<00:00, 109.30it/s] 67%|######7   | 67/100 [00:00<00:00, 126.97it/s] 85%|########5 | 85/100 [00:00<00:00, 142.24it/s]100%|##########| 100/100 [00:00<00:00, 129.58it/s]
-Train Epoch 15
-{
-    "Cosine_Loss": 0.19995044074952603,
-    "L1_Loss": 0.014415203360840678,
-    "L2_Loss": 0.02938097083941102,
-    "Loss": 0.02938097083941102,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.06221364173683469,
-    "Time_Data_Loading": 0.002429660161336263,
-    "Time_Epoch": 0.012872350215911866,
-    "Time_Log_Info": 2.324978510538737e-05,
-    "Time_Process_Batch": 0.00018556912740071615,
-    "Time_Train_Batch": 0.010162663459777833
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 15 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 19%|#9        | 19/100 [00:00<00:00, 188.28it/s] 40%|####      | 40/100 [00:00<00:00, 197.22it/s] 60%|######    | 60/100 [00:00<00:00, 193.38it/s] 80%|########  | 80/100 [00:00<00:00, 189.03it/s] 99%|#########9| 99/100 [00:00<00:00, 177.08it/s]100%|##########| 100/100 [00:00<00:00, 183.09it/s]
-Train Epoch 16
-{
-    "Cosine_Loss": 0.19874466568231583,
-    "L1_Loss": 0.014232424413785338,
-    "L2_Loss": 0.02904883462935686,
-    "Loss": 0.02904883462935686,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08811298759927012,
-    "Time_Data_Loading": 0.0018027226130167644,
-    "Time_Epoch": 0.00911495288213094,
-    "Time_Log_Info": 1.910527547200521e-05,
-    "Time_Process_Batch": 0.0001244187355041504,
-    "Time_Train_Batch": 0.00711145798365275
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 16 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 18%|#8        | 18/100 [00:00<00:00, 174.57it/s] 36%|###6      | 36/100 [00:00<00:00, 160.13it/s] 56%|#####6    | 56/100 [00:00<00:00, 176.22it/s] 75%|#######5  | 75/100 [00:00<00:00, 179.08it/s] 93%|#########3| 93/100 [00:00<00:00, 167.72it/s]100%|##########| 100/100 [00:00<00:00, 171.14it/s]
-Train Epoch 17
-{
-    "Cosine_Loss": 0.19501907877624036,
-    "L1_Loss": 0.014014845108613372,
-    "L2_Loss": 0.02857446750625968,
-    "Loss": 0.02857446750625968,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09480262541904266,
-    "Time_Data_Loading": 0.001889201005299886,
-    "Time_Epoch": 0.009750088055928549,
-    "Time_Log_Info": 1.809199651082357e-05,
-    "Time_Process_Batch": 0.00013344287872314454,
-    "Time_Train_Batch": 0.0076561490694681805
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 17 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 20%|##        | 20/100 [00:00<00:00, 198.58it/s] 43%|####3     | 43/100 [00:00<00:00, 211.74it/s] 65%|######5   | 65/100 [00:00<00:00, 187.28it/s] 85%|########5 | 85/100 [00:00<00:00, 134.04it/s]100%|##########| 100/100 [00:00<00:00, 140.63it/s]
-Train Epoch 18
-{
-    "Cosine_Loss": 0.1882027470320463,
-    "L1_Loss": 0.013357806848362089,
-    "L2_Loss": 0.027228036168962716,
-    "Loss": 0.027228036168962716,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.061074828982609686,
-    "Time_Data_Loading": 0.002118857701619466,
-    "Time_Epoch": 0.011865635712941488,
-    "Time_Log_Info": 1.905361811319987e-05,
-    "Time_Process_Batch": 0.00013264020284016928,
-    "Time_Train_Batch": 0.009544440110524495
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 18 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 19%|#9        | 19/100 [00:00<00:00, 189.73it/s] 39%|###9      | 39/100 [00:00<00:00, 194.02it/s] 59%|#####8    | 59/100 [00:00<00:00, 194.09it/s] 81%|########1 | 81/100 [00:00<00:00, 201.39it/s]100%|##########| 100/100 [00:00<00:00, 200.04it/s]
-Train Epoch 19
-{
-    "Cosine_Loss": 0.18766819193959236,
-    "L1_Loss": 0.013121017199009656,
-    "L2_Loss": 0.02672266248613596,
-    "Loss": 0.02672266248613596,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.06330737676222725,
-    "Time_Data_Loading": 0.0016881306966145834,
-    "Time_Epoch": 0.008347864945729573,
-    "Time_Log_Info": 1.5095869700113933e-05,
-    "Time_Process_Batch": 0.00011754433314005533,
-    "Time_Train_Batch": 0.006476974487304688
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 19 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 15%|#5        | 15/100 [00:00<00:00, 148.02it/s] 36%|###6      | 36/100 [00:00<00:00, 179.83it/s] 57%|#####6    | 57/100 [00:00<00:00, 192.91it/s] 79%|#######9  | 79/100 [00:00<00:00, 201.35it/s]100%|##########| 100/100 [00:00<00:00, 198.81it/s]
-Train Epoch 20
-{
-    "Cosine_Loss": 0.18406080462038518,
-    "L1_Loss": 0.01290336602833122,
-    "L2_Loss": 0.02629611120559275,
-    "Loss": 0.02629611120559275,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.06732283341081712,
-    "Time_Data_Loading": 0.001718886693318685,
-    "Time_Epoch": 0.008394384384155273,
-    "Time_Log_Info": 1.5636285146077473e-05,
-    "Time_Process_Batch": 0.00011012156804402669,
-    "Time_Train_Batch": 0.00650407075881958
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 20 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 206.24it/s] 42%|####2     | 42/100 [00:00<00:00, 203.21it/s] 64%|######4   | 64/100 [00:00<00:00, 207.97it/s] 85%|########5 | 85/100 [00:00<00:00, 208.52it/s]100%|##########| 100/100 [00:00<00:00, 206.84it/s]
-Train Epoch 21
-{
-    "Cosine_Loss": 0.18144113577902318,
-    "L1_Loss": 0.01264737183228135,
-    "L2_Loss": 0.025739162974059582,
-    "Loss": 0.025739162974059582,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.07242585798550863,
-    "Time_Data_Loading": 0.0016653100649515788,
-    "Time_Epoch": 0.008068553606669108,
-    "Time_Log_Info": 1.4682610829671225e-05,
-    "Time_Process_Batch": 0.00011214415232340495,
-    "Time_Train_Batch": 0.006229464213053385
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 21 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 200.68it/s] 42%|####2     | 42/100 [00:00<00:00, 194.05it/s] 62%|######2   | 62/100 [00:00<00:00, 173.19it/s] 80%|########  | 80/100 [00:00<00:00, 162.30it/s] 97%|#########7| 97/100 [00:00<00:00, 156.05it/s]100%|##########| 100/100 [00:00<00:00, 164.77it/s]
-Train Epoch 22
-{
-    "Cosine_Loss": 0.18240557931363582,
-    "L1_Loss": 0.012683837609365582,
-    "L2_Loss": 0.025896068792790175,
-    "Loss": 0.025896068792790175,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08821927528254492,
-    "Time_Data_Loading": 0.0020333170890808106,
-    "Time_Epoch": 0.01012638012568156,
-    "Time_Log_Info": 1.913309097290039e-05,
-    "Time_Process_Batch": 0.00015276273091634115,
-    "Time_Train_Batch": 0.00787038008371989
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 22 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 13%|#3        | 13/100 [00:00<00:00, 129.76it/s] 32%|###2      | 32/100 [00:00<00:00, 161.10it/s] 54%|#####4    | 54/100 [00:00<00:00, 184.18it/s] 75%|#######5  | 75/100 [00:00<00:00, 193.51it/s] 97%|#########7| 97/100 [00:00<00:00, 200.45it/s]100%|##########| 100/100 [00:00<00:00, 189.82it/s]
-Train Epoch 23
-{
-    "Cosine_Loss": 0.1780946759134531,
-    "L1_Loss": 0.012372973710298538,
-    "L2_Loss": 0.025249266009777786,
-    "Loss": 0.025249266009777786,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09552218839906346,
-    "Time_Data_Loading": 0.0017395337422688802,
-    "Time_Epoch": 0.008790795008341472,
-    "Time_Log_Info": 1.8072128295898437e-05,
-    "Time_Process_Batch": 0.0001229087511698405,
-    "Time_Train_Batch": 0.006863657633463542
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 23 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 19%|#9        | 19/100 [00:00<00:00, 185.30it/s] 40%|####      | 40/100 [00:00<00:00, 195.62it/s] 62%|######2   | 62/100 [00:00<00:00, 205.23it/s] 84%|########4 | 84/100 [00:00<00:00, 209.91it/s]100%|##########| 100/100 [00:00<00:00, 208.76it/s]
-Train Epoch 24
-{
-    "Cosine_Loss": 0.17581096194684506,
-    "L1_Loss": 0.012135031195357441,
-    "L2_Loss": 0.024697217661887406,
-    "Loss": 0.024697217661887406,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.07665781086208881,
-    "Time_Data_Loading": 0.0016834497451782226,
-    "Time_Epoch": 0.007996563116709392,
-    "Time_Log_Info": 1.4007091522216797e-05,
-    "Time_Process_Batch": 0.00011114676793416341,
-    "Time_Train_Batch": 0.006140224138895671
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 24 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 216.85it/s] 44%|####4     | 44/100 [00:00<00:00, 216.93it/s] 66%|######6   | 66/100 [00:00<00:00, 198.05it/s] 87%|########7 | 87/100 [00:00<00:00, 200.36it/s]100%|##########| 100/100 [00:00<00:00, 203.85it/s]
-Train Epoch 25
-{
-    "Cosine_Loss": 0.17662586629390717,
-    "L1_Loss": 0.011977325780317188,
-    "L2_Loss": 0.024402363449335097,
-    "Loss": 0.024402363449335097,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09466283015630324,
-    "Time_Data_Loading": 0.0016982158025105794,
-    "Time_Epoch": 0.008186753590901692,
-    "Time_Log_Info": 1.4674663543701171e-05,
-    "Time_Process_Batch": 0.00011330445607503256,
-    "Time_Train_Batch": 0.006315902868906657
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 25 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 214.92it/s] 44%|####4     | 44/100 [00:00<00:00, 193.01it/s] 64%|######4   | 64/100 [00:00<00:00, 141.13it/s] 82%|########2 | 82/100 [00:00<00:00, 151.67it/s]100%|##########| 100/100 [00:00<00:00, 162.38it/s]
-Train Epoch 26
-{
-    "Cosine_Loss": 0.1750364276021719,
-    "L1_Loss": 0.011844081273302436,
-    "L2_Loss": 0.024157122541218996,
-    "Loss": 0.024157122541218996,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09653023305556417,
-    "Time_Data_Loading": 0.001964680353800456,
-    "Time_Epoch": 0.010274732112884521,
-    "Time_Log_Info": 1.9447008768717447e-05,
-    "Time_Process_Batch": 0.00013924439748128254,
-    "Time_Train_Batch": 0.008100215593973796
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 26 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 19%|#9        | 19/100 [00:00<00:00, 181.76it/s] 38%|###8      | 38/100 [00:00<00:00, 185.96it/s] 58%|#####8    | 58/100 [00:00<00:00, 188.41it/s] 77%|#######7  | 77/100 [00:00<00:00, 186.58it/s] 97%|#########7| 97/100 [00:00<00:00, 188.32it/s]100%|##########| 100/100 [00:00<00:00, 187.32it/s]
-Train Epoch 27
-{
-    "Cosine_Loss": 0.17432247437536716,
-    "L1_Loss": 0.011640352522954344,
-    "L2_Loss": 0.023737037321552634,
-    "Loss": 0.023737037321552634,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08364433370687038,
-    "Time_Data_Loading": 0.001873946189880371,
-    "Time_Epoch": 0.008907949924468994,
-    "Time_Log_Info": 1.7488002777099608e-05,
-    "Time_Process_Batch": 0.00013343095779418945,
-    "Time_Train_Batch": 0.0068357904752095544
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 27 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 204.22it/s] 42%|####2     | 42/100 [00:00<00:00, 206.91it/s] 63%|######3   | 63/100 [00:00<00:00, 195.40it/s] 83%|########2 | 83/100 [00:00<00:00, 196.87it/s]100%|##########| 100/100 [00:00<00:00, 199.99it/s]
-Train Epoch 28
-{
-    "Cosine_Loss": 0.16936097331345082,
-    "L1_Loss": 0.011528900540433824,
-    "L2_Loss": 0.023484687907621263,
-    "Loss": 0.023484687907621263,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09477523686702626,
-    "Time_Data_Loading": 0.0017092148462931314,
-    "Time_Epoch": 0.008345250288645427,
-    "Time_Log_Info": 1.6168753306070963e-05,
-    "Time_Process_Batch": 0.00011375745137532552,
-    "Time_Train_Batch": 0.006461052099863688
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 28 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 207.59it/s] 43%|####3     | 43/100 [00:00<00:00, 212.95it/s] 66%|######6   | 66/100 [00:00<00:00, 218.06it/s] 88%|########8 | 88/100 [00:00<00:00, 218.16it/s]100%|##########| 100/100 [00:00<00:00, 217.78it/s]
-Train Epoch 29
-{
-    "Cosine_Loss": 0.1669618070870638,
-    "L1_Loss": 0.011256359363906086,
-    "L2_Loss": 0.0229336538631469,
-    "Loss": 0.0229336538631469,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09906154718673861,
-    "Time_Data_Loading": 0.0016016244888305664,
-    "Time_Epoch": 0.007662685712178549,
-    "Time_Log_Info": 1.2103716532389323e-05,
-    "Time_Process_Batch": 0.00010325113932291667,
-    "Time_Train_Batch": 0.005906196435292562
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 29 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 224.85it/s] 46%|####6     | 46/100 [00:00<00:00, 220.05it/s] 69%|######9   | 69/100 [00:00<00:00, 203.86it/s] 91%|#########1| 91/100 [00:00<00:00, 207.02it/s]100%|##########| 100/100 [00:00<00:00, 210.52it/s]
-Train Epoch 30
-{
-    "Cosine_Loss": 0.16959779642522335,
-    "L1_Loss": 0.01125827178824693,
-    "L2_Loss": 0.02294589244760573,
-    "Loss": 0.02294589244760573,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09656001583416582,
-    "Time_Data_Loading": 0.0016594688097635905,
-    "Time_Epoch": 0.007927203178405761,
-    "Time_Log_Info": 1.3701121012369792e-05,
-    "Time_Process_Batch": 0.00010707775751749675,
-    "Time_Train_Batch": 0.006099422772725423
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 30 Memory Usage: 207 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 21%|##1       | 21/100 [00:00<00:00, 208.77it/s] 42%|####2     | 42/100 [00:00<00:00, 204.52it/s] 64%|######4   | 64/100 [00:00<00:00, 210.89it/s] 87%|########7 | 87/100 [00:00<00:00, 216.64it/s]100%|##########| 100/100 [00:00<00:00, 215.72it/s]
-Train Epoch 31
-{
-    "Cosine_Loss": 0.16892047628760337,
-    "L1_Loss": 0.011160513353534043,
-    "L2_Loss": 0.022720304867252707,
-    "Loss": 0.022720304867252707,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.11544889431330375,
-    "Time_Data_Loading": 0.0016365448633829753,
-    "Time_Epoch": 0.007737350463867187,
-    "Time_Log_Info": 1.2532869974772136e-05,
-    "Time_Process_Batch": 0.00010540088017781575,
-    "Time_Train_Batch": 0.005939046541849772
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 31 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 225.42it/s] 46%|####6     | 46/100 [00:00<00:00, 215.26it/s] 68%|######8   | 68/100 [00:00<00:00, 204.99it/s] 89%|########9 | 89/100 [00:00<00:00, 195.91it/s]100%|##########| 100/100 [00:00<00:00, 201.20it/s]
-Train Epoch 32
-{
-    "Cosine_Loss": 0.1668686179816723,
-    "L1_Loss": 0.010782605512067675,
-    "L2_Loss": 0.021904113069176674,
-    "Loss": 0.021904113069176674,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08568021333561773,
-    "Time_Data_Loading": 0.0017313639322916667,
-    "Time_Epoch": 0.008293370405832926,
-    "Time_Log_Info": 1.4809767405192057e-05,
-    "Time_Process_Batch": 0.00011404355367024739,
-    "Time_Train_Batch": 0.006389069557189942
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 32 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 20%|##        | 20/100 [00:00<00:00, 190.20it/s] 40%|####      | 40/100 [00:00<00:00, 188.12it/s] 60%|######    | 60/100 [00:00<00:00, 189.45it/s] 81%|########1 | 81/100 [00:00<00:00, 196.30it/s]100%|##########| 100/100 [00:00<00:00, 198.20it/s]
-Train Epoch 33
-{
-    "Cosine_Loss": 0.16483946323394774,
-    "L1_Loss": 0.010612293733283878,
-    "L2_Loss": 0.021550180865451695,
-    "Loss": 0.021550180865451695,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08376222796152433,
-    "Time_Data_Loading": 0.0017011284828186036,
-    "Time_Epoch": 0.00842213233311971,
-    "Time_Log_Info": 1.539786656697591e-05,
-    "Time_Process_Batch": 0.00011733770370483398,
-    "Time_Train_Batch": 0.0065405050913492834
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 33 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 219.71it/s] 45%|####5     | 45/100 [00:00<00:00, 216.88it/s] 68%|######8   | 68/100 [00:00<00:00, 219.51it/s] 91%|#########1| 91/100 [00:00<00:00, 221.31it/s]100%|##########| 100/100 [00:00<00:00, 220.90it/s]
-Train Epoch 34
-{
-    "Cosine_Loss": 0.16396284028887748,
-    "L1_Loss": 0.01083492511883378,
-    "L2_Loss": 0.022047386579215525,
-    "Loss": 0.022047386579215525,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.11910447517395369,
-    "Time_Data_Loading": 0.0015823284784952799,
-    "Time_Epoch": 0.007556335131327311,
-    "Time_Log_Info": 1.1459986368815105e-05,
-    "Time_Process_Batch": 9.99291737874349e-05,
-    "Time_Train_Batch": 0.005798308054606119
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 34 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 223.81it/s] 46%|####6     | 46/100 [00:00<00:00, 209.51it/s] 68%|######8   | 68/100 [00:00<00:00, 213.98it/s] 90%|######### | 90/100 [00:00<00:00, 215.20it/s]100%|##########| 100/100 [00:00<00:00, 215.68it/s]
-Train Epoch 35
-{
-    "Cosine_Loss": 0.16253005236387252,
-    "L1_Loss": 0.010348942414857447,
-    "L2_Loss": 0.02099668956361711,
-    "Loss": 0.02099668956361711,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.08566798263575037,
-    "Time_Data_Loading": 0.001587859789530436,
-    "Time_Epoch": 0.00773924986521403,
-    "Time_Log_Info": 1.2524922688802083e-05,
-    "Time_Process_Batch": 0.00010272661844889323,
-    "Time_Train_Batch": 0.0059937238693237305
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 35 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 216.33it/s] 44%|####4     | 44/100 [00:00<00:00, 218.17it/s] 66%|######6   | 66/100 [00:00<00:00, 212.78it/s] 88%|########8 | 88/100 [00:00<00:00, 210.40it/s]100%|##########| 100/100 [00:00<00:00, 209.25it/s]
-Train Epoch 36
-{
-    "Cosine_Loss": 0.16203633978962897,
-    "L1_Loss": 0.010281509407795965,
-    "L2_Loss": 0.02089788588695228,
-    "Loss": 0.02089788588695228,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.10442948873685054,
-    "Time_Data_Loading": 0.0016471266746520997,
-    "Time_Epoch": 0.007975117365519205,
-    "Time_Log_Info": 1.3387203216552734e-05,
-    "Time_Process_Batch": 0.00010759830474853516,
-    "Time_Train_Batch": 0.006163505713144938
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 36 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 19%|#9        | 19/100 [00:00<00:00, 181.50it/s] 38%|###8      | 38/100 [00:00<00:00, 178.00it/s] 58%|#####8    | 58/100 [00:00<00:00, 187.66it/s] 79%|#######9  | 79/100 [00:00<00:00, 196.00it/s]100%|##########| 100/100 [00:00<00:00, 195.84it/s]
-Train Epoch 37
-{
-    "Cosine_Loss": 0.1616208876669407,
-    "L1_Loss": 0.010211016214452685,
-    "L2_Loss": 0.020745189348235726,
-    "Loss": 0.020745189348235726,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.09555035049480466,
-    "Time_Data_Loading": 0.0017250855763753256,
-    "Time_Epoch": 0.008520897229512532,
-    "Time_Log_Info": 1.710653305053711e-05,
-    "Time_Process_Batch": 0.00011728207270304362,
-    "Time_Train_Batch": 0.00661244789759318
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 37 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 215.38it/s] 45%|####5     | 45/100 [00:00<00:00, 222.94it/s] 68%|######8   | 68/100 [00:00<00:00, 217.52it/s] 90%|######### | 90/100 [00:00<00:00, 215.02it/s]100%|##########| 100/100 [00:00<00:00, 213.20it/s]
-Train Epoch 38
-{
-    "Cosine_Loss": 0.1594149359315634,
-    "L1_Loss": 0.009932976476848125,
-    "L2_Loss": 0.020158325294032692,
-    "Loss": 0.020158325294032692,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.0869004336344824,
-    "Time_Data_Loading": 0.0016386866569519042,
-    "Time_Epoch": 0.0078279177347819,
-    "Time_Log_Info": 1.2556711832682291e-05,
-    "Time_Process_Batch": 0.00010333458582560222,
-    "Time_Train_Batch": 0.006032601992289225
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 38 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 211.30it/s] 44%|####4     | 44/100 [00:00<00:00, 208.84it/s] 67%|######7   | 67/100 [00:00<00:00, 217.06it/s] 90%|######### | 90/100 [00:00<00:00, 219.43it/s]100%|##########| 100/100 [00:00<00:00, 217.60it/s]
-Train Epoch 39
-{
-    "Cosine_Loss": 0.1585518203675747,
-    "L1_Loss": 0.010015635988675059,
-    "L2_Loss": 0.020348962973803283,
-    "Loss": 0.020348962973803283,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.10670294169354748,
-    "Time_Data_Loading": 0.001604914665222168,
-    "Time_Epoch": 0.007669262091318766,
-    "Time_Log_Info": 1.2910366058349609e-05,
-    "Time_Process_Batch": 0.00010031461715698242,
-    "Time_Train_Batch": 0.005911592642466227
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 39 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 211.42it/s] 44%|####4     | 44/100 [00:00<00:00, 215.13it/s] 66%|######6   | 66/100 [00:00<00:00, 216.93it/s] 89%|########9 | 89/100 [00:00<00:00, 219.70it/s]100%|##########| 100/100 [00:00<00:00, 217.13it/s]
-Train Epoch 40
-{
-    "Cosine_Loss": 0.15802527084946633,
-    "L1_Loss": 0.009718513195402921,
-    "L2_Loss": 0.019717342825606464,
-    "Loss": 0.019717342825606464,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.1169846218564453,
-    "Time_Data_Loading": 0.0016150991121927896,
-    "Time_Epoch": 0.007686261336008708,
-    "Time_Log_Info": 1.3025601704915364e-05,
-    "Time_Process_Batch": 0.00010411739349365234,
-    "Time_Train_Batch": 0.005912931760152181
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 40 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 227.22it/s] 46%|####6     | 46/100 [00:00<00:00, 224.79it/s] 69%|######9   | 69/100 [00:00<00:00, 219.66it/s] 92%|#########2| 92/100 [00:00<00:00, 221.23it/s]100%|##########| 100/100 [00:00<00:00, 222.45it/s]
-Train Epoch 41
-{
-    "Cosine_Loss": 0.15714883096516133,
-    "L1_Loss": 0.009858016236685217,
-    "L2_Loss": 0.020018839463591575,
-    "Loss": 0.020018839463591575,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.11316769964299965,
-    "Time_Data_Loading": 0.0015942573547363282,
-    "Time_Epoch": 0.007503346602121989,
-    "Time_Log_Info": 1.1261304219563802e-05,
-    "Time_Process_Batch": 9.578863779703776e-05,
-    "Time_Train_Batch": 0.00576170285542806
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 41 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 24%|##4       | 24/100 [00:00<00:00, 230.56it/s] 48%|####8     | 48/100 [00:00<00:00, 230.80it/s] 72%|#######2  | 72/100 [00:00<00:00, 231.49it/s] 96%|#########6| 96/100 [00:00<00:00, 231.02it/s]100%|##########| 100/100 [00:00<00:00, 230.84it/s]
-Train Epoch 42
-{
-    "Cosine_Loss": 0.15490759678184987,
-    "L1_Loss": 0.00971794303972274,
-    "L2_Loss": 0.019727148143574597,
-    "Loss": 0.019727148143574597,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.12014352098956806,
-    "Time_Data_Loading": 0.0015369693438212076,
-    "Time_Epoch": 0.007231533527374268,
-    "Time_Log_Info": 9.96987024943034e-06,
-    "Time_Process_Batch": 9.047587712605795e-05,
-    "Time_Train_Batch": 0.005554525057474772
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 42 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 220.13it/s] 46%|####6     | 46/100 [00:00<00:00, 212.47it/s] 69%|######9   | 69/100 [00:00<00:00, 215.26it/s] 92%|#########2| 92/100 [00:00<00:00, 218.49it/s]100%|##########| 100/100 [00:00<00:00, 217.37it/s]
-Train Epoch 43
-{
-    "Cosine_Loss": 0.1547184171527624,
-    "L1_Loss": 0.009495651796460152,
-    "L2_Loss": 0.019260452864691614,
-    "Loss": 0.019260452864691614,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.10774582636668129,
-    "Time_Data_Loading": 0.0015919844309488932,
-    "Time_Epoch": 0.007677765687306722,
-    "Time_Log_Info": 1.2135505676269531e-05,
-    "Time_Process_Batch": 0.00010347763697306315,
-    "Time_Train_Batch": 0.005923306941986084
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 43 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 227.42it/s] 47%|####6     | 47/100 [00:00<00:00, 231.01it/s] 71%|#######1  | 71/100 [00:00<00:00, 231.56it/s] 95%|#########5| 95/100 [00:00<00:00, 229.94it/s]100%|##########| 100/100 [00:00<00:00, 229.57it/s]
-Train Epoch 44
-{
-    "Cosine_Loss": 0.1545831337571144,
-    "L1_Loss": 0.009718124852515758,
-    "L2_Loss": 0.019779190719127655,
-    "Loss": 0.019779190719127655,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.14502569407715782,
-    "Time_Data_Loading": 0.0015464067459106446,
-    "Time_Epoch": 0.007270550727844239,
-    "Time_Log_Info": 9.866555531819661e-06,
-    "Time_Process_Batch": 9.041229883829752e-05,
-    "Time_Train_Batch": 0.005584514141082764
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 44 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 228.01it/s] 46%|####6     | 46/100 [00:00<00:00, 220.70it/s] 70%|#######   | 70/100 [00:00<00:00, 225.21it/s] 94%|#########3| 94/100 [00:00<00:00, 227.40it/s]100%|##########| 100/100 [00:00<00:00, 226.61it/s]
-Train Epoch 45
-{
-    "Cosine_Loss": 0.1552570427954197,
-    "L1_Loss": 0.009588294490240514,
-    "L2_Loss": 0.019489379441365598,
-    "Loss": 0.019489379441365598,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.17652968031607996,
-    "Time_Data_Loading": 0.0015550176302591959,
-    "Time_Epoch": 0.007364630699157715,
-    "Time_Log_Info": 1.0708967844645182e-05,
-    "Time_Process_Batch": 9.596745173136393e-05,
-    "Time_Train_Batch": 0.005663832028706868
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 45 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 228.36it/s] 47%|####6     | 47/100 [00:00<00:00, 230.28it/s] 71%|#######1  | 71/100 [00:00<00:00, 231.37it/s] 95%|#########5| 95/100 [00:00<00:00, 232.47it/s]100%|##########| 100/100 [00:00<00:00, 231.26it/s]
-Train Epoch 46
-{
-    "Cosine_Loss": 0.15242941349744796,
-    "L1_Loss": 0.009216472557745874,
-    "L2_Loss": 0.018698056219145654,
-    "Loss": 0.018698056219145654,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.10109232825497201,
-    "Time_Data_Loading": 0.001537191867828369,
-    "Time_Epoch": 0.0072168668111165365,
-    "Time_Log_Info": 1.0363260904947917e-05,
-    "Time_Process_Batch": 9.145736694335938e-05,
-    "Time_Train_Batch": 0.005539405345916748
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 46 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 24%|##4       | 24/100 [00:00<00:00, 230.10it/s] 48%|####8     | 48/100 [00:00<00:00, 231.84it/s] 72%|#######2  | 72/100 [00:00<00:00, 234.46it/s] 96%|#########6| 96/100 [00:00<00:00, 233.64it/s]100%|##########| 100/100 [00:00<00:00, 232.99it/s]
-Train Epoch 47
-{
-    "Cosine_Loss": 0.1539110840857029,
-    "L1_Loss": 0.009293205593712628,
-    "L2_Loss": 0.01884782767854631,
-    "Loss": 0.01884782767854631,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.13747836182108586,
-    "Time_Data_Loading": 0.0015238563219706217,
-    "Time_Epoch": 0.007164299488067627,
-    "Time_Log_Info": 9.771188100179037e-06,
-    "Time_Process_Batch": 8.932352066040039e-05,
-    "Time_Train_Batch": 0.005502025286356608
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 47 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 18%|#8        | 18/100 [00:00<00:00, 171.53it/s] 37%|###7      | 37/100 [00:00<00:00, 180.54it/s] 58%|#####8    | 58/100 [00:00<00:00, 190.76it/s] 81%|########1 | 81/100 [00:00<00:00, 204.87it/s]100%|##########| 100/100 [00:00<00:00, 201.90it/s]
-Train Epoch 48
-{
-    "Cosine_Loss": 0.14951253369450568,
-    "L1_Loss": 0.00916852381080389,
-    "L2_Loss": 0.018644401133060456,
-    "Loss": 0.018644401133060456,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.15625707162696925,
-    "Time_Data_Loading": 0.0017186840375264486,
-    "Time_Epoch": 0.008266119162241618,
-    "Time_Log_Info": 1.473824183146159e-05,
-    "Time_Process_Batch": 0.00011082092920939128,
-    "Time_Train_Batch": 0.006377212206522624
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 48 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 23%|##3       | 23/100 [00:00<00:00, 228.63it/s] 47%|####6     | 47/100 [00:00<00:00, 230.11it/s] 71%|#######1  | 71/100 [00:00<00:00, 228.45it/s] 94%|#########3| 94/100 [00:00<00:00, 222.42it/s]100%|##########| 100/100 [00:00<00:00, 223.89it/s]
-Train Epoch 49
-{
-    "Cosine_Loss": 0.15081226333975792,
-    "L1_Loss": 0.009038914828561246,
-    "L2_Loss": 0.018347446182742713,
-    "Loss": 0.018347446182742713,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.12417618820067673,
-    "Time_Data_Loading": 0.0015653093655904134,
-    "Time_Epoch": 0.0074542482693990076,
-    "Time_Log_Info": 1.1237462361653646e-05,
-    "Time_Process_Batch": 9.767611821492513e-05,
-    "Time_Train_Batch": 0.00574037233988444
-}
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 49 Memory Usage: 208 MB
-
-  0%|          | 0/100 [00:00<?, ?it/s] 22%|##2       | 22/100 [00:00<00:00, 218.43it/s] 44%|####4     | 44/100 [00:00<00:00, 214.95it/s] 66%|######6   | 66/100 [00:00<00:00, 216.60it/s] 89%|########9 | 89/100 [00:00<00:00, 220.01it/s]100%|##########| 100/100 [00:00<00:00, 218.89it/s]
-Train Epoch 50
-{
-    "Cosine_Loss": 0.14896599382162093,
-    "L1_Loss": 0.008964530327357351,
-    "L2_Loss": 0.018206969117745758,
-    "Loss": 0.018206969117745758,
-    "Optimizer/policy0_lr": 0.0001,
-    "Policy_Grad_Norms": 0.14172129328775554,
-    "Time_Data_Loading": 0.0015864610671997071,
-    "Time_Epoch": 0.0076245506604512535,
-    "Time_Log_Info": 1.2350082397460937e-05,
-    "Time_Process_Batch": 0.00010093847910563151,
-    "Time_Train_Batch": 0.005883614222208659
-}
-rollout: env=Lift, horizon=400, use_goals=False, num_episodes=50
-  0%|          | 0/50 [00:00<?, ?it/s]ObservationKeyToModalityDict: robot0_joint_pos not found, adding robot0_joint_pos to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: robot0_joint_pos_cos not found, adding robot0_joint_pos_cos to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: robot0_joint_pos_sin not found, adding robot0_joint_pos_sin to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: robot0_joint_vel not found, adding robot0_joint_vel to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: robot0_eef_quat_site not found, adding robot0_eef_quat_site to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: robot0_gripper_qvel not found, adding robot0_gripper_qvel to mapping with assumed low_dim modality!
-ObservationKeyToModalityDict: lang_emb not found, adding lang_emb to mapping with assumed low_dim modality!
-  2%|2         | 1/50 [00:00<00:48,  1.00it/s]  4%|4         | 2/50 [00:01<00:46,  1.03it/s]  6%|6         | 3/50 [00:02<00:43,  1.08it/s]  8%|8         | 4/50 [00:03<00:43,  1.05it/s] 10%|#         | 5/50 [00:04<00:44,  1.01it/s] 12%|#2        | 6/50 [00:06<00:47,  1.08s/it] 14%|#4        | 7/50 [00:07<00:49,  1.15s/it] 16%|#6        | 8/50 [00:08<00:45,  1.09s/it] 18%|#8        | 9/50 [00:09<00:41,  1.01s/it] 20%|##        | 10/50 [00:10<00:38,  1.03it/s] 22%|##2       | 11/50 [00:10<00:36,  1.07it/s] 24%|##4       | 12/50 [00:11<00:34,  1.09it/s] 26%|##6       | 13/50 [00:12<00:34,  1.06it/s] 28%|##8       | 14/50 [00:13<00:34,  1.05it/s] 30%|###       | 15/50 [00:14<00:34,  1.01it/s] 32%|###2      | 16/50 [00:15<00:33,  1.02it/s] 34%|###4      | 17/50 [00:16<00:31,  1.06it/s] 36%|###6      | 18/50 [00:17<00:29,  1.09it/s] 38%|###8      | 19/50 [00:18<00:27,  1.11it/s] 40%|####      | 20/50 [00:21<00:47,  1.58s/it] 42%|####2     | 21/50 [00:22<00:41,  1.43s/it] 44%|####4     | 22/50 [00:23<00:35,  1.28s/it] 46%|####6     | 23/50 [00:24<00:31,  1.17s/it] 48%|####8     | 24/50 [00:25<00:29,  1.15s/it] 50%|#####     | 25/50 [00:26<00:27,  1.10s/it] 52%|#####2    | 26/50 [00:27<00:25,  1.06s/it] 54%|#####4    | 27/50 [00:28<00:23,  1.02s/it] 56%|#####6    | 28/50 [00:29<00:22,  1.00s/it] 58%|#####8    | 29/50 [00:30<00:21,  1.00s/it] 60%|######    | 30/50 [00:33<00:34,  1.72s/it] 62%|######2   | 31/50 [00:34<00:28,  1.48s/it] 64%|######4   | 32/50 [00:35<00:23,  1.29s/it] 66%|######6   | 33/50 [00:36<00:20,  1.19s/it] 68%|######8   | 34/50 [00:39<00:29,  1.84s/it] 70%|#######   | 35/50 [00:41<00:24,  1.65s/it] 72%|#######2  | 36/50 [00:42<00:20,  1.47s/it] 74%|#######4  | 37/50 [00:43<00:17,  1.32s/it] 76%|#######6  | 38/50 [00:44<00:14,  1.20s/it] 78%|#######8  | 39/50 [00:44<00:12,  1.11s/it] 80%|########  | 40/50 [00:45<00:10,  1.04s/it] 82%|########2 | 41/50 [00:46<00:09,  1.02s/it] 84%|########4 | 42/50 [00:47<00:07,  1.01it/s] 86%|########6 | 43/50 [00:49<00:07,  1.10s/it] 88%|########8 | 44/50 [00:50<00:06,  1.10s/it] 90%|######### | 45/50 [00:51<00:05,  1.09s/it] 92%|#########2| 46/50 [00:52<00:04,  1.13s/it] 94%|#########3| 47/50 [00:53<00:03,  1.06s/it] 96%|#########6| 48/50 [00:54<00:02,  1.01s/it] 98%|#########8| 49/50 [00:57<00:01,  1.71s/it]100%|##########| 50/50 [00:58<00:00,  1.48s/it]100%|##########| 50/50 [00:58<00:00,  1.17s/it]
-
-Epoch 50 Rollouts took 1.1703491163253785s (avg) with results:
-Env: low_dim_v15
-{
-    "Horizon": 77.0,
-    "Return": 0.92,
-    "Success_Rate": 0.92,
-    "Time_Episode": 0.9752909302711487,
-    "time": 1.1703491163253785
-}
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/models/model_epoch_50_low_dim_v15_success_0.92.pth
-
-saving latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth...
-
-save checkpoint to /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last.pth
-
-saved backup of latest model at /Users/damisoda/robot-kernel/runs/lift_ph_lowdim_bc_p20_e50_s1/20260930010102/last_bak.pth
-
-
-Epoch 50 Memory Usage: 732 MB
-
-finished run successfully!
