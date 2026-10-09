@@ -1,0 +1,116 @@
+{
+  "profiles": {
+    "mobile5": [
+      [
+        375,
+        812
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        375,
+        667
+      ],
+      [
+        320,
+        568
+      ]
+    ],
+    "mobile3": [
+      [
+        375,
+        812
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        430,
+        932
+      ]
+    ],
+    "base": [
+      [
+        375,
+        812
+      ]
+    ],
+    "web4": [
+      [
+        1280,
+        800
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        375,
+        812
+      ]
+    ]
+  },
+  "default_profile": "mobile5",
+  "concurrency": 3,
+  "timeouts": {
+    "goto_ms": 30000,
+    "step_ms": 8000,
+    "settle_ms": 4000,
+    "width_ms": 90000
+  },
+  "scroll": {
+    "max_steps": 6,
+    "step_ratio": 0.8
+  },
+  "ollama": {
+    "url": "http://127.0.0.1:18434",
+    "model": "gemma4:e4b-16k",
+    "max_calls": 6,
+    "timeout_ms": 120000,
+    "min_free_pct": 20
+  },
+  "mac_mini": {
+    "ssh": "damisoda@100.73.27.46",
+    "forwards": [
+      "18434:127.0.0.1:11434",
+      "18080:127.0.0.1:8080"
+    ]
+  },
+  "serve": {
+    "port": 8792
+  },
+  "forbidden_paths": [
+    "~/Come-back-home"
+  ],
+  "dists": {
+    "cbh-221-pre": {
+      "dir": "~/design-qa-cases/cbh-221-pre/frontend/dist-mock",
+      "src": "~/design-qa-cases/cbh-221-pre",
+      "note": "돌아오길 PR #221 병합 전(430e99f), 목 모드 웹 빌드",
+      "repo": "cbh"
+    },
+    "cbh-221-post": {
+      "dir": "~/design-qa-cases/cbh-221-post/frontend/dist-mock",
+      "src": "~/design-qa-cases/cbh-221-post",
+      "note": "돌아오길 PR #221 병합 후(7b99c67), 목 모드 웹 빌드",
+      "repo": "cbh"
+    }
+  },
+  "fix": {
+    "scratch": "~/design-qa-cases/fix",
+    "max_attempts_per_defect": 2,
+    "max_defects": 4,
+    "build_timeout_ms": 300000
+  }
+}

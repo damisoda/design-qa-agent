@@ -1,0 +1,12 @@
+{
+  "id": "local/home",
+  "version": 1,
+  "title": "첫 화면(아무 웹앱)",
+  "app": "local",
+  "start": { "path": "/" },
+  "allow_hosts": [],
+  "steps": [],
+  "ready": { "stable_ms": 400 },
+  "scan": { "root": "body", "scroll": "auto", "ignore": [] },
+  "widths": "web4"
+}

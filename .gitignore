@@ -1,0 +1,11 @@
+# 의존성(dqa/에서 npm install로 복원)
+node_modules/
+
+# 실행 결과(팀 앱 화면·글자 포함)와 사용자 분류 기록
+dqa/runs/
+dqa/state/
+
+# 부산물
+__pycache__/
+*.pyc
+.DS_Store

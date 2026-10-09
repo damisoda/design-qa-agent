@@ -1,0 +1,188 @@
+app:
+  name: dqa · 디자인 검수(로컬 도구 호출)
+  mode: workflow
+  icon: 📐
+  icon_background: '#EFF1F5'
+  icon_type: emoji
+  use_icon_as_answer_icon: false
+  description: 빌드와 화면을 고르면 로컬 dqa가 여러 크기로 재고 변경 전과 비교한 결함 요약을 돌려준다. LLM 없이 수십 초.
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features: {}
+  graph:
+    nodes:
+    - id: start
+      type: custom
+      data:
+        type: start
+        title: 시작
+        variables:
+        - variable: dist
+          label: 검사할 빌드
+          type: select
+          required: true
+          options: &id001
+          - cbh-221-pre
+          - cbh-221-post
+        - variable: base_dist
+          label: 비교 기준(변경 전, 선택)
+          type: select
+          required: false
+          options: *id001
+        - variable: recipe
+          label: 화면
+          type: select
+          required: true
+          options:
+          - cbh/report
+          - cbh/guardian_home
+      position:
+        x: 0
+        y: 200
+      positionAbsolute:
+        x: 0
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: dqa
+      type: custom
+      data:
+        type: tool
+        title: dqa 검사(측정·비교·원인)
+        provider_id: f6db0b73-3004-460a-b182-a607800f1f44
+        provider_name: dqa
+        provider_type: api
+        tool_name: dqa_check
+        tool_label: dqa_check
+        tool_description: 빌드를 여러 크기로 열어 재고 결함 요약을 돌려준다
+        tool_configurations: {}
+        is_team_authorization: true
+        tool_parameters:
+          dist:
+            type: mixed
+            value: '{{#start.dist#}}'
+          base_dist:
+            type: mixed
+            value: '{{#start.base_dist#}}'
+          recipe:
+            type: mixed
+            value: '{{#start.recipe#}}'
+      position:
+        x: 320
+        y: 200
+      positionAbsolute:
+        x: 320
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: fmt
+      type: custom
+      data:
+        type: code
+        title: 요약 만들기
+        code_language: python3
+        code: "import json\n\ndef main(text: str) -> dict:\n    try:\n        r =\
+          \ json.loads(text)\n    except Exception:\n        return {\"result\": \"\
+          dqa 응답을 읽지 못했다: \" + str(text)[:300]}\n    if not r.get(\"ok\"):\n     \
+          \   return {\"result\": \"검사 실패(\" + str(r.get(\"error_type\")) + \"): \"\
+          \ + str(r.get(\"message\"))}\n    s = r.get(\"summary\", {})\n    names\
+          \ = {\"new\": \"새로 생김\", \"worsened\": \"악화\", \"unchanged\": \"기존\", \"\
+          improved\": \"줄어듦\", \"none\": \"상태 없음\", \"accepted\": \"무시\"}\n    lines\
+          \ = [\"새로 생김 %d · 악화 %d · 기존 %d · 상태 없음 %d · 해결 %d (%.1f초)\" % (s.get(\"\
+          new\", 0), s.get(\"worsened\", 0), s.get(\"unchanged\", 0) + s.get(\"improved\"\
+          , 0), s.get(\"no_base\", 0), s.get(\"resolved\", 0), r.get(\"total_sec\"\
+          , 0))]\n    for d in r.get(\"defects\", []):\n        sizes = \", \".join(\"\
+          %s %s\" % (w[\"size\"], w[\"px\"]) for w in d.get(\"widths\", []))\n   \
+          \     lines.append(\"- [%s %s] %s: %s / %s%s\" % (names.get(d.get(\"status\"\
+          ), d.get(\"status\")), d.get(\"rule\"), d.get(\"rule_name\"), \", \".join(d.get(\"\
+          labels\", [])), sizes, (\" / 원인 후보 \" + d[\"cause\"]) if d.get(\"cause\"\
+          ) else \"\"))\n    lines.append(\"보고서: \" + str(r.get(\"report_url\")))\n\
+          \    return {\"result\": \"\\n\".join(lines)}\n"
+        variables:
+        - variable: text
+          value_selector:
+          - dqa
+          - text
+        outputs:
+          result:
+            type: string
+            children: null
+      position:
+        x: 640
+        y: 200
+      positionAbsolute:
+        x: 640
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    - id: end
+      type: custom
+      data:
+        type: end
+        title: 끝
+        outputs:
+        - variable: summary
+          value_selector:
+          - fmt
+          - result
+      position:
+        x: 960
+        y: 200
+      positionAbsolute:
+        x: 960
+        y: 200
+      width: 244
+      height: 90
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+    edges:
+    - id: start-dqa
+      source: start
+      target: dqa
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: start
+        targetType: tool
+        isInIteration: false
+      zIndex: 0
+    - id: dqa-fmt
+      source: dqa
+      target: fmt
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: tool
+        targetType: code
+        isInIteration: false
+      zIndex: 0
+    - id: fmt-end
+      source: fmt
+      target: end
+      sourceHandle: source
+      targetHandle: target
+      type: custom
+      data:
+        sourceType: code
+        targetType: end
+        isInIteration: false
+      zIndex: 0
+    viewport:
+      x: 0
+      y: 0
+      zoom: 1

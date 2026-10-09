@@ -1,0 +1,19 @@
+{
+  "id": "cbh/guardian_home",
+  "version": 1,
+  "title": "보호자 홈",
+  "app": "cbh",
+  "start": { "path": "/" },
+  "allow_hosts": [],
+  "fixtures": "fixture.json",
+  "steps": [
+    { "wait_text": "시작하기" },
+    { "click": { "one_of": [ { "text": "시작하기", "exact": true }, { "text": "시작하기" } ] } },
+    { "click": { "one_of": [ { "text": "보호자로 시작하기" }, { "text": "보호자" } ] } },
+    { "if_visible": { "selector": "input[type=email]" }, "then": [ { "use": "cbh/signup_guardian" } ] }
+  ],
+  "ready": { "text": "실종 신고", "stable_ms": 300 },
+  "scan": { "root": "#root", "scroll": "auto", "ignore": [] },
+  "widths": "mobile5",
+  "source_hints": ["frontend/src/screens", "frontend/src/navigation/GuardianTabs.tsx"]
+}
