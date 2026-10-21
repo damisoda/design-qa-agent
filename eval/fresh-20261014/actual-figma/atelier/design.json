@@ -1,0 +1,629 @@
+{
+ "source": "figma-plugin",
+ "file": "dqa · 새 예시 검증 2026-10-14",
+ "page": "Page 1",
+ "frame": {
+  "id": "5:21",
+  "name": "Atelier / Booking",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/paper"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#2459D3",
+  "color/ink": "#172033",
+  "color/muted": "#475569",
+  "color/tint": "#EFF4FF",
+  "color/paper": "#FFFFFF",
+  "color/border": "#CBD5E1"
+ },
+ "nodes": [
+  {
+   "id": "5:22",
+   "name": "Brand",
+   "type": "TEXT",
+   "x": 20,
+   "y": 20,
+   "w": 335,
+   "h": 18,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "text": {
+    "content": "ATELIER",
+    "fontFamily": "Inter",
+    "fontStyle": "Semi Bold",
+    "fontSize": 12,
+    "fontWeight": 600,
+    "lineHeight": 18,
+    "letterSpacing": 0,
+    "color": {
+     "hex": "#2459D3",
+     "opacity": 1,
+     "token": "color/brand"
+    },
+    "align": "LEFT",
+    "wrap": "WRAP"
+   }
+  },
+  {
+   "id": "5:23",
+   "name": "Heading",
+   "type": "FRAME",
+   "x": 20,
+   "y": 58,
+   "w": 335,
+   "h": 56,
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 4,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "children": [
+    {
+     "id": "5:24",
+     "name": "Title",
+     "type": "TEXT",
+     "x": 20,
+     "y": 58,
+     "w": 335,
+     "h": 32,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "text": {
+      "content": "Reserve a visit",
+      "fontFamily": "Inter",
+      "fontStyle": "Bold",
+      "fontSize": 24,
+      "fontWeight": 700,
+      "lineHeight": 32,
+      "letterSpacing": 0,
+      "color": {
+       "hex": "#172033",
+       "opacity": 1,
+       "token": "color/ink"
+      },
+      "align": "LEFT",
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "5:25",
+     "name": "Subtitle",
+     "type": "TEXT",
+     "x": 20,
+     "y": 94,
+     "w": 335,
+     "h": 20,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "text": {
+      "content": "Plan your next exhibition visit.",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "letterSpacing": 0,
+      "color": {
+       "hex": "#475569",
+       "opacity": 1,
+       "token": "color/muted"
+      },
+      "align": "LEFT",
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "5:26",
+   "name": "Exhibition",
+   "type": "FRAME",
+   "x": 20,
+   "y": 134,
+   "w": 335,
+   "h": 84,
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 8,
+    "padding": [
+     16,
+     16,
+     16,
+     16
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "fill": {
+    "hex": "#EFF4FF",
+    "opacity": 1,
+    "token": "color/tint"
+   },
+   "radius": 12,
+   "children": [
+    {
+     "id": "5:27",
+     "name": "Exhibition title",
+     "type": "TEXT",
+     "x": 36,
+     "y": 150,
+     "w": 303,
+     "h": 24,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "text": {
+      "content": "Light & Space",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 18,
+      "fontWeight": 600,
+      "lineHeight": 24,
+      "letterSpacing": 0,
+      "color": {
+       "hex": "#172033",
+       "opacity": 1,
+       "token": "color/ink"
+      },
+      "align": "LEFT",
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "5:28",
+     "name": "Exhibition time",
+     "type": "TEXT",
+     "x": 36,
+     "y": 182,
+     "w": 303,
+     "h": 20,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "text": {
+      "content": "Sat, 17 Oct · 14:00",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "letterSpacing": 0,
+      "color": {
+       "hex": "#475569",
+       "opacity": 1,
+       "token": "color/muted"
+      },
+      "align": "LEFT",
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "5:29",
+   "name": "Fields",
+   "type": "FRAME",
+   "x": 20,
+   "y": 238,
+   "w": 335,
+   "h": 168,
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 16,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "children": [
+    {
+     "id": "5:30",
+     "name": "Visitor",
+     "type": "FRAME",
+     "x": 20,
+     "y": 238,
+     "w": 335,
+     "h": 76,
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 8,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "children": [
+      {
+       "id": "5:31",
+       "name": "Visitor label",
+       "type": "TEXT",
+       "x": 20,
+       "y": 238,
+       "w": 335,
+       "h": 20,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "Visitor name",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#172033",
+         "opacity": 1,
+         "token": "color/ink"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "5:32",
+       "name": "Visitor input",
+       "type": "FRAME",
+       "x": 20,
+       "y": 266,
+       "w": 335,
+       "h": 48,
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         12,
+         12,
+         12,
+         12
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 1,
+        "token": "color/paper"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#CBD5E1",
+        "opacity": 1,
+        "token": "color/border"
+       },
+       "radius": 8,
+       "children": [
+        {
+         "id": "I5:32;5:8",
+         "name": "Visitor value",
+         "type": "TEXT",
+         "x": 33,
+         "y": 278,
+         "w": 84,
+         "h": 24,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "Alex Rivera",
+          "fontFamily": "Inter",
+          "fontStyle": "Regular",
+          "fontSize": 16,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#475569",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5:34",
+     "name": "Email",
+     "type": "FRAME",
+     "x": 20,
+     "y": 330,
+     "w": 335,
+     "h": 76,
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 8,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "children": [
+      {
+       "id": "5:35",
+       "name": "Email label",
+       "type": "TEXT",
+       "x": 20,
+       "y": 330,
+       "w": 335,
+       "h": 20,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "Email address",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#172033",
+         "opacity": 1,
+         "token": "color/ink"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "5:36",
+       "name": "Email input",
+       "type": "FRAME",
+       "x": 20,
+       "y": 358,
+       "w": 335,
+       "h": 48,
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         12,
+         12,
+         12,
+         12
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 1,
+        "token": "color/paper"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#CBD5E1",
+        "opacity": 1,
+        "token": "color/border"
+       },
+       "radius": 8,
+       "children": [
+        {
+         "id": "I5:36;5:8",
+         "name": "Email value",
+         "type": "TEXT",
+         "x": 33,
+         "y": 370,
+         "w": 146,
+         "h": 24,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "alex@example.com",
+          "fontFamily": "Inter",
+          "fontStyle": "Regular",
+          "fontSize": 16,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#475569",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5:38",
+   "name": "CTA",
+   "type": "FRAME",
+   "x": 20,
+   "y": 426,
+   "w": 335,
+   "h": 48,
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 0,
+    "padding": [
+     12,
+     12,
+     12,
+     12
+    ],
+    "align": "CENTER",
+    "justify": "CENTER",
+    "wrap": false
+   },
+   "sizing": {
+    "h": "FILL",
+    "v": "FIXED"
+   },
+   "fill": {
+    "hex": "#2459D3",
+    "opacity": 1,
+    "token": "color/brand"
+   },
+   "radius": 8,
+   "reactions": [
+    {
+     "trigger": "ON_CLICK",
+     "actions": [
+      {
+       "type": "NODE",
+       "navigation": "NAVIGATE",
+       "dest": "5:41",
+       "dest_name": "Reservation confirmed",
+       "url": null
+      }
+     ]
+    }
+   ],
+   "children": [
+    {
+     "id": "I5:38;5:4",
+     "name": "CTA label",
+     "type": "TEXT",
+     "x": 138,
+     "y": 438,
+     "w": 100,
+     "h": 24,
+     "sizing": {
+      "h": "HUG",
+      "v": "HUG"
+     },
+     "text": {
+      "content": "Reserve visit",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "lineHeight": 24,
+      "letterSpacing": 0,
+      "color": {
+       "hex": "#FFFFFF",
+       "opacity": 1,
+       "token": "color/paper"
+      },
+      "align": "LEFT",
+      "wrap": "NONE"
+     }
+    }
+   ]
+  },
+  {
+   "id": "5:40",
+   "name": "Footnote",
+   "type": "TEXT",
+   "x": 20,
+   "y": 494,
+   "w": 335,
+   "h": 18,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "text": {
+    "content": "Your reservation is free to cancel.",
+    "fontFamily": "Inter",
+    "fontStyle": "Regular",
+    "fontSize": 12,
+    "fontWeight": 400,
+    "lineHeight": 18,
+    "letterSpacing": 0,
+    "color": {
+     "hex": "#475569",
+     "opacity": 1,
+     "token": "color/muted"
+    },
+    "align": "LEFT",
+    "wrap": "WRAP"
+   }
+  }
+ ],
+ "prototype_targets": {
+  "5:41": {
+   "name": "Reservation confirmed",
+   "texts": [
+    "Reservation confirmed"
+   ]
+  }
+ },
+ "exported_at": "2026-10-14T00:34:36.555Z"
+}

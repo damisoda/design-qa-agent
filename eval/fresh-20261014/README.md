@@ -1,0 +1,1 @@
+Public test fixture: synthetic Atelier exhibition booking screen, created for the controlled Figma-first evaluation. Visitor Alex Rivera and alex@example.com are demonstration inputs, not production users. Only the bad fixture and its exported design contract required by elements.test.js are included.
