@@ -1,0 +1,387 @@
+{
+  "source": "figma-mcp-plugin-export",
+  "file": "Document",
+  "page": "Page 1",
+  "page_id": "0:1",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "2:24",
+    "name": "Light and space",
+    "width": 375,
+    "height": 812,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x812",
+  "tokens": {
+    "color/brand": "#2459D3",
+    "color/paper": "#FFFFFF"
+  },
+  "nodes": [
+    {
+      "id": "4:14",
+      "name": "Brand",
+      "type": "TEXT",
+      "x": 24,
+      "y": 24,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "ATELIER / VISITS",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#2459D3",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:15",
+      "name": "Title",
+      "type": "TEXT",
+      "x": 24,
+      "y": 72,
+      "w": 327,
+      "h": 36,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Light and space",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 36,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#172033",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:16",
+      "name": "Subtitle",
+      "type": "TEXT",
+      "x": 24,
+      "y": 132,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Mina Park · The North Gallery",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:17",
+      "name": "Information",
+      "type": "FRAME",
+      "x": 24,
+      "y": 180,
+      "w": 327,
+      "h": 224,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#EDF2FA",
+        "opacity": 1,
+        "token": null
+      },
+      "radius": 8,
+      "children": [
+        {
+          "id": "4:18",
+          "name": "About",
+          "type": "TEXT",
+          "x": 48,
+          "y": 204,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "A NEW WAY TO LOOK",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#2459D3",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:19",
+          "name": "Description",
+          "type": "TEXT",
+          "x": 48,
+          "y": 240,
+          "w": 279,
+          "h": 48,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Walk through light, texture and carefully framed moments.",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:20",
+          "name": "Schedule",
+          "type": "TEXT",
+          "x": 48,
+          "y": 300,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "October 16 – November 22",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:21",
+          "name": "Venue",
+          "type": "TEXT",
+          "x": 48,
+          "y": 336,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "The North Gallery · Seoul",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#475569",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4:22",
+      "name": "Note",
+      "type": "TEXT",
+      "x": 24,
+      "y": 428,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Free admission. Please reserve a time.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:23",
+      "name": "Action / Primary",
+      "type": "FRAME",
+      "x": 24,
+      "y": 476,
+      "w": 327,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#2459D3",
+        "opacity": 1,
+        "token": "color/brand"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "2:25",
+              "dest_name": "Reserve your visit",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I4:23;2:28",
+          "name": "Continue",
+          "type": "TEXT",
+          "x": 131,
+          "y": 488,
+          "w": 113,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Reserve a visit",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "2:25": {
+      "name": "Reserve your visit",
+      "texts": [
+        "ATELIER / VISITS",
+        "Reserve your visit",
+        "A quiet hour, just for you.",
+        "YOUR DATE",
+        "Saturday, October 24",
+        "11:00 AM · 1 visitor",
+        "Admission · Free",
+        "Your reservation is held instantly.",
+        "Confirm reservation"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T11:32:33.734Z"
+}

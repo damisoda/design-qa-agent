@@ -1,0 +1,7 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>G1 앱 글꼴이 기호를 그림</title>
+<style>body{margin:0;font:14px/20px sans-serif} #root{padding:16px} .sym{font-family:"AppSym",sans-serif;font-size:20px} button{min-width:44px;min-height:44px}</style>
+<script>
+  // 앱이 직접 불러온 글꼴(웹 글꼴)이 기호를 그리면 폰에도 같은 글꼴이 간다(시험에서는 이 컴퓨터의 기호 글꼴을 웹 글꼴로 등록)
+  window.symReady = new FontFace('AppSym', 'local("Apple Symbols"), local("Noto Sans Symbols 2"), local("Segoe UI Symbol")').load().then((f) => { document.fonts.add(f); return true }).catch(() => false)
+</script></head>
+<body><div id="root"><button class="sym" aria-label="재생">▶</button></div></body></html>

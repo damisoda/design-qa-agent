@@ -1,0 +1,58 @@
+const { test } = require('node:test')
+const assert = require('node:assert/strict')
+const t = require('../ui/triage')
+const actual = require('./fixtures/triage-actual.json')
+const ds = actual.defects; const rows = actual.rows
+test('실제 결함 우선순위: 무반응과 넘침을 색 차이보다 먼저 보여 주고 단위가 다른 수치를 비교하지 않는다', () => {
+  const sorted = [...ds].sort(t.compare)
+  assert.deepEqual(sorted.slice(0, 2).map(d => d.rule), ['I1', 'R1'])
+  const altered = ds.map(d => ({ ...d, max_px: d.rule === 'D2' ? 999999 : 0 }))
+  assert.deepEqual(altered.sort(t.compare).map(d => d.id), sorted.map(d => d.id))
+  assert.equal(t.summarize(ds).urgent, 2)
+})
+test('검토 요약: 기존·제외 항목을 새 문제 수에 섞지 않고 불완전 검사를 정상으로 표현하지 않는다', () => {
+  const result = t.summarize([{ id: 'new', rule: 'D2', severity: '중간', diff: { status: 'new' } }, { id: 'old', rule: 'I1', severity: '높음', diff: { status: 'unchanged' } }, { id: 'ignore', rule: 'R1', severity: '높음', diff: { status: 'accepted' } }])
+  assert.equal(result.open.length, 1); assert.equal(result.urgent, 0); assert.equal(result.existing, 1); assert.equal(result.accepted, 1)
+  assert.match(t.overview([], { incomplete: true }), /아직 확인하지 못한 범위/)
+  assert.ok(!t.overview([], { incomplete: true }).includes('발견한 문제 없음'))
+})
+test('버튼 근거: 실제 시안 목적지와 관측값을 보여 주고 검사하지 않은 크기에 복사하지 않는다', () => {
+  const d = ds.find(d => d.rule === 'I1')
+  assert.match(t.outcomes(d, '375x812')[0].value, /Reservation confirmed/)
+  assert.match(t.outcomes(d, '375x812')[1].value, /반응/)
+  assert.deepEqual(t.outcomes(d, '320x568'), [])
+  assert.match(t.fact(d, '320x568'), /측정하지 않았습니다/)
+})
+test('시안 값: FILL의 프레임 실측 너비를 제시하고 색 차이 계산값을 px로 표기하지 않는다', () => {
+  const d = ds.find(d => d.rule === 'F1' && d.labels.includes('Reserve visit'))
+  assert.equal(t.outcomes(d, '375x812')[0].value, '부모 너비 채움 (335px)')
+  assert.equal(t.outcomes(d, '375x812')[1].value, '220px')
+  const color = ds.find(d => d.rule === 'D2')
+  assert.match(t.fact(color, '375x812'), /#2459D3.*#C23B67/)
+  assert.ok(!t.fact(color, '375x812').includes('158px'))
+})
+test('확대 비교: 실제 두 상자의 공통 영역을 같은 배율로 잡고 화면 경계를 넘지 않는다', () => {
+  const d = ds.find(d => d.rule === 'D2'); const pair = t.recordFor(d, rows, '375x812')
+  assert.equal(pair.figma.id, '5:38'); assert.equal(t.recordFor(d, rows, '320x568'), null)
+  const rect = t.focusRect([pair.figma.box, pair.element.box], 375, 812)
+  assert.equal(rect.x, 0); assert.equal(rect.w, 375); assert.ok(rect.h >= 160)
+  assert.ok(rect.y >= 0 && rect.y + rect.h <= 812)
+  assert.equal(t.focusRect([{ x: NaN, y: 10, w: 20, h: 20 }], 375, 812), null)
+  assert.equal(t.focusRect([{ x: 500, y: 10, w: 20, h: 20 }], 375, 812), null)
+})
+test('요소 짝: 다른 화면이나 변경 전 기록을 현재 Figma 요소의 근거로 쓰지 않는다', () => {
+  const d = ds.find(d => d.rule === 'I1'); const row = t.recordFor(d, rows, '375x812')
+  assert.ok(row)
+  assert.equal(t.recordFor(d, [{ ...row, side: 'base' }, { ...row, screen: 'other' }], '375x812'), null)
+})
+test('표시 문자열: 내보낸 프레임 이름과 캡처 경로의 HTML 문자를 이스케이프한다', () => {
+  const html = t.spotlight('/capture?x="bad"', { x: 0, y: 0, w: 10, h: 10 }, { x: 0, y: 0, w: 30, h: 30 }, 100, 100, '<unsafe>', 'reference')
+  assert.ok(!html.includes('<unsafe>')); assert.ok(html.includes('&lt;unsafe&gt;')); assert.ok(html.includes('&quot;bad&quot;'))
+})
+
+test('우선 문제 선택: 최신 기호 검사 대신 요약에 표시한 크기의 실제 넘침 검사로 이동한다', () => {
+  const d = ds.find(d => d.rule === 'R1'); const result = t.inspectionFor(d, actual.inspectionRows)
+  assert.equal(result.test, 'R1'); assert.equal(result.size, '320x568')
+  assert.equal(result.findings[0].value, 140)
+  assert.equal(t.inspectionFor(d, [{ ...result, side: 'base' }]), null)
+})

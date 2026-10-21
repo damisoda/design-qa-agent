@@ -1,0 +1,87 @@
+{
+  "note": "stubs.json(인증)에 사전등록 가족 1명을 더한 대역. 가족이 있어야 열리는 화면(가족 선택 창)용. 이름·좌표는 가짜 값이다.",
+  "stubs": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "$body.login_id|dqa",
+        "role": "$body.role|guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "$body.login_id|dqa",
+        "role": "guardian"
+      }
+    },
+    {
+      "path": "/auth/me",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "dqa",
+        "role": "guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/role",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "dqa",
+        "role": "$body.role|guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "json": {
+        "ok": true
+      }
+    },
+    {
+      "method": "GET",
+      "re": "/phase0/personas$",
+      "json": [
+        {
+          "id": "dqa-persona-1",
+          "name": "홍길순",
+          "age": 78,
+          "type": "dementia",
+          "home": {
+            "lat": 37.5509,
+            "lng": 126.941
+          },
+          "attraction_points": [],
+          "behavior_notes": [],
+          "created_at": "2026-08-10T09:00:00"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "re": "/phase0/personas/[^/]+$",
+      "json": {
+        "id": "dqa-persona-1",
+        "name": "홍길순",
+        "age": 78,
+        "type": "dementia",
+        "home": {
+          "lat": 37.5509,
+          "lng": 126.941
+        },
+        "attraction_points": [],
+        "behavior_notes": [],
+        "created_at": "2026-08-10T09:00:00"
+      }
+    }
+  ]
+}

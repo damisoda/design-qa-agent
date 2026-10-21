@@ -1,0 +1,10 @@
+{
+  "widths": "mobile5",
+  "recipes": [
+    "fieldwork/catalog",
+    "fieldwork/product",
+    "fieldwork/cart",
+    "fieldwork/checkout",
+    "fieldwork/bookings"
+  ]
+}

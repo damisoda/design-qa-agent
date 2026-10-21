@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "geolocation": {
+    "latitude": 37.6061,
+    "longitude": 127.0106,
+    "accuracy": 10
+  },
+  "stubs": "../cbh/stubs.json",
+  "ready": {
+    "text": "최종 목격 장소",
+    "stable_ms": 500
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AppearanceScreen.tsx",
+    "frontend/src/screens/AlertDetailScreen.tsx",
+    "frontend/src/components/FigmaFlowTabBar.tsx"
+  ],
+  "id": "cbh210/detail",
+  "title": "PR210 detail",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "시민으로 시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "fill": {
+        "selector": "input[aria-label=\"이메일 주소\"]"
+      },
+      "value": "citizen.qa@example.test"
+    },
+    {
+      "fill": {
+        "selector": "input[aria-label=\"비밀번호\"]"
+      },
+      "value": "mockpass1234"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "가입하고 시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "click": {
+        "text": "긴급 알림",
+        "exact": true
+      }
+    },
+    {
+      "wait_text": "긴급 수색 알림"
+    },
+    {
+      "click": {
+        "text": "78세 실종 어르신",
+        "exact": false
+      }
+    }
+  ],
+  "journeys": [
+    {
+      "id": "citizen-alert-appearance",
+      "steps": [
+        {
+          "goto": "/"
+        },
+        {
+          "click": "[role=\"button\"]:has-text(\"시작하기\")"
+        },
+        {
+          "click": "[role=\"button\"]:has-text(\"시민으로 시작하기\")"
+        },
+        {
+          "fill": "input[aria-label=\"이메일 주소\"]",
+          "value": "citizen.qa@example.test"
+        },
+        {
+          "fill": "input[aria-label=\"비밀번호\"]",
+          "value": "mockpass1234"
+        },
+        {
+          "click": "[role=\"button\"]:has-text(\"가입하고 시작하기\")"
+        },
+        {
+          "click": "text=\"긴급 알림\""
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "contains": "78세 실종 어르신"
+          },
+          "name": "원래 목 데이터의 경보 목록"
+        },
+        {
+          "click": "text=\"78세 실종 어르신 · 정릉동\""
+        },
+        {
+          "expect": {
+            "selector": "[aria-label=\"인상착의 자세히 보기\"]",
+            "count": 1
+          },
+          "name": "목록에서 상세 진입"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "contains": "최종 목격 장소"
+          },
+          "name": "상세의 사건 정보 유지"
+        },
+        {
+          "click": "[aria-label=\"인상착의 자세히 보기\"]"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "contains": "실종자 인상착의 사진"
+          },
+          "name": "인상착의 상세 진입"
+        }
+      ]
+    }
+  ]
+}

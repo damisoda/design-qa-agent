@@ -1,12 +1,56 @@
 {
   "id": "cbh/signup_guardian",
   "macro": true,
-  "title": "목 모드 보호자 가입(다른 레시피가 use로 부른다)",
+  "title": "목 모드 보호자 가입(다른 레시피가 use로 부른다). 옛 커밋의 아이디 입력칸도 처리",
   "fixtures": "fixture.json",
   "steps": [
-    { "fill": { "selector": "input[type=email]" }, "value": "$fixture.mock_guardian_email" },
-    { "fill": { "selector": "input[type=password]" }, "value": "$fixture.mock_password" },
-    { "click": { "text": "가입하고 시작하기" } },
-    { "wait_text_gone": "가입하고 시작하기" }
+    {
+      "if_visible": {
+        "selector": "input[type=email]"
+      },
+      "then": [
+        {
+          "fill": {
+            "selector": "input[type=email]"
+          },
+          "value": "$fixture.mock_guardian_email"
+        }
+      ]
+    },
+    {
+      "if_visible": {
+        "selector": "input[aria-label=\"아이디\"]"
+      },
+      "then": [
+        {
+          "fill": {
+            "selector": "input[aria-label=\"아이디\"]"
+          },
+          "value": "$fixture.mock_guardian_id"
+        }
+      ]
+    },
+    {
+      "fill": {
+        "selector": "input[type=password]"
+      },
+      "value": "$fixture.mock_password"
+    },
+    {
+      "click": {
+        "one_of": [
+          {
+            "text": "가입하고 시작하기"
+          },
+          {
+            "role": "button",
+            "name": "가입"
+          }
+        ]
+      }
+    },
+    {
+      "wait_text_gone": "가입하고 시작하기"
+    }
   ]
 }

@@ -1,0 +1,221 @@
+{
+  "id": "fieldwork/catalog",
+  "version": 1,
+  "app": "fieldwork",
+  "title": "Catalog",
+  "start": {
+    "path": "/index.html"
+  },
+  "set_storage": {
+    "fieldwork-state": {
+      "guests": 2,
+      "date": "2026-10-24",
+      "slot": "14:00",
+      "cart": true,
+      "discount": 0,
+      "item": "clay",
+      "booking": {
+        "id": "FW-1042",
+        "name": "Jamie Park",
+        "email": "jamie@example.test",
+        "date": "2026-10-24",
+        "guests": 2,
+        "total": 116000,
+        "cancelled": false
+      }
+    }
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 350
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/fieldwork-service/designs/catalog/design.json",
+  "journeys": [
+    {
+      "id": "booking-lifecycle",
+      "steps": [
+        {
+          "goto": "/index.html"
+        },
+        {
+          "click": "[data-action=\"filter:Craft\"]"
+        },
+        {
+          "expect": {
+            "selector": ".result-count",
+            "text": "2 experiences"
+          }
+        },
+        {
+          "fill": "#search",
+          "value": "not a workshop"
+        },
+        {
+          "expect": {
+            "selector": ".result-count",
+            "text": "0 experiences"
+          }
+        },
+        {
+          "fill": "#search",
+          "value": ""
+        },
+        {
+          "click": "[data-action=\"filter:All\"]"
+        },
+        {
+          "click": "[data-action=\"product.html?item=clay\"]"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "path": "/product.html"
+          }
+        },
+        {
+          "click": "[data-action=\"quantity-up\"]"
+        },
+        {
+          "click": "[data-action=\"add-to-cart\"]"
+        },
+        {
+          "expect": {
+            "selector": "#messages",
+            "contains": "Only 2 places"
+          }
+        },
+        {
+          "click": "[data-action=\"slot:17:00\"]"
+        },
+        {
+          "click": "[data-action=\"add-to-cart\"]"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "path": "/cart.html"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".total",
+            "text": "KRW 174,000"
+          }
+        },
+        {
+          "fill": "#promo",
+          "value": "wrong"
+        },
+        {
+          "click": "[data-action=\"apply-promo\"]"
+        },
+        {
+          "expect": {
+            "selector": ".total",
+            "text": "KRW 174,000"
+          }
+        },
+        {
+          "fill": "#promo",
+          "value": "WEEKEND10"
+        },
+        {
+          "click": "[data-action=\"apply-promo\"]"
+        },
+        {
+          "expect": {
+            "selector": ".total",
+            "text": "KRW 156,600"
+          }
+        },
+        {
+          "click": "[data-action=\"checkout.html\"]"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "path": "/checkout.html"
+          }
+        },
+        {
+          "click": "[data-action=\"confirm-booking\"]"
+        },
+        {
+          "expect": {
+            "selector": ".field-error",
+            "count": 4
+          }
+        },
+        {
+          "fill": "#guest-name",
+          "value": "Jamie Park"
+        },
+        {
+          "fill": "#guest-email",
+          "value": "jamie@example.test"
+        },
+        {
+          "fill": "#guest-phone",
+          "value": "01012345678"
+        },
+        {
+          "check": "#terms"
+        },
+        {
+          "click": "[data-action=\"confirm-booking\"]"
+        },
+        {
+          "expect": {
+            "selector": "body",
+            "path": "/bookings.html"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".booking-status",
+            "text": "Booking confirmed"
+          }
+        },
+        {
+          "reload": true
+        },
+        {
+          "expect": {
+            "selector": ".booking-status",
+            "text": "Booking confirmed"
+          }
+        },
+        {
+          "click": "[data-action=\"cancel-booking\"]"
+        },
+        {
+          "click": "button[value=\"keep\"]"
+        },
+        {
+          "expect": {
+            "selector": ".booking-status",
+            "text": "Booking confirmed"
+          }
+        },
+        {
+          "click": "[data-action=\"cancel-booking\"]"
+        },
+        {
+          "click": "button[value=\"cancel\"]"
+        },
+        {
+          "expect": {
+            "selector": ".booking-status",
+            "text": "Booking cancelled"
+          }
+        }
+      ]
+    }
+  ]
+}

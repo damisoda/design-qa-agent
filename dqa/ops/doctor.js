@@ -1,5 +1,5 @@
 // dqa doctor: 검수에 필요한 것들이 준비됐는지 표로 보여 준다(바꾸는 것 없음).
-// dqa up: 맥미니 터널(18434 Ollama, 18080 임베딩)이 닫혀 있으면 연다. 다른 것은 띄우지 않는다.
+// dqa up: 맥미니 터널(18434 Ollama, 18080 임베딩)이 닫혀 있으면 열고, Dify 보고서 에이전트용 생각 끔 중계기(18435)를 띄운다.
 const fs = require('fs')
 const net = require('net')
 const { execFileSync, spawnSync } = require('child_process')
@@ -52,6 +52,7 @@ async function checks (cfg) {
   const df = sh('df', ['-g', home('~/design-qa-cases')])
   const avail = df && df.split('\n')[1] && Number(df.split('\n')[1].split(/\s+/)[3])
   add('디스크 여유(빌드 캐시)', !avail || avail >= 10, avail ? `${avail}GB` : '확인 불가', '빌드 캐시를 정리한다')
+  add('생각 끔 중계기(Dify LLM용 :18435)', await portOpen(18435), (await portOpen(18435)) ? '열림' : '닫힘', 'dqa up')
   add('도구 서버(4주차 Dify용 :8791)', await portOpen(8791), (await portOpen(8791)) ? '열림' : '닫힘(4주차 앱을 쓸 때만 필요)')
   add('dqa 웹 화면(:' + cfg.serve.port + ')', await portOpen(cfg.serve.port), (await portOpen(cfg.serve.port)) ? `http://127.0.0.1:${cfg.serve.port}` : '닫힘(dqa serve)')
   add('실행 기록', true, fs.existsSync(RUNS) ? `${fs.readdirSync(RUNS).length}개 (${RUNS})` : '없음')
@@ -70,11 +71,22 @@ async function doctor (args, cfg) {
 
 async function up (args, cfg) {
   const port = Number(new URL(cfg.ollama.url).port)
-  if (await portOpen(port)) { console.log(`터널이 이미 열려 있다(${port})`); return 0 }
-  const fw = cfg.mac_mini.forwards.flatMap((f) => ['-L', f])
-  const r = spawnSync('ssh', ['-fN', '-o', 'BatchMode=yes', '-o', 'ServerAliveInterval=30', '-o', 'ExitOnForwardFailure=yes', ...fw, cfg.mac_mini.ssh], { encoding: 'utf8', timeout: 30000 })
-  const ok = await portOpen(port)
-  console.log(ok ? `터널을 열었다(${cfg.mac_mini.forwards.join(', ')})` : `터널을 열지 못했다: ${(r.stderr || '').trim() || '원인 불명'}`)
+  let ok = await portOpen(port)
+  if (ok) console.log(`터널이 이미 열려 있다(${port})`)
+  else {
+    const fw = cfg.mac_mini.forwards.flatMap((f) => ['-L', f])
+    const r = spawnSync('ssh', ['-fN', '-o', 'BatchMode=yes', '-o', 'ServerAliveInterval=30', '-o', 'ExitOnForwardFailure=yes', ...fw, cfg.mac_mini.ssh], { encoding: 'utf8', timeout: 30000 })
+    ok = await portOpen(port)
+    console.log(ok ? `터널을 열었다(${cfg.mac_mini.forwards.join(', ')})` : `터널을 열지 못했다: ${(r.stderr || '').trim() || '원인 불명'}`)
+  }
+  // Dify LLM 노드가 생각하기를 끄도록 거치는 중계기(모델 이름 끝 -nothink). 이미 떠 있으면 그대로 둔다
+  if (await portOpen(18435)) console.log('생각 끔 중계기가 이미 떠 있다(18435)')
+  else {
+    const child = require('child_process').spawn('python3', [require('path').join(__dirname, 'nothink_proxy.py')], { detached: true, stdio: 'ignore' })
+    child.unref()
+    await new Promise((r) => setTimeout(r, 800))
+    console.log((await portOpen(18435)) ? '생각 끔 중계기를 띄웠다(127.0.0.1:18435 → 18434)' : '생각 끔 중계기를 띄우지 못했다')
+  }
   return ok ? 0 : 2
 }
 

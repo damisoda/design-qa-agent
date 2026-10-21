@@ -1,0 +1,36 @@
+{
+  "authority": "current implemented rules; historical P03 code aliases are handled explicitly",
+  "rules": [
+    "A1",
+    "A2",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "F1",
+    "G1",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "L1",
+    "L2",
+    "M1",
+    "M2",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "T1"
+  ],
+  "source_hashes": {
+    "dqa/measure/inpage.js": "15d6d178fa10146ebfcb071379da96a47c783616c50a83e47aa4e0cdfac33491",
+    "dqa/measure/cluster.js": "691f3be79d0a92bbbe49db5683e734344a4b34c4ea35e3498fb9d89c3618855f",
+    "dqa/design/compare.js": "726c6a99c0bd718aa8cfde5c68bbb15697d6a87682567c9c27a5f4446c8e6a1c",
+    "dqa/interact/probe.js": "6ab61398dab5204e47694029db38f31d5b35e5ace8d5949c85e35a2e4aeda59c",
+    "dqa/judge/ollama.js": "2c5578e6c5b0eb9e79ab93e4333f0dd8872b3b2f1b7b3bf0761c43772ec6dbea"
+  }
+}

@@ -1,0 +1,1568 @@
+{
+  "source": "figma-plugin",
+  "file": "Atelier — 앱 전체 검수·수정 데모",
+  "page": "Fieldwork · service",
+  "page_id": "5:6",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "5:206",
+    "name": "Your bag",
+    "width": 375,
+    "height": 1191,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x1191",
+  "tokens": {
+    "color/line": "#CDD8E3",
+    "color/ink": "#17324D",
+    "color/paper": "#FFFFFF",
+    "color/muted": "#536475",
+    "color/soft": "#F0F4F8",
+    "color/brand": "#076B57"
+  },
+  "nodes": [
+    {
+      "id": "5:207",
+      "name": "site-header",
+      "type": "FRAME",
+      "x": 20,
+      "y": 20,
+      "w": 335,
+      "h": 57,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+          0,
+          0,
+          12,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "stroke": {
+        "width": 0,
+        "hex": "#CDD8E3",
+        "opacity": 1,
+        "token": "color/line"
+      },
+      "children": [
+        {
+          "id": "5:208",
+          "name": "text [fw-158]",
+          "type": "TEXT",
+          "x": 20,
+          "y": 26,
+          "w": 111,
+          "h": 32,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "fieldwork",
+            "fontFamily": "Inter",
+            "fontStyle": "Bold",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        },
+        {
+          "id": "5:209",
+          "name": "Action / nav-button [fw-159]",
+          "type": "FRAME",
+          "x": 294,
+          "y": 20,
+          "w": 61,
+          "h": 44,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+          },
+          "fill": {
+            "hex": "#FFFFFF",
+            "opacity": 1,
+            "token": "color/paper"
+          },
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE",
+                  "dest": "5:313",
+                  "dest_name": "My bookings",
+                  "url": null
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "id": "I5:209;5:29",
+              "name": "Label",
+              "type": "TEXT",
+              "x": 294,
+              "y": 31,
+              "w": 61,
+              "h": 22,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "My visits",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 22,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:211",
+      "name": "text [fw-93]",
+      "type": "TEXT",
+      "x": 20,
+      "y": 101,
+      "w": 335,
+      "h": 41,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Your bag",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": 41,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#17324D",
+          "opacity": 1,
+          "token": "color/ink"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "5:212",
+      "name": "text [fw-94]",
+      "type": "TEXT",
+      "x": 20,
+      "y": 166,
+      "w": 335,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "One good afternoon, ready to book.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#536475",
+          "opacity": 1,
+          "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "5:213",
+      "name": "cart-item",
+      "type": "FRAME",
+      "x": 20,
+      "y": 214,
+      "w": 335,
+      "h": 357,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 16,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "children": [
+        {
+          "id": "5:214",
+          "name": "art [fw-96]",
+          "type": "IMAGE",
+          "x": 20,
+          "y": 214,
+          "w": 335,
+          "h": 135,
+          "sizing": {
+            "h": "FILL",
+            "v": "FIXED"
+          },
+          "radius": 10
+        },
+        {
+          "id": "5:227",
+          "name": "product-title [fw-97]",
+          "type": "TEXT",
+          "x": 20,
+          "y": 365,
+          "w": 335,
+          "h": 48,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Clay & conversation: hand-built ceramics with local makers",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 20,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:228",
+          "name": "selection",
+          "type": "FRAME",
+          "x": 20,
+          "y": 429,
+          "w": 335,
+          "h": 82,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 6,
+            "padding": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "fill": {
+            "hex": "#F0F4F8",
+            "opacity": 1,
+            "token": "color/soft"
+          },
+          "radius": 12,
+          "children": [
+            {
+              "id": "5:229",
+              "name": "text [fw-99]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 445,
+              "w": 303,
+              "h": 24,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Saturday, 24 October",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 16,
+                "fontWeight": 600,
+                "lineHeight": 24,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:230",
+              "name": "text [fw-100]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 475,
+              "w": 303,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "14:00–16:00 · English · 2 guests",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#536475",
+                  "opacity": 1,
+                  "token": "color/muted"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            }
+          ]
+        },
+        {
+          "id": "5:231",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 20,
+          "y": 527,
+          "w": 335,
+          "h": 44,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:232",
+              "name": "quantity",
+              "type": "FRAME",
+              "x": 20,
+              "y": 527,
+              "w": 132,
+              "h": 44,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 12,
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "align": "CENTER",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FIXED",
+                "v": "HUG"
+              },
+              "children": [
+                {
+                  "id": "5:233",
+                  "name": "Action / quantity-button [fw-103]",
+                  "type": "FRAME",
+                  "x": 20,
+                  "y": 527,
+                  "w": 44,
+                  "h": 44,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 0,
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "align": "CENTER",
+                    "justify": "CENTER",
+                    "wrap": false
+                  },
+                  "sizing": {
+                    "h": "FIXED",
+                    "v": "FIXED"
+                  },
+                  "fill": {
+                    "hex": "#FFFFFF",
+                    "opacity": 1,
+                    "token": "color/paper"
+                  },
+                  "stroke": {
+                    "width": 1,
+                    "hex": "#CDD8E3",
+                    "opacity": 1,
+                    "token": "color/line"
+                  },
+                  "radius": 8,
+                  "children": [
+                    {
+                      "id": "I5:233;5:27",
+                      "name": "Label",
+                      "type": "TEXT",
+                      "x": 35,
+                      "y": 537,
+                      "w": 14,
+                      "h": 24,
+                      "sizing": {
+                        "h": "HUG",
+                        "v": "HUG"
+                      },
+                      "text": {
+                        "content": "−",
+                        "fontFamily": "Inter",
+                        "fontStyle": "Semi Bold",
+                        "fontSize": 20,
+                        "fontWeight": 600,
+                        "lineHeight": 24,
+                        "letterSpacing": 0,
+                        "color": {
+                          "hex": "#17324D",
+                          "opacity": 1,
+                          "token": "color/ink"
+                        },
+                        "align": "LEFT",
+                        "wrap": "NONE"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "5:235",
+                  "name": "quantity-value [fw-104]",
+                  "type": "TEXT",
+                  "x": 76,
+                  "y": 537,
+                  "w": 10,
+                  "h": 24,
+                  "sizing": {
+                    "h": "HUG",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "2",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Semi Bold",
+                    "fontSize": 16,
+                    "fontWeight": 600,
+                    "lineHeight": 24,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#17324D",
+                      "opacity": 1,
+                      "token": "color/ink"
+                    },
+                    "align": "LEFT",
+                    "wrap": "NONE"
+                  }
+                },
+                {
+                  "id": "5:236",
+                  "name": "Action / quantity-button [fw-105]",
+                  "type": "FRAME",
+                  "x": 98,
+                  "y": 527,
+                  "w": 44,
+                  "h": 44,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 0,
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "align": "CENTER",
+                    "justify": "CENTER",
+                    "wrap": false
+                  },
+                  "sizing": {
+                    "h": "FIXED",
+                    "v": "FIXED"
+                  },
+                  "fill": {
+                    "hex": "#FFFFFF",
+                    "opacity": 1,
+                    "token": "color/paper"
+                  },
+                  "stroke": {
+                    "width": 1,
+                    "hex": "#CDD8E3",
+                    "opacity": 1,
+                    "token": "color/line"
+                  },
+                  "radius": 8,
+                  "children": [
+                    {
+                      "id": "I5:236;5:27",
+                      "name": "Label",
+                      "type": "TEXT",
+                      "x": 113,
+                      "y": 537,
+                      "w": 14,
+                      "h": 24,
+                      "sizing": {
+                        "h": "HUG",
+                        "v": "HUG"
+                      },
+                      "text": {
+                        "content": "+",
+                        "fontFamily": "Inter",
+                        "fontStyle": "Semi Bold",
+                        "fontSize": 20,
+                        "fontWeight": 600,
+                        "lineHeight": 24,
+                        "letterSpacing": 0,
+                        "color": {
+                          "hex": "#17324D",
+                          "opacity": 1,
+                          "token": "color/ink"
+                        },
+                        "align": "LEFT",
+                        "wrap": "NONE"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "5:238",
+              "name": "Action / text-link [fw-106]",
+              "type": "FRAME",
+              "x": 300,
+              "y": 527,
+              "w": 55,
+              "h": 44,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "align": "CENTER",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FIXED",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "children": [
+                {
+                  "id": "I5:238;5:31",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "x": 300,
+                  "y": 538,
+                  "w": 55,
+                  "h": 22,
+                  "sizing": {
+                    "h": "HUG",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "Remove",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Semi Bold",
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "lineHeight": 22,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#17324D",
+                      "opacity": 1,
+                      "token": "color/ink"
+                    },
+                    "align": "LEFT",
+                    "wrap": "NONE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:240",
+      "name": "Content",
+      "type": "FRAME",
+      "x": 20,
+      "y": 595,
+      "w": 335,
+      "h": 128,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 8,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "children": [
+        {
+          "id": "5:241",
+          "name": "input [fw-108]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 595,
+          "w": 335,
+          "h": 76,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 8,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:242",
+              "name": "Promo code",
+              "type": "TEXT",
+              "x": 20,
+              "y": 595,
+              "w": 335,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Promo code",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:243",
+              "name": "Frame",
+              "type": "FRAME",
+              "x": 20,
+              "y": 623,
+              "w": 335,
+              "h": 48,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "padding": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "align": "MIN",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FILL",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "stroke": {
+                "width": 1,
+                "hex": "#CDD8E3",
+                "opacity": 1,
+                "token": "color/line"
+              },
+              "radius": 8,
+              "children": [
+                {
+                  "id": "5:244",
+                  "name": "Enter a code",
+                  "type": "TEXT",
+                  "x": 33,
+                  "y": 636,
+                  "w": 309,
+                  "h": 20,
+                  "sizing": {
+                    "h": "FILL",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "Enter a code",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Regular",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lineHeight": 20,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#536475",
+                      "opacity": 1,
+                      "token": "color/muted"
+                    },
+                    "align": "LEFT",
+                    "wrap": "WRAP"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5:245",
+          "name": "Action / outlined [fw-109]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 679,
+          "w": 335,
+          "h": 44,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "CENTER",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "FIXED"
+          },
+          "fill": {
+            "hex": "#FFFFFF",
+            "opacity": 1,
+            "token": "color/paper"
+          },
+          "stroke": {
+            "width": 1,
+            "hex": "#CDD8E3",
+            "opacity": 1,
+            "token": "color/line"
+          },
+          "radius": 8,
+          "children": [
+            {
+              "id": "I5:245;5:21",
+              "name": "Label",
+              "type": "TEXT",
+              "x": 149,
+              "y": 690,
+              "w": 77,
+              "h": 22,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Apply code",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 22,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:247",
+      "name": "price-summary",
+      "type": "FRAME",
+      "x": 20,
+      "y": 747,
+      "w": 335,
+      "h": 168,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 16,
+        "padding": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "fill": {
+        "hex": "#F0F4F8",
+        "opacity": 1,
+        "token": "color/soft"
+      },
+      "radius": 12,
+      "children": [
+        {
+          "id": "5:248",
+          "name": "text [fw-111]",
+          "type": "TEXT",
+          "x": 36,
+          "y": 763,
+          "w": 303,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Price summary",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 18,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:249",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 803,
+          "w": 303,
+          "h": 20,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:250",
+              "name": "text [fw-113]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 803,
+              "w": 213,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "2 guests × KRW 58,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:251",
+              "name": "subtotal [fw-114]",
+              "type": "TEXT",
+              "x": 249,
+              "y": 803,
+              "w": 90,
+              "h": 20,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "KRW 116,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "5:252",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 839,
+          "w": 303,
+          "h": 20,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:253",
+              "name": "text [fw-116]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 839,
+              "w": 246,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Service fee",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:254",
+              "name": "text [fw-117]",
+              "type": "TEXT",
+              "x": 282,
+              "y": 839,
+              "w": 57,
+              "h": 20,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Included",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "5:255",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 875,
+          "w": 303,
+          "h": 24,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:256",
+              "name": "text [fw-119]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 875,
+              "w": 171,
+              "h": 24,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Total",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 16,
+                "fontWeight": 600,
+                "lineHeight": 24,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:257",
+              "name": "total [fw-120]",
+              "type": "TEXT",
+              "x": 207,
+              "y": 875,
+              "w": 132,
+              "h": 24,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "KRW 116,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Bold",
+                "fontSize": 20,
+                "fontWeight": 700,
+                "lineHeight": 24,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:258",
+      "name": "Action / Primary [fw-121]",
+      "type": "FRAME",
+      "x": 20,
+      "y": 939,
+      "w": 335,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#076B57",
+        "opacity": 1,
+        "token": "color/brand"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "5:265",
+              "dest_name": "Checkout",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I5:258;5:17",
+          "name": "Label",
+          "type": "TEXT",
+          "x": 104,
+          "y": 951,
+          "w": 167,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Continue to checkout",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5:260",
+      "name": "Action / outlined [fw-122]",
+      "type": "FRAME",
+      "x": 20,
+      "y": 1011,
+      "w": 335,
+      "h": 44,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 1,
+        "token": "color/paper"
+      },
+      "stroke": {
+        "width": 1,
+        "hex": "#CDD8E3",
+        "opacity": 1,
+        "token": "color/line"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "5:32",
+              "dest_name": "Catalog",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I5:260;5:21",
+          "name": "Label",
+          "type": "TEXT",
+          "x": 137,
+          "y": 1022,
+          "w": 102,
+          "h": 22,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Keep exploring",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5:262",
+      "name": "footer",
+      "type": "FRAME",
+      "x": 20,
+      "y": 1079,
+      "w": 335,
+      "h": 92,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "fill": {
+        "hex": "#F0F4F8",
+        "opacity": 1,
+        "token": "color/soft"
+      },
+      "radius": 12,
+      "children": [
+        {
+          "id": "5:263",
+          "name": "text [fw-124]",
+          "type": "TEXT",
+          "x": 40,
+          "y": 1099,
+          "w": 295,
+          "h": 20,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Small groups. Real makers.",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:264",
+          "name": "text [fw-125]",
+          "type": "TEXT",
+          "x": 40,
+          "y": 1131,
+          "w": 295,
+          "h": 20,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Questions? hello@fieldwork.example",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#536475",
+              "opacity": 1,
+              "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "5:313": {
+      "name": "My bookings",
+      "texts": [
+        "fieldwork",
+        "My visits",
+        "Your next good afternoon",
+        "Booking confirmed",
+        "Clay & conversation: hand-built ceramics with local makers",
+        "Saturday, 24 October",
+        "14:00–16:00 · English · 2 guests",
+        "Booking FW-1042",
+        "Meet your host",
+        "Studio Haneul",
+        "18 Seongsui-ro, Seongdong-gu, Seoul",
+        "Please arrive 10 minutes early. Your host will have everything ready.",
+        "View booking details",
+        "Cancel booking",
+        "Find another experience",
+        "Small groups. Real makers.",
+        "Questions? hello@fieldwork.example"
+      ]
+    },
+    "5:265": {
+      "name": "Checkout",
+      "texts": [
+        "fieldwork",
+        "My visits",
+        "Complete your booking",
+        "Your details stay on this device in this demo.",
+        "Saturday, 24 October",
+        "14:00–16:00 · English · 2 guests",
+        "Guest details",
+        "Full name",
+        "Name on the reservation",
+        "Email address",
+        "you@example.com",
+        "Phone number",
+        "+82 10 1234 5678",
+        "Anything your host should know?",
+        "Accessibility needs or a special occasion",
+        "Price summary",
+        "2 guests × KRW 58,000",
+        "KRW 116,000",
+        "Service fee",
+        "Included",
+        "Total",
+        "KRW 116,000",
+        "I agree to the cancellation policy.",
+        "Confirm booking",
+        "No payment is collected. This is a local service prototype.",
+        "Small groups. Real makers.",
+        "Questions? hello@fieldwork.example"
+      ]
+    },
+    "5:32": {
+      "name": "Catalog",
+      "texts": [
+        "fieldwork",
+        "My visits",
+        "Spend your weekend\nwith a new perspective.",
+        "Book thoughtful experiences with independent studios across Seoul.",
+        "Find an experience",
+        "Try ceramics, coffee or a neighbourhood",
+        "All",
+        "Craft",
+        "Food",
+        "Nature",
+        "Made for your weekend",
+        "4 experiences",
+        "Seongsu / Craft",
+        "Clay & conversation: hand-built ceramics with local makers",
+        "4.9 / 5",
+        "KRW 58,000",
+        "View ceramics",
+        "Yeonnam / Food",
+        "A slow morning: coffee tasting in a working roastery",
+        "4.8 / 5",
+        "KRW 42,000",
+        "View coffee",
+        "Mangwon / Nature",
+        "Botanical walks and seasonal flower arranging",
+        "4.9 / 5",
+        "KRW 64,000",
+        "View garden",
+        "Euljiro / Craft",
+        "Make your own screen-printed art edition",
+        "4.7 / 5",
+        "KRW 52,000",
+        "View print",
+        "Small groups. Real makers.",
+        "Questions? hello@fieldwork.example"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T12:37:34.653Z"
+}

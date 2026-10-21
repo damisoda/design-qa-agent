@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "name": "Fieldwork",
+  "figma": "https://www.figma.com/design/Yz8NzeU2wjqmzuYkRvvSfm?node-id=5-6",
+  "local": "/Users/damisoda/design-qa-agent/eval/fieldwork-service/frontend",
+  "screens": [
+    {
+      "id": "fieldwork/catalog",
+      "path": "/index.html",
+      "frame_id": "5:32"
+    },
+    {
+      "id": "fieldwork/product",
+      "path": "/product.html",
+      "frame_id": "5:148"
+    },
+    {
+      "id": "fieldwork/cart",
+      "path": "/cart.html",
+      "frame_id": "5:206"
+    },
+    {
+      "id": "fieldwork/checkout",
+      "path": "/checkout.html",
+      "frame_id": "5:265"
+    },
+    {
+      "id": "fieldwork/bookings",
+      "path": "/bookings.html",
+      "frame_id": "5:313"
+    }
+  ],
+  "seed": {
+    "guests": 2,
+    "date": "2026-10-24",
+    "slot": "14:00",
+    "cart": true,
+    "discount": 0,
+    "item": "clay",
+    "booking": {
+      "id": "FW-1042",
+      "name": "Jamie Park",
+      "email": "jamie@example.test",
+      "date": "2026-10-24",
+      "guests": 2,
+      "total": 116000,
+      "cancelled": false
+    }
+  },
+  "scope": "local service prototype; no external payment or real customer data"
+}

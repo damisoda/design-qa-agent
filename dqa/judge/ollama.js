@@ -1,3 +1,4 @@
+const { unsupportedClaims } = require('./grounding')
 // 판정자: 맥미니 Ollama(gemma4:e4b-16k)를 직접 부른다. 생각하기 끔(think:false), 온도 0, JSON 스키마 출력.
 // 측정은 도구가 이미 했다. 모델은 주어진 사실만으로 판정·원인 고르기·수정 제안을 쓰고, 코드가 숫자를 검증한다.
 // 맥미니 보호: 다른 모델이 올라가 있거나 여유 메모리가 기준 미만이면 부르지 않는다. 이미지는 보내지 않는다.
@@ -38,6 +39,16 @@ async function preflight (cfg) {
   } catch (e) { return { ok: false, reason: `Ollama 연결 없음(${o.url}): ${e.name === 'AbortError' ? '시간 초과' : e.message}. 터널은 dqa up으로 연다` } }
 }
 
+// P03 결함 유형표와 dqa 코드가 다른 경우의 대응(10-12). 시안 비교 D5(모서리·테두리)는 P03 D5(시안 잔재)와 다르고,
+// dqa R5(크기별 줄바꿈)는 P03 R5(크기 규칙 위반)와 다르다. 맞는 행이 없으면 기준을 주지 않는다(엉뚱한 기준보다 낫다)
+const P03_OF = { design: { D2: 'D2', D3: 'D3', F1: 'R5' }, interact: { I1: 'S4' } }
+function criteriaFor (d) {
+  // P03 S4 is specifically measured occlusion; no response alone does not establish that cause.
+  if (d.kind === 'interact' && d.rule === 'I1' && !(d.interact && d.interact.covered_by)) return ''
+  if (d.kind) { const c = (P03_OF[d.kind] || {})[d.rule]; return c ? criteria(c) : '' }
+  return d.rule === 'R5' ? '' : criteria(d.rule)
+}
+
 // 판정 기준: P03의 해당 규칙 행(결함 유형표)
 let P03 = null
 function criteria (rule) {
@@ -65,12 +76,12 @@ const SYSTEM = `너는 디자인 검수의 보고서 에이전트다. 측정은 
 - expected: 원본(기대)은 어떠해야 하는가. [원본·기대] 사실(변경 전 상태, 판정 기준, 지식의 대응)을 근거로 한두 문장.
 - verdict: "결함"(판정 기준에 맞고 깨져 보임) / "의도된 디자인일 수 있음"(말줄임·줄 수 제한처럼 일부러 자른 것, 특정 크기에서만 생겨 의도가 모호함) / "결함 아님"(측정이 잘못 잡은 것이 분명함).
 - reason: verdict의 이유 한 문장.
-규칙: 숫자는 사실에 있는 것만 쓴다. 코드를 어떻게 고칠지는 쓰지 않는다(코드 에이전트의 일). 한국어로 짧게.`
+규칙: 문제와 이유에는 측정한 현상만 쓴다. 무반응만으로 가림·이벤트 핸들러 누락 같은 원인을 추측하거나 확정하지 않는다. 원인 후보와 일반 문서 설명은 해당 화면의 관측 사실이 아니다. 숫자는 사실에 있는 것만 쓴다. 코드를 어떻게 고칠지는 쓰지 않는다(코드 에이전트의 일). 한국어로 짧게.`
 
 // 원본·기대: 코드가 아는 사실(변경 전 상태, 판정 기준, 지식의 대응). Figma 원본 값은 2단계에서 붙는다.
 function expectedFacts (d) {
   const L = []
-  const row = criteria(d.rule)
+  const row = criteriaFor(d)
   const cols = row.split('|').map((x) => x.trim())
   if (cols.length > 4 && cols[4]) L.push(`[원본·기대(판정 기준 P03)] 이렇게 되면 결함이다: ${cols[4]}`)
   if (d.diff) {
@@ -79,14 +90,22 @@ function expectedFacts (d) {
     else L.push('[원본·기대(변경 전)] 변경 전에도 같은 결함이 있었다(기존 결함)')
   }
   for (const k of knowledgeFor(d.diag)) { const fix = k.text.split('\n').find((l) => l.includes('대응')); if (fix) L.push(`[원본·기대(지식 ${k.id})] ${fix.replace(/^[-*\s]+/, '').replace(/\*\*/g, '')}`) }
-  L.push('[원본·기대(Figma)] 아직 없음(2단계에서 Figma 플러그인 값으로 채운다)')
+  // Figma 시안 값(시안 비교 결함)과 프로토타입 연결(눌러 보기 결함)
+  if (d.kind === 'design' && d.design) {
+    const n = d.design.node || {}
+    L.push(`[원본·기대(Figma)] 노드 "${n.name || ''}"(${n.id || ''}): ${(d.design.values || []).map((v) => `${v.prop || '값'} 시안 ${v.design} · 구현 ${v.impl}`).join(' / ')}`)
+  } else if (d.kind === 'interact' && d.interact) {
+    const e = d.interact.expected
+    L.push(e ? `[원본·기대(Figma)] 프로토타입 연결: "${e.node}" 누름 → ${e.actions.map((a) => a.type === 'NODE' ? `화면 "${a.dest_name || a.dest}" ${a.navigation === 'OVERLAY' ? '겹쳐 열기' : '이동'}` : a.type === 'URL' ? `주소 ${a.url}` : '뒤로 가기').join(', ')}` : '[원본·기대] 누를 수 있게 보이는 요소는 누르면 무언가 일어나야 한다(이동·열림·상태 변화)')
+    if (d.interact.signals && d.interact.signals.length) L.push(`[관찰] ${d.interact.signals.join(', ')}`)
+  } else L.push('[원본·기대(Figma)] 이 결함에 연결된 시안 값 없음')
   return L
 }
 
 function facts (d, screenTitle) {
   const lines = []
   lines.push(`[규칙] ${d.rule} ${d.rule_name}`)
-  const c = criteria(d.rule); if (c) lines.push(`[판정 기준(P03)] ${c}`)
+  const c = criteriaFor(d); if (c) lines.push(`[판정 기준(P03)] ${c}`)
   lines.push(`[화면] ${screenTitle || d.screen}`)
   lines.push(`[요소] ${d.labels.slice(0, 6).join(', ')}`)
   for (const w of d.widths) lines.push(`[측정 ${w.w}x${w.h}] ${w.text || ''}${w.scale && w.scale !== 1 ? ` (화면 배율 ${w.scale}, 시안 기준 ${w.canvas_px})` : ''}`)
@@ -107,11 +126,11 @@ function facts (d, screenTitle) {
   return lines.join('\n')
 }
 
-// 답에 나온 숫자가 모두 사실 안에 있는지(score_bench.py의 정직성 검사와 같은 생각). 9 이하 정수(개수 등)는 허용
+// 답에 나온 숫자는 크기와 관계없이 측정 사실·검색 근거 안에 있어야 한다.
 function numbersOk (texts, factText) {
   const allowed = new Set(factText.match(/\d+(\.\d+)?/g) || [])
   const used = [].concat(texts).join(' ').match(/\d+(\.\d+)?/g) || []
-  const bad = used.filter((n) => !allowed.has(n) && !(Number(n) <= 9 && Number.isInteger(Number(n))))
+  const bad = used.filter((n) => !allowed.has(n))
   return { ok: bad.length === 0, bad }
 }
 
@@ -131,14 +150,16 @@ async function judgeOne (d, cfg, screenTitle, saveDir) {
     const r = await askJSON(cfg, SCHEMA, msgs)
     if (!r.ans) { msgs.push({ role: 'assistant', content: String(r.raw).slice(0, 2000) }, { role: 'user', content: 'JSON 형식이 아니다. 스키마대로 다시 써라.' }); continue }
     const n = numbersOk([r.ans.problem, r.ans.expected, r.ans.reason], fact)
-    last = { ...r, n }
-    if (n.ok) break
+    const unsupported = unsupportedClaims(r.ans, d)
+    last = { ...r, n, unsupported }
+    if (n.ok && unsupported.length === 0) break
+    if (unsupported.length) { msgs.push({ role: 'assistant', content: r.raw }, { role: 'user', content: '측정에 없는 원인을 썼다. 가림을 추측하지 말고 측정한 현상만 다시 써라.' }); continue }
     msgs.push({ role: 'assistant', content: r.raw }, { role: 'user', content: `사실에 없는 숫자(${n.bad.join(', ')})를 썼다. 사실에 있는 숫자만 쓰거나 숫자를 빼고 다시 써라.` })
   }
   const ms = Date.now() - t0
   if (saveDir) { fs.mkdirSync(saveDir, { recursive: true }); fs.writeFileSync(path.join(saveDir, `${d.id}.json`), JSON.stringify({ facts: fact, messages: msgs, last, ms }, null, 1)) }
-  if (last && last.n.ok) return { status: 'ok', model: cfg.ollama.model, verdict: last.ans.verdict, problem: last.ans.problem, expected: last.ans.expected, reason: last.ans.reason, numbers_verified: true, tries, ms, out_tokens: last.eval_count, in_tokens: last.prompt_eval_count }
-  return { status: 'fallback', model: cfg.ollama.model, reason: last ? `검증 실패: 사실에 없는 숫자 ${last.n.bad.join(', ')}` : 'JSON 아님', tries, ms }
+  if (last && last.n.ok && last.unsupported.length === 0) return { status: 'ok', model: cfg.ollama.model, verdict: last.ans.verdict, problem: last.ans.problem, expected: last.ans.expected, reason: last.ans.reason, numbers_verified: true, tries, ms, out_tokens: last.eval_count, in_tokens: last.prompt_eval_count }
+  return { status: 'fallback', model: cfg.ollama.model, reason: last ? `검증 실패: ${last.unsupported.length ? last.unsupported.join(', ') : '사실에 없는 숫자 ' + last.n.bad.join(', ')}` : 'JSON 아님', tries, ms }
 }
 
 // 보고자의 한눈 요약(LLM 1회). 숫자 검증에 실패하면 템플릿 문장을 쓴다.
@@ -176,4 +197,4 @@ async function unload (cfg) {
   try { await http(`${cfg.ollama.url}/api/generate`, { model: cfg.ollama.model, keep_alive: 0 }, 15000); return true } catch (e) { return false }
 }
 
-module.exports = { preflight, judgeOne, ruleSentence, facts, numbersOk, unload, askJSON, summarizeRun, expectedFacts }
+module.exports = { preflight, judgeOne, ruleSentence, facts, numbersOk, unload, askJSON, summarizeRun, expectedFacts, criteria, criteriaFor, http }

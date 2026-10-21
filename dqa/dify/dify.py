@@ -64,6 +64,8 @@ def main(text: str) -> dict:
         return {"result": "dqa 응답을 읽지 못했다: " + str(text)[:300]}
     if not r.get("ok"):
         return {"result": "검사 실패(" + str(r.get("error_type")) + "): " + str(r.get("message"))}
+    if r.get("running"):
+        return {"result": "검사 진행 중. 상태 작업에서 실행 " + str(r.get("run_id")) + " 결과를 확인한다"}
     s = r.get("summary", {})
     names = {"new": "새로 생김", "worsened": "악화", "unchanged": "기존", "improved": "줄어듦", "none": "상태 없음", "accepted": "무시"}
     lines = ["새로 생김 %d · 악화 %d · 기존 %d · 상태 없음 %d · 해결 %d (%.1f초)" % (s.get("new", 0), s.get("worsened", 0), s.get("unchanged", 0) + s.get("improved", 0), s.get("no_base", 0), s.get("resolved", 0), r.get("total_sec", 0))]
@@ -115,12 +117,22 @@ def main(text: str) -> dict:
     L = ["실행 " + str(r.get("run_id")) + (" (진행 중)" if r.get("running") else "")]
     if r.get("note"):
         L.append(r["note"])
+    if r.get("designs") is not None:
+        L = ["시안 목록 %d개" % len(r["designs"])] + ["- %s (%s, %s)" % (d.get("name"), d.get("frame"), d.get("base")) for d in r["designs"]]
+        return {"result": "\\n".join(L)}
     c = r.get("check")
     if c:
         s = c.get("summary", {})
         L.append("검사: 새로 생김 %d · 악화 %d · 상태 없음 %d · 해결 %d" % (s.get("new", 0), s.get("worsened", 0), s.get("no_base", 0), s.get("resolved", 0)))
         for d in c.get("defects", [])[:6]:
             L.append("- [%s] %s %s: %s%s" % (d.get("status"), d.get("rule"), d.get("rule_name"), ", ".join(d.get("labels", [])), (" / 원인 후보 " + d["cause"]) if d.get("cause") else ""))
+    dz = r.get("design")
+    if dz:
+        for k, v in dz.items():
+            L.append("시안 비교 %s: %s 크기, 시안 글자 %s개 중 %s개 짝, 차이 %s건" % (k, v.get("base"), v.get("design_texts"), v.get("matched"), v.get("issues")))
+    if r.get("briefs"):
+        L.append("수정 요청문(바이브코딩 도구에 붙여 넣기):")
+        L.extend(r["briefs"][:3])
     f = r.get("fix")
     if f and f.get("summary"):
         s = f["summary"]
@@ -128,6 +140,9 @@ def main(text: str) -> dict:
     p = r.get("pr")
     if p:
         L.append("PR: %s → %s, 커밋 %s, 검사 %s, %s" % (p.get("branch"), p.get("base"), str(p.get("commit"))[:8], ", ".join(("통과" if k.get("ok") else "실패") + " " + k.get("name", "") for k in p.get("checks", [])), ("올림 " + str(p.get("url"))) if p.get("pushed") else "올리지 않음"))
+    ap = r.get("apply")
+    if ap:
+        L.append("%s: %s (%s)" % (ap.get("action"), ap.get("note"), ", ".join(ap.get("files", []))))
     L.append("자세히: " + str(r.get("view_url")))
     return {"result": "\\n".join(L)}
 '''
@@ -136,24 +151,28 @@ def main(text: str) -> dict:
 def dsl_act(provider_id):
     node = lambda nid, data, x: {"id": nid, "type": "custom", "data": data, "position": {"x": x, "y": 200}, "positionAbsolute": {"x": x, "y": 200}, "width": 244, "height": 90, "selected": False, "sourcePosition": "right", "targetPosition": "left"}
     edge = lambda s, t, st, tt: {"id": f"{s}-{t}", "source": s, "target": t, "sourceHandle": "source", "targetHandle": "target", "type": "custom", "data": {"sourceType": st, "targetType": tt, "isInIteration": False}, "zIndex": 0}
-    v = lambda name, label, typ="text-input", req=False, options=None: {"variable": name, "label": label, "type": typ, "required": req, "max_length": 80, "options": options or []}
+    v = lambda name, label, typ="text-input", req=False, options=None, n=80: {"variable": name, "label": label, "type": typ, "required": req, "max_length": n, "options": options or []}
+    recipes = [r["id"] for r in json.loads(urllib.request.urlopen("http://127.0.0.1:8792/api/options", timeout=5).read().decode())["recipes"]]
     nodes = [
         node("start", {"type": "start", "title": "시작", "variables": [
-            v("action", "작업", "select", True, ["검사", "상태", "수정 시작", "PR 준비", "PR 올리기"]),
-            v("ref", "검사: 브랜치나 커밋(돌아오길)"), v("base", "검사: 비교 기준 브랜치나 커밋(선택)"),
-            v("recipe", "검사: 화면", "select", False, ["cbh/report", "cbh/guardian_home"]),
-            v("run_id", "상태·수정·PR: 실행 ID"), v("onto", "PR: 향할 브랜치(선택)"),
-            v("confirm", "PR 올리기: 확인 문구(PR 올리기)")]}, 0),
+            v("action", "작업", "select", True, ["검사", "상태", "수정 시작", "적용", "되돌리기", "PR 준비", "PR 올리기", "시안 목록"]),
+            v("local", "검사: 작업 폴더 경로(바이브코딩 중인 프로젝트, 커밋 전과 비교)", n=300),
+            v("design", "검사: 시안 이름(시안 목록에서, 선택)", n=120),
+            v("interact", "검사: 버튼·링크 눌러 보기", "select", False, ["off", "on"]),
+            v("ref", "검사: 브랜치나 커밋(돌아오길, 작업 폴더 대신)"), v("base", "검사: 비교 기준 브랜치나 커밋(선택)"),
+            v("recipe", "검사: 화면(작업 폴더는 비우면 기본 화면)", "select", False, recipes),
+            v("run_id", "상태·수정·적용·PR: 실행 ID(비우면 가장 최근 검사)"), v("defect", "적용: 결함 ID 하나만(선택)"), v("onto", "PR: 향할 브랜치(선택)"),
+            v("confirm", "확인 문구: 적용 / 되돌리기 / PR 올리기")]}, 0),
         node("dqa", {"type": "tool", "title": "dqa 작업(보고서·코드 에이전트)", "provider_id": provider_id, "provider_name": "dqa", "provider_type": "api",
                      "tool_name": "dqa_act", "tool_label": "dqa_act", "tool_description": "사람이 고른 작업을 dqa에 시킨다",
                      "tool_configurations": {}, "is_team_authorization": True,
-                     "tool_parameters": {k: {"type": "mixed", "value": "{{#start.%s#}}" % k} for k in ["action", "ref", "base", "recipe", "run_id", "onto", "confirm"]}}, 320),
+                     "tool_parameters": {k: {"type": "mixed", "value": "{{#start.%s#}}" % k} for k in ["action", "local", "design", "interact", "ref", "base", "recipe", "run_id", "defect", "onto", "confirm"]}}, 320),
         node("fmt", {"type": "code", "title": "결과 정리", "code_language": "python3", "code": ACT_FORMAT,
                      "variables": [{"variable": "text", "value_selector": ["dqa", "text"]}], "outputs": {"result": {"type": "string", "children": None}}}, 640),
         node("end", {"type": "end", "title": "끝", "outputs": [{"variable": "result", "value_selector": ["fmt", "result"]}]}, 960)]
     edges = [edge("start", "dqa", "start", "tool"), edge("dqa", "fmt", "tool", "code"), edge("fmt", "end", "code", "end")]
     doc = {"app": {"name": "dqa · 검사→문제 정의→수정→PR", "mode": "workflow", "icon": "🛠️", "icon_background": "#EFF1F5", "icon_type": "emoji", "use_icon_as_answer_icon": False,
-                   "description": "작업을 고르면 dqa가 검사(보고서 에이전트의 문제 정의), 수정(코드 에이전트, 재측정 검증), PR 준비·올리기(확인 문구 필요)를 한다. 작업 순서는 사람이 고른다."},
+                   "description": "작업을 고르면 dqa가 검사(작업 폴더·브랜치, Figma 시안 비교, 보고서 에이전트의 문제 정의), 수정(코드 에이전트, 재측정 검증), 적용·되돌리기(작업 폴더), PR 준비·올리기를 한다. 바꾸는 작업은 확인 문구가 필요하다. 작업 순서는 사람이 고른다."},
            "kind": "app", "version": "0.7.0",
            "workflow": {"conversation_variables": [], "environment_variables": [], "features": {}, "graph": {"nodes": nodes, "edges": edges, "viewport": {"x": 0, "y": 0, "zoom": 1}}}}
     import yaml
@@ -162,7 +181,13 @@ def dsl_act(provider_id):
     print(out)
 
 
+def normalize_inputs(inputs):
+    # 선택 입력을 빈 문자열로 보내면 Dify가 enum 검증에서 거부한다. 비운 값은 생략한다.
+    return {k: v for k, v in inputs.items() if v is not None and v != ""}
+
+
 def run(app_id, inputs):
+    inputs = normalize_inputs(inputs)
     inner = r'''
 import contextlib, io, json, time
 with contextlib.redirect_stdout(io.StringIO()):
@@ -193,6 +218,14 @@ if __name__ == "__main__":
     elif cmd == "dsl":
         dsl(sys.argv[2])
     elif cmd == "dsl-act":
+        # v6: Dify 지식베이스·반복 검색·재정렬·추가 측정·보고서 검증(act_v6.py)
+        import yaml
+        from act_v6 import build
+        recipes = [r["id"] for r in json.loads(urllib.request.urlopen("http://127.0.0.1:8792/api/options", timeout=5).read().decode())["recipes"]]
+        out = HERE / "dqa-act.dsl.yml"
+        out.write_text(yaml.safe_dump(build(sys.argv[2], recipes), allow_unicode=True, sort_keys=False))
+        print(out)
+    elif cmd == "dsl-act-v4":
         dsl_act(sys.argv[2])
     elif cmd == "act":
         a = dict(x.split("=", 1) for x in sys.argv[3:])

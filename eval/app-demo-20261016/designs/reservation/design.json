@@ -1,0 +1,387 @@
+{
+  "source": "figma-mcp-plugin-export",
+  "file": "Document",
+  "page": "Page 1",
+  "page_id": "0:1",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "2:25",
+    "name": "Reserve your visit",
+    "width": 375,
+    "height": 812,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x812",
+  "tokens": {
+    "color/brand": "#2459D3",
+    "color/paper": "#FFFFFF"
+  },
+  "nodes": [
+    {
+      "id": "4:25",
+      "name": "Brand",
+      "type": "TEXT",
+      "x": 24,
+      "y": 24,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "ATELIER / VISITS",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#2459D3",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:26",
+      "name": "Title",
+      "type": "TEXT",
+      "x": 24,
+      "y": 72,
+      "w": 327,
+      "h": 36,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Reserve your visit",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 36,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#172033",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:27",
+      "name": "Subtitle",
+      "type": "TEXT",
+      "x": 24,
+      "y": 132,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "A quiet hour, just for you.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:28",
+      "name": "Information",
+      "type": "FRAME",
+      "x": 24,
+      "y": 180,
+      "w": 327,
+      "h": 224,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#EDF2FA",
+        "opacity": 1,
+        "token": null
+      },
+      "radius": 8,
+      "children": [
+        {
+          "id": "4:29",
+          "name": "Date label",
+          "type": "TEXT",
+          "x": 48,
+          "y": 204,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "YOUR DATE",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#2459D3",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:30",
+          "name": "Date",
+          "type": "TEXT",
+          "x": 48,
+          "y": 240,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Saturday, October 24",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 20,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:31",
+          "name": "Time",
+          "type": "TEXT",
+          "x": 48,
+          "y": 276,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "11:00 AM · 1 visitor",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:32",
+          "name": "Price",
+          "type": "TEXT",
+          "x": 48,
+          "y": 312,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Admission · Free",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4:33",
+      "name": "Note",
+      "type": "TEXT",
+      "x": 24,
+      "y": 428,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Your reservation is held instantly.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:34",
+      "name": "Action / Primary",
+      "type": "FRAME",
+      "x": 24,
+      "y": 476,
+      "w": 327,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#2459D3",
+        "opacity": 1,
+        "token": "color/brand"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "2:26",
+              "dest_name": "Your visit is booked",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I4:34;2:28",
+          "name": "Continue",
+          "type": "TEXT",
+          "x": 110,
+          "y": 488,
+          "w": 155,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Confirm reservation",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "2:26": {
+      "name": "Your visit is booked",
+      "texts": [
+        "ATELIER / VISITS",
+        "Your visit is booked",
+        "We look forward to seeing you.",
+        "RESERVATION CONFIRMED",
+        "Light and space",
+        "Saturday, October 24 · 11:00 AM",
+        "ATELIER / A1042",
+        "Show this screen at the gallery.",
+        "Explore another visit"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T11:32:33.755Z"
+}

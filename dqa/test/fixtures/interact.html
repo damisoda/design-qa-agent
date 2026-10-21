@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>눌러 보기</title>
+<style>
+  body { margin: 0; font: 16px/1.5 sans-serif; }
+  main { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  button, a, .card { display: block; padding: 12px; border: 1px solid #333; border-radius: 8px; background: #fff; color: #111; text-decoration: none; font: inherit; text-align: left; }
+  .card { cursor: pointer; }
+  #panel[hidden] { display: none; }
+  .wrap { position: relative; }
+  .veil { position: absolute; inset: 0; }
+  .spacer { height: 900px; }
+</style></head>
+<body><main id="root">
+  <a href="interact.html">홈</a>
+  <div role="tablist"><button role="tab" aria-selected="true">추천</button></div>
+  <a href="interact_next.html">다음 화면</a>
+  <button id="open" onclick="document.getElementById('panel').hidden = false">메뉴 열기</button>
+  <div id="panel" hidden>메뉴 내용</div>
+  <button>저장하기</button>
+  <div class="card">카드 보기</div>
+  <button onclick="undefinedFn()">공유</button>
+  <button disabled>신청 마감</button>
+  <button onclick="fetch('/api/like', { method: 'POST' })">좋아요</button>
+  <a href="#">더보기</a>
+  <button onclick="history.pushState({}, '', '/checkout'); document.getElementById('root').innerHTML = ''">결제</button>
+  <button onclick="history.pushState({}, '', '/orders'); document.getElementById('root').innerHTML = '<h1>404</h1><p>페이지를 찾을 수 없습니다</p>'">주문 내역</button>
+  <label><input type="checkbox"> 약관 동의</label>
+  <div class="wrap"><button onclick="this.textContent = '눌림'">확인</button><div class="veil"></div></div>
+  <button onclick="alert('도움말')">도움말</button>
+  <div class="spacer"></div>
+  <button onclick="window.scrollTo(0, 0)">맨 위로</button>
+</main></body></html>

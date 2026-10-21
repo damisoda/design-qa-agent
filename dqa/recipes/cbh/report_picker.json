@@ -1,0 +1,36 @@
+{
+  "id": "cbh/report_picker",
+  "version": 1,
+  "title": "긴급 실종 신고 — 가족 선택 창",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "fixtures": "fixture.json",
+  "stubs": "stubs_family.json",
+  "steps": [
+    {
+      "use": "cbh/report"
+    },
+    {
+      "click": {
+        "selector": "[aria-label^=\"선택된 가족\"]"
+      },
+      "expect_text": "실종 신고할 가족 선택"
+    }
+  ],
+  "ready": {
+    "text": "실종 신고할 가족 선택",
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "none",
+    "ignore": []
+  },
+  "widths": "web4",
+  "source_hints": [
+    "frontend/src/screens/ReportScreen.tsx"
+  ]
+}

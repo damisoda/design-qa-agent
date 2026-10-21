@@ -4,7 +4,14 @@
   "description": "디자인-구현 결함 검수 도구(로컬). 화면을 실제로 열어 재고, 원인 코드를 짚고, 보고서를 만든다.",
   "private": true,
   "type": "commonjs",
-  "bin": { "dqa": "cli.js" },
-  "scripts": { "test": "node --test test/" },
-  "dependencies": { "playwright-core": "1.63.0" }
+  "bin": {
+    "dqa": "cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@babel/parser": "7.29.7",
+    "playwright-core": "1.63.0"
+  }
 }

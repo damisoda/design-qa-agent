@@ -1,0 +1,77 @@
+{
+  "note": "stubs.json(인증)에 진행 중인 산책 1건을 더한 대역. 산책 진행 화면용. 값은 가짜다.",
+  "stubs": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "$body.login_id|dqa",
+        "role": "$body.role|guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "$body.login_id|dqa",
+        "role": "guardian"
+      }
+    },
+    {
+      "path": "/auth/me",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "dqa",
+        "role": "guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/role",
+      "json": {
+        "token": "dqa-stub-token",
+        "user_id": "dqa-user",
+        "login_id": "dqa",
+        "role": "$body.role|guardian"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "json": {
+        "ok": true
+      }
+    },
+    {
+      "method": "GET",
+      "re": "/walk/sessions/active$",
+      "json": {
+        "id": "dqa-walk-1",
+        "user_id": "dqa-user",
+        "started_at": "2026-08-11T10:00:00",
+        "ended_at": null,
+        "distance_km": 0.8,
+        "duration_min": 12,
+        "area_label": "서강동"
+      }
+    },
+    {
+      "method": "POST",
+      "re": "/walk/sessions$",
+      "json": {
+        "id": "dqa-walk-1",
+        "user_id": "dqa-user",
+        "started_at": "2026-08-11T10:00:00",
+        "ended_at": null,
+        "distance_km": 0.8,
+        "duration_min": 12,
+        "area_label": "서강동"
+      }
+    }
+  ]
+}

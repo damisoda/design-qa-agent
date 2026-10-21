@@ -5,7 +5,20 @@ node_modules/
 dqa/runs/
 dqa/state/
 
+# 평가 중간 결과(팀 PR 인용·화면 캡처 포함)
+eval/private/
+eval/synth/shots/
+eval/synth/*/shots/
+
 # 부산물
 __pycache__/
 *.pyc
 .DS_Store
+
+# Figma에서 가져온 시안(팀 시안이 들어감)
+dqa/designs/
+
+# Local RAG evaluation can contain private knowledge excerpts and snapshots.
+eval/rag-*/before-retrieval.json
+eval/rag-*/after-retrieval.json
+eval/rag-*/before-code/

@@ -1,0 +1,20 @@
+{
+  "id": "atelier/reservation",
+  "version": 1,
+  "title": "Reserve your visit",
+  "app": "atelier",
+  "start": {
+    "path": "/reservation.html"
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/app-demo-20261016/designs/reservation/design.json"
+}

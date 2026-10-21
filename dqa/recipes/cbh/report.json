@@ -3,15 +3,34 @@
   "version": 1,
   "title": "긴급 실종 신고",
   "app": "cbh",
-  "start": { "path": "/" },
+  "start": {
+    "path": "/"
+  },
   "allow_hosts": [],
   "fixtures": "fixture.json",
+  "stubs": "stubs.json",
   "steps": [
-    { "use": "cbh/guardian_home" },
-    { "click": { "text": "실종 신고" }, "expect_text": "인상착의" }
+    {
+      "use": "cbh/guardian_home"
+    },
+    {
+      "click": {
+        "text": "실종 신고"
+      },
+      "expect_text": "인상착의"
+    }
   ],
-  "ready": { "text": "인상착의", "stable_ms": 300 },
-  "scan": { "root": "#root", "scroll": "auto", "ignore": [] },
+  "ready": {
+    "text": "인상착의",
+    "stable_ms": 300
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
   "widths": "mobile5",
-  "source_hints": ["frontend/src/screens/ReportScreen.tsx"]
+  "source_hints": [
+    "frontend/src/screens/ReportScreen.tsx"
+  ]
 }

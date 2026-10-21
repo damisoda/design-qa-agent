@@ -1,0 +1,36 @@
+{
+  "id": "cbh201/login",
+  "version": 1,
+  "title": "PR201 인증 login",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "stubs": "../cbh/stubs.json",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "로그인",
+        "exact": true
+      }
+    }
+  ],
+  "ready": {
+    "text": "계정 만들기",
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AuthScreen.tsx"
+  ]
+}

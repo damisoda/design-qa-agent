@@ -1,0 +1,20 @@
+{
+  "id": "atelier/discover",
+  "version": 1,
+  "title": "Discover",
+  "app": "atelier",
+  "start": {
+    "path": "/index.html"
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/app-demo-20261016/designs/discover/design.json"
+}

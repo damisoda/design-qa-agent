@@ -94,19 +94,20 @@ workflow:
           \ json.loads(text)\n    except Exception:\n        return {\"result\": \"\
           dqa 응답을 읽지 못했다: \" + str(text)[:300]}\n    if not r.get(\"ok\"):\n     \
           \   return {\"result\": \"검사 실패(\" + str(r.get(\"error_type\")) + \"): \"\
-          \ + str(r.get(\"message\"))}\n    s = r.get(\"summary\", {})\n    names\
-          \ = {\"new\": \"새로 생김\", \"worsened\": \"악화\", \"unchanged\": \"기존\", \"\
-          improved\": \"줄어듦\", \"none\": \"상태 없음\", \"accepted\": \"무시\"}\n    lines\
-          \ = [\"새로 생김 %d · 악화 %d · 기존 %d · 상태 없음 %d · 해결 %d (%.1f초)\" % (s.get(\"\
-          new\", 0), s.get(\"worsened\", 0), s.get(\"unchanged\", 0) + s.get(\"improved\"\
-          , 0), s.get(\"no_base\", 0), s.get(\"resolved\", 0), r.get(\"total_sec\"\
-          , 0))]\n    for d in r.get(\"defects\", []):\n        sizes = \", \".join(\"\
-          %s %s\" % (w[\"size\"], w[\"px\"]) for w in d.get(\"widths\", []))\n   \
-          \     lines.append(\"- [%s %s] %s: %s / %s%s\" % (names.get(d.get(\"status\"\
-          ), d.get(\"status\")), d.get(\"rule\"), d.get(\"rule_name\"), \", \".join(d.get(\"\
-          labels\", [])), sizes, (\" / 원인 후보 \" + d[\"cause\"]) if d.get(\"cause\"\
-          ) else \"\"))\n    lines.append(\"보고서: \" + str(r.get(\"report_url\")))\n\
-          \    return {\"result\": \"\\n\".join(lines)}\n"
+          \ + str(r.get(\"message\"))}\n    if r.get(\"running\"):\n        return\
+          \ {\"result\": \"검사 진행 중. 상태 작업에서 실행 \" + str(r.get(\"run_id\")) + \" 결과를\
+          \ 확인한다\"}\n    s = r.get(\"summary\", {})\n    names = {\"new\": \"새로 생김\"\
+          , \"worsened\": \"악화\", \"unchanged\": \"기존\", \"improved\": \"줄어듦\", \"\
+          none\": \"상태 없음\", \"accepted\": \"무시\"}\n    lines = [\"새로 생김 %d · 악화 %d\
+          \ · 기존 %d · 상태 없음 %d · 해결 %d (%.1f초)\" % (s.get(\"new\", 0), s.get(\"worsened\"\
+          , 0), s.get(\"unchanged\", 0) + s.get(\"improved\", 0), s.get(\"no_base\"\
+          , 0), s.get(\"resolved\", 0), r.get(\"total_sec\", 0))]\n    for d in r.get(\"\
+          defects\", []):\n        sizes = \", \".join(\"%s %s\" % (w[\"size\"], w[\"\
+          px\"]) for w in d.get(\"widths\", []))\n        lines.append(\"- [%s %s]\
+          \ %s: %s / %s%s\" % (names.get(d.get(\"status\"), d.get(\"status\")), d.get(\"\
+          rule\"), d.get(\"rule_name\"), \", \".join(d.get(\"labels\", [])), sizes,\
+          \ (\" / 원인 후보 \" + d[\"cause\"]) if d.get(\"cause\") else \"\"))\n    lines.append(\"\
+          보고서: \" + str(r.get(\"report_url\")))\n    return {\"result\": \"\\n\".join(lines)}\n"
         variables:
         - variable: text
           value_selector:

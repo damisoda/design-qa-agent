@@ -45,6 +45,7 @@ function reportMd (m, defects, resolved, codeFindings) {
   L.push(`- 화면: ${m.recipes.map((r) => `${r.title}(${r.id})`).join(', ')} · 크기 ${m.sizes.length}개(${m.sizes.map((s) => s.join('x')).join(', ')})`)
   L.push(`- LLM(분류·한눈 요약): ${m.llm.status === 'ok' ? `${m.llm.model}, ${m.llm.calls}회 호출` : `사용 안 함 — ${m.llm.reason}`}`)
   L.push(`- 외부로 나간 요청: 0건(앱 출처 밖 요청 ${m.blocked_total}건은 모두 막음)`)
+  if (m.stubbed_total) L.push(`- 응답 대역: 레시피가 정한 API 응답 ${m.stubbed_total}건을 브라우저 안에서 돌려줌(네트워크로 나가지 않음)`)
   const s = m.summary
   if (m.overview) { L.push(''); L.push(`> ${m.overview.text}${m.overview.status === 'ok' ? ` (한눈 요약: ${m.overview.model}, 숫자 검증 통과)` : ' (템플릿 요약)'}`) }
   L.push('')
@@ -88,7 +89,7 @@ function reportMd (m, defects, resolved, codeFindings) {
   }
   L.push(`## 방법`)
   L.push('')
-  L.push(`- 크기마다 새 브라우저 컨텍스트로 화면에 들어가(레시피), 배치가 멈출 때까지 기다린 뒤 스크롤 단계마다 규칙(R1 넘침·R2 잘림·R3 겹침·R4 가려짐·R6 줄바꿈·R7 틀 이탈)을 적용했다. R5는 크기 사이 비교다.`)
+  L.push(`- 크기마다 새 브라우저 컨텍스트로 화면에 들어가(레시피), 배치가 멈출 때까지 기다린 뒤 스크롤 단계마다 규칙(R1 넘침·R2 잘림·R3 겹침·R4 가려짐·R5 크기별 줄바꿈·R6 원치 않는 줄바꿈·R7 틀 이탈·A1 작은 터치 영역·A2 낮은 글자 대비·D4 그림 결함·G1 글자 기호 아이콘)을 적용했다. R5는 크기 사이 비교다.`)
   L.push(`- 수치·진단·원인 후보는 모두 코드가 만들었다. LLM은 결함인지 의도된 디자인인지 분류하고 한눈 요약만 쓴다. 답에 측정 사실에 없는 숫자가 나오면 버린다.`)
   L.push(`- 수정은 코드 에이전트가 한다(dqa fix): 규칙 수정안 → 코드 읽기·검색·수정 루프, 사본에 적용해 다시 빌드·재측정해서 통과한 것만 패치로 낸다.`)
   L.push(`- 신뢰도는 코드가 계산한다(재현된 크기 수, 재측정 일치, 원인 후보 점수).`)

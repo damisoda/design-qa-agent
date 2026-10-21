@@ -1,0 +1,23 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>gaps4</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:sans-serif;color:#111827;background:#fff}
+.logo{width:24px;height:24px;object-fit:fill}
+.donut{position:relative;width:200px;height:200px}.donut svg{width:200px;height:200px}
+.donut .c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.donut .c b{font-size:40px;line-height:46px;white-space:nowrap}
+.donut2 .c b{font-size:22px}
+.map{position:relative;width:300px;height:150px}.map img{width:300px;height:150px;display:block;object-fit:cover}
+.map .eta{position:absolute;right:8px;bottom:8px;font-size:13px;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.55);color:#8A94A3}
+.nm{width:180px;font-size:16px;line-height:10px;font-weight:700}
+.ph{width:240px;height:44px;font-size:15px}.ph::placeholder{color:#C4C9D0}
+.past{opacity:.4;background:#EFF6FF;color:#1E3A8A;padding:4px;width:200px}
+.day{display:flex;flex-direction:column;align-items:center;width:40px;height:52px;font-size:12px;border:0;background:transparent}.day b{font-size:15px}
+</style></head><body>
+<img class="logo" src="logo.png" alt="항공사 로고">
+<div class="donut"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="#F97316" stroke-width="24"/></svg><div class="c"><b>식비 32%</b></div></div>
+<div class="donut donut2"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="#0EA5E9" stroke-width="24"/></svg><div class="c"><b>교통 18%</b></div></div>
+<div class="chart" style="position:relative;width:300px;height:120px"><svg viewBox="0 0 300 120" style="width:300px;height:120px"><polyline points="0,100 100,60 200,30 300,10" fill="none" stroke="#DC2626" stroke-width="3"/></svg><span class="tip" style="position:absolute;left:150px;top:20px;font-size:12px;padding:4px 8px;background:#111827;color:#fff">10월 10일 12,480원</span></div>
+<div class="map"><img src="lightmap.png" alt="지도"><span class="eta">도착 예정 12:40</span></div>
+<p class="nm">비타민D 2000IU 주 1회 일요일 아침</p>
+<input class="ph" placeholder="동, 호수까지 적어 주세요">
+<div class="past"><b>주간 회의</b></div>
+<button class="day">월<b>13</b></button>
+</body></html>

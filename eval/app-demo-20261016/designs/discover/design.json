@@ -1,0 +1,416 @@
+{
+  "source": "figma-mcp-plugin-export",
+  "file": "Document",
+  "page": "Page 1",
+  "page_id": "0:1",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "2:23",
+    "name": "Discover",
+    "width": 375,
+    "height": 812,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x812",
+  "tokens": {
+    "color/brand": "#2459D3",
+    "color/paper": "#FFFFFF"
+  },
+  "nodes": [
+    {
+      "id": "4:2",
+      "name": "Brand",
+      "type": "TEXT",
+      "x": 24,
+      "y": 24,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "ATELIER / VISITS",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#2459D3",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:3",
+      "name": "Title",
+      "type": "TEXT",
+      "x": 24,
+      "y": 72,
+      "w": 327,
+      "h": 72,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Find your next perspective.",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 36,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#172033",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:4",
+      "name": "Subtitle",
+      "type": "TEXT",
+      "x": 24,
+      "y": 168,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Independent exhibitions. A little closer.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:5",
+      "name": "Information",
+      "type": "FRAME",
+      "x": 24,
+      "y": 216,
+      "w": 327,
+      "h": 272,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#EDF2FA",
+        "opacity": 1,
+        "token": null
+      },
+      "radius": 8,
+      "children": [
+        {
+          "id": "4:6",
+          "name": "Edition",
+          "type": "TEXT",
+          "x": 48,
+          "y": 240,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "ON VIEW / 01",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#2459D3",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:7",
+          "name": "Exhibition",
+          "type": "TEXT",
+          "x": 48,
+          "y": 276,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Light and space",
+            "fontFamily": "Inter",
+            "fontStyle": "Bold",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:8",
+          "name": "Artist",
+          "type": "TEXT",
+          "x": 48,
+          "y": 312,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Mina Park",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:9",
+          "name": "Description",
+          "type": "TEXT",
+          "x": 48,
+          "y": 348,
+          "w": 279,
+          "h": 48,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "An exhibition about finding stillness in everyday places.",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:10",
+          "name": "Venue",
+          "type": "TEXT",
+          "x": 48,
+          "y": 408,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "The North Gallery · Seoul",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#475569",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4:11",
+      "name": "Note",
+      "type": "TEXT",
+      "x": 24,
+      "y": 512,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "A place for unexpected discoveries.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:12",
+      "name": "Action / Primary",
+      "type": "FRAME",
+      "x": 24,
+      "y": 560,
+      "w": 327,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#2459D3",
+        "opacity": 1,
+        "token": "color/brand"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "2:24",
+              "dest_name": "Light and space",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I4:12;2:28",
+          "name": "Continue",
+          "type": "TEXT",
+          "x": 118,
+          "y": 572,
+          "w": 139,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Explore exhibition",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "2:24": {
+      "name": "Light and space",
+      "texts": [
+        "ATELIER / VISITS",
+        "Light and space",
+        "Mina Park · The North Gallery",
+        "A NEW WAY TO LOOK",
+        "Walk through light, texture and carefully framed moments.",
+        "October 16 – November 22",
+        "The North Gallery · Seoul",
+        "Free admission. Please reserve a time.",
+        "Reserve a visit"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T11:32:33.706Z"
+}

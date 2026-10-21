@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "name": "Atelier",
+  "figma": "https://www.figma.com/design/Yz8NzeU2wjqmzuYkRvvSfm",
+  "local": "/Users/damisoda/design-qa-agent/eval/app-demo-20261016/frontend",
+  "screens": [
+    {
+      "id": "atelier/discover",
+      "path": "/index.html",
+      "frame_id": "2:23",
+      "components": [
+        "Action"
+      ]
+    },
+    {
+      "id": "atelier/exhibition",
+      "path": "/exhibition.html",
+      "frame_id": "2:24",
+      "components": [
+        "Action"
+      ]
+    },
+    {
+      "id": "atelier/reservation",
+      "path": "/reservation.html",
+      "frame_id": "2:25",
+      "components": [
+        "Action"
+      ]
+    },
+    {
+      "id": "atelier/confirmation",
+      "path": "/confirmation.html",
+      "frame_id": "2:26",
+      "components": [
+        "Action"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "Action",
+      "source": "style.css",
+      "selector": ".action",
+      "variants": [
+        "primary",
+        "return"
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "component": "Action",
+      "property": "background",
+      "description": "Primary shares Return color; changing the global rule also changes the correct Return screen."
+    }
+  ]
+}

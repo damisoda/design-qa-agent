@@ -1,0 +1,19 @@
+{
+  "run_id": "20261021-015134_53def4_ui",
+  "check_workflow": "559522f9-e3ee-40f6-b6a7-8c87d569ac96",
+  "fix_workflow": "7c30cccb-1b69-4538-9cb4-bcbb808befc2",
+  "check_sec": 47.7,
+  "fix_sec": 94.7,
+  "model": "gemma4:e4b-16k",
+  "repair_source": "llm",
+  "actions": [
+    "read",
+    "edit"
+  ],
+  "detected": 2,
+  "remaining": 0,
+  "regressions": 0,
+  "sizes_passed": 5,
+  "original_preserved": true,
+  "controlled_case": true
+}

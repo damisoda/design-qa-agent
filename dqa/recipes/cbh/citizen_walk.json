@@ -1,0 +1,79 @@
+{
+  "id": "cbh/citizen_walk",
+  "version": 1,
+  "title": "시민 산책 탭(진행 중인 산책)",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "fixtures": "fixture.json",
+  "stubs": "stubs_walk.json",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "one_of": [
+          {
+            "text": "시작하기",
+            "exact": true
+          },
+          {
+            "text": "시작하기"
+          }
+        ]
+      }
+    },
+    {
+      "click": {
+        "one_of": [
+          {
+            "text": "시민으로 시작하기"
+          },
+          {
+            "text": "시민",
+            "exact": true
+          }
+        ]
+      }
+    },
+    {
+      "if_visible": {
+        "one_of": [
+          {
+            "selector": "input[type=email]"
+          },
+          {
+            "selector": "input[aria-label=\"아이디\"]"
+          }
+        ]
+      },
+      "then": [
+        {
+          "use": "cbh/signup_citizen"
+        }
+      ]
+    },
+    {
+      "click": {
+        "text": "산책하기",
+        "exact": true
+      }
+    }
+  ],
+  "ready": {
+    "stable_ms": 600
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/WalkActiveScreen.tsx",
+    "frontend/src/navigation/CitizenTabs.tsx"
+  ]
+}

@@ -1,0 +1,1493 @@
+{
+  "source": "figma-plugin",
+  "file": "Atelier — 앱 전체 검수·수정 데모",
+  "page": "Fieldwork · service",
+  "page_id": "5:6",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "5:265",
+    "name": "Checkout",
+    "width": 375,
+    "height": 1247,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x1247",
+  "tokens": {
+    "color/line": "#CDD8E3",
+    "color/ink": "#17324D",
+    "color/paper": "#FFFFFF",
+    "color/muted": "#536475",
+    "color/soft": "#F0F4F8",
+    "color/brand": "#076B57"
+  },
+  "nodes": [
+    {
+      "id": "5:266",
+      "name": "site-header",
+      "type": "FRAME",
+      "x": 20,
+      "y": 20,
+      "w": 335,
+      "h": 57,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+          0,
+          0,
+          12,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "stroke": {
+        "width": 0,
+        "hex": "#CDD8E3",
+        "opacity": 1,
+        "token": "color/line"
+      },
+      "children": [
+        {
+          "id": "5:267",
+          "name": "text [fw-158]",
+          "type": "TEXT",
+          "x": 20,
+          "y": 26,
+          "w": 111,
+          "h": 32,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "fieldwork",
+            "fontFamily": "Inter",
+            "fontStyle": "Bold",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        },
+        {
+          "id": "5:268",
+          "name": "Action / nav-button [fw-159]",
+          "type": "FRAME",
+          "x": 294,
+          "y": 20,
+          "w": 61,
+          "h": 44,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+          },
+          "fill": {
+            "hex": "#FFFFFF",
+            "opacity": 1,
+            "token": "color/paper"
+          },
+          "reactions": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE",
+                  "dest": "5:313",
+                  "dest_name": "My bookings",
+                  "url": null
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "id": "I5:268;5:29",
+              "name": "Label",
+              "type": "TEXT",
+              "x": 294,
+              "y": 31,
+              "w": 61,
+              "h": 22,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "My visits",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 22,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:270",
+      "name": "text [fw-129]",
+      "type": "TEXT",
+      "x": 20,
+      "y": 101,
+      "w": 335,
+      "h": 82,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Complete your booking",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": 41,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#17324D",
+          "opacity": 1,
+          "token": "color/ink"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "5:271",
+      "name": "text [fw-130]",
+      "type": "TEXT",
+      "x": 20,
+      "y": 207,
+      "w": 335,
+      "h": 20,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Your details stay on this device in this demo.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#536475",
+          "opacity": 1,
+          "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "5:272",
+      "name": "selection",
+      "type": "FRAME",
+      "x": 20,
+      "y": 251,
+      "w": 335,
+      "h": 82,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 6,
+        "padding": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "fill": {
+        "hex": "#F0F4F8",
+        "opacity": 1,
+        "token": "color/soft"
+      },
+      "radius": 12,
+      "children": [
+        {
+          "id": "5:273",
+          "name": "text [fw-132]",
+          "type": "TEXT",
+          "x": 36,
+          "y": 267,
+          "w": 303,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Saturday, 24 October",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:274",
+          "name": "text [fw-133]",
+          "type": "TEXT",
+          "x": 36,
+          "y": 297,
+          "w": 303,
+          "h": 20,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "14:00–16:00 · English · 2 guests",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#536475",
+              "opacity": 1,
+              "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5:275",
+      "name": "Content",
+      "type": "FRAME",
+      "x": 20,
+      "y": 357,
+      "w": 335,
+      "h": 398,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 16,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "children": [
+        {
+          "id": "5:276",
+          "name": "text [fw-135]",
+          "type": "TEXT",
+          "x": 20,
+          "y": 357,
+          "w": 335,
+          "h": 30,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Guest details",
+            "fontFamily": "Inter",
+            "fontStyle": "Bold",
+            "fontSize": 22,
+            "fontWeight": 700,
+            "lineHeight": 30,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:277",
+          "name": "input [fw-136]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 403,
+          "w": 335,
+          "h": 76,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 8,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:278",
+              "name": "Full name",
+              "type": "TEXT",
+              "x": 20,
+              "y": 403,
+              "w": 335,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Full name",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:279",
+              "name": "Frame",
+              "type": "FRAME",
+              "x": 20,
+              "y": 431,
+              "w": 335,
+              "h": 48,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "padding": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "align": "MIN",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FILL",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "stroke": {
+                "width": 1,
+                "hex": "#CDD8E3",
+                "opacity": 1,
+                "token": "color/line"
+              },
+              "radius": 8,
+              "children": [
+                {
+                  "id": "5:280",
+                  "name": "Name on the reservation",
+                  "type": "TEXT",
+                  "x": 33,
+                  "y": 444,
+                  "w": 309,
+                  "h": 20,
+                  "sizing": {
+                    "h": "FILL",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "Name on the reservation",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Regular",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lineHeight": 20,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#536475",
+                      "opacity": 1,
+                      "token": "color/muted"
+                    },
+                    "align": "LEFT",
+                    "wrap": "WRAP"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5:281",
+          "name": "input [fw-137]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 495,
+          "w": 335,
+          "h": 76,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 8,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:282",
+              "name": "Email address",
+              "type": "TEXT",
+              "x": 20,
+              "y": 495,
+              "w": 335,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Email address",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:283",
+              "name": "Frame",
+              "type": "FRAME",
+              "x": 20,
+              "y": 523,
+              "w": 335,
+              "h": 48,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "padding": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "align": "MIN",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FILL",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "stroke": {
+                "width": 1,
+                "hex": "#CDD8E3",
+                "opacity": 1,
+                "token": "color/line"
+              },
+              "radius": 8,
+              "children": [
+                {
+                  "id": "5:284",
+                  "name": "you@example.com",
+                  "type": "TEXT",
+                  "x": 33,
+                  "y": 536,
+                  "w": 309,
+                  "h": 20,
+                  "sizing": {
+                    "h": "FILL",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "you@example.com",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Regular",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lineHeight": 20,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#536475",
+                      "opacity": 1,
+                      "token": "color/muted"
+                    },
+                    "align": "LEFT",
+                    "wrap": "WRAP"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5:285",
+          "name": "input [fw-138]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 587,
+          "w": 335,
+          "h": 76,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 8,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:286",
+              "name": "Phone number",
+              "type": "TEXT",
+              "x": 20,
+              "y": 587,
+              "w": 335,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Phone number",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:287",
+              "name": "Frame",
+              "type": "FRAME",
+              "x": 20,
+              "y": 615,
+              "w": 335,
+              "h": 48,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "padding": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "align": "MIN",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FILL",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "stroke": {
+                "width": 1,
+                "hex": "#CDD8E3",
+                "opacity": 1,
+                "token": "color/line"
+              },
+              "radius": 8,
+              "children": [
+                {
+                  "id": "5:288",
+                  "name": "+82 10 1234 5678",
+                  "type": "TEXT",
+                  "x": 33,
+                  "y": 628,
+                  "w": 309,
+                  "h": 20,
+                  "sizing": {
+                    "h": "FILL",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "+82 10 1234 5678",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Regular",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lineHeight": 20,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#536475",
+                      "opacity": 1,
+                      "token": "color/muted"
+                    },
+                    "align": "LEFT",
+                    "wrap": "WRAP"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5:289",
+          "name": "input [fw-139]",
+          "type": "FRAME",
+          "x": 20,
+          "y": 679,
+          "w": 335,
+          "h": 76,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 8,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:290",
+              "name": "Anything your host should know?",
+              "type": "TEXT",
+              "x": 20,
+              "y": 679,
+              "w": 335,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Anything your host should know?",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:291",
+              "name": "Frame",
+              "type": "FRAME",
+              "x": 20,
+              "y": 707,
+              "w": 335,
+              "h": 48,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "padding": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "align": "MIN",
+                "justify": "MIN",
+                "wrap": false
+              },
+              "sizing": {
+                "h": "FILL",
+                "v": "FIXED"
+              },
+              "fill": {
+                "hex": "#FFFFFF",
+                "opacity": 1,
+                "token": "color/paper"
+              },
+              "stroke": {
+                "width": 1,
+                "hex": "#CDD8E3",
+                "opacity": 1,
+                "token": "color/line"
+              },
+              "radius": 8,
+              "children": [
+                {
+                  "id": "5:292",
+                  "name": "Accessibility needs or a special occasion",
+                  "type": "TEXT",
+                  "x": 33,
+                  "y": 720,
+                  "w": 309,
+                  "h": 20,
+                  "sizing": {
+                    "h": "FILL",
+                    "v": "HUG"
+                  },
+                  "text": {
+                    "content": "Accessibility needs or a special occasion",
+                    "fontFamily": "Inter",
+                    "fontStyle": "Regular",
+                    "fontSize": 14,
+                    "fontWeight": 400,
+                    "lineHeight": 20,
+                    "letterSpacing": 0,
+                    "color": {
+                      "hex": "#536475",
+                      "opacity": 1,
+                      "token": "color/muted"
+                    },
+                    "align": "LEFT",
+                    "wrap": "WRAP"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:293",
+      "name": "price-summary",
+      "type": "FRAME",
+      "x": 20,
+      "y": 779,
+      "w": 335,
+      "h": 168,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 16,
+        "padding": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "fill": {
+        "hex": "#F0F4F8",
+        "opacity": 1,
+        "token": "color/soft"
+      },
+      "radius": 12,
+      "children": [
+        {
+          "id": "5:294",
+          "name": "text [fw-141]",
+          "type": "TEXT",
+          "x": 36,
+          "y": 795,
+          "w": 303,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Price summary",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 18,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:295",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 835,
+          "w": 303,
+          "h": 20,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:296",
+              "name": "text [fw-143]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 835,
+              "w": 213,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "2 guests × KRW 58,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:297",
+              "name": "subtotal [fw-144]",
+              "type": "TEXT",
+              "x": 249,
+              "y": 835,
+              "w": 90,
+              "h": 20,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "KRW 116,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "5:298",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 871,
+          "w": 303,
+          "h": 20,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:299",
+              "name": "text [fw-146]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 871,
+              "w": 246,
+              "h": 20,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Service fee",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:300",
+              "name": "text [fw-147]",
+              "type": "TEXT",
+              "x": 282,
+              "y": 871,
+              "w": 57,
+              "h": 20,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Included",
+                "fontFamily": "Inter",
+                "fontStyle": "Regular",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        },
+        {
+          "id": "5:301",
+          "name": "Content",
+          "type": "FRAME",
+          "x": 36,
+          "y": 907,
+          "w": 303,
+          "h": 24,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "align": "CENTER",
+            "justify": "SPACE_BETWEEN",
+            "wrap": false
+          },
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "children": [
+            {
+              "id": "5:302",
+              "name": "text [fw-149]",
+              "type": "TEXT",
+              "x": 36,
+              "y": 907,
+              "w": 171,
+              "h": 24,
+              "sizing": {
+                "h": "FILL",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "Total",
+                "fontFamily": "Inter",
+                "fontStyle": "Semi Bold",
+                "fontSize": 16,
+                "fontWeight": 600,
+                "lineHeight": 24,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "WRAP"
+              }
+            },
+            {
+              "id": "5:303",
+              "name": "total [fw-150]",
+              "type": "TEXT",
+              "x": 207,
+              "y": 907,
+              "w": 132,
+              "h": 24,
+              "sizing": {
+                "h": "HUG",
+                "v": "HUG"
+              },
+              "text": {
+                "content": "KRW 116,000",
+                "fontFamily": "Inter",
+                "fontStyle": "Bold",
+                "fontSize": 20,
+                "fontWeight": 700,
+                "lineHeight": 24,
+                "letterSpacing": 0,
+                "color": {
+                  "hex": "#17324D",
+                  "opacity": 1,
+                  "token": "color/ink"
+                },
+                "align": "LEFT",
+                "wrap": "NONE"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5:304",
+      "name": "checkbox [fw-151]",
+      "type": "FRAME",
+      "x": 20,
+      "y": 971,
+      "w": 335,
+      "h": 24,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "children": [
+        {
+          "id": "5:305",
+          "name": "Rectangle",
+          "type": "FRAME",
+          "x": 20,
+          "y": 971,
+          "w": 24,
+          "h": 24,
+          "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+          },
+          "fill": {
+            "hex": "#FFFFFF",
+            "opacity": 1,
+            "token": "color/paper"
+          },
+          "stroke": {
+            "width": 1,
+            "hex": "#CDD8E3",
+            "opacity": 1,
+            "token": "color/line"
+          },
+          "radius": 4
+        },
+        {
+          "id": "5:306",
+          "name": "I agree to the cancellation policy.",
+          "type": "TEXT",
+          "x": 52,
+          "y": 971,
+          "w": 218,
+          "h": 20,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "I agree to the cancellation policy.",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5:307",
+      "name": "Action / Primary [fw-152]",
+      "type": "FRAME",
+      "x": 20,
+      "y": 1019,
+      "w": 335,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#076B57",
+        "opacity": 1,
+        "token": "color/brand"
+      },
+      "radius": 8,
+      "children": [
+        {
+          "id": "I5:307;5:17",
+          "name": "Label",
+          "type": "TEXT",
+          "x": 123,
+          "y": 1031,
+          "w": 129,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Confirm booking",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5:309",
+      "name": "text [fw-153]",
+      "type": "TEXT",
+      "x": 20,
+      "y": 1091,
+      "w": 335,
+      "h": 20,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "No payment is collected. This is a local service prototype.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#536475",
+          "opacity": 1,
+          "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "5:310",
+      "name": "footer",
+      "type": "FRAME",
+      "x": 20,
+      "y": 1135,
+      "w": 335,
+      "h": 92,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "fill": {
+        "hex": "#F0F4F8",
+        "opacity": 1,
+        "token": "color/soft"
+      },
+      "radius": 12,
+      "children": [
+        {
+          "id": "5:311",
+          "name": "text [fw-155]",
+          "type": "TEXT",
+          "x": 40,
+          "y": 1155,
+          "w": 295,
+          "h": 20,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Small groups. Real makers.",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#17324D",
+              "opacity": 1,
+              "token": "color/ink"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "5:312",
+          "name": "text [fw-156]",
+          "type": "TEXT",
+          "x": 40,
+          "y": 1187,
+          "w": 295,
+          "h": 20,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Questions? hello@fieldwork.example",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#536475",
+              "opacity": 1,
+              "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "5:313": {
+      "name": "My bookings",
+      "texts": [
+        "fieldwork",
+        "My visits",
+        "Your next good afternoon",
+        "Booking confirmed",
+        "Clay & conversation: hand-built ceramics with local makers",
+        "Saturday, 24 October",
+        "14:00–16:00 · English · 2 guests",
+        "Booking FW-1042",
+        "Meet your host",
+        "Studio Haneul",
+        "18 Seongsui-ro, Seongdong-gu, Seoul",
+        "Please arrive 10 minutes early. Your host will have everything ready.",
+        "View booking details",
+        "Cancel booking",
+        "Find another experience",
+        "Small groups. Real makers.",
+        "Questions? hello@fieldwork.example"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T12:37:34.763Z"
+}

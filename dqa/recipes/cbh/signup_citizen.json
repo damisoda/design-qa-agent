@@ -1,0 +1,56 @@
+{
+  "id": "cbh/signup_citizen",
+  "macro": true,
+  "title": "목 모드 시민 가입(다른 레시피가 use로 부른다)",
+  "fixtures": "fixture.json",
+  "steps": [
+    {
+      "if_visible": {
+        "selector": "input[type=email]"
+      },
+      "then": [
+        {
+          "fill": {
+            "selector": "input[type=email]"
+          },
+          "value": "$fixture.mock_citizen_email"
+        }
+      ]
+    },
+    {
+      "if_visible": {
+        "selector": "input[aria-label=\"아이디\"]"
+      },
+      "then": [
+        {
+          "fill": {
+            "selector": "input[aria-label=\"아이디\"]"
+          },
+          "value": "$fixture.mock_citizen_id"
+        }
+      ]
+    },
+    {
+      "fill": {
+        "selector": "input[type=password]"
+      },
+      "value": "$fixture.mock_password"
+    },
+    {
+      "click": {
+        "one_of": [
+          {
+            "text": "가입하고 시작하기"
+          },
+          {
+            "role": "button",
+            "name": "가입"
+          }
+        ]
+      }
+    },
+    {
+      "wait_text_gone": "가입하고 시작하기"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "widths": "mobile5",
+  "recipes": [
+    "atelier/discover",
+    "atelier/exhibition",
+    "atelier/reservation",
+    "atelier/confirmation"
+  ]
+}

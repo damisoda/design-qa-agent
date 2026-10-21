@@ -1,0 +1,1990 @@
+{
+ "source": {
+  "run_id": "20261014-131409_3114c8_ui",
+  "figma_frame_id": "5:21",
+  "note": "Actual desktop Figma plugin export + independent local Atelier bad frontend; frozen for portable UI tests."
+ },
+ "defects": [
+  {
+   "screen": "local/home",
+   "id": "local-home-R1-018cf3",
+   "rule": "R1",
+   "rule_name": "넘침",
+   "severity": "높음",
+   "labels": [
+    "Visitor"
+   ],
+   "elements": [
+    {
+     "fp": "field|Visitor",
+     "tag": "input",
+     "cls": [
+      "visitor-input"
+     ],
+     "pcls": [
+      "visitor"
+     ],
+     "label": "Visitor",
+     "aria": "Visitor",
+     "role": null,
+     "selector": "input[aria-label=\"Visitor\"]",
+     "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>input",
+     "components": [],
+     "box": {
+      "left": 20,
+      "right": 440,
+      "top": 266,
+      "bottom": 314,
+      "width": 420,
+      "height": 48
+     },
+     "style": {
+      "width": "420px",
+      "minWidth": "0px",
+      "maxWidth": "none",
+      "flexGrow": "0",
+      "flexShrink": "0",
+      "flexBasis": "auto",
+      "whiteSpace": "normal",
+      "overflow": "clip",
+      "textOverflow": "clip",
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontFamily": "Inter, sans-serif",
+      "position": "static",
+      "color": "rgb(71, 85, 105)",
+      "backgroundColor": "rgb(255, 255, 255)"
+     },
+     "other": null
+    }
+   ],
+   "widths": [
+    {
+     "w": 320,
+     "h": 568,
+     "px": 140,
+     "metric": "overflow_px",
+     "canvas_px": 140,
+     "scale": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "crop": "crops/head/local_home_320x568_s0_R1-018cf3.png",
+     "shot": "shots/head/local_home_320x568_s0_marked.png",
+     "clean": "shots/head/local_home_320x568_s0.png",
+     "text": "부모 오른쪽 끝(300)보다 140px 넘침"
+    },
+    {
+     "w": 375,
+     "h": 667,
+     "px": 85,
+     "metric": "overflow_px",
+     "canvas_px": 85,
+     "scale": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "crop": "crops/head/local_home_375x667_s0_R1-018cf3.png",
+     "shot": "shots/head/local_home_375x667_s0_marked.png",
+     "clean": "shots/head/local_home_375x667_s0.png",
+     "text": "부모 오른쪽 끝(355)보다 85px 넘침"
+    },
+    {
+     "w": 375,
+     "h": 812,
+     "px": 85,
+     "metric": "overflow_px",
+     "canvas_px": 85,
+     "scale": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "crop": "crops/head/local_home_375x812_s0_R1-018cf3.png",
+     "shot": "shots/head/local_home_375x812_s0_marked.png",
+     "clean": "shots/head/local_home_375x812_s0.png",
+     "text": "부모 오른쪽 끝(355)보다 85px 넘침"
+    },
+    {
+     "w": 390,
+     "h": 844,
+     "px": 85,
+     "metric": "overflow_px",
+     "canvas_px": 85,
+     "scale": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "crop": "crops/head/local_home_390x844_s0_R1-018cf3.png",
+     "shot": "shots/head/local_home_390x844_s0_marked.png",
+     "clean": "shots/head/local_home_390x844_s0.png",
+     "text": "부모 오른쪽 끝(363)보다 85px 넘침"
+    },
+    {
+     "w": 430,
+     "h": 932,
+     "px": 85,
+     "metric": "overflow_px",
+     "canvas_px": 85,
+     "scale": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "crop": "crops/head/local_home_430x932_s0_R1-018cf3.png",
+     "shot": "shots/head/local_home_430x932_s0_marked.png",
+     "clean": "shots/head/local_home_430x932_s0.png",
+     "text": "부모 오른쪽 끝(383)보다 85px 넘침"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "M1",
+     "metric": "overflow_px",
+     "value": 85,
+     "threshold": 2,
+     "text": "부모 오른쪽 끝(355)보다 85px 넘침"
+    },
+    {
+     "id": "M2",
+     "metric": "page_overflow_px",
+     "value": 65,
+     "threshold": 2,
+     "text": "화면 폭(375)보다 내용이 65px 넓어 화면이 늘어남(레이아웃 폭 440)"
+    }
+   ],
+   "max_px": 140
+  },
+  {
+   "screen": "local/home",
+   "id": "local-home-D2-12e52d",
+   "rule": "D2",
+   "rule_name": "색 다름",
+   "kind": "design",
+   "severity": "중간",
+   "labels": [
+    "Reserve visit"
+   ],
+   "elements": [
+    {
+     "fp": "design|D2|node:5:38",
+     "label": "Reserve visit",
+     "tag": "button",
+     "cls": [
+      "cta"
+     ],
+     "pcls": [
+      "app"
+     ],
+     "path": "main>button",
+     "box": {
+      "left": 20,
+      "top": 426,
+      "right": 240,
+      "bottom": 474,
+      "width": 220,
+      "height": 48
+     },
+     "design": {
+      "id": "5:38",
+      "name": "CTA",
+      "type": "FRAME",
+      "box": {
+       "x": 20,
+       "y": 426,
+       "w": 335,
+       "h": 48
+      },
+      "text": null
+     }
+    }
+   ],
+   "widths": [
+    {
+     "w": 375,
+     "h": 812,
+     "px": 158,
+     "metric": "fill_diff",
+     "canvas_px": 158,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "shot": "shots/head/local_home_design_375x812_marked.png",
+     "clean": "shots/head/local_home_design_375x812.png",
+     "text": "배경색: 시안 #2459D3(color/brand), 구현 #C23B67"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "M1",
+     "metric": "fill_diff",
+     "value": 158,
+     "threshold": 10,
+     "text": "배경색: 시안 #2459D3(color/brand), 구현 #C23B67"
+    }
+   ],
+   "design": {
+    "node": {
+     "id": "5:38",
+     "name": "CTA",
+     "type": "FRAME",
+     "box": {
+      "x": 20,
+      "y": 426,
+      "w": 335,
+      "h": 48
+     },
+     "text": null
+    },
+    "values": [
+     {
+      "prop": "background-color",
+      "design": "#2459D3",
+      "impl": "#C23B67",
+      "at": "base",
+      "token": "color/brand"
+     }
+    ]
+   },
+   "max_px": 158
+  },
+  {
+   "screen": "local/home",
+   "id": "local-home-F1-c61a9a",
+   "rule": "F1",
+   "rule_name": "크기 방식 다름",
+   "kind": "design",
+   "severity": "중간",
+   "labels": [
+    "Visitor"
+   ],
+   "elements": [
+    {
+     "fp": "design|F1|node:5:32",
+     "label": "Visitor",
+     "tag": "input",
+     "cls": [
+      "visitor-input"
+     ],
+     "pcls": [
+      "visitor"
+     ],
+     "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>input",
+     "box": {
+      "left": 20,
+      "top": 266,
+      "right": 440,
+      "bottom": 314,
+      "width": 420,
+      "height": 48
+     },
+     "design": {
+      "id": "5:32",
+      "name": "Visitor input",
+      "type": "FRAME",
+      "box": {
+       "x": 20,
+       "y": 266,
+       "w": 335,
+       "h": 48
+      },
+      "text": null
+     }
+    }
+   ],
+   "widths": [
+    {
+     "w": 375,
+     "h": 812,
+     "px": 85,
+     "metric": "fill_width_diff",
+     "canvas_px": 85,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "shot": "shots/head/local_home_design_375x812_marked.png",
+     "clean": "shots/head/local_home_design_375x812.png",
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 420px(부모 폭 335px는 시안과 같음)"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "M1",
+     "metric": "fill_width_diff",
+     "value": 85,
+     "threshold": 4,
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 420px(부모 폭 335px는 시안과 같음)"
+    }
+   ],
+   "design": {
+    "node": {
+     "id": "5:32",
+     "name": "Visitor input",
+     "type": "FRAME",
+     "box": {
+      "x": 20,
+      "y": 266,
+      "w": 335,
+      "h": 48
+     },
+     "text": null
+    },
+    "values": [
+     {
+      "prop": "width",
+      "design": "FILL",
+      "impl": "420px",
+      "at": "base"
+     }
+    ]
+   },
+   "max_px": 85
+  },
+  {
+   "screen": "local/home",
+   "id": "local-home-F1-8d1dee",
+   "rule": "F1",
+   "rule_name": "크기 방식 다름",
+   "kind": "design",
+   "severity": "중간",
+   "labels": [
+    "Reserve visit"
+   ],
+   "elements": [
+    {
+     "fp": "design|F1|node:5:38",
+     "label": "Reserve visit",
+     "tag": "button",
+     "cls": [
+      "cta"
+     ],
+     "pcls": [
+      "app"
+     ],
+     "path": "main>button",
+     "box": {
+      "left": 20,
+      "top": 426,
+      "right": 240,
+      "bottom": 474,
+      "width": 220,
+      "height": 48
+     },
+     "design": {
+      "id": "5:38",
+      "name": "CTA",
+      "type": "FRAME",
+      "box": {
+       "x": 20,
+       "y": 426,
+       "w": 335,
+       "h": 48
+      },
+      "text": null
+     }
+    }
+   ],
+   "widths": [
+    {
+     "w": 375,
+     "h": 812,
+     "px": 115,
+     "metric": "fill_width_diff",
+     "canvas_px": 115,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "shot": "shots/head/local_home_design_375x812_marked.png",
+     "clean": "shots/head/local_home_design_375x812.png",
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 220px(부모 폭 375px는 시안과 같음)"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "M1",
+     "metric": "fill_width_diff",
+     "value": 115,
+     "threshold": 4,
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 220px(부모 폭 375px는 시안과 같음)"
+    }
+   ],
+   "design": {
+    "node": {
+     "id": "5:38",
+     "name": "CTA",
+     "type": "FRAME",
+     "box": {
+      "x": 20,
+      "y": 426,
+      "w": 335,
+      "h": 48
+     },
+     "text": null
+    },
+    "values": [
+     {
+      "prop": "width",
+      "design": "FILL",
+      "impl": "220px",
+      "at": "base"
+     }
+    ]
+   },
+   "max_px": 115
+  },
+  {
+   "screen": "local/home",
+   "id": "local-home-I1-6c2fe2",
+   "rule": "I1",
+   "rule_name": "눌러도 반응 없음",
+   "kind": "interact",
+   "severity": "높음",
+   "labels": [
+    "Reserve visit"
+   ],
+   "elements": [
+    {
+     "fp": "interact|I1|main>button|Reserve visit",
+     "label": "Reserve visit",
+     "tag": "button",
+     "cls": [
+      "cta"
+     ],
+     "pcls": [
+      "app"
+     ],
+     "path": "main>button",
+     "box": {
+      "left": 20,
+      "top": 426,
+      "width": 220,
+      "height": 48
+     }
+    }
+   ],
+   "widths": [
+    {
+     "w": 375,
+     "h": 812,
+     "px": 1,
+     "metric": "no_reaction",
+     "canvas_px": 1,
+     "items": 1,
+     "scroll_y": 0,
+     "step": 0,
+     "shot": "shots/head/local_home_interact_375x812_0_marked.png",
+     "clean": "shots/head/local_home_interact_375x812_0.png",
+     "text": "눌러도 아무 반응이 없다(주소·DOM·입력·초점·요청·화면 변화 없음). 시안의 연결: \"CTA\" 누름 → \"Reservation confirmed\" 이동"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "M1",
+     "metric": "I1",
+     "value": 1,
+     "threshold": 1,
+     "text": "눌러도 아무 반응이 없다(주소·DOM·입력·초점·요청·화면 변화 없음)"
+    },
+    {
+     "id": "M2",
+     "metric": "design_reaction",
+     "value": 1,
+     "threshold": 1,
+     "text": "시안의 연결: \"CTA\" 누름 → \"Reservation confirmed\" 이동"
+    }
+   ],
+   "interact": {
+    "signals": [],
+    "errors": [],
+    "stack": null,
+    "landing": null,
+    "covered_by": null,
+    "expected": {
+     "node": "CTA",
+     "actions": [
+      {
+       "type": "NODE",
+       "navigation": "NAVIGATE",
+       "dest": "5:41",
+       "dest_name": "Reservation confirmed",
+       "url": null
+      }
+     ]
+    },
+    "prototype_check": {
+     "status": "mismatch",
+     "text": "시안 목적지 Reservation confirmed의 글자가 구현 화면에 없다: Reservation confirmed",
+     "checks": [
+      {
+       "status": "mismatch",
+       "text": "시안 목적지 Reservation confirmed의 글자가 구현 화면에 없다: Reservation confirmed",
+       "anchors": [
+        "Reservation confirmed"
+       ],
+       "missing": [
+        "Reservation confirmed"
+       ]
+      }
+     ]
+    },
+    "href": null,
+    "design_only": false,
+    "why_not": null
+   },
+   "max_px": 1
+  }
+ ],
+ "rows": [
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 1,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "ATELIER",
+     "impl": "ATELIER"
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 18,
+     "impl": 18
+    },
+    {
+     "name": "글자 크기",
+     "design": 12,
+     "impl": 12
+    },
+    {
+     "name": "글자 굵기",
+     "design": 600,
+     "impl": 600
+    },
+    {
+     "name": "줄 높이",
+     "design": 18,
+     "impl": 18
+    },
+    {
+     "name": "글자색",
+     "design": "#2459D3",
+     "impl": "#2459D3"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 1,
+    "tag": "p",
+    "cls": [
+     "brand"
+    ],
+    "pcls": [
+     "app"
+    ],
+    "label": "ATELIER",
+    "path": "main>p:nth-of-type(1)",
+    "box": {
+     "left": 20,
+     "top": 20,
+     "right": 355,
+     "bottom": 38,
+     "width": 335,
+     "height": 18
+    },
+    "style": {
+     "fontSize": 12,
+     "fontWeight": 600,
+     "lineHeight": 18,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#2459D3",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>p:nth-of-type(1)"
+   },
+   "figma": {
+    "id": "5:22",
+    "name": "Brand",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 20,
+     "right": 355,
+     "bottom": 38,
+     "width": 335,
+     "height": 18
+    }
+   },
+   "findings": [],
+   "seq": 1231,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//1"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 2,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Reserve a visit",
+     "impl": "Reserve a visit"
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 32,
+     "impl": 32
+    },
+    {
+     "name": "글자 크기",
+     "design": 24,
+     "impl": 24
+    },
+    {
+     "name": "글자 굵기",
+     "design": 700,
+     "impl": 700
+    },
+    {
+     "name": "줄 높이",
+     "design": 32,
+     "impl": 32
+    },
+    {
+     "name": "글자색",
+     "design": "#172033",
+     "impl": "#172033"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 3,
+    "tag": "h1",
+    "cls": [
+     "title"
+    ],
+    "pcls": [
+     "heading"
+    ],
+    "label": "Reserve a visit",
+    "path": "main>div:nth-of-type(1)>h1",
+    "box": {
+     "left": 20,
+     "top": 58,
+     "right": 355,
+     "bottom": 90,
+     "width": 335,
+     "height": 32
+    },
+    "style": {
+     "fontSize": 24,
+     "fontWeight": 700,
+     "lineHeight": 32,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#172033",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(1)>h1"
+   },
+   "figma": {
+    "id": "5:24",
+    "name": "Title",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 58,
+     "right": 355,
+     "bottom": 90,
+     "width": 335,
+     "height": 32
+    }
+   },
+   "findings": [],
+   "seq": 1232,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//2"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 3,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Plan your next exhibition visit.",
+     "impl": "Plan your next exhibition visit."
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자 크기",
+     "design": 14,
+     "impl": 14
+    },
+    {
+     "name": "글자 굵기",
+     "design": 400,
+     "impl": 400
+    },
+    {
+     "name": "줄 높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자색",
+     "design": "#475569",
+     "impl": "#475569"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 4,
+    "tag": "p",
+    "cls": [
+     "subtitle"
+    ],
+    "pcls": [
+     "heading"
+    ],
+    "label": "Plan your next exhibition visit.",
+    "path": "main>div:nth-of-type(1)>p",
+    "box": {
+     "left": 20,
+     "top": 94,
+     "right": 355,
+     "bottom": 114,
+     "width": 335,
+     "height": 20
+    },
+    "style": {
+     "fontSize": 14,
+     "fontWeight": 400,
+     "lineHeight": 20,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#475569",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(1)>p"
+   },
+   "figma": {
+    "id": "5:25",
+    "name": "Subtitle",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 94,
+     "right": 355,
+     "bottom": 114,
+     "width": 335,
+     "height": 20
+    }
+   },
+   "findings": [],
+   "seq": 1233,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//3"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 4,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Light & Space",
+     "impl": "Light & Space"
+    },
+    {
+     "name": "너비",
+     "design": 303,
+     "impl": 303
+    },
+    {
+     "name": "높이",
+     "design": 24,
+     "impl": 24
+    },
+    {
+     "name": "글자 크기",
+     "design": 18,
+     "impl": 18
+    },
+    {
+     "name": "글자 굵기",
+     "design": 600,
+     "impl": 600
+    },
+    {
+     "name": "줄 높이",
+     "design": 24,
+     "impl": 24
+    },
+    {
+     "name": "글자색",
+     "design": "#172033",
+     "impl": "#172033"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 6,
+    "tag": "p",
+    "cls": [
+     "exhibition-title"
+    ],
+    "pcls": [
+     "exhibition"
+    ],
+    "label": "Light & Space",
+    "path": "main>div:nth-of-type(2)>p:nth-of-type(1)",
+    "box": {
+     "left": 36,
+     "top": 150,
+     "right": 339,
+     "bottom": 174,
+     "width": 303,
+     "height": 24
+    },
+    "style": {
+     "fontSize": 18,
+     "fontWeight": 600,
+     "lineHeight": 24,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#172033",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(2)>p:nth-of-type(1)"
+   },
+   "figma": {
+    "id": "5:27",
+    "name": "Exhibition title",
+    "type": "TEXT",
+    "box": {
+     "left": 36,
+     "top": 150,
+     "right": 339,
+     "bottom": 174,
+     "width": 303,
+     "height": 24
+    }
+   },
+   "findings": [],
+   "seq": 1234,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//4"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 5,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Sat, 17 Oct · 14:00",
+     "impl": "Sat, 17 Oct · 14:00"
+    },
+    {
+     "name": "너비",
+     "design": 303,
+     "impl": 303
+    },
+    {
+     "name": "높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자 크기",
+     "design": 14,
+     "impl": 14
+    },
+    {
+     "name": "글자 굵기",
+     "design": 400,
+     "impl": 400
+    },
+    {
+     "name": "줄 높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자색",
+     "design": "#475569",
+     "impl": "#475569"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 7,
+    "tag": "p",
+    "cls": [
+     "exhibition-time"
+    ],
+    "pcls": [
+     "exhibition"
+    ],
+    "label": "Sat, 17 Oct · 14:00",
+    "path": "main>div:nth-of-type(2)>p:nth-of-type(2)",
+    "box": {
+     "left": 36,
+     "top": 182,
+     "right": 339,
+     "bottom": 202,
+     "width": 303,
+     "height": 20
+    },
+    "style": {
+     "fontSize": 14,
+     "fontWeight": 400,
+     "lineHeight": 20,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#475569",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(2)>p:nth-of-type(2)"
+   },
+   "figma": {
+    "id": "5:28",
+    "name": "Exhibition time",
+    "type": "TEXT",
+    "box": {
+     "left": 36,
+     "top": 182,
+     "right": 339,
+     "bottom": 202,
+     "width": 303,
+     "height": 20
+    }
+   },
+   "findings": [],
+   "seq": 1235,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//5"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 6,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Visitor name",
+     "impl": "Visitor name"
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자 크기",
+     "design": 14,
+     "impl": 14
+    },
+    {
+     "name": "글자 굵기",
+     "design": 600,
+     "impl": 600
+    },
+    {
+     "name": "줄 높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자색",
+     "design": "#172033",
+     "impl": "#172033"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 10,
+    "tag": "p",
+    "cls": [
+     "visitor-label"
+    ],
+    "pcls": [
+     "visitor"
+    ],
+    "label": "Visitor name",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>p",
+    "box": {
+     "left": 20,
+     "top": 238,
+     "right": 355,
+     "bottom": 258,
+     "width": 335,
+     "height": 20
+    },
+    "style": {
+     "fontSize": 14,
+     "fontWeight": 600,
+     "lineHeight": 20,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#172033",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(3)>div:nth-of-type(1)>p"
+   },
+   "figma": {
+    "id": "5:31",
+    "name": "Visitor label",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 238,
+     "right": 355,
+     "bottom": 258,
+     "width": 335,
+     "height": 20
+    }
+   },
+   "findings": [],
+   "seq": 1236,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//6"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 7,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Email address",
+     "impl": "Email address"
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자 크기",
+     "design": 14,
+     "impl": 14
+    },
+    {
+     "name": "글자 굵기",
+     "design": 600,
+     "impl": 600
+    },
+    {
+     "name": "줄 높이",
+     "design": 20,
+     "impl": 20
+    },
+    {
+     "name": "글자색",
+     "design": "#172033",
+     "impl": "#172033"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 13,
+    "tag": "p",
+    "cls": [
+     "email-label"
+    ],
+    "pcls": [
+     "email"
+    ],
+    "label": "Email address",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(2)>p",
+    "box": {
+     "left": 20,
+     "top": 330,
+     "right": 355,
+     "bottom": 350,
+     "width": 335,
+     "height": 20
+    },
+    "style": {
+     "fontSize": 14,
+     "fontWeight": 600,
+     "lineHeight": 20,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#172033",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>div:nth-of-type(3)>div:nth-of-type(2)>p"
+   },
+   "figma": {
+    "id": "5:35",
+    "name": "Email label",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 330,
+     "right": 355,
+     "bottom": 350,
+     "width": 335,
+     "height": 20
+    }
+   },
+   "findings": [],
+   "seq": 1237,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//7"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 8,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Your reservation is free to cancel.",
+     "impl": "Your reservation is free to cancel."
+    },
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 18,
+     "impl": 18
+    },
+    {
+     "name": "글자 크기",
+     "design": 12,
+     "impl": 12
+    },
+    {
+     "name": "글자 굵기",
+     "design": 400,
+     "impl": 400
+    },
+    {
+     "name": "줄 높이",
+     "design": 18,
+     "impl": 18
+    },
+    {
+     "name": "글자색",
+     "design": "#475569",
+     "impl": "#475569"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 17,
+    "tag": "p",
+    "cls": [
+     "footnote"
+    ],
+    "pcls": [
+     "app"
+    ],
+    "label": "Your reservation is free to cancel.",
+    "path": "main>p:nth-of-type(2)",
+    "box": {
+     "left": 20,
+     "top": 494,
+     "right": 355,
+     "bottom": 512,
+     "width": 335,
+     "height": 18
+    },
+    "style": {
+     "fontSize": 12,
+     "fontWeight": 400,
+     "lineHeight": 18,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#475569",
+     "textAlign": "start",
+     "opacity": 1
+    },
+    "fp": "main>p:nth-of-type(2)"
+   },
+   "figma": {
+    "id": "5:40",
+    "name": "Footnote",
+    "type": "TEXT",
+    "box": {
+     "left": 20,
+     "top": 494,
+     "right": 355,
+     "bottom": 512,
+     "width": 335,
+     "height": 18
+    }
+   },
+   "findings": [],
+   "seq": 1238,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//8"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 9,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "문구",
+     "design": "Reserve visit",
+     "impl": "Reserve visit"
+    },
+    {
+     "name": "너비",
+     "design": 100,
+     "impl": 99.3
+    },
+    {
+     "name": "높이",
+     "design": 24,
+     "impl": 24
+    },
+    {
+     "name": "글자 크기",
+     "design": 16,
+     "impl": 16
+    },
+    {
+     "name": "글자 굵기",
+     "design": 600,
+     "impl": 600
+    },
+    {
+     "name": "줄 높이",
+     "design": 24,
+     "impl": 24
+    },
+    {
+     "name": "글자색",
+     "design": "#FFFFFF",
+     "impl": "#FFFFFF"
+    },
+    {
+     "name": "글꼴",
+     "design": "Inter",
+     "impl": "Inter"
+    }
+   ],
+   "element": {
+    "i": 16,
+    "tag": "p",
+    "cls": [
+     "cta-label"
+    ],
+    "pcls": [
+     "cta"
+    ],
+    "label": "Reserve visit",
+    "path": "main>button>p",
+    "box": {
+     "left": 80.3,
+     "top": 438,
+     "right": 179.7,
+     "bottom": 462,
+     "width": 99.3,
+     "height": 24
+    },
+    "style": {
+     "fontSize": 16,
+     "fontWeight": 600,
+     "lineHeight": 24,
+     "letterSpacing": 0,
+     "fontFamily": "Inter",
+     "fontStack": "Inter, sans-serif",
+     "fontAvail": true,
+     "color": "#FFFFFF",
+     "textAlign": "center",
+     "opacity": 1
+    },
+    "fp": "main>button>p"
+   },
+   "figma": {
+    "id": "I5:38;5:4",
+    "name": "CTA label",
+    "type": "TEXT",
+    "box": {
+     "left": 138,
+     "top": 438,
+     "right": 238,
+     "bottom": 462,
+     "width": 100,
+     "height": 24
+    }
+   },
+   "findings": [],
+   "seq": 1239,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//9"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 10,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 84,
+     "impl": 84
+    },
+    {
+     "name": "배경색",
+     "design": "#EFF4FF",
+     "impl": "#EFF4FF"
+    },
+    {
+     "name": "모서리",
+     "design": 12,
+     "impl": 12
+    }
+   ],
+   "element": {
+    "i": 5,
+    "tag": "div",
+    "cls": [
+     "exhibition"
+    ],
+    "pcls": [
+     "app"
+    ],
+    "label": "Light & SpaceSat, 17 Oct · 14:00",
+    "path": "main>div:nth-of-type(2)",
+    "box": {
+     "left": 20,
+     "top": 134,
+     "right": 355,
+     "bottom": 218,
+     "width": 335,
+     "height": 84
+    },
+    "style": {},
+    "fp": "main>div:nth-of-type(2)"
+   },
+   "figma": {
+    "id": "5:26",
+    "name": "Exhibition",
+    "type": "FRAME",
+    "box": {
+     "left": 20,
+     "top": 134,
+     "right": 355,
+     "bottom": 218,
+     "width": 335,
+     "height": 84
+    }
+   },
+   "findings": [],
+   "seq": 1240,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//10"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 11,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 420
+    },
+    {
+     "name": "높이",
+     "design": 48,
+     "impl": 48
+    },
+    {
+     "name": "배경색",
+     "design": "#FFFFFF",
+     "impl": "#FFFFFF"
+    },
+    {
+     "name": "모서리",
+     "design": 8,
+     "impl": 8
+    }
+   ],
+   "element": {
+    "i": 11,
+    "tag": "input",
+    "cls": [
+     "visitor-input"
+    ],
+    "pcls": [
+     "visitor"
+    ],
+    "label": "Visitor",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>input",
+    "box": {
+     "left": 20,
+     "top": 266,
+     "right": 440,
+     "bottom": 314,
+     "width": 420,
+     "height": 48
+    },
+    "style": {},
+    "fp": "main>div:nth-of-type(3)>div:nth-of-type(1)>input"
+   },
+   "figma": {
+    "id": "5:32",
+    "name": "Visitor input",
+    "type": "FRAME",
+    "box": {
+     "left": 20,
+     "top": 266,
+     "right": 355,
+     "bottom": 314,
+     "width": 335,
+     "height": 48
+    }
+   },
+   "findings": [
+    {
+     "rule": "F1",
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 420px(부모 폭 335px는 시안과 같음)",
+     "metric": "fill_width_diff",
+     "value": 85,
+     "threshold": 4,
+     "prop": "width"
+    }
+   ],
+   "seq": 1241,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//11"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 12,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 335
+    },
+    {
+     "name": "높이",
+     "design": 48,
+     "impl": 48
+    },
+    {
+     "name": "배경색",
+     "design": "#FFFFFF",
+     "impl": "#FFFFFF"
+    },
+    {
+     "name": "모서리",
+     "design": 8,
+     "impl": 8
+    }
+   ],
+   "element": {
+    "i": 14,
+    "tag": "input",
+    "cls": [
+     "email-input"
+    ],
+    "pcls": [
+     "email"
+    ],
+    "label": "Email",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(2)>input",
+    "box": {
+     "left": 20,
+     "top": 358,
+     "right": 355,
+     "bottom": 406,
+     "width": 335,
+     "height": 48
+    },
+    "style": {},
+    "fp": "main>div:nth-of-type(3)>div:nth-of-type(2)>input"
+   },
+   "figma": {
+    "id": "5:36",
+    "name": "Email input",
+    "type": "FRAME",
+    "box": {
+     "left": 20,
+     "top": 358,
+     "right": 355,
+     "bottom": 406,
+     "width": 335,
+     "height": 48
+    }
+   },
+   "findings": [],
+   "seq": 1242,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//12"
+  },
+  {
+   "phase": "design",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x812",
+   "width": 375,
+   "height": 812,
+   "shot": "shots/head/local_home_design_375x812.png",
+   "figma_shot": "design/local_home.png",
+   "figma_width": 375,
+   "figma_height": 812,
+   "test": "design-final",
+   "ordinal": 13,
+   "total": 13,
+   "status": "checked",
+   "properties": [
+    {
+     "name": "너비",
+     "design": 335,
+     "impl": 220
+    },
+    {
+     "name": "높이",
+     "design": 48,
+     "impl": 48
+    },
+    {
+     "name": "배경색",
+     "design": "#2459D3",
+     "impl": "#C23B67"
+    },
+    {
+     "name": "모서리",
+     "design": 8,
+     "impl": 8
+    }
+   ],
+   "element": {
+    "i": 15,
+    "tag": "button",
+    "cls": [
+     "cta"
+    ],
+    "pcls": [
+     "app"
+    ],
+    "label": "Reserve visit",
+    "path": "main>button",
+    "box": {
+     "left": 20,
+     "top": 426,
+     "right": 240,
+     "bottom": 474,
+     "width": 220,
+     "height": 48
+    },
+    "style": {},
+    "fp": "main>button"
+   },
+   "figma": {
+    "id": "5:38",
+    "name": "CTA",
+    "type": "FRAME",
+    "box": {
+     "left": 20,
+     "top": 426,
+     "right": 355,
+     "bottom": 474,
+     "width": 335,
+     "height": 48
+    }
+   },
+   "findings": [
+    {
+     "rule": "D2",
+     "text": "배경색: 시안 #2459D3(color/brand), 구현 #C23B67",
+     "metric": "fill_diff",
+     "value": 158,
+     "threshold": 10,
+     "prop": "background-color"
+    },
+    {
+     "rule": "F1",
+     "text": "기준 크기 폭: 시안은 부모를 채움(Fill, 335px), 구현 220px(부모 폭 375px는 시안과 같음)",
+     "metric": "fill_width_diff",
+     "value": 115,
+     "threshold": 4,
+     "prop": "width"
+    }
+   ],
+   "seq": 1243,
+   "at": "2026-10-14T04:14:22.472Z",
+   "id": "design/head/local/home/375x812/0/design-final//13"
+  }
+ ],
+ "inspectionRows": [
+  {
+   "phase": "measure",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "320x568",
+   "width": 320,
+   "height": 568,
+   "scroll_step": 1,
+   "scroll_y": 0,
+   "shot": "shots/head/local_home_320x568_s0_scan.png",
+   "test": "R1",
+   "ordinal": 7,
+   "total": 11,
+   "element": {
+    "fp": "field|Visitor",
+    "tag": "input",
+    "cls": [
+     "visitor-input"
+    ],
+    "pcls": [
+     "visitor"
+    ],
+    "label": "Visitor",
+    "aria": "Visitor",
+    "role": null,
+    "selector": "input[aria-label=\"Visitor\"]",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>input",
+    "components": [],
+    "box": {
+     "left": 20,
+     "right": 440,
+     "top": 266,
+     "bottom": 314,
+     "width": 420,
+     "height": 48
+    },
+    "style": {
+     "width": "420px",
+     "minWidth": "0px",
+     "maxWidth": "none",
+     "flexGrow": "0",
+     "flexShrink": "0",
+     "flexBasis": "auto",
+     "whiteSpace": "normal",
+     "overflow": "clip",
+     "textOverflow": "clip",
+     "fontSize": "16px",
+     "lineHeight": "24px",
+     "fontFamily": "Inter, sans-serif",
+     "position": "static",
+     "color": "rgb(71, 85, 105)",
+     "backgroundColor": "rgb(255, 255, 255)"
+    }
+   },
+   "variant": "",
+   "status": "checked",
+   "findings": [
+    {
+     "rule": "R1",
+     "text": "부모 오른쪽 끝(300)보다 140px 넘침",
+     "metric": "overflow_px",
+     "value": 140,
+     "threshold": 2
+    }
+   ],
+   "seq": 534,
+   "at": "2026-10-14T11:36:23.585Z",
+   "id": "measure/head/local/home/320x568/1/R1//7"
+  },
+  {
+   "phase": "measure",
+   "side": "head",
+   "screen": "local/home",
+   "title": "첫 화면(아무 웹앱)",
+   "size": "375x667",
+   "width": 375,
+   "height": 667,
+   "scroll_step": 1,
+   "scroll_y": 0,
+   "shot": "shots/head/local_home_375x667_s0_scan.png",
+   "test": "G1",
+   "ordinal": 7,
+   "total": 11,
+   "element": {
+    "fp": "field|Visitor",
+    "tag": "input",
+    "cls": [
+     "visitor-input"
+    ],
+    "pcls": [
+     "visitor"
+    ],
+    "label": "Visitor",
+    "aria": "Visitor",
+    "role": null,
+    "selector": "input[aria-label=\"Visitor\"]",
+    "path": "main>div:nth-of-type(3)>div:nth-of-type(1)>input",
+    "components": [],
+    "box": {
+     "left": 20,
+     "right": 440,
+     "top": 266,
+     "bottom": 314,
+     "width": 420,
+     "height": 48
+    },
+    "style": {
+     "width": "420px",
+     "minWidth": "0px",
+     "maxWidth": "none",
+     "flexGrow": "0",
+     "flexShrink": "0",
+     "flexBasis": "auto",
+     "whiteSpace": "normal",
+     "overflow": "clip",
+     "textOverflow": "clip",
+     "fontSize": "16px",
+     "lineHeight": "24px",
+     "fontFamily": "Inter, sans-serif",
+     "position": "static",
+     "color": "rgb(71, 85, 105)",
+     "backgroundColor": "rgb(255, 255, 255)"
+    }
+   },
+   "variant": "",
+   "status": "checked",
+   "findings": [],
+   "seq": 852,
+   "at": "2026-10-14T11:36:23.675Z",
+   "id": "measure/head/local/home/375x667/1/G1//7"
+  }
+ ]
+}

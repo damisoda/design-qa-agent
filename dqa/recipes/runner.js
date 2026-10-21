@@ -15,6 +15,8 @@ function loadRecipe (id) {
   const r = readJSON(f)
   r._file = f
   r._fixtures = r.fixtures ? readJSON(path.resolve(path.dirname(f), r.fixtures), {}) : {}
+  // 응답 대역: 배열이거나 레시피 옆 파일 이름({ "stubs": [...] })
+  r._stubs = Array.isArray(r.stubs) ? r.stubs : r.stubs ? (readJSON(path.resolve(path.dirname(f), r.stubs), {}).stubs || []) : []
   return r
 }
 
@@ -62,6 +64,11 @@ async function findTop (page, target, timeoutMs, allowOffscreen = false) {
         const el = loc.nth(i)
         if (!(await el.isVisible().catch(() => false))) continue
         if (await el.evaluate(dqaIsTop, allowOffscreen).catch(() => false)) return el
+        // 화면 밖(아래·옆)에 있으면 사람이 스크롤하듯 보이게 한 뒤 다시 본다
+        if (!allowOffscreen && await el.evaluate((e) => { const r = e.getBoundingClientRect(); return r.bottom > innerHeight || r.top < 0 || r.right > innerWidth || r.left < 0 }).catch(() => false)) {
+          await el.scrollIntoViewIfNeeded({ timeout: 1000 }).catch(() => {})
+          if (await el.evaluate(dqaIsTop, false).catch(() => false)) return el
+        }
       }
     }
     await page.waitForTimeout(150)
@@ -114,8 +121,18 @@ async function runSteps (page, steps, ctx) {
   }
 }
 
+// Trusted recipe fixture: supply a reproducible GPS position without editing app code.
+async function configureContext (ctx, recipe, origin) {
+  const geo = recipe.geolocation
+  if (!geo) return
+  if (!Number.isFinite(geo.latitude) || Math.abs(geo.latitude) > 90 || !Number.isFinite(geo.longitude) || Math.abs(geo.longitude) > 180) throw new Error('invalid recipe geolocation')
+  await ctx.setGeolocation(geo)
+  await ctx.grantPermissions(['geolocation'], { origin })
+}
+
 // 레시피 처음부터 끝까지: 시작 주소 → 단계 → 준비 조건
 async function enterScreen (page, recipe, { origin, stepMs, gotoMs, settleMs }) {
+  await configureContext(page.context(), recipe, origin)
   const trail = []
   const start = recipe.start || { path: '/' }
   if (recipe.set_storage) await page.addInitScript((kv) => { for (const [k, v] of Object.entries(kv)) localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v)) }, recipe.set_storage)
@@ -138,4 +155,4 @@ async function dumpVisible (page) {
   }).catch(() => ({ texts: [], inputs: [] }))
 }
 
-module.exports = { loadRecipe, listRecipes, enterScreen, dumpVisible, runSteps }
+module.exports = { loadRecipe, listRecipes, enterScreen, dumpVisible, runSteps, configureContext }

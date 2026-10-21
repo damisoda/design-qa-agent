@@ -1,0 +1,40 @@
+@font-face{font-family:Inter;src:url(fonts/Inter-400.ttf);font-weight:400}@font-face{font-family:Inter;src:url(fonts/Inter-600.ttf);font-weight:600}@font-face{font-family:Inter;src:url(fonts/Inter-700.ttf);font-weight:700}
+:root{--brand:#2459D3;--rose:#A83B60;--paper:#FFFFFF;--ink:#172033}*{box-sizing:border-box}body{margin:0;background:var(--paper);font-family:Inter,sans-serif;color:var(--ink)}main{display:flex;flex-direction:column;gap:24px;padding:24px;max-width:430px;min-height:100vh;margin:auto}p,h1{margin:0}button{font:inherit;cursor:pointer}
+.n4-2{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-3{font-size:28px;font-weight:700;line-height:36px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-4{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-6{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-7{font-size:24px;font-weight:700;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-8{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-9{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-10{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-5{display:flex;flex-direction:column;gap:12px;padding:24px 24px 24px 24px;min-height:272px;flex-shrink:0;background:#EDF2FA;border-radius:8px}
+.n4-11{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-14{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-15{font-size:28px;font-weight:700;line-height:36px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-16{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-18{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-19{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-20{font-size:16px;font-weight:600;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-21{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-17{display:flex;flex-direction:column;gap:12px;padding:24px 24px 24px 24px;min-height:224px;flex-shrink:0;background:#EDF2FA;border-radius:8px}
+.n4-22{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-25{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-26{font-size:28px;font-weight:700;line-height:36px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-27{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-29{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-30{font-size:20px;font-weight:600;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-31{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-32{font-size:16px;font-weight:600;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-28{display:flex;flex-direction:column;gap:12px;padding:24px 24px 24px 24px;min-height:224px;flex-shrink:0;background:#EDF2FA;border-radius:8px}
+.n4-33{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-36{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#2459D3;flex-shrink:0}
+.n4-37{font-size:28px;font-weight:700;line-height:36px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-38{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-40{font-size:14px;font-weight:600;line-height:24px;letter-spacing:0px;color:#146C43;flex-shrink:0}
+.n4-41{font-size:24px;font-weight:700;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-42{font-size:16px;font-weight:400;line-height:24px;letter-spacing:0px;color:#172033;flex-shrink:0}
+.n4-43{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.n4-39{display:flex;flex-direction:column;gap:12px;padding:24px 24px 24px 24px;min-height:224px;flex-shrink:0;background:#EDF2FA;border-radius:8px}
+.n4-44{font-size:14px;font-weight:400;line-height:24px;letter-spacing:0px;color:#475569;flex-shrink:0}
+.action { display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; padding:12px 8px; border:0; border-radius:8px; color:#FFFFFF; font-size:16px; font-weight:600; line-height:24px; background:var(--rose); flex-shrink:0; }

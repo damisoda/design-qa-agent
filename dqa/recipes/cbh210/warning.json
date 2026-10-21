@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "geolocation": {
+    "latitude": 37.6061,
+    "longitude": 127.0106,
+    "accuracy": 10
+  },
+  "stubs": "../cbh/stubs.json",
+  "ready": {
+    "text": "제보 전 주의사항 안내",
+    "stable_ms": 500
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AppearanceScreen.tsx",
+    "frontend/src/screens/AlertDetailScreen.tsx",
+    "frontend/src/components/FigmaFlowTabBar.tsx"
+  ],
+  "id": "cbh210/warning",
+  "title": "PR210 warning",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "시민으로 시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "fill": {
+        "selector": "input[aria-label=\"이메일 주소\"]"
+      },
+      "value": "citizen.qa@example.test"
+    },
+    {
+      "fill": {
+        "selector": "input[aria-label=\"비밀번호\"]"
+      },
+      "value": "mockpass1234"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "가입하고 시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "click": {
+        "text": "긴급 알림",
+        "exact": true
+      }
+    },
+    {
+      "wait_text": "긴급 수색 알림"
+    },
+    {
+      "click": {
+        "text": "78세 실종 어르신",
+        "exact": false
+      }
+    },
+    {
+      "click": {
+        "aria": "인상착의 자세히 보기"
+      }
+    },
+    {
+      "click": {
+        "text": "비슷한 사람을 봤어요",
+        "exact": true
+      }
+    }
+  ]
+}

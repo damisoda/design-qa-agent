@@ -1,0 +1,20 @@
+{
+  "id": "atelier/confirmation",
+  "version": 1,
+  "title": "Your visit is booked",
+  "app": "atelier",
+  "start": {
+    "path": "/confirmation.html"
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/app-demo-20261016/designs/confirmation/design.json"
+}

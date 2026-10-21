@@ -1,0 +1,388 @@
+{
+  "source": "figma-mcp-plugin-export",
+  "file": "Document",
+  "page": "Page 1",
+  "page_id": "0:1",
+  "figma": {
+    "file_key": "Yz8NzeU2wjqmzuYkRvvSfm"
+  },
+  "frame": {
+    "id": "2:26",
+    "name": "Your visit is booked",
+    "width": 375,
+    "height": 812,
+    "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "token": "color/paper"
+    }
+  },
+  "base": "375x812",
+  "tokens": {
+    "color/rose": "#A83B60",
+    "color/paper": "#FFFFFF"
+  },
+  "nodes": [
+    {
+      "id": "4:36",
+      "name": "Brand",
+      "type": "TEXT",
+      "x": 24,
+      "y": 24,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "ATELIER / VISITS",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#2459D3",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:37",
+      "name": "Title",
+      "type": "TEXT",
+      "x": 24,
+      "y": 72,
+      "w": 327,
+      "h": 36,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Your visit is booked",
+        "fontFamily": "Inter",
+        "fontStyle": "Bold",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 36,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#172033",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:38",
+      "name": "Subtitle",
+      "type": "TEXT",
+      "x": 24,
+      "y": 132,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "We look forward to seeing you.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:39",
+      "name": "Information",
+      "type": "FRAME",
+      "x": 24,
+      "y": 180,
+      "w": 327,
+      "h": 224,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 12,
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#EDF2FA",
+        "opacity": 1,
+        "token": null
+      },
+      "radius": 8,
+      "children": [
+        {
+          "id": "4:40",
+          "name": "Confirmation",
+          "type": "TEXT",
+          "x": 48,
+          "y": 204,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "RESERVATION CONFIRMED",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#146C43",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:41",
+          "name": "Exhibition",
+          "type": "TEXT",
+          "x": 48,
+          "y": 240,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Light and space",
+            "fontFamily": "Inter",
+            "fontStyle": "Bold",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:42",
+          "name": "Date",
+          "type": "TEXT",
+          "x": 48,
+          "y": 276,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Saturday, October 24 · 11:00 AM",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#172033",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        },
+        {
+          "id": "4:43",
+          "name": "Reference",
+          "type": "TEXT",
+          "x": 48,
+          "y": 312,
+          "w": 279,
+          "h": 24,
+          "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "ATELIER / A1042",
+            "fontFamily": "Inter",
+            "fontStyle": "Regular",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#475569",
+              "opacity": 1,
+              "token": null
+            },
+            "align": "LEFT",
+            "wrap": "WRAP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4:44",
+      "name": "Note",
+      "type": "TEXT",
+      "x": 24,
+      "y": 428,
+      "w": 327,
+      "h": 24,
+      "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+      },
+      "text": {
+        "content": "Show this screen at the gallery.",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+          "hex": "#475569",
+          "opacity": 1,
+          "token": null
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+      }
+    },
+    {
+      "id": "4:45",
+      "name": "Action / Return",
+      "type": "FRAME",
+      "x": 24,
+      "y": 476,
+      "w": 327,
+      "h": 48,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "wrap": false
+      },
+      "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+      },
+      "fill": {
+        "hex": "#A83B60",
+        "opacity": 1,
+        "token": "color/rose"
+      },
+      "radius": 8,
+      "reactions": [
+        {
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "navigation": "NAVIGATE",
+              "dest": "2:23",
+              "dest_name": "Discover",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "children": [
+        {
+          "id": "I4:45;2:30",
+          "name": "Continue",
+          "type": "TEXT",
+          "x": 108,
+          "y": 488,
+          "w": 160,
+          "h": 24,
+          "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+          },
+          "text": {
+            "content": "Explore another visit",
+            "fontFamily": "Inter",
+            "fontStyle": "Semi Bold",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 24,
+            "letterSpacing": 0,
+            "color": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": "color/paper"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "prototype_targets": {
+    "2:23": {
+      "name": "Discover",
+      "texts": [
+        "ATELIER / VISITS",
+        "Find your next perspective.",
+        "Independent exhibitions. A little closer.",
+        "ON VIEW / 01",
+        "Light and space",
+        "Mina Park",
+        "An exhibition about finding stillness in everyday places.",
+        "The North Gallery · Seoul",
+        "A place for unexpected discoveries.",
+        "Explore exhibition"
+      ]
+    }
+  },
+  "exported_at": "2026-10-16T11:32:33.774Z"
+}

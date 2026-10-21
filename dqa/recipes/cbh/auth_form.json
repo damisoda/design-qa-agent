@@ -1,0 +1,59 @@
+{
+  "id": "cbh/auth_form",
+  "version": 1,
+  "title": "가입 입력 화면",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "fixtures": "fixture.json",
+  "stubs": "stubs.json",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "one_of": [
+          {
+            "text": "시작하기",
+            "exact": true
+          },
+          {
+            "text": "시작하기"
+          }
+        ]
+      }
+    },
+    {
+      "if_visible": {
+        "one_of": [
+          {
+            "text": "보호자로 시작하기"
+          }
+        ]
+      },
+      "then": [
+        {
+          "click": {
+            "text": "보호자로 시작하기"
+          }
+        }
+      ]
+    }
+  ],
+  "ready": {
+    "text": "가입하고 시작하기",
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AuthScreen.tsx"
+  ]
+}

@@ -6,6 +6,8 @@ const path = require('path')
 const { execFileSync, spawnSync } = require('child_process')
 const { RUNS, home, readJSON, writeJSON, assertAllowedPath, createRun } = require('../core/util')
 
+const { assertVerifiedCombined } = require('./validation')
+
 const CONFIRM = 'PR 올리기'
 const sh = (cmd, args, cwd, timeout = 300000) => spawnSync(cmd, args, { cwd, encoding: 'utf8', timeout, maxBuffer: 32 << 20 })
 
@@ -39,7 +41,7 @@ async function makePr (args, cfg) {
   const fixes = readJSON(path.join(runDir, 'fix', 'fixes.json'), null)
   const patchFile = path.join(runDir, 'fix', 'fix_all.patch')
   if (!m || !fixes || !fs.existsSync(patchFile)) throw new Error('검증된 수정이 없다. 먼저 dqa fix --run <실행 ID>를 돌린다')
-  if (!fixes.combined || (fixes.combined.regress || []).length) throw new Error('검증된 수정을 함께 적용했을 때 다른 결함이 생기거나 커졌다. PR을 만들지 않는다')
+  assertVerifiedCombined(fixes.combined)
   if (m.targets.head.kind !== 'repo') throw new Error('PR은 저장소 대상(--repo)으로 검사한 실행에서만 만든다(빌드 이름·주소 대상은 브랜치를 모른다)')
   const rc = cfg.repos[m.repo]
   const clone = assertAllowedPath(rc.clone, cfg)

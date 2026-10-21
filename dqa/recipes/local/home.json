@@ -8,5 +8,5 @@
   "steps": [],
   "ready": { "stable_ms": 400 },
   "scan": { "root": "body", "scroll": "auto", "ignore": [] },
-  "widths": "web4"
+  "widths": "mobile5"
 }

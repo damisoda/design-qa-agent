@@ -13,7 +13,7 @@ const STATE = path.join(DQA, 'state')
 
 const home = (p) => (p && p.startsWith('~') ? path.join(os.homedir(), p.slice(1)) : p)
 const readJSON = (f, dflt) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')) } catch (e) { if (dflt !== undefined) return dflt; throw e } }
-const writeJSON = (f, obj) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(obj, null, 1)) }
+const writeJSON = (f, obj) => { fs.mkdirSync(path.dirname(f), { recursive: true }); const tmp = `${f}.${process.pid}.${crypto.randomBytes(4).toString('hex')}.tmp`; try { fs.writeFileSync(tmp, JSON.stringify(obj, null, 1)); fs.renameSync(tmp, f) } finally { fs.rmSync(tmp, { force: true }) } }
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex')
 
 function loadConfig () {
@@ -63,7 +63,8 @@ function createRun (slug, runId) {
   const dir = path.join(RUNS, id)
   fs.mkdirSync(dir, { recursive: true })
   const evf = path.join(dir, 'events.jsonl')
-  const t0 = Date.now()
+  const pipeline = readJSON(path.join(dir, 'pipeline.json'), null)
+  const t0 = pipeline && pipeline.state === 'running' && Number.isFinite(Date.parse(pipeline.started_at)) ? Date.parse(pipeline.started_at) : Date.now()
   const event = (stage, msg, extra) => {
     const e = { t: new Date().toISOString(), sec: Math.round((Date.now() - t0) / 100) / 10, stage, msg, ...(extra || {}) }
     fs.appendFileSync(evf, JSON.stringify(e) + '\n')

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "K01-001",
+    "kb": "docs",
+    "title": "R1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R1",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "넘침 overflow min-width flex min-content\n요소의 경계와 부모·뷰포트 경계를 측정한다. CSS 미디어 조건에 따라 기본 크기 사이에서만 발생할 수 있어 경계 안팎을 재측정한다. 의도된 수평 스크롤은 제외한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K02-001",
+    "kb": "docs",
+    "title": "R2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R2",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "잘림 clipping overflow hidden truncation\n텍스트 줄 상자와 잘라내는 조상 경계를 비교한다. 의도된 말줄임은 자동 확정하지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K03-001",
+    "kb": "docs",
+    "title": "D2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "D2",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "색상 color token variable\n실제 Figma 노드의 색·토큰과 계산된 구현 색을 직접 비교한다. 다른 프로젝트 토큰을 기대값으로 가져오지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K04-001",
+    "kb": "docs",
+    "title": "D3 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "D3",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "타이포 font-size line-height letter-spacing\n실제 Figma 글꼴·크기·행간과 계산된 스타일을 비교한다. 외부 글꼴 요청이 막힌 경우 확인 불가를 구분한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K05-001",
+    "kb": "docs",
+    "title": "D5 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "D5",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "모서리 radius border stroke\n짝지은 실제 Figma 노드의 모서리·테두리와 구현 값을 비교한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K06-001",
+    "kb": "docs",
+    "title": "F1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "F1",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "Fill container layoutSizingHorizontal fixed width flex grow\nFigma Fill의 부모·형제 분배와 구현 폭 변화량을 여러 폭에서 비교한다. 부모 max-width 때문에 전체 폭이 안 변하는 정상 경우와 고정된 자식을 구분한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K07-001",
+    "kb": "docs",
+    "title": "L2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "L2",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "간격 gap padding spacing\n짝지은 요소 사이 실제 거리와 Figma 간격을 비교한다. CSS gap과 요소 margin을 혼동하지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K08-001",
+    "kb": "docs",
+    "title": "I1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "I1",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "무반응 click no response button input\n실제 누르기 전후 주소·DOM·요청·초점·스크롤 변화를 측정한다. 한 화면 폭의 성공만으로 다른 폭의 동작을 보장하지 않는다. 원인 미측정이면 가림·핸들러 누락을 추정하지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K09-001",
+    "kb": "docs",
+    "title": "I2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "I2",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "클릭 오류 click error exception\n실제 클릭 후 새로 발생한 오류와 스택을 증거로 사용한다. 기존 콘솔 오류와 구분한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K10-001",
+    "kb": "docs",
+    "title": "I4 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "I4",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "프로토타입 prototype destination navigation\n실제 Figma ON_CLICK 목적지와 실제 이동 화면을 비교한다. 파일 링크만으로 목적지 내용을 추정하지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K11-001",
+    "kb": "docs",
+    "title": "A2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "A2",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "대비 contrast foreground background\n합성된 실제 전경·배경과 글자 크기를 측정해 코드에 정의된 대비 기준으로 판정한다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "K12-001",
+    "kb": "docs",
+    "title": "T1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "T1",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "문구 copy text content\n실제 Figma 텍스트와 매칭된 구현 텍스트를 직접 비교한다. 검색 문서의 예시 문구로 기대값을 덮어쓰지 않는다.\nSOURCE: knowledge/P03_결함_유형과_측정_방법.md; knowledge/P02_Figma_React_Native_대응표.md\n숫자 기준은 문서에서 추측하지 않고 버전 관리된 측정 코드와 실제 Figma 값만 사용한다."
+  },
+  {
+    "id": "Q01-001",
+    "kb": "docs",
+    "title": "viewport-boundary",
+    "meta": {
+      "platform": "web",
+      "kind": "recipe",
+      "recipe": "viewport-boundary",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "media query breakpoint responsive viewport width height 경계 반응형\n동일 출처 CSSOM에서 관측된 min-width/max-width/min-height/max-height 경계 안팎 중 기본 측정에 없는 크기를 측정한다. 원본을 수정하지 않는다. 적용 조건: 실제 CSS 미디어 경계가 존재함. 정상 예외: 경계를 넘겨도 모든 측정 규칙을 만족하면 결함 없음.\nSOURCE: dqa/measure/browser.js; dqa/interact/probe.js; dqa/measure/sweep.js\n선택은 검사 계획일 뿐 결함 판정이 아니다. 실제 수치·상호작용 증거가 있어야 등록한다."
+  },
+  {
+    "id": "Q02-001",
+    "kb": "docs",
+    "title": "interaction-width",
+    "meta": {
+      "platform": "web",
+      "kind": "recipe",
+      "recipe": "interaction-width",
+      "scope": "generic",
+      "version": "2026-10-14"
+    },
+    "text": "button link input click navigation responsive viewport narrow wide 눌림 반응\n기본 크기에서만 누른 버튼·링크를 기본 프로필의 최소·최대 폭에서도 누른다. 적용 조건: 실제 활성 버튼·링크가 있고 눌러 보기가 켜짐. 추가 대상 수와 크기를 제한한다. 반응이 정상인 경우 결함 없음. 쓰기 요청은 대역 처리한다.\nSOURCE: dqa/measure/browser.js; dqa/interact/probe.js; dqa/measure/sweep.js\n선택은 검사 계획일 뿐 결함 판정이 아니다. 실제 수치·상호작용 증거가 있어야 등록한다."
+  },
+  {
+    "id": "V01-001",
+    "kb": "cases",
+    "title": "부모가 max-width로 제한된 Fill 자식",
+    "meta": {
+      "platform": "web",
+      "kind": "case",
+      "rule": "F1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "verification": "historical-measurement"
+    },
+    "text": "시안 부모 폭과 구현 부모 폭이 일치해도 고정 자식 너비가 분배를 막았다. 고정 자식과 정상 max-width 부모를 구분하도록 기본 폭의 분배도 검증했다.\nSOURCE: eval/fresh-20261014/README.md"
+  },
+  {
+    "id": "V02-001",
+    "kb": "cases",
+    "title": "반응 없음에서 원인 추정 금지",
+    "meta": {
+      "platform": "web",
+      "kind": "case",
+      "rule": "I1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "verification": "historical-measurement"
+    },
+    "text": "실제 Gemma가 무반응을 가림 탓으로 설명했으나 가림 측정이 없었다. 측정되지 않은 원인 문장을 저장 단계에서 거부했다.\nSOURCE: eval/fresh-20261014/README.md"
+  },
+  {
+    "id": "V03-001",
+    "kb": "cases",
+    "title": "의도된 가로 스크롤 정상 예외",
+    "meta": {
+      "platform": "web",
+      "kind": "case",
+      "rule": "R1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "verification": "documented-negative"
+    },
+    "text": "overflow-x:auto인 의도된 목록은 자식이 화면보다 넓다는 이유만으로 결함으로 확정하지 않는다. 스크롤 가능 여부와 가리는 조상을 함께 측정한다.\nSOURCE: knowledge/P01_프로젝트_범위와_판정_원칙.md"
+  },
+  {
+    "id": "K13-001",
+    "kb": "docs",
+    "title": "R3 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R3",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "겹침 overlap intersection\n보이는 글자와 요소 상자의 교차를 실제로 측정한다. 의도된 배지·장식, 모달 아래 요소, 스크롤되는 고정 영역의 가림과 구분한다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K14-001",
+    "kb": "docs",
+    "title": "R4 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R4",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "가려짐 obscured sticky fixed safe area\n누를 요소의 실제 위치와 고정 요소·측정한 뷰포트의 교차를 확인한다. 데스크톱에서 실기기 키보드나 안전영역 문제를 재현했다고 주장하지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K15-001",
+    "kb": "docs",
+    "title": "R5 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R5",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "크기별 줄바꿈 responsive text wrapping\n현재 구현의 R5는 화면 크기별 짧은 글자의 줄 수 변화다. 과거 P03의 R5 크기 규칙과 의미가 다르므로 혼용하지 않는다. Fill 크기 방식 비교는 F1이다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K16-001",
+    "kb": "docs",
+    "title": "R6 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R6",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "원치 않는 줄바꿈 label number wrap\n같은 글자의 실제 줄 상자 수와 영역을 측정한다. 문구·시안 의도와 적용 대상 조건을 함께 확인하며 모든 여러 줄 문장을 결함으로 보지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K17-001",
+    "kb": "docs",
+    "title": "R7 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "R7",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "화면 틀 이탈 modal sheet frame escape\n모달·시트·고정 요소의 실제 상자와 앱 프레임 경계를 비교한다. 화면 전체를 덮도록 의도된 구성과 구분한다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K18-001",
+    "kb": "docs",
+    "title": "A1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "A1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "터치 영역 target size button link\n실제 누를 영역의 CSS 크기와 구현된 접근성 규칙을 사용한다. 큰 누를 조상 안의 아이콘이나 글 속 링크의 예외를 확인한다. 다른 플랫폼의 권고 크기로 판정 기준을 덮어쓰지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K19-001",
+    "kb": "docs",
+    "title": "D4 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "D4",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "그림 결함 image broken naturalWidth object-fit resolution\n그림 불러오기 성공·원본 크기·표시 크기·기기 배율·비율을 도구로 측정한다. 이미지 내용을 모델로 판단하지 않는다. 차단된 외부 요청은 구현 누락과 구분한다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K20-001",
+    "kb": "docs",
+    "title": "G1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "G1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "글자 기호 아이콘 glyph icon font warning\n기호 글자를 아이콘으로 쓰는 구현과 웹 글꼴 적용 여부를 확인한다. 실기기에서 네모로 깨진다고 확정하지 않고 깨질 가능성 경고로만 보고한다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K21-001",
+    "kb": "docs",
+    "title": "L1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "L1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "정렬 alignment parent layout\n실제 Figma 노드와 구현 요소의 매칭·부모·기준 위치를 확인한 뒤 정렬 수치를 비교한다. 화면 전체의 좌표 오프셋과 개별 정렬 문제를 혼동하지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K22-001",
+    "kb": "docs",
+    "title": "M1 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "M1",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "시안 글자 없음 missing text matching\n실제 Figma 텍스트와 구현 DOM의 매칭 결과를 확인한다. 글자가 없다는 판단과 매칭 불확실성을 구분하고 측정에서 확인되지 않은 원인을 추정하지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K23-001",
+    "kb": "docs",
+    "title": "M2 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "M2",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "시안 그림 없음 missing image blocked request\n실제 Figma 그림 노드와 구현 이미지·배경 그림을 비교한다. 검사 중 외부 이미지가 차단되었으면 확인 불가로 구분한다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  },
+  {
+    "id": "K24-001",
+    "kb": "docs",
+    "title": "I3 웹 측정 기준",
+    "meta": {
+      "platform": "web",
+      "kind": "rule",
+      "rule": "I3",
+      "scope": "generic",
+      "version": "2026-10-14",
+      "authority": "implemented-rule"
+    },
+    "text": "이동했지만 빈 화면 blank page navigation 404\n실제 누르기 후 이동한 페이지의 주소·내용·오류를 관측한다. 이동 목적지의 시안 일치 여부는 별도의 I4 검사이며, 링크 이름만으로 정상 목적지를 추정하지 않는다.\nSOURCE: dqa/measure/inpage.js; dqa/measure/cluster.js; dqa/design/compare.js; dqa/interact/probe.js\n현재 실행 코드의 규칙 의미가 과거 문서와 다르면 현재 구현·실제 Figma 값을 따른다. 수치 기준은 검색 문서가 새로 정하지 않는다."
+  }
+]

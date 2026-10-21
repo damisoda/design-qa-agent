@@ -1,0 +1,43 @@
+{
+  "id": "cbh201/signup",
+  "version": 1,
+  "title": "PR201 인증 signup",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "stubs": "../cbh/stubs.json",
+  "steps": [
+    {
+      "wait_text": "시작하기"
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "시작하기 〉",
+        "exact": true
+      }
+    },
+    {
+      "click": {
+        "role": "button",
+        "name": "보호자로 시작하기 〉",
+        "exact": true
+      }
+    }
+  ],
+  "ready": {
+    "text": "가입하고 시작하기",
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AuthScreen.tsx"
+  ]
+}

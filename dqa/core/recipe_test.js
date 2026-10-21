@@ -17,7 +17,7 @@ async function recipeTest (args, cfg) {
       console.log(`실패: ${r.error}\n보이는 글자: ${(r.visible.texts || []).join(' | ')}\n입력칸: ${JSON.stringify(r.visible.inputs)}\n캡처: ${r.fail_shot ? run.file(r.fail_shot) : '없음'}`)
       return 1
     }
-    console.log(`통과: ${recipe.id} ${w}x${h} — 진입 ${r.enter.trail}단계, 안정 ${r.enter.settled ? '예' : '아니오'}, 스크롤 ${r.scroll.kind} ${r.scroll.steps}단계, 배율 ${r.scale}, 글꼴 ${r.fonts.loaded.join(', ') || '없음'}, 차단 요청 ${r.blocked.length}건, ${(r.ms / 1000).toFixed(1)}초`)
+    console.log(`통과: ${recipe.id} ${w}x${h} — 진입 ${r.enter.trail}단계, 안정 ${r.enter.settled ? '예' : '아니오'}, 스크롤 ${r.scroll.kind} ${r.scroll.steps}단계, 배율 ${r.scale}, 글꼴 ${r.fonts.loaded.join(', ') || '없음'}, 차단 요청 ${r.blocked.length}건, 응답 대역 ${(r.stubbed || []).length}건, ${(r.ms / 1000).toFixed(1)}초`)
     for (const it of r.issues) console.log(`  ${it.rule} [${it.el.label}] ${it.text} (스크롤 ${it.scroll_y})`)
     console.log(`실행 폴더: ${run.dir}`)
     return 0

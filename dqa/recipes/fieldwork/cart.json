@@ -1,0 +1,39 @@
+{
+  "id": "fieldwork/cart",
+  "version": 1,
+  "app": "fieldwork",
+  "title": "Your bag",
+  "start": {
+    "path": "/cart.html"
+  },
+  "set_storage": {
+    "fieldwork-state": {
+      "guests": 2,
+      "date": "2026-10-24",
+      "slot": "14:00",
+      "cart": true,
+      "discount": 0,
+      "item": "clay",
+      "booking": {
+        "id": "FW-1042",
+        "name": "Jamie Park",
+        "email": "jamie@example.test",
+        "date": "2026-10-24",
+        "guests": 2,
+        "total": 116000,
+        "cancelled": false
+      }
+    }
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 350
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/fieldwork-service/designs/cart/design.json"
+}

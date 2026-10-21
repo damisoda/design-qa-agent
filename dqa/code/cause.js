@@ -4,11 +4,12 @@ const fs = require('fs')
 const path = require('path')
 const { execFileSync } = require('child_process')
 
-const GLOB = ['--glob', '*.{ts,tsx,js,jsx}', '--glob', '!**/node_modules/**', '--glob', '!**/dist*/**']
+const GLOB = ['--glob', '*.{ts,tsx,js,jsx,html,vue,svelte}', '--glob', '!**/node_modules/**', '--glob', '!**/dist*/**']
+const CSS_GLOB = ['--glob', '*.{css,scss,sass,less,html,vue,svelte}', '--glob', '!**/node_modules/**', '--glob', '!**/dist*/**']
 
-function rg (pattern, dir, fixed = true) {
+function rg (pattern, dir, fixed = true, globs = GLOB) {
   try {
-    const out = execFileSync('rg', ['-n', '--no-heading', '--max-count', '20', ...(fixed ? ['-F'] : []), ...GLOB, '--', pattern, dir], { encoding: 'utf8', timeout: 15000, maxBuffer: 4 << 20 })
+    const out = execFileSync('rg', ['-n', '--no-heading', '--max-count', '20', ...(fixed ? ['-F'] : []), ...globs, '--', pattern, dir], { encoding: 'utf8', timeout: 15000, maxBuffer: 4 << 20 })
     return out.split('\n').filter(Boolean).slice(0, 400).map((l) => { const m = l.match(/^(.*?):(\d+):(.*)$/); return m ? { file: m[1], line: Number(m[2]), text: m[3] } : null }).filter(Boolean)
   } catch (e) { return [] }
 }
@@ -18,6 +19,8 @@ function rgFiles (pattern, dir) {
 }
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+// 선택자의 마지막 겹(.info p라면 p)에 이 클래스가 있는 규칙만(자손 규칙은 이 요소의 스타일이 아니다)
+const lastHas = (text, cls) => String(text).split('{')[0].split(',').some((part) => { const t = part.trim().split(/[\s>+~]+/); return new RegExp(`\\.${esc(cls)}(?![\\w-])`).test(t[t.length - 1] || '') })
 
 function snippet (file, line, around = 3) {
   try {
@@ -95,6 +98,23 @@ function findCauses (defect, opts) {
     const idf = 1 / Math.sqrt(Math.max(1, strong))
     for (const [file, x] of best) add(file, x.line, (x.s * idf) / labels.length, `${x.why}(${path.basename(file)}:${x.line}${strong > 1 && x.s >= 0.35 ? `, ${strong}개 파일에 있음` : ''})`, x.s)
   }
+  // 클래스 이름으로 스타일 규칙 위치(CSS·HTML <style>·Vue·Svelte). 색·글자·모서리·크기 같은 스타일 결함이면 강한 근거.
+  // 자동 생성 클래스(react-native-web의 css-·r-)는 뺀다
+  const styleDefect = !['T1', 'M1', 'M2', 'I1', 'I2', 'I3'].includes(defect.rule)
+  // 넘침의 원인이 바깥 상자(고정 폭 등)면 그 상자의 스타일 규칙을 먼저, 더 크게 본다(안쪽 글자 규칙보다 앞서게)
+  const wideCls = [...new Set(defect.elements.flatMap((e) => (e.other && e.other.kind === 'wide' && e.other.cls) || []))].filter((c) => /^[A-Za-z_][\w-]*$/.test(c)).slice(0, 2)
+  for (const c of wideCls) {
+    for (const h of rg(`\\.${esc(c)}([^\\w-][^{};]*)?\\{`, dir, false, CSS_GLOB).filter((h) => !/^\s*(\/\/|\*|\/\*)/.test(h.text) && lastHas(h.text, c)).slice(0, 2)) {
+      add(h.file, h.line, 0.6 / wideCls.length, `넘친 글자들을 감싼 바깥 상자 .${c}의 규칙(${path.basename(h.file)}:${h.line}) — 이 상자가 부모보다 넓다`, 0.6)
+    }
+  }
+  const clsList = [...new Set(defect.elements.flatMap((e) => e.cls || []))].filter((c) => /^[A-Za-z_][\w-]*$/.test(c) && !/^(css-|r-)/.test(c)).slice(0, 3)
+  for (const c of clsList) {
+    for (const h of rg(`\\.${esc(c)}([^\\w-][^{};]*)?\\{`, dir, false, CSS_GLOB).filter((h) => !/^\s*(\/\/|\*|\/\*)/.test(h.text) && lastHas(h.text, c)).slice(0, 2)) {
+      const w = styleDefect ? 0.45 : 0.1
+      add(h.file, h.line, w / Math.max(1, clsList.length), `스타일 규칙 .${c}(${path.basename(h.file)}:${h.line})`, w)
+    }
+  }
   // 압축하지 않은 빌드면 fiber 컴포넌트 이름으로 정의 위치를 찾는다. 이미 라벨 근거가 있는 파일이면 대표 줄은 그대로 두고 근거만 더한다
   const comps = opts.minified ? [] : [...new Set(defect.elements.flatMap((e) => e.components || []))].slice(0, 4)
   // 요소에서 가까운 컴포넌트일수록 크게(첫째 0.3, 둘째 0.15, 셋째 0.1): 바깥 화면 컴포넌트가 실제 원인 컴포넌트를 앞서지 않게
@@ -133,12 +153,17 @@ function findCauses (defect, opts) {
       if (hunks.some(([a, b]) => c.line >= a - 5 && c.line <= b + 5)) { c.score *= 1.2; c.why.push('바뀐 줄 근처') }
     }
   }
+  let sourceContext = null
+  if (defect.rule === 'M1') {
+    sourceContext = require('./source-context').sourceContext(defect, {...opts, candidates: [...cand.values()].sort((a,b)=>b.score-a.score).slice(0,3).map(c=>({...c,file:rel(c.file)}))})
+    for (const c of sourceContext.candidates.filter(c=>c.hinted)) add(path.resolve(srcRoot,c.file),c.line,c.score,c.why.join(' · '),c.score)
+  }
   let list = [...cand.values()].sort((a, b) => b.score - a.score || a.file.localeCompare(b.file))
   // 표시 규칙: 상위 후보 2개 이상이 함께 쓰는 공통 스타일 모듈(소스 10개 파일 이하에서 사용)은 세 자리 안에 넣는다
   const shared = list.find((c) => c.shared >= 2 && c.g <= 10)
   list = list.slice(0, 3)
   if (shared && !list.includes(shared)) { list[2] = shared; shared.why.push('공통 스타일 모듈이라 후보에 포함') }
-  return { candidates: list.map((c, i) => ({ rank: i + 1, file: rel(c.file), line: c.line, score: Math.min(1, Math.round(c.score * 100) / 100), why: c.why.slice(0, 4), snippet: i < 2 ? snippet(c.file, c.line) : '', context: i === 0 ? componentContext(c.file, c.line) : '' })) }
+  return { source_context: sourceContext, candidates: list.map((c, i) => ({ rank: i + 1, file: rel(c.file), line: c.line, score: Math.min(1, Math.round(c.score * 100) / 100), why: c.why.slice(0, 4), snippet: i < 2 ? snippet(c.file, c.line) : '', context: i === 0 ? componentContext(c.file, c.line) : '' })) }
 }
 
 // 두 소스 폴더(변경 전·후)의 차이: 파일별 바뀐 줄 범위(변경 후 기준)와 새로 들어간 hex 색.
@@ -178,4 +203,28 @@ function tokenHex (tokensFile) {
   return map
 }
 
-module.exports = { findCauses, changedHunks, tokenHex, snippet }
+// 누르면 오류(I2)의 원인: 스택 맨 위 번들 위치(파일:줄:칸)의 코드 조각에서 줄여 쓰지 않은 이름(filled_keys 같은 속성·함수 이름)을 뽑아
+// 소스에서 같은 표현이 있는 줄을 찾는다(소스 맵 없이). 압축된 한두 글자 이름은 쓰지 않는다
+function stackCauses (stack, { distDir, srcDir, srcRoot }) {
+  const m = String(stack || '').match(/(\/[^\s:()]+\.m?js):(\d+):(\d+)/)
+  if (!m || !distDir || !srcDir) return []
+  const f = path.join(distDir, m[1])
+  if (!f.startsWith(distDir) || !fs.existsSync(f)) return []
+  const line = fs.readFileSync(f, 'utf8').split('\n')[Number(m[2]) - 1] || ''
+  const col = Number(m[3])
+  const snip = line.slice(Math.max(0, col - 160), col + 40)
+  // 오류 칸에 가장 가까운 속성 접근(?.a.b, .a.b)부터: 긴 이름 순서로
+  const props = [...snip.matchAll(/\??\.([A-Za-z_$][\w$]{3,})/g)].map((x) => ({ name: x[1], d: Math.abs(x.index - (col - Math.max(0, col - 160))) })).sort((a, b) => a.d - b.d)
+  const names = [...new Set(props.map((p) => p.name))].filter((n) => !/^(length|then|call|apply|default|current|value|style|props|jsx|jsxs|createElement)$/.test(n)).slice(0, 4)
+  const out = []
+  for (const n of names) {
+    const hits = rg(n, srcDir).filter((h) => !/^\s*(\/\/|\*)/.test(h.text) && !/:\s*[\w[\]<>|]+;\s*$/.test(h.text)) // 타입 선언 줄은 뺀다
+    if (!hits.length || hits.length > 6) continue
+    // 오류 조각에 같이 나온 다른 이름이 같은 줄에 있으면 더 강하게
+    for (const h of hits) out.push({ file: h.file, line: h.line, score: 0.5 + (names.some((o) => o !== n && h.text.includes(o)) ? 0.2 : 0) + (/\.length|\?\./.test(h.text) ? 0.1 : 0), why: [`오류 위치의 코드(${snip.slice(Math.max(0, snip.indexOf(n) - 20), snip.indexOf(n) + n.length + 12).trim()})와 같은 이름 ${n}(${path.basename(h.file)}:${h.line})`], raw: 0.5 })
+    if (out.length) break
+  }
+  return out.sort((a, b) => b.score - a.score).slice(0, 3).map((c) => ({ ...c, file: path.relative(srcRoot, c.file) }))
+}
+
+module.exports = { findCauses, changedHunks, tokenHex, snippet, stackCauses }

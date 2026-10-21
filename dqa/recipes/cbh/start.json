@@ -1,0 +1,27 @@
+{
+  "id": "cbh/start",
+  "version": 1,
+  "title": "첫 화면(시작)",
+  "app": "cbh",
+  "start": {
+    "path": "/"
+  },
+  "allow_hosts": [],
+  "fixtures": "fixture.json",
+  "stubs": "stubs.json",
+  "steps": [],
+  "ready": {
+    "text": "우리가 만드는 안심 귀가 네트워크",
+    "stable_ms": 400
+  },
+  "scan": {
+    "root": "#root",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "source_hints": [
+    "frontend/src/screens/AuthScreen.tsx",
+    "frontend/src/pwa.ts"
+  ]
+}

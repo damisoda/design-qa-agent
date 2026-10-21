@@ -59,6 +59,26 @@
         375,
         812
       ]
+    ],
+    "notch3": [
+      [
+        375,
+        812,
+        47,
+        34
+      ],
+      [
+        390,
+        844,
+        47,
+        34
+      ],
+      [
+        430,
+        932,
+        47,
+        34
+      ]
     ]
   },
   "default_profile": "mobile5",
@@ -79,6 +99,13 @@
     "max_calls": 6,
     "timeout_ms": 120000,
     "min_free_pct": 20
+  },
+  "dify": {
+    "llm_model": "gemma4:e4b-16k-nothink",
+    "facts_max": 3,
+    "unload_after": true,
+    "app_id": "0f46cd27-8a74-4656-ad9c-5087917fc380",
+    "timeout_ms": 900000
   },
   "mac_mini": {
     "ssh": "damisoda@100.73.27.46",
@@ -110,7 +137,7 @@
   "fix": {
     "scratch": "~/design-qa-cases/fix",
     "max_attempts_per_defect": 2,
-    "max_defects": 4,
+    "max_defects": 8,
     "build_timeout_ms": 300000
   }
 }

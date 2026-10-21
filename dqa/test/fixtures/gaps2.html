@@ -1,0 +1,28 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>gaps2</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:sans-serif;color:#1B1F24;background:#fff}
+#root{height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.top{flex:none;height:52px;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 16px;font-weight:700}
+.tabs{position:absolute;top:52px;left:0;right:0;height:44px;background:#F1F3F5;display:flex;align-items:center;gap:16px;padding:0 16px}
+.tabs button{height:36px;padding:0 12px;border:0;border-radius:8px;background:#fff}
+.body{flex:1;padding:8px 16px}
+.stat{height:56px;display:flex;align-items:center;gap:12px}.stat b{font-size:20px}
+.hero img{display:block;width:100%;height:120px;object-fit:cover}
+.cap{margin:-24px 0 8px;position:relative;font-size:13px;line-height:18px;color:#5F6368}
+.ov{position:relative;margin-bottom:8px}.ov img{display:block;width:100%;height:100px;object-fit:cover}
+.ov .lbl{position:absolute;left:12px;bottom:10px;color:#fff;font-size:14px;font-weight:700}
+.meta{position:relative;height:40px}.meta p{margin:0;font-size:15px;line-height:20px;color:#5D6370}
+.hq{position:absolute;left:70px;top:0;font-style:normal;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;background:#EDE9FE;color:#5B21B6}
+.d{display:block;width:56px;font-size:12px;color:#59616C;word-break:break-all}
+.ib{display:flex;align-items:center;gap:6px;height:40px;padding:0 12px;border:1px solid #ccc;border-radius:10px;background:#fff;color:#BBBBBB;font-size:14px}.ib svg{width:16px;height:16px}
+.toast{position:absolute;left:16px;right:16px;bottom:60px;height:44px;border-radius:10px;background:#1F2937;color:#fff;display:flex;align-items:center;padding:0 14px}
+.under{position:absolute;left:24px;bottom:70px;font-size:14px;color:#1B1F24}
+</style></head><body><div id="root"><div class="top">기록</div>
+<div class="tabs"><button>일</button><button>주</button><button>월</button></div>
+<div class="body"><div class="stat"><b>12,480</b><span>걸음</span></div>
+<div class="hero"><img src="dark.png" alt="채소 코너"></div><p class="cap">9일 서울의 한 대형마트 채소 코너</p>
+<div class="ov"><img src="dark.png" alt="강의 표지"><span class="lbl">1강 · 강의 소개</span></div>
+<div class="meta"><p>모노레일 · 정규 2집</p><em class="hq">무손실</em></div>
+<time class="d">2026.10.09</time>
+<button class="ib"><svg viewBox="0 0 16 16"><path d="M2 4h12M4 8h8M6 12h4" stroke="#999"/></svg>필터 적용</button></div>
+<p class="under">이 글은 알림 아래에 깔린다</p>
+<div class="toast" role="status">임시 저장했어요</div></div></body></html>
