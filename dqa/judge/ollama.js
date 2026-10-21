@@ -136,9 +136,10 @@ function numbersOk (texts, factText) {
 
 async function askJSON (cfg, schema, msgs) {
   const o = cfg.ollama
+  const t0 = Date.now()
   const r = await http(`${o.url}/api/chat`, { model: o.model, stream: false, think: false, format: schema, options: { temperature: 0 }, messages: msgs }, o.timeout_ms)
   let ans = null; try { ans = JSON.parse(r.message && r.message.content) } catch (e) {}
-  return { ans, raw: r.message && r.message.content, eval_count: r.eval_count, prompt_eval_count: r.prompt_eval_count }
+  return { ans, raw: r.message && r.message.content, eval_count: r.eval_count, prompt_eval_count: r.prompt_eval_count, timing: { ms: Date.now() - t0, load_ms: r.load_duration / 1e6, prompt_ms: r.prompt_eval_duration / 1e6, generation_ms: r.eval_duration / 1e6 } }
 }
 
 async function judgeOne (d, cfg, screenTitle, saveDir) {

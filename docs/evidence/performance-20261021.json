@@ -1,0 +1,458 @@
+{
+  "case": "controlled Atelier Discover text overflow",
+  "repetitions_per_condition": 3,
+  "before": {
+    "check_sec": 51.7,
+    "fix_sec": 92.5,
+    "total_sec": 143.8
+  },
+  "after": {
+    "check_sec": 38.9,
+    "fix_sec": 60.7,
+    "total_sec": 98.8
+  },
+  "results_equivalent": true,
+  "figma_and_source_identical": true,
+  "all_dify_workflows_succeeded": true,
+  "runs": [
+    {
+      "label": "before",
+      "run_id": "20261021-092909_b9c572_ui",
+      "check_sec": 52.3,
+      "fix_sec": 93.5,
+      "total_sec": 145.8,
+      "workflow_ids": [
+        "d9be74d2-4b1c-467b-96d4-e78a4c1adfdc",
+        "3edacb2b-8b7c-4f65-8fda-1f62551649d5"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.5,
+        "design": 3.1,
+        "interact": 12.3,
+        "verify": 1.3,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": null,
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": null,
+      "original_preserved": true
+    },
+    {
+      "label": "before",
+      "run_id": "20261021-093136_cf2a70_ui",
+      "check_sec": 47.5,
+      "fix_sec": 92.5,
+      "total_sec": 140.0,
+      "workflow_ids": [
+        "cec75606-ca87-45bd-8c17-d026b38f3608",
+        "f8d388bb-52d3-485f-97b4-138eb15e9951"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.6,
+        "design": 3.1,
+        "interact": 12.3,
+        "verify": 1.4,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": null,
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": null,
+      "original_preserved": true
+    },
+    {
+      "label": "before",
+      "run_id": "20261021-093356_4205af_ui",
+      "check_sec": 51.7,
+      "fix_sec": 92.1,
+      "total_sec": 143.8,
+      "workflow_ids": [
+        "62366aa0-06ca-4365-b62d-c4571fc44f0d",
+        "8e91b134-d8ac-4ac1-865e-f59d7dac83cc"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.5,
+        "design": 3.2,
+        "interact": 12.6,
+        "verify": 1.3,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": null,
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": null,
+      "original_preserved": true
+    },
+    {
+      "label": "after",
+      "run_id": "20261021-093803_c9ed76_ui",
+      "check_sec": 38.9,
+      "fix_sec": 59.4,
+      "total_sec": 98.3,
+      "workflow_ids": [
+        "17b2ceaf-e8dd-48a4-853e-63eeca1afb58",
+        "a52c2a97-e8aa-45cb-904c-b623102465d6"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.5,
+        "design": 3.1,
+        "interact": 4.3,
+        "verify": 1.3,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": [
+        {
+          "stage": "model_preflight",
+          "ms": 485,
+          "ok": true
+        },
+        {
+          "stage": "baseline_validation",
+          "ms": 10309,
+          "ok": true
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 1,
+          "ms": 10296,
+          "load_ms": 3366.008125,
+          "prompt_ms": 6044.235,
+          "generation_ms": 674.171,
+          "prompt_tokens": 2054,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 2,
+          "ms": 8426,
+          "load_ms": 8.827542,
+          "prompt_ms": 7621.834,
+          "generation_ms": 691.123,
+          "prompt_tokens": 4620,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 3,
+          "ms": 7640,
+          "load_ms": 3.598542,
+          "prompt_ms": 1083.372,
+          "generation_ms": 6438.836,
+          "prompt_tokens": 4939,
+          "output_tokens": 183,
+          "action": "edit"
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 1,
+          "final": false
+        },
+        {
+          "stage": "target_probe",
+          "ms": 1629,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_validation",
+          "ms": 10319,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 2,
+          "final": true
+        },
+        {
+          "stage": "final_validation_reuse",
+          "ms": 0,
+          "ok": true,
+          "source_attempt": 1
+        }
+      ],
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": 1,
+      "original_preserved": true
+    },
+    {
+      "label": "after",
+      "run_id": "20261021-093943_581192_ui",
+      "check_sec": 38.1,
+      "fix_sec": 60.7,
+      "total_sec": 98.8,
+      "workflow_ids": [
+        "f59117ad-d546-4c19-89f8-2a3b1b1923ba",
+        "eaa3b6ca-bb53-4ee0-a079-e7ab59da1bd7"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.6,
+        "design": 3.2,
+        "interact": 4.4,
+        "verify": 1.3,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": [
+        {
+          "stage": "model_preflight",
+          "ms": 556,
+          "ok": true
+        },
+        {
+          "stage": "baseline_validation",
+          "ms": 10373,
+          "ok": true
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 1,
+          "ms": 10465,
+          "load_ms": 3618.46775,
+          "prompt_ms": 6024.33,
+          "generation_ms": 674.097,
+          "prompt_tokens": 2054,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 2,
+          "ms": 8433,
+          "load_ms": 9.241625,
+          "prompt_ms": 7622.721,
+          "generation_ms": 695.187,
+          "prompt_tokens": 4620,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 3,
+          "ms": 7799,
+          "load_ms": 8.199667,
+          "prompt_ms": 1083.185,
+          "generation_ms": 6591.897,
+          "prompt_tokens": 4939,
+          "output_tokens": 183,
+          "action": "edit"
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 1,
+          "final": false
+        },
+        {
+          "stage": "target_probe",
+          "ms": 1634,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_validation",
+          "ms": 10458,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 2,
+          "final": true
+        },
+        {
+          "stage": "final_validation_reuse",
+          "ms": 0,
+          "ok": true,
+          "source_attempt": 1
+        }
+      ],
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": 1,
+      "original_preserved": true
+    },
+    {
+      "label": "after",
+      "run_id": "20261021-094123_fda0b2_ui",
+      "check_sec": 41.6,
+      "fix_sec": 61.2,
+      "total_sec": 102.8,
+      "workflow_ids": [
+        "1eff329f-cc44-4062-8ea7-2d94ca7ceee6",
+        "356ed7aa-433d-4a0e-becc-a38bbe93fe51"
+      ],
+      "figma_sha256": "9070ea181ea61b44956b434cde06c11981de33edb5e24b1ff1d5422dcd135717",
+      "patch_sha256": "0d11e9e05557d885eabb4ee7fa1346a5761837d70633622286e68d78dfea7157",
+      "check_stage_sec": {
+        "measure": 3.5,
+        "design": 3.1,
+        "interact": 4.2,
+        "verify": 1.3,
+        "cause": 0.1,
+        "judge": 0
+      },
+      "timings": [
+        {
+          "stage": "model_preflight",
+          "ms": 591,
+          "ok": true
+        },
+        {
+          "stage": "baseline_validation",
+          "ms": 10490,
+          "ok": true
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 1,
+          "ms": 10274,
+          "load_ms": 3370.148084,
+          "prompt_ms": 6037.399,
+          "generation_ms": 675.717,
+          "prompt_tokens": 2054,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 2,
+          "ms": 8421,
+          "load_ms": 10.897125,
+          "prompt_ms": 7622.902,
+          "generation_ms": 691.071,
+          "prompt_tokens": 4620,
+          "output_tokens": 21,
+          "action": "read"
+        },
+        {
+          "stage": "model_action",
+          "task": "da2d9b40c851",
+          "step": 3,
+          "ms": 7891,
+          "load_ms": 10.322708,
+          "prompt_ms": 1083.158,
+          "generation_ms": 6511.661,
+          "prompt_tokens": 4939,
+          "output_tokens": 183,
+          "action": "edit"
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 1,
+          "final": false
+        },
+        {
+          "stage": "target_probe",
+          "ms": 1627,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_validation",
+          "ms": 10345,
+          "ok": true,
+          "attempt": 1
+        },
+        {
+          "stage": "candidate_build",
+          "ms": 0,
+          "ok": true,
+          "attempt": 2,
+          "final": true
+        },
+        {
+          "stage": "final_validation_reuse",
+          "ms": 0,
+          "ok": true,
+          "source_attempt": 1
+        }
+      ],
+      "findings": 2,
+      "fixed": 2,
+      "regressions": 0,
+      "paired_sizes": 5,
+      "click_sizes": 3,
+      "actions": [
+        "read",
+        "read",
+        "edit"
+      ],
+      "reused_validation_attempt": 1,
+      "original_preserved": true
+    }
+  ],
+  "reduction_pct": 31.3
+}

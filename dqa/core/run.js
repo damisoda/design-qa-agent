@@ -2,7 +2,7 @@
 // 순서는 코드가 정한다. LLM은 해석 단계에서만, 호출 상한 안에서 쓴다.
 const fs = require('fs')
 const path = require('path')
-const { createRun, writeJSON, readJSON } = require('./util')
+const { createRun, writeJSON, readJSON, pool } = require('./util')
 const { openDist, openUrl } = require('./targets')
 const { launch } = require('../measure/browser')
 const { sweep, measureOne } = require('../measure/sweep')
@@ -156,10 +156,14 @@ async function check (args, cfg) {
           for (const r of recipes) {
             const rr = { ...r, start: tg.start && tg.start !== '/' ? { path: tg.start } : r.start }
             const clickSizes = [...new Map([sizesBy.get(r.id)[0], ...(args["interact-widths"] ? parseSizes(args["interact-widths"], r, cfg) : [])].map(s => [s.slice(0,2).join("x"), s])).values()]
-            for (const size of clickSizes) {
-              const spec = m.design && m.design[r.id] ? readJSON(run.file(m.design[r.id].json), null) : null
+            const spec = m.design && m.design[r.id] ? readJSON(run.file(m.design[r.id].json), null) : null
+            const inspections = await pool(clickSizes, cfg.performance?.parallel_validation ? Math.max(1, Math.min(3, cfg.concurrency || 1)) : 1, async size => {
+              try { return { size, out: await interactPass(browser, { origin: tg.origin, recipe: rr, side, ref: tg.ref, run, cfg, size, spec, max: Number(args['interact-max']) || 30 }) } }
+              catch (error) { return { size, error } }
+            })
+            for (const { size, out, error } of inspections) {
               try {
-                const out = await interactPass(browser, { origin: tg.origin, recipe: rr, side, ref: tg.ref, run, cfg, size, spec, max: Number(args['interact-max']) || 30 })
+                if (error) throw error
                 interactDs[side].push(...out.defects.map((d) => ({ ...d, screen_title: r.title })))
                 if (side === 'head') { early.interact.push(...out.defects); publish() }
                 if (side === 'head') m.interact_summary[r.id + (size === clickSizes[0] ? '' : '@' + size.join('x'))] = { size: `${size[0]}x${size[1]}`, ...out.counters, defects: out.defects.length }

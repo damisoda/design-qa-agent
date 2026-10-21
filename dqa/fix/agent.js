@@ -118,10 +118,11 @@ async function codeAgent (d, ctx) {
   const interaction = require('../code/interaction-source').interactionContext(d,{srcRoot,srcDir})
   const interactionFacts = interaction.scripts.length ? '[클릭 대상 HTML에서 실제로 불러오는 로컬 동작 코드 — 정적 연결, 원인 미확정]\n'+JSON.stringify(interaction) : ''
   const inputDefect = interaction.scripts.length ? {...d,causes:{...d.causes,candidates:interaction.scripts.map((x,i)=>({...x,rank:i+1,why:[x.why]}))}} : d
-  const anchors = (inputDefect.causes?.candidates || []).slice(0, 2).map(c => observeRead(srcRoot, srcDir, { file: c.file, start: Math.max(1, c.line - 8), end: c.line + 20 })).join('\n\n')
+  const compact = cfg.performance?.compact_source_context
+  const anchors = compact ? (inputDefect.causes?.candidates || []).slice(0, 2).map(c => `${c.file}:${c.line} — read로 해당 파일을 읽어 확인하세요`).join('\n') : (inputDefect.causes?.candidates || []).slice(0, 2).map(c => observeRead(srcRoot, srcDir, { file: c.file, start: Math.max(1, c.line - 8), end: c.line + 20 })).join('\n\n')
   const routeEvidence = (d.interact?.expected?.actions || []).filter(a => a.dest_name).map(a => observeSearch(srcRoot, srcDir, { text: a.dest_name })).join('\n')
   const grouped = '[이번 공통 작업에서 함께 해결해야 하는 모든 결함]\n'+JSON.stringify(ctx.taskTargets||[{id:d.id,screen:d.screen,labels:d.labels}])+'\n하나의 대표 요소만 고치면 성공이 아니다. 이 목록의 모든 화면 결함을 해결하고 다른 화면의 정상 변형은 보존한다.'
-  const fact = grouped + '\n' + interactionFacts + '\n' + consumerEvidence + '\n' + spec + facts(inputDefect, d.screen_title) + '\n[앱 시안 계약: 고장 나지 않은 화면도 보존]\n' + JSON.stringify(ctx.appContracts || []) + '\n[등록 화면의 실제 버튼 소스: 변경 전]\n' + JSON.stringify(ctx.appSources || []) + '\n[실제 소스 파일 목록]\n' + sourceFiles + '\n[도구로 미리 읽은 원인 후보 주변 코드]\n' + anchors + '\n[시안 목적지 문구의 실제 소스 검색]\n' + routeEvidence
+  const fact = grouped + '\n' + interactionFacts + '\n' + consumerEvidence + '\n' + spec + facts(compact ? { ...inputDefect, causes: { ...inputDefect.causes, candidates: (inputDefect.causes?.candidates || []).map(({ snippet, context, ...c }) => c) } } : inputDefect, d.screen_title) + '\n[앱 시안 계약: 고장 나지 않은 화면도 보존]\n' + JSON.stringify(ctx.appContracts || []) + '\n[등록 화면의 실제 버튼 소스: 변경 전]\n' + JSON.stringify(ctx.appSources || []) + '\n[실제 소스 파일 목록]\n' + sourceFiles + '\n[원인 후보 위치와 코드]\n' + anchors + '\n[시안 목적지 문구의 실제 소스 검색]\n' + routeEvidence
   const prior = attempts.filter((a) => a.edits).map((a) => `- 규칙 수정안 ${a.edits[0].file}:${a.edits[0].line} "${a.edits[0].replace.trim().slice(0, 120)}" → ${brief(a)}`).join('\n')
   const msgs = [{ role: 'system', content: SYSTEM }, { role: 'user', content: `${fact}${prior ? `\n\n[이미 해 본 수정]\n${prior}` : ''}\n\n첫 행동을 JSON으로 써라.` }]
   const readFiles = new Set();
@@ -135,6 +136,7 @@ async function codeAgent (d, ctx) {
     let r
     say(`${d.rule} ${d.labels.slice(0, 2).join(', ')}: 코드 에이전트가 다음 행동을 선택합니다 (${step + 1}/${maxSteps})`)
     try { r = await askJSON(cfg, readFiles.size || !ctx.modelOnly ? actionSchema(d,scopes,needsReplan,scopedOnly,reads) : {...ACTION,properties:{...ACTION.properties,action:{type:"string",enum:["read","search","give_up"]}}}, view) } catch (e) { trail.push({ step: trail.length + 1, action: '오류', result: e.message }); break }
+    ctx.onModelCall?.({ step: step + 1, ...r.timing, prompt_tokens: r.prompt_eval_count, output_tokens: r.eval_count, action: r.ans?.action || 'invalid-json' })
     const a = r.ans
     if (!a) { msgs.push({ role: 'assistant', content: String(r.raw).slice(0, 500) }, { role: 'user', content: 'JSON 행동 하나만 써라.' }); continue }
     const actionKey=JSON.stringify(a, Object.keys(a).filter(k=>!['why','reason'].includes(k)).sort())

@@ -5,7 +5,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execFileSync, spawn } = require('child_process')
-const { RUNS, home, readJSON, writeJSON, assertAllowedPath, createRun, sha1 } = require('../core/util')
+const { RUNS, home, readJSON, writeJSON, assertAllowedPath, createRun, sha1, pool } = require('../core/util')
 const { launch, newContext, settle } = require('../measure/browser')
 const { sweep } = require('../measure/sweep')
 const { buildDefects, crossWidth } = require('../measure/cluster')
@@ -275,18 +275,30 @@ async function measureBuild (browser, distDir, recipes, sizes, run, cfg, side, d
       out.push(...ds, ...crossWidth(res, ds, { screen: r.id, side, ref: side }))
       if (res.some((x) => !x.ok)) out.failed = (out.failed || 0) + res.filter((x) => !x.ok).length
       // 시안이 있던 화면은 시안 비교도 다시 한다(시안 결함의 수정 확인, 규칙 수정이 시안과 멀어지게 했는지 확인)
+      const checks = []
       if (designs && designs[r.id]) {
         const widest = Math.max(...sizes.map((x) => (Array.isArray(x) ? x[0] : Number(String(x).split('x')[0]))))
-        try { const dp = await designPass(browser, { origin: s.origin, recipe: r, spec: designs[r.id], side, ref: side, run, cfg, altWidth: widest }); out.push(...dp.defects); out.designs[r.id] = dp.summary } catch (e) { out.failed = (out.failed || 0) + 1 }
+        checks.push(async () => {
+          const dp = await designPass(browser, { origin: s.origin, recipe: r, spec: designs[r.id], side, ref: side, run, cfg, altWidth: widest })
+          return { defects: dp.defects, design: dp.summary }
+        })
       }
-      // 원래 눌러 보기까지 검사했다면 CSS 수정으로 버튼 동작이 깨지는지도 다시 확인한다.
       for (const [key, previous] of Object.entries(interactions || {}).filter(([key]) => key === r.id || key.startsWith(r.id + '@'))) {
-        const size = String(previous.size).split('x').map(Number)
-        try {
+        checks.push(async () => {
+          const size = String(previous.size).split('x').map(Number)
           const ip = await interactPass(browser, { origin: s.origin, recipe: r, side, ref: side, run, cfg, size, spec: designs && designs[r.id], max: 30 })
-          out.push(...ip.defects)
-          out.interactions.push({ screen: r.id, size: previous.size, clicked: ip.counters.clicked, defects: ip.defects.length, prototype_matched: ip.counters.prototype_matched, actions: ip.results.filter(x => !x.skip).map(x => ({ label: x.label, path: x.path, landing: x.landing?.url, verdict: x.verdict || null, prototype: x.prototype_check?.status, after_shot: x.after_shot || null })) })
-        } catch (e) { out.failed = (out.failed || 0) + 1 }
+          return { defects: ip.defects, interaction: { screen: r.id, size: previous.size, clicked: ip.counters.clicked, defects: ip.defects.length, prototype_matched: ip.counters.prototype_matched, actions: ip.results.filter(x => !x.skip).map(x => ({ label: x.label, path: x.path, landing: x.landing?.url, verdict: x.verdict || null, prototype: x.prototype_check?.status, after_shot: x.after_shot || null })) } }
+        })
+      }
+      // Independent contexts share one browser/server; collect in input order and retain failures.
+      const checked = await pool(checks, cfg.performance?.parallel_validation ? Math.max(1, Math.min(3, cfg.concurrency || 1)) : 1, async fn => {
+        try { return await fn() } catch (e) { return { failed: true } }
+      })
+      for (const check of checked) {
+        if (check.failed) { out.failed = (out.failed || 0) + 1; continue }
+        out.push(...check.defects)
+        if (check.design) out.designs[r.id] = check.design
+        if (check.interaction) out.interactions.push(check.interaction)
       }
     }
     for (const r of recipes.filter(r=>r.journeys?.length)) {
@@ -382,8 +394,9 @@ async function fixRun (args, cfg) {
   const judgeable = (ds) => ds.filter((d) => d.rule !== 'R5')
   const fixDir = path.join(runDir, 'fix'); fs.mkdirSync(fixDir, { recursive: true })
   fs.rmSync(path.join(fixDir, 'comparison.json'), { force: true }); fs.rmSync(path.join(fixDir, 'fix_all.patch'), { force: true }); fs.rmSync(path.join(fixDir, 'source'), { recursive: true, force: true })
-  const result = { started_at: new Date().toISOString(), run_id: runId, items: [], combined: null, llm: null }
+  const result = { started_at: new Date().toISOString(), run_id: runId, items: [], combined: null, llm: null, timings: [] }
   const save = () => writeJSON(path.join(fixDir, 'fixes.json'), result)
+  const timed = require('../core/timing').timer(result.timings, row => { ev.event('timing', `${row.stage}: ${(row.ms / 1000).toFixed(2)}초`, row); save() })
   save()
   if (!targets.length) { result.note = '자동 수정 대상이 없습니다'; result.finished_at = new Date().toISOString(); result.summary = { targets: 0, verified: 0, combined_fixed: 0, combined_regress: 0 }; save(); say(result.note); return result }
   cfg = { ...cfg, repair_targets: Object.fromEntries(m.recipes.map(r => [r.id, original.filter(d => d.screen === r.id).map(d => ({ id: d.id, selector: d.elements?.[0]?.path || d.elements?.[0]?.selector })).filter(x => x.selector)])) }
@@ -397,7 +410,7 @@ async function fixRun (args, cfg) {
   const appDir = path.join(scratch, repoCfg.app_dir)
   const modelOnly = args['repair-mode'] === 'model-only'
   if(args['repair-mode'] && !['auto','model-only'].includes(args['repair-mode'])) throw new Error('지원하지 않는 repair-mode')
-  const llmOk = args.llm !== 'off' ? await preflight(cfg) : { ok: false, reason: '--llm off' }
+  const llmOk = args.llm !== 'off' ? await timed('model_preflight', () => preflight(cfg)) : { ok: false, reason: '--llm off' }
   result.llm = llmOk.ok ? { status: 'ok', model: cfg.ollama.model } : { status: 'skipped', reason: llmOk.reason }
   result.repair_mode = modelOnly ? 'model-only' : 'auto'
   save()
@@ -412,7 +425,7 @@ async function fixRun (args, cfg) {
     const baselineBuild = await build(appDir, repoCfg, 'dist-dqa-baseline', cfg.fix.build_timeout_ms)
     if (!baselineBuild.ok) throw new Error('수정 전 사본 빌드 실패: ' + baselineBuild.log)
     say('수정 전 기준 화면과 버튼을 다시 확인합니다')
-    const before = await measureBuild(browser, path.join(appDir, 'dist-dqa-baseline'), recipes, sizes, ev, cfg, 'fix-before', designs, m.interact_summary)
+    const before = await timed('baseline_validation', () => measureBuild(browser, path.join(appDir, 'dist-dqa-baseline'), recipes, sizes, ev, cfg, 'fix-before', designs, m.interact_summary))
     fs.rmSync(path.join(appDir, 'dist-dqa-baseline'), { recursive: true, force: true })
     if (before.failed) throw new Error('수정 전 재측정 실패. 해결 판정을 중단합니다')
     if (before.journeys.some(j=>!j.ok)) say('수정 전 사용자 흐름 실패를 기록했습니다. 중간 후보는 악화 금지, 최종 사본은 모든 흐름 통과가 필요합니다')
@@ -433,6 +446,9 @@ async function fixRun (args, cfg) {
     checkpoint()
     say(`앱 계획: 결함 ${targets.length}건 → 공통 원인 후보 ${plan.tasks.length}개 · 전체 ${plan.screens.length}화면 회귀검증`)
     let activeTask = null; const triedPatches = new Set()
+    let lastValidation = null
+    const perf = require('./performance')
+    const validationContext = sha1(JSON.stringify({ recipes, sizes, designs, interactions: m.interact_summary, cfg }))
     const tryEdits = async (edits, label, targetIds, final = false) => {
       attemptNo++
       let changed
@@ -443,23 +459,45 @@ async function fixRun (args, cfg) {
       for (const [rel, st] of changed) fs.writeFileSync(path.join(scratch, rel), st.after)
       const outDir = `dist-dqa-fix${attemptNo}`
       say(`${label}: 빌드 중`)
-      const b = await build(appDir, repoCfg, outDir, cfg.fix.build_timeout_ms)
+      const b = await timed('candidate_build', () => build(appDir, repoCfg, outDir, cfg.fix.build_timeout_ms), { attempt: attemptNo, final })
       let verdict = { ok: false }
       if (b.ok) {
-        say(`${label}: 빌드 ${(b.ms / 1000).toFixed(1)}초, 재측정 중`)
-        const after = await measureBuild(browser, path.join(appDir, outDir), recipes, sizes, ev, cfg, `fix${attemptNo}`, designs, m.interact_summary)
-        verdict = { ...judgeAfter(judgeable(before), judgeable(after), targetIds), after: after.map((d) => ({ id: d.id, screen: d.screen, rule: d.rule, labels: d.labels.slice(0, 3), widths: d.widths.map((w) => `${w.w}x${w.h}:${w.px}`) })), failed_sizes: after.failed || 0 }
-        verdict.coverage_errors = [...require('./comparison').coverage(before, after), ...require('../recipes/journeys').journeyRegressions(before.journeys,after.journeys,final)]
-        verdict.journeys = after.journeys || []
-        if (after.failed || verdict.coverage_errors.length) verdict.ok = false
-        if (final) {
-          const { comparison } = require('./comparison')
-          const report = comparison(before, after, m, verdict)
-          writeJSON(path.join(fixDir, 'comparison.json'), report)
-          writeJSON(path.join(fixDir, 'after-defects.json'), after)
-          verdict.comparison = 'fix/comparison.json'
-          if (verdict.ok) for (const [rel, st] of changed) {
-            const dest = path.join(fixDir, 'source', rel); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, st.after)
+        say(`${label}: 빌드 ${(b.ms / 1000).toFixed(1)}초, 검증 시작`)
+        const sourceHash = cfg.performance?.reuse_static_validation && !repoCfg.build_args ? perf.sourceDigest(scratch) : null
+        const cacheKey = sourceHash ? validationContext + ':' + sourceHash : null
+        let after = null
+        if (final && cacheKey && perf.reusable(lastValidation, cacheKey)) {
+          after = lastValidation.after
+          say(`동일한 정적 사본: 후보 ${lastValidation.attempt}에서 완료한 전체 화면·크기·버튼 검증을 최종 결과로 사용합니다`)
+          result.timings.push({ stage: 'final_validation_reuse', ms: 0, ok: true, source_attempt: lastValidation.attempt })
+        } else {
+          const quick = !final && cfg.performance?.fail_fast_overflow ? perf.quickTarget(targets, targetIds, recipes, sizes) : null
+          if (quick) {
+            const probe = await timed('target_probe', () => measureBuild(browser, path.join(appDir, outDir), [{ ...quick.recipe, journeys: [] }], [quick.size], ev, cfg, `probe${attemptNo}`, null, null), { attempt: attemptNo })
+            const still = quick.ids.filter(id => probe.some(d => d.id === id))
+            if (probe.failed || still.length) {
+              verdict = { ok: false, still, regress: [], fixed: [], failed_sizes: probe.failed || 0, error: probe.failed ? '대상 크기 재측정 실패' : '기존 넘침이 남아 전체 검증 전에 수정을 되돌립니다', validation_scope: 'target-only', after: [] }
+              say(verdict.error)
+            }
+          }
+          if (!verdict.error) after = await timed(final ? 'final_validation' : 'candidate_validation', () => measureBuild(browser, path.join(appDir, outDir), recipes, sizes, ev, cfg, `fix${attemptNo}`, designs, m.interact_summary), { attempt: attemptNo })
+        }
+        if (after) {
+          verdict = { ...judgeAfter(judgeable(before), judgeable(after), targetIds), after: after.map((d) => ({ id: d.id, screen: d.screen, rule: d.rule, labels: d.labels.slice(0, 3), widths: d.widths.map((w) => `${w.w}x${w.h}:${w.px}`) })), failed_sizes: after.failed || 0 }
+          verdict.coverage_errors = [...require('./comparison').coverage(before, after), ...require('../recipes/journeys').journeyRegressions(before.journeys,after.journeys,final)]
+          verdict.journeys = after.journeys || []
+          if (after.failed || verdict.coverage_errors.length) verdict.ok = false
+          if (!final && cacheKey && cacheKey === validationContext + ':' + perf.sourceDigest(scratch)) lastValidation = { key: cacheKey, after, verdict: { ...verdict, build_ok: b.ok }, attempt: attemptNo }
+          if (final && after === lastValidation?.after) verdict.validation_reused_from = lastValidation.attempt
+          if (final) {
+            const { comparison } = require('./comparison')
+            const report = comparison(before, after, m, verdict)
+            writeJSON(path.join(fixDir, 'comparison.json'), report)
+            writeJSON(path.join(fixDir, 'after-defects.json'), after)
+            verdict.comparison = 'fix/comparison.json'
+            if (verdict.ok) for (const [rel, st] of changed) {
+              const dest = path.join(fixDir, 'source', rel); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, st.after)
+            }
           }
         }
       }
@@ -484,7 +522,7 @@ async function fixRun (args, cfg) {
       item.task_id = task.id; item.target_ids = task.target_ids; item.affected_screens = task.affected_screens
       result.items.push(item)
       if (d.judge && d.judge.status === 'ok' && d.judge.verdict !== '결함') { item.skipped = `보고서 에이전트 판정이 "${d.judge.verdict}"라 고치지 않는다`; say(`${d.rule} ${d.labels.slice(0, 2).join(',')}: ${item.skipped}`); save(); continue }
-      const r = await codeAgent(d, { cfg, srcRoot, srcDir: repoCfg.src_dir, sourceHints: recipes.find(r=>r.id===d.screen)?.source_hints || [], tryEdits, say, modelOnly, firstEdits: modelOnly ? [] : proposals.get(d.id), targetIds: task.target_ids, taskTargets: targets.filter(x=>task.target_ids.includes(x.id)).map(x=>({id:x.id,screen:x.screen,rule:x.rule,labels:x.labels,values:x.design?.values})), appContracts: plan.contracts, appSources: plan.code_usage, onObservation: o => { (task.observations ||= []).push({at:new Date().toISOString(),...o}); checkpoint() }, onAction: a => { task.decisions.push({ at: new Date().toISOString(), ...a }); checkpoint() }, llm: llmOk.ok })
+      const r = await codeAgent(d, { cfg, srcRoot, srcDir: repoCfg.src_dir, sourceHints: recipes.find(r=>r.id===d.screen)?.source_hints || [], tryEdits, say, modelOnly, firstEdits: modelOnly ? [] : proposals.get(d.id), targetIds: task.target_ids, taskTargets: targets.filter(x=>task.target_ids.includes(x.id)).map(x=>({id:x.id,screen:x.screen,rule:x.rule,labels:x.labels,values:x.design?.values})), appContracts: plan.contracts, appSources: plan.code_usage, onModelCall: row => { result.timings.push({ stage: 'model_action', task: task.id, ...row }); checkpoint() }, onObservation: o => { (task.observations ||= []).push({at:new Date().toISOString(),...o}); checkpoint() }, onAction: a => { task.decisions.push({ at: new Date().toISOString(), ...a }); checkpoint() }, llm: llmOk.ok })
       Object.assign(item, { attempts: r.attempts, trail: r.trail, verified: r.verified })
       task.status = r.verified === null ? 'unresolved' : 'verified'; checkpoint()
     }

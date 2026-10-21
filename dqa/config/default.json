@@ -139,5 +139,11 @@
     "max_attempts_per_defect": 2,
     "max_defects": 8,
     "build_timeout_ms": 300000
+  },
+  "performance": {
+    "parallel_validation": true,
+    "compact_source_context": true,
+    "fail_fast_overflow": true,
+    "reuse_static_validation": true
   }
 }
