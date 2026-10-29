@@ -172,7 +172,8 @@ function nsBody () {
   if (NS.kind === 'local') Object.assign(b, { local: NS.local.trim(), base: NS.localBase })
   // 시안: 화면을 고르지 않은 작업 폴더 검사는 한 시안, 아니면 화면별
   const ds = Object.entries(NS.designs || {}).filter(([k, v]) => v && (k === '' ? !NS.recipes.size : NS.recipes.has(k)))
-  if (ds.length) b.design = ds.length === 1 && ds[0][0] === '' ? ds[0][1] : Object.fromEntries(ds)
+  if (NS.designs?.[''] && NS.recipes.size === 1) b.design = { [[...NS.recipes][0]]: NS.designs[''] }
+  else if (ds.length) b.design = ds.length === 1 && ds[0][0] === '' ? ds[0][1] : Object.fromEntries(ds)
   return b
 }
 function nsCommand () {
@@ -216,11 +217,11 @@ function viewNew () {
       : st.kind === 'url' ? `<label class="field">비교 기준 주소<input data-k="baseUrl" value="${esc(st.baseUrl)}" placeholder="선택 사항"></label><label class="field">원인 파일을 찾을 소스 폴더<input data-k="src" value="${esc(st.src)}" placeholder="선택 사항"></label>`
         : `<label class="field">비교할 빌드<select data-k="baseDist"><option value="">없음</option>${OPT.dists.map(d => `<option value="${esc(d.name)}" ${st.baseDist === d.name ? 'selected' : ''}>${esc(d.name)}</option>`).join('')}</select></label>`
   $('#app').innerHTML = `${topbar(null, '<a class="btn" href="#/">검사 기록</a>')}
-    <main class="wrap new-simple"><div><h1>시안과 구현을 연결하세요</h1><p class="muted">문제를 찾고, 코드를 수정한 뒤 다시 확인합니다.</p></div>
+    <main class="wrap new-simple"><div class="import-heading"><span class="page-kicker">새 검사</span><h1>어떤 화면을 비교할까요?</h1><p class="muted">Figma 시안과 로컬 화면을 연결하면, 문제를 찾아 사본에서 수정하고 다시 검증합니다.</p></div>
     <form class="card form" id="nf">
-      ${target}${DqaFigma.html(st, DESIGNS)}
-      <div class="check-defaults"><b>검사 → 코드 수정 → 재검증까지 한 번에</b><p class="hint">Dify를 거쳐 진행합니다. 수정은 사본에서 검증하며 원본은 보존합니다.</p></div>
-      <p class="err" id="nerr" role="alert">${esc(st.err)}</p><div class="formfoot"><span class="hint">시작하면 전후 화면과 진행 기록을 보여 드립니다.</span><button type="submit" class="btn primary big">검사 시작</button></div>
+      <div class="comparison-pair">${DqaFigma.html(st, DESIGNS)}<section class="local-target"><div class="section-heading"><span class="step-number">02</span><div><h2>로컬 화면 연결</h2><p class="hint">프로젝트를 선택하고 시안에 대응하는 화면을 고르세요.</p></div></div><div class="project-location">${target}</div><div id="local-target">${DqaTarget.card(st, DESIGNS || [])}</div></section></div><section id="comparison-summary" class="comparison-summary">${DqaTarget.summary(st, DESIGNS)}</section>
+      <div class="check-defaults"><span class="step-number">03</span><div><b>연결한 화면으로 검사 시작</b><p class="hint">Dify 검사 → 모델의 코드 수정 → 재검증. 원본 적용은 결과를 확인한 뒤 승인합니다.</p></div></div>
+      <p class="err" id="nerr" role="alert">${esc(st.err)}</p><div class="formfoot"><span class="hint">검사 중인 화면 · 발견한 문제 · 실행 로그를 함께 확인하세요.</span><button type="submit" class="btn primary big">검사 시작</button></div>
     </form></main>`
   $$('[data-k]').forEach(i => { i.oninput = i.onchange = () => { st[i.dataset.k] = i.value } })
   $$('[data-opt]').forEach(i => { i.onchange = () => { st[i.dataset.opt] = i.checked } })
@@ -228,13 +229,17 @@ function viewNew () {
   $$('[data-kind]').forEach(b => { b.onclick = () => { st.kind = b.dataset.kind; st.recipes = new Set(); st.designs = {}; st.advanced = true; viewNew() } })
   $$('[data-recipe]').forEach(i => { i.onchange = () => { st.recipesTouched = true; if (i.checked) st.recipes.add(i.dataset.recipe); else st.recipes.delete(i.dataset.recipe); viewNew() } })
   DqaFigma.mount(st, api, () => DESIGNS, list => { DESIGNS = list }, viewNew, toast)
+  DqaTarget.mount(st, api, viewNew, DESIGNS || [])
   $('#nf').onsubmit = async e => {
     e.preventDefault()
     if (st.kind === 'local' && !st.local.trim()) { st.err = '프런트 프로젝트 폴더의 전체 경로를 넣으세요'; return viewNew() }
     if (st.kind === 'local' && !st.local.trim().startsWith('/')) { st.err = '폴더의 전체 경로는 /로 시작해야 합니다'; return viewNew() }
     if (!st.recipes.size && st.kind !== 'local') { st.err = '추가 설정에서 검사할 화면을 골라 주세요'; st.advanced = true; return viewNew() }
+    if (st.kind === 'local' && !DqaTarget.selected(st)) { st.err = '프로젝트 폴더와 검사할 화면을 먼저 확인해 주세요'; return viewNew() }
+    if (st.kind !== 'local' && !DqaFigma.chosen(st, DESIGNS)) { st.err = '비교할 Figma 시안을 먼저 가져오거나 선택해 주세요'; return viewNew() }
+    if (st.figmaImporting) { st.err = '시안을 가져오는 중입니다. 완료된 뒤 검사해 주세요'; return viewNew() }
     const btn = $('button[type="submit"]', $('#nf')); btn.disabled = true; btn.textContent = '검사 시작 중'
-    try { const r = await api('/api/check', nsBody()); if (st.kind === 'local') { try { localStorage.setItem('dqa.local', st.local.trim()) } catch (e) {} } NS = null; location.assign(r.live_url || `/#/runs/${r.run_id}`) }
+    try { const body = nsBody(); if (st.kind === 'local') { const connected = await api('/api/local/connect', DqaTarget.payload(st, DESIGNS)); Object.assign(body, {local:connected.local, recipes:connected.recipes, design:connected.design}) } const r = await api('/api/check', body); if (st.kind === 'local') { try { localStorage.setItem('dqa.local', st.local.trim()) } catch (e) {} } NS = null; location.assign(r.live_url || `/#/runs/${r.run_id}`) }
     catch (err) { st.err = err.message; viewNew() }
   }
 }
@@ -246,23 +251,37 @@ async function viewLive (id, initial) {
   let inFlight = false; const hash = location.hash; const openCards = new Set()
   $('#app').innerHTML = `${topbar(`<div class="headrow"><a class="iconbtn" href="#/" aria-label="검사 기록으로">${ICON.back}</a><b>검사 진행</b></div>`, '<span class="pill">Dify 검사</span>')}
     <main class="wrap live-wrap"><section class="live-heading"><div><h1 id="live-title">화면을 확인하고 있습니다</h1><p id="live-message" role="status" aria-live="polite"></p></div><div class="live-controls"><span class="muted" id="live-count"></span><span class="muted" id="live-elapsed"></span><button class="btn" id="live-stop">검사 중지</button><button class="btn primary" id="see-results" hidden>검사 결과 정리 보기</button><a class="btn" href="#/">검사 기록</a></div></section>
-    <section id="live-priority" class="live-priority" aria-label="먼저 확인할 문제"></section><ol class="live-stages" id="live-stages" aria-label="검사 단계"></ol><div id="live-warning" role="status"></div>
-    ${DqaInspection.html()}<section class="live-findings"><div class="titlerow"><h2 class="h2" id="live-findings-title">발견한 항목</h2><span class="chip warn" id="live-found"></span></div><p class="hint" id="live-provisional"></p><div id="live-cards"></div></section>
-    <details class="card"><summary>상세 실행 기록</summary><div><ol class="events" id="ev"></ol></div></details></main>`
+    ${DqaPresentation.html()}<ol class="live-stages" id="live-stages" aria-label="검사 단계"></ol><div id="live-warning" role="status"></div><div id="live-repair-status" class="repair-progress-note" hidden></div>
+    <div class="live-workbench"><div id="present-evidence" hidden></div>${DqaInspection.html()}<aside class="activity-panel" aria-label="실행 로그"><div class="activity-heading"><h2>실행 로그</h2><span class="activity-indicator" id="live-sync">연결 중</span></div><p class="hint">서버에 기록된 작업을 순서대로 보여줍니다.</p><label class="log-follow"><input type="checkbox" id="live-log-follow" checked> 최신 기록 따라가기</label><ol class="events" id="ev"></ol><details id="live-model-panel" open hidden><summary>모델 도구 호출</summary><pre id="live-model-actions"></pre></details></aside></div><section id="live-priority" class="live-priority" aria-label="먼저 확인할 문제"></section><section class="live-findings"><div class="titlerow"><h2 class="h2" id="live-findings-title">발견한 항목</h2><span class="chip warn" id="live-found"></span></div><p class="hint" id="live-provisional"></p><div id="live-cards"></div></section>
+    </main>`
   if (inspectionView) inspectionView.close()
   inspectionView = DqaInspection.mount(id, api, file, toast)
+  const presentationView = DqaPresentation.mount(id, esc, file, inspectionView)
   $('#see-results').onclick = () => { inspectionView.close(); inspectionView = null; clearInterval(timer); viewReview(id) }
   const update = j => {
     if (location.hash !== hash || !$('#live-message')) return
     const info = DqaState.progress(j); const p = j.pipeline || {}; inspectionView.update(j)
     $('#live-title').textContent = j.manifest && j.manifest.title || '검사 준비 중'
-    $('#live-message').textContent = info.message
-    $('#live-elapsed').textContent = `경과 ${dur(info.elapsed)}`
+    const repair = j.repair
+    $('#live-repair-status').hidden = !repair?.fix_pipeline
+    $('#live-repair-status').textContent = repair?.fix_pipeline ? '코드 수정 · 재검증 — ' + ({ running: '진행 중', succeeded: '완료', failed: '실패', cancelled: '중단' }[repair.fix_pipeline.state] || '상태 확인 중') : ''
+    $('#live-message').textContent = repair?.fix_pipeline?.message || info.message
+    $('#live-model-panel').hidden = !repair?.fix?.app_plan
+    const modelLog = $('#live-model-actions')
+    const decisions = (repair?.fix?.app_plan?.tasks || []).flatMap(t => t.decisions || [])
+    const modelText = decisions.map(d => JSON.stringify(d, null, 2)).join('\n\n')
+    if (modelLog.textContent !== modelText) { const previous = modelLog.scrollTop; modelLog.textContent = modelText; modelLog.scrollTop = $('#live-log-follow').checked ? modelLog.scrollHeight : previous }
+    if (repair?.fix_pipeline) { $('#see-results').textContent = '수정 결과와 전후 비교'; $('#see-results').onclick = () => { location.hash = '#/runs/' + id + '/fix' } }
+
+    const checkSeconds = j.pipeline?.finished_at ? (Date.parse(j.pipeline.finished_at) - Date.parse(j.pipeline.started_at)) / 1000 : info.elapsed
+    const rp = repair?.fix_pipeline
+    const repairSeconds = rp?.started_at ? ((rp.finished_at ? Date.parse(rp.finished_at) : Date.now()) - Date.parse(rp.started_at)) / 1000 : null
+    $('#live-elapsed').textContent = `검사 ${dur(checkSeconds)}${repairSeconds === null ? '' : ' · 수정 ' + dur(repairSeconds)}`
     $('#live-stages').innerHTML = info.stages.map(v => `<li class="${esc(v.status)}"><span class="stage-dot" aria-hidden="true"></span><b>${esc(v.label)}</b><span class="small">${esc(v.text)}</span></li>`).join('')
     $('#live-count').textContent = info.total ? `크기 측정 ${info.done}/${info.total}${info.failed ? ` · 실패 ${info.failed}` : ''}` : '크기 확인 중'
     $('#see-results').hidden = j.running || !j.manifest.summary
     const ordered = [...(j.defects || [])].sort((a, b) => DqaTriage.compare(a, b))
-    const priorityHtml = ordered.length ? `<div class="live-priority-heading"><h2>먼저 확인할 문제</h2><span>${j.provisional ? '측정 중 발견' : '측정 완료'} · ${ordered.length}건</span></div><div class="live-priority-list">${ordered.slice(0, 3).map(d => `<button type="button" data-live-issue="${esc(d.id)}"><span class="priority-tag ${DqaTriage.priority(d).tone}">${esc(DqaTriage.priority(d).label)}</span><strong>${esc((d.labels || []).slice(0, 2).join(', '))}</strong><b>${esc(DqaTriage.title(d))}</b><span>${esc(DqaTriage.fact(d))}</span></button>`).join('')}</div>` : '<p class="hint">발견한 문제가 생기면 이곳에 심각도 순으로 표시됩니다.</p>'
+    const priorityHtml = ordered.length ? `<div class="live-priority-heading"><h2>${repair?.fix_pipeline ? '수정 전에 발견한 문제' : '먼저 확인할 문제'}</h2><span>${j.provisional ? '측정 중 발견' : '측정 완료'} · ${ordered.length}건</span></div><div class="live-priority-list">${ordered.slice(0, 3).map(d => `<button type="button" data-live-issue="${esc(d.id)}"><span class="priority-tag ${DqaTriage.priority(d).tone}">${esc(DqaTriage.priority(d).label)}</span><strong>${esc((d.labels || []).slice(0, 2).join(', '))}</strong><b>${esc(DqaTriage.title(d))}</b><span>${esc(DqaTriage.fact(d))}</span></button>`).join('')}</div>` : '<p class="hint">발견한 문제가 생기면 이곳에 심각도 순으로 표시됩니다.</p>'
     const priorityEl = $('#live-priority'); if (priorityEl.dataset.html !== priorityHtml) { priorityEl.innerHTML = priorityHtml; priorityEl.dataset.html = priorityHtml; $$('[data-live-issue]').forEach(b => { b.onclick = () => { const d = ordered.find(d => d.id === b.dataset.liveIssue); if (d && inspectionView.selectDefect(d)) $('.element-inspector').scrollIntoView({ block: 'start', behavior: 'auto' }); else toast('해당 요소의 기록을 준비하고 있습니다.') } }) }
     $('#live-found').textContent = `${(j.defects || []).length}건`
     $('#live-provisional').textContent = j.provisional ? '검사 중인 항목입니다. 묶기·재측정·이전 코드와 비교한 뒤 개수와 판정이 달라질 수 있습니다.' : j.running ? '화면 측정이 끝났습니다. 설명을 기다리는 동안 측정 근거를 확인할 수 있습니다.' : '검사가 끝났습니다. 요소별 측정 근거와 정리된 결과를 확인하세요.'
@@ -271,18 +290,23 @@ async function viewLive (id, initial) {
       $$('details', cards).forEach((d, i) => { if (d.open) openCards.add(i); else openCards.delete(i) })
       cards.innerHTML = html; cards.dataset.content = html; $$('details', cards).forEach((d, i) => { d.open = openCards.has(i) })
     }
+    presentationView.update(j)
     const terminal = !j.running
     $('#live-stop').hidden = terminal
-    const failed = terminal && (!j.manifest.summary || p.state !== 'succeeded')
-    $('#live-warning').innerHTML = failed ? `<div class="banner">${esc(p.error || j.manifest.error || info.message)}<span>완료한 측정은 아래에 남아 있습니다.</span><a class="btn sm" href="#/new">다시 검사</a></div>` : ''
-    $('#ev').innerHTML = eventsHtml(j.events)
+    const failed = terminal && (!j.manifest.summary || p.state !== 'succeeded' || (repair?.fix_pipeline && repair.fix_pipeline.state !== 'succeeded'))
+    $('#live-warning').innerHTML = failed ? `<div class="banner">${esc(repair?.fix_pipeline?.error || p.error || j.manifest.error || info.message)}<span>완료한 측정은 아래에 남아 있습니다.</span><a class="btn sm" href="#/new">다시 검사</a></div>` : ''
+    const log = $('#ev'); const previousTop = log.scrollTop; const logHtml = eventsHtml(j.events)
+    if (log.innerHTML !== logHtml) { log.innerHTML = logHtml; log.scrollTop = $('#live-log-follow').checked ? log.scrollHeight : previousTop }
+    $('#live-sync').textContent = j.running ? '수신 중 · ' + new Date().toLocaleTimeString('ko-KR', { hour12: false }) : '저장된 실행 기록'
+    $('#live-sync').classList.toggle('is-live', !!j.running)
     if (terminal) {
       clearInterval(timer)
-      $('#live-title').textContent = (j.manifest.title || '검사') + (p.state === 'succeeded' ? ' · 완료' : ' · 일부 결과')
+      $('#live-title').textContent = (j.manifest.title || '검사').replace('(작업 중)', '(로컬 사본)') + (!failed ? ' · 완료' : ' · 일부 결과')
     }
   }
+  $('#live-log-follow').onchange = () => { if ($('#live-log-follow').checked) $('#ev').scrollTop = $('#ev').scrollHeight; if ($('#live-model-actions')) $('#live-model-actions').scrollTop = $('#live-model-actions').scrollHeight }
   $('#live-stop').onclick = async () => { const b = $('#live-stop'); b.disabled = true; b.textContent = '중지 요청 중'; try { await api('/api/stop', { run_id: id }) } catch (e) { toast(e.message); b.disabled = false } }
-  const tick = async () => { if (inFlight || location.hash !== hash) return; inFlight = true; try { const j = await api(`/api/runs/${id}/live`); update(j) } catch (e) { if ($('#live-warning')) $('#live-warning').textContent = '진행 상태에 연결하지 못했습니다. 연결을 다시 확인하고 있습니다.' } finally { inFlight = false } }
+  const tick = async () => { if (inFlight || location.hash !== hash) return; inFlight = true; try { const j = await api(`/api/runs/${id}/live`); if (j.pipeline?.state === 'succeeded') j.repair = await api(`/api/runs/${id}`); update(j) } catch (e) { if ($('#live-warning')) $('#live-warning').textContent = '연결이 잠시 끊겼습니다. 마지막으로 받은 결과를 표시하며 다시 연결합니다.'; if ($('#live-sync')) { $('#live-sync').textContent = '재연결 중'; $('#live-sync').classList.remove('is-live') } } finally { inFlight = false } }
   clearInterval(timer); timer = setInterval(tick, 1000); await tick()
 }
 

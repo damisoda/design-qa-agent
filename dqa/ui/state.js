@@ -16,7 +16,7 @@
   }
   const progress = (j, now = Date.now()) => {
     const p = j.progress || {}; const pipeline = j.pipeline || {}; const all = p.stages || {}; const tasks = Object.values(p.tasks || {}).filter(t => t.side !== 'verify' && typeof t.size === 'string').map(t => ({ ...t }))
-    const labels = [['prepare', '준비'], ['measure', '화면 크기'], ['design', 'Figma 비교'], ['interact', '눌러 보기'], ['verify', '재측정 · 비교'], ['judge', '문제 설명']]
+    const labels = [['prepare', '준비'], ['measure', '화면 크기'], ['design', 'Figma 비교'], ['interact', '눌러 보기'], ['verify', '재측정 · 비교'], ['judge', '근거 정리']]
     if (!j.running) for (const t of tasks) if (['running', 'pending'].includes(t.status)) t.status = 'cancelled'
     const modelPhase = ['ready', 'search', 'model', 'validate'].includes(pipeline.phase)
     const stages = labels.map(([key, label]) => {

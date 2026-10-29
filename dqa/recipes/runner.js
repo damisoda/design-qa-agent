@@ -10,7 +10,8 @@ const { dqaIsTop } = require('../measure/inpage')
 const DIR = __dirname
 
 function loadRecipe (id) {
-  const f = path.join(DIR, `${id}.json`)
+  const auto = /^auto\/[a-f0-9]{16}$/.test(id)
+  const f = auto ? path.join(process.env.DQA_SCREEN_STATE_DIR || path.join(require('../core/util').STATE, 'screen-recipes'), id.slice(5) + '.json') : path.join(DIR, `${id}.json`)
   if (!/^[\w-]+(\/[\w-]+)*$/.test(id) || !fs.existsSync(f)) throw new Error(`레시피가 없다: ${id}`)
   const r = readJSON(f)
   r._file = f
@@ -33,6 +34,12 @@ function listRecipes () {
     }
   }
   walk(DIR, '')
+  const generated = process.env.DQA_SCREEN_STATE_DIR || path.join(require('../core/util').STATE, 'screen-recipes')
+  if (fs.existsSync(generated)) for (const n of fs.readdirSync(generated)) {
+    if (!/^[a-f0-9]{16}\.json$/.test(n)) continue
+    const r = readJSON(path.join(generated, n), {})
+    if (r.id === 'auto/' + n.slice(0, -5) && r._project) out.push({id:r.id,title:r.title,app:r.app,widths:r.widths})
+  }
   return out.sort((a, b) => a.id.localeCompare(b.id))
 }
 

@@ -54,7 +54,7 @@ function startPipeline (id, inputs, cfg, onDone) {
       if (repair) state.repair_summary = fx.summary || null
       if (repair && e.status === 'succeeded' && (taskError || !fx.finished_at || Date.parse(fx.started_at) < Date.parse(state.started_at))) finish('failed', taskError?.error || '수정 재검증 완료 결과가 없습니다')
       else if (e.status === 'succeeded' && m.status === 'running') { stopRemote(); finish('timeout', '측정 완료 대기 한도를 넘었습니다') }
-      else if (e.status === 'succeeded' && m.exit_code === 2) finish('failed', m.error || '일부 화면 검사를 완료하지 못했습니다')
+      else if (e.status === 'succeeded' && (m.exit_code === 2 || m.adaptive?.status === 'failed')) finish('failed', m.error || '일부 화면 검사를 완료하지 못했습니다')
       else finish(e.status === 'succeeded' ? 'succeeded' : 'failed', e.error)
     }
     else if (e.event === 'error') finish('failed', e.error || 'Dify 실행 오류')

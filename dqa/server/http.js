@@ -67,6 +67,7 @@ function toArgs (body, cfg) {
   const known = new Set(listRecipes().map((r) => r.id))
   // 작업 폴더는 화면을 안 고르면 폴더의 .dqa.json 기본 화면(없으면 첫 화면)을 쓴다
   if ((!recipes.length && body.kind !== 'local') || !recipes.every((r) => known.has(r))) throw new Error('화면 레시피를 하나 이상 골라야 한다(목록에 있는 것만)')
+  require('./local-selection').validateScope(recipes, body.kind === 'local' ? body.local : null)
   if (recipes.length) a.push('--recipe', recipes.join(','))
   if (body.kind === 'dist') {
     if (!cfg.dists[body.dist]) throw new Error('목록에 있는 빌드만 고를 수 있다')
@@ -387,7 +388,7 @@ async function waitWebResult (body, cfg) {
   const t0 = Date.now()
   while (webJob === job && current && current.id === job.id && Date.now() - t0 < 45000) await new Promise(resolve => setTimeout(resolve, 500))
   if (webJob !== job) return { ok: false, error_type: 'cancelled', message: '검사가 중지됐습니다', run_id: job.id }
-  if (!current && job.adaptivePending) require('../dify/rag/runtime').finishAdaptive(job, cfg, lastExit.get(job.id)?.code)
+  if (!current && job.adaptivePending) require('../dify/rag/runtime').finishAdaptive(job, cfg, lastExit.get(job.id)?.code, lastExit.get(job.id)?.error)
   return { ...runStatus(job.id, cfg), report_enabled: job.body.llm !== 'off' }
 }
 
@@ -511,7 +512,15 @@ async function handle (req, res, cfg) {
     }
     try {
       const body = await readBody(req)
+      if (p === '/api/figma/watch') return send(res, 200, { ok: true, ...await figmaConnection.watch() })
       if (p === '/api/figma/open') return send(res, 200, { ok: true, ...await figmaConnection.connect(body) })
+      if (p === '/api/local/connect') return send(res, 200, require('./local-selection').connect(body, cfg))
+      if (p === '/api/local/inspect') return send(res, 200, require('./local-selection').inspect(body.local, cfg))
+      if (p === '/api/figma/refresh') {
+        const lib = require('../design/library'); const f = lib.find(body.design)
+        if (!f) throw new Error('가져온 시안을 찾을 수 없습니다')
+        return send(res, 200, { ok: true, ...figmaConnection.refresh(path.basename(path.dirname(f)), readJSON(f)) })
+      }
       if (p === '/api/figma/import') return send(res, 200, { ok: true, ...figmaConnection.importSelection(body) })
       if (p === '/api/figma/plugin') return send(res, 200, { ok: true, ...figmaConnection.poll(body) })
       if (p === '/api/figma/focus') {

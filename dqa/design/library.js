@@ -24,7 +24,7 @@ function save ({ name, spec, pngB64, group, source }) {
   writeJSON(path.join(d, 'design.json'), spec)
   if (pngB64) fs.writeFileSync(path.join(d, 'design.png'), Buffer.from(pngB64, 'base64'))
   writeJSON(path.join(d, 'meta.json'), { source: source || spec.source || null, group: group || null, saved_at: new Date().toISOString() })
-  return { name: n, base: spec.base || (spec.frame ? `${spec.frame.width}x${spec.frame.height}` : null), frame: spec.frame ? spec.frame.name : n }
+  return { name: n, saved_at: readJSON(path.join(d, 'meta.json')).saved_at, base: spec.base || (spec.frame ? `${spec.frame.width}x${spec.frame.height}` : null), frame: spec.frame ? spec.frame.name : n }
 }
 
 // 이름으로 찾기(목록 안의 폴더). 없으면 null
