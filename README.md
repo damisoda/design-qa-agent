@@ -84,8 +84,22 @@ node cli.js up     # 설정한 맥미니에 SSH 포트 포워딩
 node cli.js serve # http://127.0.0.1:8792
 ```
 
+웹 새 검사 화면에서 Figma 프레임을 가져오고, 로컬 프로젝트 폴더를 넣으면 화면 후보를 찾아 프레임과 연결합니다. 화면 탐색은 소스를 정적으로 읽으므로 로그인·클릭 이후 상태는 직접 경로를 추가해야 합니다. Figma 플러그인 자동 실행은 macOS 메뉴 조작 방식이라 최초 플러그인 등록과 손쉬운 사용 권한이 필요하며, 권한이 없으면 안내만 표시합니다. 시안 데이터는 **가져오기** 또는 **이 시안 다시 가져오기**를 눌렀을 때만 바뀝니다.
+
+### 설정에 따라 실행되는 범위
+
+| 준비한 것 | 실행할 수 있는 것 |
+|---|---|
+| Node.js, Playwright Chromium | `npm test`, CLI 검사(`check --local … --llm off`): 크기별 측정·시안 비교·원인 후보 |
+| + 로컬 Dify(Docker)와 임베딩 서버 | 웹 검사. 검사·수정 시작은 Dify 앱을 거치며, 임베딩 응답이 없으면 RAG 추가 검사를 불완전으로 표시합니다 |
+| + Ollama(Gemma 4 E4B) | 모델 코드 수정과 재검증, 문제 설명문 |
+
+모델 서버는 `config/default.json`의 `ollama.url`(기본은 SSH 포워딩 포트)과 `mac_mini.ssh`(여유 메모리 확인용 SSH 대상)를 자신의 환경으로 바꿔야 합니다. SSH로 메모리를 읽지 못하면 doctor는 실패로 표시하지만, 모델 호출 자체는 막지 않습니다.
+
+Dify 앱과 지식베이스는 이 저장소만으로 전부 복원되지 않습니다. DSL(`dqa/dify/*.dsl.yml`)과 생성 스크립트(`dqa/dify/act_v6.py`, `dqa/dify/rag/load.py`)에는 작성자 환경의 도구 제공자·지식베이스 ID가 들어 있으므로, 자신의 Dify에서 도구 등록(`dqa/dify/dify.py register`)과 지식베이스 생성 뒤 ID를 바꿔 가져와야 합니다. 공개 지식 문서는 `knowledge/`와 `dqa/dify/rag/corpus.json`뿐이며, 작성자 지식베이스의 기존 사례 청크는 포함하지 않습니다.
+
 - [실행 옵션과 규칙](dqa/README.md)
-- [Figma 플러그인](figma-plugin/README.md)
+- [Figma 플러그인](figma-plugin/README.md) · [프로젝트 화면 찾기](docs/screen-discovery.md)
 - [Dify 워크플로 DSL](dqa/dify/dqa-act.dsl.yml) · [RAG 구성](dqa/dify/rag/README.md)
 - 테스트: `cd dqa && npm test`
 
