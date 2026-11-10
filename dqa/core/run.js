@@ -85,9 +85,9 @@ async function check (args, cfg) {
   save()
   run.event('start', `${m.title}${t.base ? ` (비교: ${t.base.ref})` : ''}`)
   const stage = async (name, fn) => {
-    const labels = { measure: '화면을 크기별로 측정하고 있습니다', design: 'Figma 시안 값과 구현 값을 비교하고 있습니다', interact: '버튼과 링크를 눌러 반응을 확인하고 있습니다', verify: '재측정과 변경 비교를 확인하고 있습니다', cause: '원인 파일과 줄을 찾고 있습니다', judge: '문제 설명 단계를 준비하고 있습니다' }
+    const labels = { ios: '아이폰 사파리에서 키보드·확대·글리프·안전영역을 확인하고 있습니다', measure: '화면을 크기별로 측정하고 있습니다', design: 'Figma 시안 값과 구현 값을 비교하고 있습니다', interact: '버튼과 링크를 눌러 반응을 확인하고 있습니다', verify: '재측정과 변경 비교를 확인하고 있습니다', cause: '원인 파일과 줄을 찾고 있습니다', judge: '문제 설명 단계를 준비하고 있습니다' }
     const t0 = Date.now(); progress.stage(name, 'running', labels[name] || name)
-    try { const out = await fn(); progress.stage(name, m.failures.length && ['measure', 'design', 'interact'].includes(name) ? 'incomplete' : 'done', (labels[name] || name).replace('하고 있습니다', '했습니다')); return out }
+    try { const out = await fn(); progress.stage(name, m.failures.length && ['measure', 'design', 'interact', 'ios'].includes(name) ? 'incomplete' : 'done', (labels[name] || name).replace('하고 있습니다', '했습니다')); return out }
     catch (e) { progress.stage(name, 'failed', e.message); throw e }
     finally { m.stages[name] = Math.round((Date.now() - t0) / 100) / 10; save() }
   }
@@ -104,6 +104,7 @@ async function check (args, cfg) {
     for (const [side] of sides) for (const r of recipes) for (const [w, h] of sizesBy.get(r.id)) progress.task(`${side}/${r.id}/${w}x${h}`, { side, screen: r.id, title: r.title, size: `${w}x${h}`, status: 'pending' })
     progress.state.stages.design = { status: m.design && !args['no-design'] ? 'pending' : 'skipped', message: m.design ? '' : '선택된 시안이 없습니다' }
     progress.state.stages.interact = { status: args.interact ? 'pending' : 'skipped', message: args.interact ? '' : '눌러 보기 꺼짐' }
+    progress.state.stages.ios = { status: args.device === 'ios' ? 'pending' : 'skipped', message: args.device === 'ios' ? '' : '아이폰 사파리 검사 꺼짐' }
     save()
     await stage('measure', async () => {
       for (const [side, tg] of sides) {
@@ -178,6 +179,35 @@ async function check (args, cfg) {
         }
       })
     }
+    // 아이폰 사파리(--device ios): iOS 시뮬레이터의 실제 사파리에서 같은 레시피로 들어가 폰에서만 생기는 결함을 잰다
+    // (Appium 서버 cfg.ios.appium, 기본 http://127.0.0.1:4723 필요). 키보드 가림 K1·입력 확대 Z1·글리프 없음 G2·안전영역 S1
+    const iosDs = { base: [], head: [] }
+    if (args.device === 'ios') {
+      await stage('ios', async () => {
+        const { measureIOS, iosDefects } = require('../measure/ios')
+        const server = (cfg.ios && cfg.ios.appium) || 'http://127.0.0.1:4723'
+        const device = args['ios-device'] || (cfg.ios && cfg.ios.device) || 'iPhone 17 Pro'
+        const up = await fetch(server + '/status').then((r) => r.ok).catch(() => false)
+        if (!up) { m.failures.push({ side: 'head', screen: '*', size: 'ios', error: `Appium 서버가 없다(${server}). 아이폰 검사를 하려면 Appium을 먼저 띄운다` }); return }
+        m.ios_summary = {}
+        for (const [side, tg] of sides) for (const r of recipes) {
+          const rel = `ios/${side}_${r.id.replace(/\//g, '_')}`
+          try {
+            const limit = (cfg.ios && cfg.ios.timeout_ms) || 600000 // 한 화면이 멈춰도 검사 전체를 붙잡지 않게
+            let timer
+            const res = await Promise.race([measureIOS({ origin: tg.origin, recipeId: r.id, outDir: run.file(rel), device, server }), new Promise((resolve, reject) => { timer = setTimeout(() => reject(new Error(`시간 초과(${limit / 1000}초)`)), limit) })]).finally(() => clearTimeout(timer))
+            if (!res.ok) throw new Error(res.error || '아이폰 측정 실패')
+            const ds = iosDefects(res, { screen: r.id, side, ref: tg.ref, outRel: rel }).map((d) => ({ ...d, screen_title: r.title }))
+            iosDs[side].push(...ds)
+            if (side === 'head') { early.interact.push(...ds); publish(); m.ios_summary[r.id] = { device, ms: res.ms, inputs: (res.inputs || []).length, defects: ds.length, safe_area: res.safe_area || null } }
+            run.event('ios', `${side} ${r.id}: 아이폰 사파리(${device}) 입력칸 ${(res.inputs || []).length}개 확인, 폰 전용 결함 ${ds.length}건, ${(res.ms / 1000).toFixed(0)}초`)
+          } catch (e) {
+            m.failures.push({ side, screen: r.id, size: 'ios', error: `아이폰 검사 실패: ${String(e.message).split('\n')[0]}` })
+            run.event('ios', `${side} ${r.id}: 아이폰 검사 실패 — ${String(e.message).split('\n')[0]}`)
+          }
+        }
+      })
+    }
     // 비교 보기용 캡처 색인: 쪽(변경 전·후) → 화면 → 크기 → 스크롤 단계별 원본 캡처
     const shotIndex = {}
     for (const side of ['base', 'head']) for (const { recipe, res } of measured[side]) for (const r of res) {
@@ -197,8 +227,8 @@ async function check (args, cfg) {
       return [...ds, ...crossWidth(res, ds, { screen: recipe.id, side, ref })].map((d) => ({ ...d, screen_title: recipe.title }))
     })
     const mergeClicks = rows => [...rows.reduce((m,d) => { const old=m.get(d.id); if(old) { old.widths.push(...d.widths); old.max_px=Math.max(old.max_px||0,d.max_px||0) } else m.set(d.id,d); return m }, new Map()).values()]
-    defects = [...toDefects('head'), ...designDs.head, ...mergeClicks(interactDs.head)]
-    const baseDefects = t.base ? [...toDefects('base'), ...designDs.base, ...mergeClicks(interactDs.base)] : []
+    defects = [...toDefects('head'), ...designDs.head, ...mergeClicks(interactDs.head), ...iosDs.head]
+    const baseDefects = t.base ? [...toDefects('base'), ...designDs.base, ...mergeClicks(interactDs.base), ...iosDs.base] : []
     run.event('cluster', `결함 묶음: 변경 후 ${defects.length}건${t.base ? `, 변경 전 ${baseDefects.length}건` : ''}`)
 
     writeJSON(run.file('defects.json'), defects) // 설명을 기다리지 않고 최종 묶음을 먼저 공개
