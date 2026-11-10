@@ -103,6 +103,7 @@ function toArgs (body, cfg) {
   if (typeof body.design === 'string') { const design = require('../design/library').list().find(d => d.name === body.design); if (design && design.frame) a.push('--title', design.frame + ' 검수') }
   a.push('--llm', body.llm === 'off' ? 'off' : 'auto')
   if (body.interact === true || body.interact === 'on') a.push('--interact')
+  if (body.device === 'ios') a.push('--device', 'ios') // 아이폰 사파리 검사(Appium·iOS 시뮬레이터 필요)
   return a
 }
 
