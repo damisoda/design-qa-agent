@@ -62,9 +62,9 @@ async function measureOne (browser, { origin, recipe, width, height, safe, side,
           const ancestors = []; let parent = el.parentElement
           for (let depth = 0; parent && depth < 4; depth++, parent = parent.parentElement) {
             const style = getComputedStyle(parent)
-            ancestors.push({ cls: [...parent.classList], rowGap: style.rowGap, columnGap: style.columnGap })
+            ancestors.push({ cls: [...parent.classList], rowGap: style.rowGap, columnGap: style.columnGap, overflowY: style.overflowY, paddingBottom: style.paddingBottom })
           }
-          return [item.id, { left: b.left, top: b.top, width: b.width, height: b.height, ancestors }]
+          return [item.id, { left: b.left, top: b.top, width: b.width, height: b.height, ancestors, cls: [...el.classList], tag: el.tagName.toLowerCase(), pcls: el.parentElement ? [...el.parentElement.classList] : [] }]
         })), cfg.repair_targets[recipe.id]) : undefined
         res.steps.push({ y: actualY, leaves: out.leaves, issues: out.issues.length, targets })
         // 스크롤 값은 요소 좌표(배율 전)라, 묶기에 쓰는 페이지 좌표는 화면 배율을 곱한다

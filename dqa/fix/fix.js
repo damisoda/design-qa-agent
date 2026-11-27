@@ -399,7 +399,7 @@ async function fixRun (args, cfg) {
   const timed = require('../core/timing').timer(result.timings, row => { ev.event('timing', `${row.stage}: ${(row.ms / 1000).toFixed(2)}초`, row); save() })
   save()
   if (!targets.length) { result.note = '자동 수정 대상이 없습니다'; result.finished_at = new Date().toISOString(); result.summary = { targets: 0, verified: 0, combined_fixed: 0, combined_regress: 0 }; save(); say(result.note); return result }
-  cfg = { ...cfg, repair_targets: Object.fromEntries(m.recipes.map(r => [r.id, original.filter(d => d.screen === r.id).map(d => ({ id: d.id, selector: d.elements?.[0]?.path || d.elements?.[0]?.selector })).filter(x => x.selector)])) }
+  cfg = { ...cfg, repair_targets: Object.fromEntries(m.recipes.map(r => [r.id, original.filter(d => d.screen === r.id).flatMap(d => [{ id: d.id, selector: d.elements?.[0]?.path || d.elements?.[0]?.selector }, { id: d.id + '::other', selector: d.elements?.[0]?.other?.selector || d.elements?.[0]?.other?.info?.path || d.elements?.[0]?.other?.info?.selector }]).filter(x => x.selector)])) }
   const recipes = m.recipes.map((r) => loadRecipe(r.id))
   // 기준 크기와 추가 검사 크기를 모두 다시 측정한다. 시안 비교와 겹쳐도 규칙 측정을 생략하지 않는다.
   const sizes = [...new Map(m.sizes.map(x => [Array.isArray(x) ? x.join('x') : x, x])).values()]
@@ -436,9 +436,12 @@ async function fixRun (args, cfg) {
       const measured = before.measurements.find(x => x.screen === d.screen && (!size || x.w === size.w && x.h === size.h))
       const box = measured?.steps?.find(x => (x.y || 0) === (size?.scroll_y || 0))?.targets?.[d.id]
       if (box && d.elements?.[0]) d.elements[0].ancestors = box.ancestors
+      // 겹친 상대·가린 요소도 클래스와 조상을 알아야 그 규칙을 고칠 수 있다(구조 수정안)
+      const ob = measured?.steps?.find(x => (x.y || 0) === (size?.scroll_y || 0))?.targets?.[d.id + '::other']
+      if (ob && d.elements?.[0]?.other) Object.assign(d.elements[0].other, { cls: ob.cls, tag: ob.tag, pcls: ob.pcls, ancestors: ob.ancestors })
     }
     writeJSON(path.join(fixDir, 'before-defects.json'), before)
-    const proposals = new Map(targets.map(d => [d.id, [...require('./source-edit').svgColorEdits(d,srcRoot), ...ruleEdits(d, srcRoot), ...cssRuleEdits(d, srcRoot), ...textEdits(d, srcRoot)]]))
+    const proposals = new Map(targets.map(d => [d.id, [...require('./source-edit').svgColorEdits(d,srcRoot), ...ruleEdits(d, srcRoot), ...cssRuleEdits(d, srcRoot), ...require('./struct-edits').structEdits(d, srcRoot, setDecls), ...textEdits(d, srcRoot)]]))
     const { groupTargets, designContracts, finalState, componentUsages } = require('./app-plan')
     const plan = { schema: 1, run_id: runId, status: 'running', policy: 'all-registered-screens', budgets: { tasks: cfg.fix.max_defects, model_steps_per_task: 12, edits_per_task: 3 }, screens: recipes.map(r => r.id), sizes, contracts: designContracts(designs), code_usage: componentUsages(srcRoot, recipes), tasks: require('./app-plan').prioritize(groupTargets(targets, proposals, recipes.map(r => r.id)), targets).slice(0, cfg.fix.max_defects), started_at: new Date().toISOString() }
     result.app_plan = plan
