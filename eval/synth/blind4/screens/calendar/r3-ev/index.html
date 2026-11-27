@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>주간 일정 · r3-ev</title>
+<style>:root{--bg:#FFFFFF;--page:#F1F3F6;--text:#14171C;--muted:#5B6370;--line:#E3E6EA;--brand:#2563EB}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.app{max-width:none}
+.hd{flex:none;display:flex;align-items:center;gap:10px;height:60px;padding:0 20px;border-bottom:1px solid var(--line)}
+.hd h1{margin:0 8px 0 0;font-size:18px;line-height:24px;white-space:nowrap}
+.hd .nav{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;flex:none}.hd .nav svg{width:16px;height:16px}
+.hd .today{height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:14px;flex:none}
+.hd .sp{flex:1}
+.hd input{flex:0 1 200px;min-width:0;height:36px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:14px;font-family:inherit}
+.seg{display:flex;padding:3px;border-radius:10px;background:#F1F3F5;flex:none}.seg button{height:30px;padding:0 12px;border-radius:8px;background:transparent;font-size:13px;color:var(--muted)}.seg .on{background:#fff;color:var(--text);font-weight:700}
+.hd .new{height:36px;padding:0 14px;border-radius:10px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;white-space:nowrap;flex:none}
+.cal{flex:1;overflow:auto;display:grid;grid-template-columns:56px repeat(5,minmax(0,1fr));grid-template-rows:52px 540px}
+.dh{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:16px;color:var(--muted)}.dh b{font-size:18px;line-height:22px;color:var(--text)}
+.tc{position:relative;border-right:1px solid var(--line)}
+.tc span{position:absolute;right:8px;font-size:11px;line-height:14px;color:var(--muted);transform:translateY(-7px)}
+.day{position:relative;border-right:1px solid var(--line);background:repeating-linear-gradient(#fff 0 59px,#EEF0F3 59px 60px)}
+.ev{position:absolute;left:4px;right:4px;border-radius:8px;padding:4px 8px;overflow:hidden;font-size:12px;line-height:16px;border-left:3px solid}
+.ev b{display:block;font-size:13px;line-height:17px}.ev span{display:block}
+.ev.short span{display:none}
+.ev.a{background:#EFF6FF;color:#1E3A8A;border-color:#2563EB}.ev.b{background:#ECFDF5;color:#065F46;border-color:#10B981}.ev.c{background:#FEF3C7;color:#78350F;border-color:#F59E0B}.ev.d{background:#F5F3FF;color:#4C1D95;border-color:#7C3AED}
+.ev.half{right:auto;width:calc(50% - 6px)}.ev.half2{left:calc(50% + 2px)}
+.ev.past{opacity:.85}
+.ev.half{right:4px;width:auto}.ev.half2{left:4px}</style></head><body><div id="root"><div class="app"><header class="hd"><h1>2026년 10월 2주차</h1><button class="nav" aria-label="이전 주"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button class="nav" aria-label="다음 주"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><button class="today">오늘</button><div class="sp"></div><input placeholder="일정 검색"><div class="seg"><button>일</button><button class="on">주</button><button>월</button></div><button class="new">새 일정</button></header>
+<main class="cal"><div class="dh"></div><div class="dh">월<b>13</b></div><div class="dh">화<b>14</b></div><div class="dh">수<b>15</b></div><div class="dh">목<b>16</b></div><div class="dh">금<b>17</b></div>
+<div class="tc"><span style="top:60px">10:00</span><span style="top:120px">11:00</span><span style="top:180px">12:00</span><span style="top:240px">13:00</span><span style="top:300px">14:00</span><span style="top:360px">15:00</span><span style="top:420px">16:00</span><span style="top:480px">17:00</span></div><div class="day"><div class="ev a past" style="top:60px;height:60px"><b>주간 회의</b><span>10:00–11:00 · 회의실 A</span></div><div class="ev d past" style="top:300px;height:90px"><b>디자인 리뷰</b><span>14:00–15:30 · 온라인</span></div></div><div class="day"><div class="ev b half" style="top:60px;height:60px"><b>1:1 면담</b><span>10:00–11:00 · 회의실 B</span></div><div class="ev c half half2" style="top:90px;height:90px"><b>고객 인터뷰</b><span>10:30–12:00 · 카페</span></div></div><div class="day"><div class="ev c" style="top:180px;height:60px"><b>점심 약속</b><span>12:00–13:00 · 망원동</span></div><div class="ev a" style="top:360px;height:120px"><b>스프린트 계획</b><span>15:00–17:00 · 회의실 A</span></div></div><div class="day"><div class="ev b" style="top:120px;height:60px"><b>채용 면접</b><span>11:00–12:00 · 회의실 C</span></div><div class="ev d short" style="top:420px;height:30px"><b>짧은 확인</b><span>16:00–16:30 · 메신저</span></div></div><div class="day"><div class="ev b" style="top:60px;height:60px"><b>배포</b><span>10:00–11:00 · 온라인</span></div><div class="ev a" style="top:420px;height:60px"><b>회고</b><span>16:00–17:00 · 회의실 A</span></div></div></main></div></div></body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>설정 · r3-switch</title>
+<style>:root{--bg:#FFFFFF;--page:#EFEFF4;--text:#1C1C1E;--muted:#6E6E73;--line:#E5E5EA;--brand:#34C759}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.scroll{background:#F2F2F7}
+.grp{margin:24px 0 0}.gh{margin:0 16px 6px;font-size:13px;color:var(--muted)}
+.rows{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 16px;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}
+.txt{flex:1;min-width:0}.txt b{display:block;font-size:16px;line-height:22px;font-weight:500}.txt span{display:block;font-size:13px;line-height:18px;color:var(--muted)}
+.sw{width:51px;height:31px;border-radius:16px;background:var(--brand);position:relative;flex:none}.sw::after{content:"";position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff}
+.sw.off{background:#E9E9EA}.sw.off::after{right:auto;left:2px}
+.chev{flex:none;color:#C4C4C7;font-size:20px}
+.ver{font-size:15px;color:var(--muted);white-space:nowrap;flex:none}
+.txt{flex:none;min-width:auto}.txt b{white-space:nowrap}.sw{position:absolute;right:16px}.row{position:relative}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#222" stroke-width="2"/></svg></button><span class="ttl">설정</span></div>
+<div class="scroll">
+<div class="grp"><p class="gh">알림</p><div class="rows">
+<div class="row"><div class="txt"><b>주문 · 배송 알림</b><span>주문 상태가 바뀌면 바로 알려 드려요</span></div><div class="sw" role="switch" aria-checked="true" aria-label="주문 배송 알림"></div></div>
+<div class="row"><div class="txt"><b>혜택 · 이벤트 알림</b><span>쿠폰과 할인 소식을 받아요</span></div><div class="sw off" role="switch" aria-checked="false" aria-label="혜택 이벤트 알림"></div></div>
+<div class="row"><div class="txt"><b>야간 알림 받기(21시~08시, 주말 포함)</b><span>밤에도 중요한 알림을 받아요</span></div><div class="sw off" role="switch" aria-checked="false" aria-label="야간 알림"></div></div></div></div>
+<div class="grp"><p class="gh">계정</p><div class="rows">
+<div class="row"><div class="txt"><b>개인정보 관리</b></div><span class="chev">›</span></div>
+<div class="row"><div class="txt"><b>연결된 기기</b></div><span class="chev">›</span></div></div></div>
+<div class="grp"><p class="gh">앱 정보</p><div class="rows"><div class="row"><div class="txt"><b>버전</b></div><span class="ver">3.2.1 (빌드 2026.10.10)</span></div></div></div>
+</div></div></div></body></html>

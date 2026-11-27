@@ -1,0 +1,90 @@
+start Sat Nov 21 06:26:33 KST 2026
+blind-login-r2-error       R2  rules   탐지 예 | dqa 검증 예 | 오라클 false | rule | 회귀 0 | LLM ok | 45초
+blind-map-r4-sheet         R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 56초
+blind-booking-r6-slot      R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 183초
+blind-booking-r4-confirm   R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 235초
+blind-receipt-r4-safe      R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 253초
+blind-receipt-r6-amount    R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 263초
+blind-receipt-r3-badge     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 53초
+blind-landing-r3-cards     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 448초
+blind2-music-r2-add        R2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 86초
+blind2-article-r3-cap      R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 197초
+blind2-survey-r4-toast     R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 229초
+blind2-survey-r3-steps     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 617초
+blind2-inbox-r6-date       R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 615초
+blind3-recipe-r7-timer     R7  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 283초
+blind3-recipe-r1-ing       R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 599초
+blind3-recipe-r3-step      R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 1307초
+blind3-todo-r2-filters     R2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 92초
+blind3-lecture-r3-dur      R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 261초
+blind3-lecture-a2-chap     A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 63초
+blind3-lecture-r1-name     R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 638초
+blind3-estate-r4-safe      R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 244초
+blind3-estate-r3-heart     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 238초
+blind3-weather-r6-day      R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 342초
+blind3-kanban-r3-title     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 515초
+blind3-kanban-r1-search    R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 289초
+blind3-kanban-r2-menu      R2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 272초
+blind4-flight-r3-left      R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 189초
+blind4-flight-r1-dur       R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 62초
+blind4-budget-r3-center    R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 63초
+blind4-budget-r1-tx        R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 286초
+blind4-tracking-r4-panel   R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 281초
+blind4-tracking-r2-items   R2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 405초
+blind4-meds-r3-lines       R3  rules   탐지 예 | dqa 검증 예 | 오라클 true | llm | 회귀 0 | LLM ok | 345초
+blind4-address-r1-phone    R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 392초
+blind4-address-a2-ph       A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 61초
+blind4-calendar-r3-ev      R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 373초
+blind4-calendar-r2-short   R2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 156초
+blind4-calendar-a2-past    A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 59초
+blind4-calendar-r1-hd      R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 281초
+blind4-calendar-a1-nav     A1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 58초
+blind5-cinema-a1-seat      A1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 258초
+blind5-cinema-r1-grid      R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 230초
+blind5-cinema-r3-price     R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 67초
+blind5-community-r2-tx     R2  rules   탐지 예 | dqa 검증 예 | 오라클 false | rule | 회귀 0 | LLM ok | 42초
+blind5-community-r3-badge  R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 56초
+blind5-community-r4-reply  R4  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 327초
+blind5-smarthome-r3-dial   R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 64초
+blind5-smarthome-a1-sw     A1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 838초
+blind5-stocks-r3-tip       R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 66초
+blind5-stocks-a2-dn        A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 60초
+blind5-stocks-r1-name      R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 76초
+blind5-stocks-r6-pct       R6  rules   탐지 예 | dqa 검증 예 | 오라클 false | rule | 회귀 0 | LLM ok | 96초
+{
+ "tag": "dev-br3",
+ "mode": "auto",
+ "planted_rules": 52,
+ "detected": 52,
+ "fixed_dqa": 4,
+ "fixed_dqa_and_oracle": 1,
+ "dqa_yes_oracle_no": 3,
+ "by_source": {
+  "llm": 1
+ },
+ "llm_skipped": 0,
+ "outside_detected": 0
+}
+dev done Sat Nov 21 10:13:29 KST 2026
+blind7-food-a2-desc        A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 140초
+blind7-pet-r3-stat         R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 382초
+blind7-carshare-a1-sw      A1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 52초
+blind7-podcast-r1-ctl      R1  rules   탐지 예 | dqa 검증 예 | 오라클 true | llm | 회귀 0 | LLM ok | 236초
+blind7-podcast-r6-ch       R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 1183초
+blind7-podcast-a2-mini     A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 188초
+blind7-podcast-r3-title    R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 266초
+{
+ "tag": "b7-br3",
+ "mode": "auto",
+ "planted_rules": 7,
+ "detected": 7,
+ "fixed_dqa": 1,
+ "fixed_dqa_and_oracle": 1,
+ "dqa_yes_oracle_no": 0,
+ "by_source": {
+  "llm": 1
+ },
+ "llm_skipped": 0,
+ "outside_detected": 0
+}
+all done Sat Nov 21 10:54:17 KST 2026

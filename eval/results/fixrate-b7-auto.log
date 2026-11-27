@@ -1,0 +1,44 @@
+blind7-food-r1-meta        R1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 29초
+blind7-food-r3-best        R3  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 24초
+blind7-food-a1-add         A1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 25초
+blind7-food-r4-last        R4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 27초
+blind7-food-a2-desc        A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 62초
+blind7-pet-r2-memo         R2  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 23초
+blind7-pet-r6-km           R6  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 28초
+blind7-pet-r3-stat         R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 125초
+blind7-pet-d4-dog          D4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 23초
+blind7-pet-a2-chip         A2  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 23초
+blind7-carshare-r3-zone    R3  rules   탐지 아니오 | dqa 검증 아니오 | 오라클 null | - | 회귀 null | LLM null | 8초
+blind7-carshare-a1-sw      A1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 36초
+blind7-carshare-r1-tm      R1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 20초
+blind7-carshare-r4-fee     R4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 319초
+blind7-carshare-r2-car     R2  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 21초
+blind7-podcast-r4-ch       R4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 17초
+blind7-podcast-r1-ctl      R1  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 134초
+blind7-podcast-r6-ch       R6  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 386초
+blind7-podcast-a2-mini     A2  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 103초
+blind7-podcast-r3-title    R3  rules   탐지 예 | dqa 검증 아니오 | 오라클 false | - | 회귀 0 | LLM ok | 107초
+blind7-job-r1-kv           R1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 23초
+blind7-job-a1-save         A1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 21초
+blind7-job-r4-req          R4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 19초
+blind7-job-d4-logo         D4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 21초
+blind7-job-r3-dl           R3  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 25초
+blind7-laundry-r6-sum      R6  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 25초
+blind7-laundry-a1-qty      A1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 23초
+blind7-laundry-r2-addr     R2  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 22초
+blind7-laundry-r4-req      R4  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 19초
+blind7-laundry-r1-it       R1  rules   탐지 예 | dqa 검증 예 | 오라클 true | rule | 회귀 0 | LLM ok | 24초
+{
+ "tag": "b7-auto",
+ "mode": "auto",
+ "planted_rules": 30,
+ "detected": 29,
+ "fixed_dqa": 22,
+ "fixed_dqa_and_oracle": 22,
+ "dqa_yes_oracle_no": 0,
+ "by_source": {
+  "rule": 22
+ },
+ "llm_skipped": 0,
+ "outside_detected": 0
+}

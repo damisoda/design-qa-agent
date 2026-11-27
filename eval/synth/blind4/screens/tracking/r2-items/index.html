@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>배달 추적 · r2-items</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F2;--text:#14171A;--muted:#5B636D;--line:#E3E6EA;--brand:#C2410C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.map{position:relative;flex:none;height:38%}
+.map img{display:block;width:100%;height:100%;object-fit:cover}
+.map .back{position:absolute;left:12px;top:calc(10px + env(safe-area-inset-top,0px));width:40px;height:40px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}.map .back svg{width:20px;height:20px}
+.map .eta{position:absolute;right:12px;bottom:12px;font-size:13px;line-height:18px;font-weight:700;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.94);color:var(--text)}
+.panel{flex:1;overflow-y:auto;padding:16px 20px 96px}
+.panel h1{margin:0;font-size:22px;line-height:30px;font-weight:800}.panel .sub{margin:2px 0 0;font-size:13px;line-height:18px;color:var(--muted)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0 8px}
+.steps .ln{position:absolute;left:12.5%;right:12.5%;top:9px;height:3px;background:#E5E7EB}.steps .ln i{position:absolute;left:0;top:0;bottom:0;width:66%;background:var(--brand)}
+.steps .s{position:relative;text-align:center}
+.steps .s em{display:block;width:20px;height:20px;margin:0 auto;border-radius:10px;background:#E5E7EB;border:3px solid #fff}.steps .s.on em{background:var(--brand)}
+.steps .s span{display:block;margin-top:6px;font-size:12px;line-height:16px;color:var(--muted)}.steps .s.on span{color:var(--text);font-weight:700}
+.rider{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:14px}
+.rider img{width:44px;height:44px;border-radius:22px;flex:none}.rider .w{flex:1;min-width:0}.rider b{display:block;font-size:15px;line-height:20px}.rider span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.rider button{width:44px;height:44px;border-radius:22px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;flex:none}.rider button svg{width:20px;height:20px}
+.items{margin-top:16px;padding:12px 14px;border-radius:14px;background:#F8FAFC}
+.items h2{margin:0 0 6px;font-size:14px;line-height:20px}.items ul{list-style:none;margin:0;padding:0}.items li{display:flex;justify-content:space-between;font-size:13px;line-height:20px;padding:4px 0}
+.cancel{display:block;margin:16px auto 0;height:44px;padding:0 16px;background:transparent;color:var(--muted);font-size:14px;text-decoration:underline}
+.foot{position:absolute;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--line)}
+.foot button{display:block;width:100%;height:48px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;font-weight:700}
+.items ul{height:48px;overflow:hidden}</style></head><body><div id="root"><div class="app"><div class="map"><img src="map.png" alt="배달 경로 지도"><button class="back" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><span class="eta">도착 예정 12:40</span></div>
+<div class="panel"><h1>약 18분 후 도착해요</h1><p class="sub">가게에서 출발했어요 · 2.4km 남음</p>
+<div class="steps"><div class="ln"><i></i></div><div class="s on"><em></em><span>주문 접수</span></div><div class="s on"><em></em><span>조리 중</span></div><div class="s on"><em></em><span>배달 중</span></div><div class="s"><em></em><span>도착</span></div></div>
+<div class="rider"><img src="rider.png" alt="배달원 사진"><div class="w"><b>김라이더</b><span>오토바이 · 서울12가 3456</span></div><button aria-label="채팅"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></button><button aria-label="전화"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></button></div>
+<div class="items"><h2>주문 내역 (3개)</h2><ul><li><span>마르게리타 피자 L</span><span>21,900원</span></li><li><span>콜라 1.25L</span><span>2,500원</span></li><li><span>갈릭 디핑 소스</span><span>500원</span></li></ul></div>
+<button class="cancel">주문 취소</button></div>
+<div class="foot"><button>주문 상세 보기</button></div></div></div></body></html>

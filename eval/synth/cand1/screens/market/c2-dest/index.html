@@ -1,0 +1,19 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>알림 · c2-dest</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#292524;--muted:#78716C;--line:#E7E5E4;--brand:#EA580C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}.cta{display:flex;justify-content:center;margin:24px 20px 0;padding:12px 16px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;line-height:24px;font-weight:700;text-decoration:none}.count{margin:8px 20px;font-size:16px;line-height:24px;font-weight:700}
+.noti{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}.noti b{font-size:15px;line-height:22px;font-weight:500}.noti span{font-size:12px;line-height:16px;color:var(--muted)}</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>알림</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><p class="count" id="count"></p><div id="list"></div><a class="cta" href="chat.html">판매자 프로필</a></div><script>const DATA = {"now": "2026-11-12T15:00:00+09:00", "read": [{"text": "지난주 거래 후기가 도착했어요"}], "unread": [{"text": "캠핑 의자에 새 댓글이 달렸어요", "at": "2026-11-12T12:00:00+09:00"}, {"text": "관심 상품 가격이 내려갔어요", "at": "2026-11-12T13:00:00+09:00"}, {"text": "판매자가 답장을 보냈어요", "at": "2026-11-12T14:00:00+09:00"}]};
+const hours = (at) => Math.round((new Date(DATA.now) - new Date(at)) / 3600e3);
+document.getElementById('count').textContent = `새 알림 ${DATA.unread.length}개`;
+document.getElementById('list').innerHTML = DATA.unread.map((n) => `<div class="noti"><b>${n.text}</b><span>${hours(n.at)}시간 전</span></div>`).join('');
+</script><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

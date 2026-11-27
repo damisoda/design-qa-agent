@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>우리 집 · s4-on</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF1F4;--text:#111827;--muted:#5B6472;--line:#E5E7EB;--brand:#0F766E}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.rooms{flex:none;display:flex;gap:8px;overflow-x:auto;padding:10px 16px}
+.rooms button{flex:none;height:36px;padding:0 14px;border-radius:18px;border:1px solid var(--line);background:#fff;font-size:14px;color:var(--text);white-space:nowrap}.rooms .on{background:var(--text);color:#fff;border-color:var(--text)}
+.body{flex:1;overflow-y:auto;padding:4px 16px 24px}
+.thermo{position:relative;border-radius:20px;padding:16px;background:linear-gradient(135deg,#FEF3C7,#FFE4E6);margin-bottom:14px}
+.thermo .lb{display:block;font-size:14px;line-height:20px;font-weight:600;color:#1F2937}.thermo .sub{display:block;font-size:12px;line-height:16px;color:#4B5563}
+.dial{position:relative;width:180px;height:180px;margin:6px auto 0}.dial svg{display:block;width:180px;height:180px}
+.dial .v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial .v b{font-size:36px;line-height:42px;color:#111827;white-space:nowrap}.dial .v span{font-size:12px;line-height:16px;color:#4B5563}
+.ctl{display:flex;justify-content:center;gap:16px;margin-top:4px}.ctl button{width:44px;height:44px;border-radius:22px;background:#fff;font-size:20px;color:#111827}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dv{position:relative;border:1px solid var(--line);border-radius:16px;padding:12px;min-height:104px}
+.dv svg{display:block;width:24px;height:24px}
+.dv .nm{margin:8px 0 0;font-size:14px;line-height:20px;font-weight:600}
+.dv .st{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.dv [role=switch]{position:absolute;right:10px;top:10px;width:40px;height:24px;border-radius:12px;background:#CBD5E1}
+.dv [role=switch]::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:9px;background:#fff}
+.dv.on{background:#F0FDFA;border-color:#99F6E4}.dv.on [role=switch]{background:var(--brand)}.dv.on [role=switch]::after{left:auto;right:3px}
+.scenes{display:flex;gap:8px;margin-top:14px}.scenes button{flex:1;height:44px;border-radius:12px;background:#F3F4F6;font-size:13px;font-weight:600;color:var(--text)}
+.dv.on{background:#fff;border-color:var(--line)}</style></head><body><div id="root"><div class="app"><div class="top"><span class="ttl">우리 집</span></div>
+<div class="rooms"><button class="on">거실</button><button>안방</button><button>작은방</button><button>주방</button><button>욕실</button><button>현관</button></div>
+<div class="body"><div class="thermo"><span class="lb">거실 온도</span><span class="sub">난방 중 · 목표 24°</span><div class="dial"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="78" fill="none" stroke="#FFFFFF" stroke-width="14"/><circle cx="90" cy="90" r="78" fill="none" stroke="#0F766E" stroke-width="14" stroke-linecap="round" stroke-dasharray="300 490" transform="rotate(135 90 90)"/></svg><div class="v"><b>23.5°</b><span>습도 42%</span></div></div><div class="ctl"><button aria-label="온도 내리기">−</button><button aria-label="온도 올리기">+</button></div></div>
+<div class="grid"><div class="dv on"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg><p class="nm">거실 조명</p><span class="st">켜짐</span><button role="switch" aria-checked="true" aria-label="거실 조명 켜고 끄기"></button></div><div class="dv"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c0-4 1-7 4-7M14 12c4 0 7 1 7 4M12 14c0 4-1 7-4 7M10 12c-4 0-7-1-7-4"/></svg><p class="nm">에어컨</p><span class="st">꺼짐</span><button role="switch" aria-checked="false" aria-label="에어컨 켜고 끄기"></button></div><div class="dv on"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c0-4 1-7 4-7M14 12c4 0 7 1 7 4M12 14c0 4-1 7-4 7M10 12c-4 0-7-1-7-4"/></svg><p class="nm">공기청정기</p><span class="st">켜짐</span><button role="switch" aria-checked="true" aria-label="공기청정기 켜고 끄기"></button></div><div class="dv"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg><p class="nm">거실 스탠드 조명 (창가 쪽)</p><span class="st">꺼짐</span><button role="switch" aria-checked="false" aria-label="거실 스탠드 조명 (창가 쪽) 켜고 끄기"></button></div><div class="dv"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h0M15 13h0"/></svg><p class="nm">로봇청소기</p><span class="st">대기</span><button role="switch" aria-checked="false" aria-label="로봇청소기 켜고 끄기"></button></div><div class="dv on"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><p class="nm">현관 도어락</p><span class="st">잠김</span><button role="switch" aria-checked="true" aria-label="현관 도어락 켜고 끄기"></button></div></div>
+<div class="scenes"><button>외출 모드</button><button>취침 모드</button><button>영화 모드</button></div></div></div></div></body></html>

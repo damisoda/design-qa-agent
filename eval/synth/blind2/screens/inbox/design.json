@@ -1,0 +1,1336 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "inbox",
+ "base": "1280x800",
+ "frame": {
+  "name": "메일함",
+  "width": 1280,
+  "height": 800,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#E9ECF0",
+  "color/text": "#15181D",
+  "color/muted": "#59616C",
+  "color/line": "#E1E4E8",
+  "color/brand": "#1D4ED8"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "side",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 200,
+   "h": 800,
+   "sizing": {
+    "h": "FIXED"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 4,
+    "padding": [
+     16,
+     12,
+     16,
+     12
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FAFBFC",
+    "token": null
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "compose",
+     "type": "TEXT",
+     "x": 12,
+     "y": 16,
+     "w": 175,
+     "h": 44,
+     "sizing": {
+      "h": "HUG"
+     },
+     "fill": {
+      "hex": "#1D4ED8",
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "text": {
+      "content": "메일 쓰기",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:3",
+     "name": "fd",
+     "type": "FRAME",
+     "x": 12,
+     "y": 76,
+     "w": 175,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "fill": {
+      "hex": "#E8EEFC",
+      "token": null
+     },
+     "radius": 10,
+     "children": [
+      {
+       "id": "1:4",
+       "name": "l",
+       "type": "TEXT",
+       "x": 24,
+       "y": 88,
+       "w": 61,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "받은편지함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:5",
+       "name": "n",
+       "type": "TEXT",
+       "x": 164,
+       "y": 89,
+       "w": 11,
+       "h": 15,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "12",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1E40AF",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:6",
+     "name": "fd",
+     "type": "FRAME",
+     "x": 12,
+     "y": 120,
+     "w": 175,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 10,
+     "children": [
+      {
+       "id": "1:7",
+       "name": "l",
+       "type": "TEXT",
+       "x": 24,
+       "y": 132,
+       "w": 64,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "별표 편지함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:8",
+     "name": "fd",
+     "type": "FRAME",
+     "x": 12,
+     "y": 164,
+     "w": 175,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 10,
+     "children": [
+      {
+       "id": "1:9",
+       "name": "l",
+       "type": "TEXT",
+       "x": 24,
+       "y": 176,
+       "w": 61,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "보낸편지함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:10",
+     "name": "fd",
+     "type": "FRAME",
+     "x": 12,
+     "y": 208,
+     "w": 175,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 10,
+     "children": [
+      {
+       "id": "1:11",
+       "name": "l",
+       "type": "TEXT",
+       "x": 24,
+       "y": 220,
+       "w": 61,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "임시보관함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:12",
+       "name": "n",
+       "type": "TEXT",
+       "x": 169,
+       "y": 221,
+       "w": 6,
+       "h": 15,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1E40AF",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:13",
+     "name": "fd",
+     "type": "FRAME",
+     "x": 12,
+     "y": 252,
+     "w": 175,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 10,
+     "children": [
+      {
+       "id": "1:14",
+       "name": "l",
+       "type": "TEXT",
+       "x": 24,
+       "y": 264,
+       "w": 116,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "협업 프로젝트 공유함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:15",
+       "name": "n",
+       "type": "TEXT",
+       "x": 157,
+       "y": 265,
+       "w": 18,
+       "h": 15,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "128",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1E40AF",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:16",
+   "name": "list",
+   "type": "FRAME",
+   "x": 200,
+   "y": 0,
+   "w": 320,
+   "h": 800,
+   "sizing": {
+    "h": "FIXED"
+   },
+   "children": [
+    {
+     "id": "1:17",
+     "name": "tb",
+     "type": "FRAME",
+     "x": 200,
+     "y": 0,
+     "w": 319,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 4,
+      "padding": [
+       0,
+       12,
+       0,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:18",
+       "name": "새로고침",
+       "type": "TEXT",
+       "x": 212,
+       "y": 6,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "text": {
+        "content": "↻",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:19",
+       "name": "보관",
+       "type": "TEXT",
+       "x": 256,
+       "y": 6,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "text": {
+        "content": "▤",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:20",
+       "name": "삭제",
+       "type": "TEXT",
+       "x": 300,
+       "y": 6,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "text": {
+        "content": "✕",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:21",
+       "name": "읽음 표시",
+       "type": "TEXT",
+       "x": 344,
+       "y": 6,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "text": {
+        "content": "✓",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:22",
+     "name": "ml",
+     "type": "FRAME",
+     "x": 200,
+     "y": 52,
+     "w": 319,
+     "h": 87,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "children": [
+      {
+       "id": "1:23",
+       "name": "r1",
+       "type": "FRAME",
+       "x": 216,
+       "y": 64,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "baseline",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:24",
+         "name": "b",
+         "type": "TEXT",
+         "x": 216,
+         "y": 64,
+         "w": 235,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "박서준",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#15181D",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:25",
+         "name": "time",
+         "type": "TEXT",
+         "x": 459,
+         "y": 67,
+         "w": 44,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "오전 9:12",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#59616C",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:26",
+       "name": "s",
+       "type": "TEXT",
+       "x": 216,
+       "y": 86,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "4분기 디자인 시스템 개편 일정 공유",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:27",
+       "name": "p",
+       "type": "TEXT",
+       "x": 216,
+       "y": 108,
+       "w": 287,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "다음 주 월요일까지 컴포넌트 목록을 정리해 주세요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#59616C",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:28",
+     "name": "ml",
+     "type": "FRAME",
+     "x": 200,
+     "y": 139,
+     "w": 319,
+     "h": 107,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "children": [
+      {
+       "id": "1:29",
+       "name": "r1",
+       "type": "FRAME",
+       "x": 216,
+       "y": 151,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "baseline",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:30",
+         "name": "b",
+         "type": "TEXT",
+         "x": 216,
+         "y": 151,
+         "w": 221,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "운영팀",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#15181D",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:31",
+         "name": "time",
+         "type": "TEXT",
+         "x": 445,
+         "y": 154,
+         "w": 58,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "2026.10.09",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#59616C",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:32",
+       "name": "s",
+       "type": "TEXT",
+       "x": 216,
+       "y": 173,
+       "w": 287,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "서버 점검 안내(10월 12일 일요일 새벽 2시~4시, 관리자 화면 접속 불가)",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:33",
+       "name": "p",
+       "type": "TEXT",
+       "x": 216,
+       "y": 215,
+       "w": 287,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "점검 시간에는 관리자 화면에 접속할 수 없습니다.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#59616C",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:34",
+     "name": "ml",
+     "type": "FRAME",
+     "x": 200,
+     "y": 246,
+     "w": 319,
+     "h": 87,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "children": [
+      {
+       "id": "1:35",
+       "name": "r1",
+       "type": "FRAME",
+       "x": 216,
+       "y": 258,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "baseline",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:36",
+         "name": "b",
+         "type": "TEXT",
+         "x": 216,
+         "y": 258,
+         "w": 221,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "이수민",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#15181D",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:37",
+         "name": "time",
+         "type": "TEXT",
+         "x": 445,
+         "y": 261,
+         "w": 58,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "2026.10.08",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#59616C",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:38",
+       "name": "s",
+       "type": "TEXT",
+       "x": 216,
+       "y": 280,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "회의록: 온보딩 개선 회의",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:39",
+       "name": "p",
+       "type": "TEXT",
+       "x": 216,
+       "y": 302,
+       "w": 287,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "결정 사항 세 가지와 담당자를 정리했습니다.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#59616C",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:40",
+     "name": "ml",
+     "type": "FRAME",
+     "x": 200,
+     "y": 333,
+     "w": 319,
+     "h": 87,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "children": [
+      {
+       "id": "1:41",
+       "name": "r1",
+       "type": "FRAME",
+       "x": 216,
+       "y": 345,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "baseline",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:42",
+         "name": "b",
+         "type": "TEXT",
+         "x": 216,
+         "y": 345,
+         "w": 222,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "채용팀",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#15181D",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:43",
+         "name": "time",
+         "type": "TEXT",
+         "x": 446,
+         "y": 348,
+         "w": 57,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "2026.10.07",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#59616C",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:44",
+       "name": "s",
+       "type": "TEXT",
+       "x": 216,
+       "y": 367,
+       "w": 287,
+       "h": 20,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "면접 일정 확인 부탁드립니다",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:45",
+       "name": "p",
+       "type": "TEXT",
+       "x": 216,
+       "y": 389,
+       "w": 287,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "지원자 두 명의 면접 시간을 확정해 주세요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#59616C",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:46",
+   "name": "read",
+   "type": "FRAME",
+   "x": 520,
+   "y": 0,
+   "w": 760,
+   "h": 800,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:47",
+     "name": "h1",
+     "type": "TEXT",
+     "x": 552,
+     "y": 24,
+     "w": 696,
+     "h": 30,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "4분기 디자인 시스템 개편 일정 공유",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 22,
+      "fontWeight": 700,
+      "lineHeight": 30,
+      "color": {
+       "hex": "#15181D",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:48",
+     "name": "from",
+     "type": "TEXT",
+     "x": 552,
+     "y": 62,
+     "w": 696,
+     "h": 18,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "박서준 <seojun.park@example.com> · 오전 9:12",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 18,
+      "color": {
+       "hex": "#59616C",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:49",
+     "name": "p",
+     "type": "TEXT",
+     "x": 552,
+     "y": 100,
+     "w": 696,
+     "h": 50,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "안녕하세요. 4분기 디자인 시스템 개편 일정을 공유드립니다. 1단계는 색과 글자 토큰 정리, 2단계는 버튼·입력칸·카드 컴포넌트 교체입니다.",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": 25,
+      "color": {
+       "hex": "#15181D",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:50",
+     "name": "p",
+     "type": "TEXT",
+     "x": 552,
+     "y": 164,
+     "w": 696,
+     "h": 50,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "각 팀은 다음 주 월요일까지 현재 쓰는 컴포넌트 목록을 첨부한 시트에 적어 주세요. 질문은 이 메일에 회신해 주시면 됩니다.",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": 25,
+      "color": {
+       "hex": "#15181D",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:51",
+     "name": "att",
+     "type": "FRAME",
+     "x": 552,
+     "y": 230,
+     "w": 696,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 10,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": true
+     },
+     "children": [
+      {
+       "id": "1:52",
+       "name": "a",
+       "type": "TEXT",
+       "x": 552,
+       "y": 230,
+       "w": 119,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E4E8",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "일정표_4분기.pdf",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:53",
+       "name": "a",
+       "type": "TEXT",
+       "x": 681,
+       "y": 230,
+       "w": 126,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E4E8",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "컴포넌트_목록.xlsx",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:54",
+       "name": "a",
+       "type": "TEXT",
+       "x": 817,
+       "y": 230,
+       "w": 125,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "radius": 10,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E4E8",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "토큰_정리안_v3.fig",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#15181D",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

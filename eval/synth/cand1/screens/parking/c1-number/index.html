@@ -1,0 +1,22 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>주차 정산 · c1-number</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#1E293B;--muted:#64748B;--line:#E2E8F0;--brand:#2563EB}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}.row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.row span{font-size:14px;line-height:20px;color:var(--muted)}.row b{font-size:15px;line-height:22px;font-weight:600}.cta{display:flex;justify-content:center;margin:24px 20px 0;padding:12px 16px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;line-height:24px;font-weight:700;text-decoration:none}.note{margin:12px 20px 0;font-size:12px;line-height:16px;color:var(--muted)}</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>주차 정산</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><div id="rows"></div><p class="note" id="note"></p><a class="cta" href="pay.html">정산하기</a></div><script>const DATA = {"plate": "12가 3456", "entered": "2026-11-12T05:30:00Z", "now": "2026-11-12T07:40:00Z", "fee": 4500, "posted": "2026-11-12T07:37:00Z"};
+const kst = (iso) => { const d = new Date(new Date(iso).getTime() + 9 * 3600e3); return String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0') };
+const mins = Math.round((new Date(DATA.now) - new Date(DATA.entered)) / 60000);
+const ago = Math.round((new Date(DATA.now) - new Date(DATA.posted)) / 60000);
+const rows = [['차량 번호', DATA.plate], ['입차 시각', kst(DATA.entered)], ['주차 시간', `${Math.floor(mins / 60)}시간 ${mins % 60}분`], ['정산 요금', `${DATA.fee}원`]];
+document.getElementById('rows').innerHTML = rows.map(([k, v]) => `<div class="row"><span>${k}</span><b>${v}</b></div>`).join('');
+document.getElementById('note').textContent = `요금표 갱신 ${ago}분 전`;
+</script><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

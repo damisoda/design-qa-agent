@@ -1,0 +1,2313 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "weather",
+ "base": "375x812",
+ "frame": {
+  "name": "날씨",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#0F3D6E",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#0F3D6E",
+  "color/page": "#0A2540",
+  "color/text": "#FFFFFF",
+  "color/muted": "#C3D0DF",
+  "color/line": "RGBA(255,255,255,.18)",
+  "color/brand": "#FBBF24"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#0F3D6E",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "loc",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 287,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 4,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 98,
+       "y": 18,
+       "w": 16,
+       "h": 16,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "새로고침",
+     "type": "FRAME",
+     "x": 315,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 0.12,
+      "token": "color/text"
+     },
+     "radius": 22,
+     "children": [
+      {
+       "id": "1:5",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 16,
+       "w": 20,
+       "h": 20,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:6",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 760,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:7",
+     "name": "now",
+     "type": "FRAME",
+     "x": 16,
+     "y": 52,
+     "w": 343,
+     "h": 150,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:8",
+       "name": "tmp",
+       "type": "TEXT",
+       "x": 16,
+       "y": 64,
+       "w": 343,
+       "h": 96,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "18°",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 88,
+        "fontWeight": 300,
+        "lineHeight": 96,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:9",
+       "name": "cond",
+       "type": "TEXT",
+       "x": 16,
+       "y": 160,
+       "w": 343,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "구름 많음 · 최고 21° 최저 12°",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 22,
+        "color": {
+         "hex": "#C3D0DF",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:10",
+     "name": "card",
+     "type": "FRAME",
+     "x": 16,
+     "y": 202,
+     "w": 343,
+     "h": 108,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 0.1,
+      "token": "color/text"
+     },
+     "radius": 16,
+     "children": [
+      {
+       "id": "1:11",
+       "name": "hourly",
+       "type": "FRAME",
+       "x": 28,
+       "y": 214,
+       "w": 319,
+       "h": 84,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 6,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:12",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 28,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:13",
+           "name": "span",
+           "type": "TEXT",
+           "x": 28,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "지금",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:14",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 44,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:15",
+           "name": "b",
+           "type": "TEXT",
+           "x": 28,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "18°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:16",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 90,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:17",
+           "name": "span",
+           "type": "TEXT",
+           "x": 90,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "오후 3시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:18",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 106,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:19",
+           "name": "b",
+           "type": "TEXT",
+           "x": 90,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "19°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:20",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 152,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:21",
+           "name": "span",
+           "type": "TEXT",
+           "x": 152,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "4시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:22",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 168,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:23",
+           "name": "b",
+           "type": "TEXT",
+           "x": 152,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "20°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:24",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 214,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:25",
+           "name": "span",
+           "type": "TEXT",
+           "x": 214,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "5시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:26",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 230,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:27",
+           "name": "b",
+           "type": "TEXT",
+           "x": 214,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "19°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:28",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 276,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:29",
+           "name": "span",
+           "type": "TEXT",
+           "x": 276,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "6시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:30",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 292,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:31",
+           "name": "b",
+           "type": "TEXT",
+           "x": 276,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "17°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:32",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 338,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:33",
+           "name": "span",
+           "type": "TEXT",
+           "x": 338,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "7시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:34",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 354,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:35",
+           "name": "b",
+           "type": "TEXT",
+           "x": 338,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "16°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:36",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 400,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:37",
+           "name": "span",
+           "type": "TEXT",
+           "x": 400,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "8시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:38",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 416,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:39",
+           "name": "b",
+           "type": "TEXT",
+           "x": 400,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "15°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:40",
+         "name": "hr",
+         "type": "FRAME",
+         "x": 462,
+         "y": 214,
+         "w": 56,
+         "h": 84,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:41",
+           "name": "span",
+           "type": "TEXT",
+           "x": 462,
+           "y": 220,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "9시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#C3D0DF",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:42",
+           "name": "svg",
+           "type": "VECTOR",
+           "x": 478,
+           "y": 242,
+           "w": 24,
+           "h": 24,
+           "sizing": {
+            "h": "FIXED"
+           }
+          },
+          {
+           "id": "1:43",
+           "name": "b",
+           "type": "TEXT",
+           "x": 462,
+           "y": 272,
+           "w": 56,
+           "h": 20,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "14°",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#FFFFFF",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:44",
+     "name": "card",
+     "type": "FRAME",
+     "x": 16,
+     "y": 322,
+     "w": 343,
+     "h": 296,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "opacity": 0.1,
+      "token": "color/text"
+     },
+     "radius": 16,
+     "children": [
+      {
+       "id": "1:45",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 334,
+       "w": 319,
+       "h": 38,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:46",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 343,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "오늘",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:47",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 342,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:48",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 343,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "12°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:49",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 351,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:50",
+           "name": "i",
+           "type": "FRAME",
+           "x": 172,
+           "y": 351,
+           "w": 95,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:51",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 343,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "21°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:52",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 372,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:53",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 382,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "내일",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:54",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 381,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:55",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 382,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "13°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:56",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 390,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:57",
+           "name": "i",
+           "type": "FRAME",
+           "x": 181,
+           "y": 390,
+           "w": 95,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:58",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 382,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "22°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:59",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 411,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:60",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 421,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "수",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:61",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 420,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:62",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 421,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "11°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:63",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 429,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:64",
+           "name": "i",
+           "type": "FRAME",
+           "x": 163,
+           "y": 429,
+           "w": 86,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:65",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 421,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "19°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:66",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 450,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:67",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 460,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "목",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:68",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 459,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:69",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 460,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "14°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:70",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 468,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:71",
+           "name": "i",
+           "type": "FRAME",
+           "x": 190,
+           "y": 468,
+           "w": 95,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:72",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 460,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "23°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:73",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 489,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:74",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 499,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "금",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:75",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 498,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:76",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 499,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "15°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:77",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 507,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:78",
+           "name": "i",
+           "type": "FRAME",
+           "x": 199,
+           "y": 507,
+           "w": 95,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:79",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 499,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "24°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:80",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 528,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:81",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 538,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "토",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:82",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 537,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:83",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 538,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "13°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:84",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 546,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:85",
+           "name": "i",
+           "type": "FRAME",
+           "x": 181,
+           "y": 546,
+           "w": 78,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:86",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 538,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "20°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:87",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 28,
+       "y": 567,
+       "w": 319,
+       "h": 39,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         8,
+         0,
+         8,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#FFFFFF",
+        "opacity": 0.18,
+        "token": "color/text"
+       },
+       "children": [
+        {
+         "id": "1:88",
+         "name": "d",
+         "type": "TEXT",
+         "x": 28,
+         "y": 577,
+         "w": 40,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "일",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:89",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 78,
+         "y": 576,
+         "w": 22,
+         "h": 22,
+         "sizing": {
+          "h": "FIXED"
+         }
+        },
+        {
+         "id": "1:90",
+         "name": "lo",
+         "type": "TEXT",
+         "x": 110,
+         "y": 577,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "12°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:91",
+         "name": "rg",
+         "type": "FRAME",
+         "x": 154,
+         "y": 585,
+         "w": 149,
+         "h": 4,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "opacity": 0.2,
+          "token": "color/text"
+         },
+         "radius": 2,
+         "children": [
+          {
+           "id": "1:92",
+           "name": "i",
+           "type": "FRAME",
+           "x": 172,
+           "y": 585,
+           "w": 95,
+           "h": 4,
+           "sizing": {
+            "h": "FILL"
+           },
+           "radius": 2
+          }
+         ]
+        },
+        {
+         "id": "1:93",
+         "name": "hi",
+         "type": "TEXT",
+         "x": 313,
+         "y": 577,
+         "w": 34,
+         "h": 20,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "21°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:94",
+     "name": "grid",
+     "type": "FRAME",
+     "x": 16,
+     "y": 630,
+     "w": 343,
+     "h": 192,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "GRID",
+      "gap": 12,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:95",
+       "name": "dc",
+       "type": "FRAME",
+       "x": 16,
+       "y": 630,
+       "w": 166,
+       "h": 90,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.1,
+        "token": "color/text"
+       },
+       "radius": 16,
+       "children": [
+        {
+         "id": "1:96",
+         "name": "span",
+         "type": "TEXT",
+         "x": 28,
+         "y": 642,
+         "w": 142,
+         "h": 16,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "미세먼지",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:97",
+         "name": "b",
+         "type": "TEXT",
+         "x": 28,
+         "y": 662,
+         "w": 142,
+         "h": 26,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "좋음",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 20,
+          "fontWeight": 700,
+          "lineHeight": 26,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:98",
+         "name": "p",
+         "type": "TEXT",
+         "x": 28,
+         "y": 690,
+         "w": 142,
+         "h": 18,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "18㎍/㎥",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:99",
+       "name": "dc",
+       "type": "FRAME",
+       "x": 194,
+       "y": 630,
+       "w": 166,
+       "h": 90,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.1,
+        "token": "color/text"
+       },
+       "radius": 16,
+       "children": [
+        {
+         "id": "1:100",
+         "name": "span",
+         "type": "TEXT",
+         "x": 206,
+         "y": 642,
+         "w": 142,
+         "h": 16,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "자외선",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:101",
+         "name": "b",
+         "type": "TEXT",
+         "x": 206,
+         "y": 662,
+         "w": 142,
+         "h": 26,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "보통",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 20,
+          "fontWeight": 700,
+          "lineHeight": 26,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:102",
+         "name": "p",
+         "type": "TEXT",
+         "x": 206,
+         "y": 690,
+         "w": 142,
+         "h": 18,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "지수 4",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:103",
+       "name": "dc",
+       "type": "FRAME",
+       "x": 16,
+       "y": 732,
+       "w": 166,
+       "h": 90,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.1,
+        "token": "color/text"
+       },
+       "radius": 16,
+       "children": [
+        {
+         "id": "1:104",
+         "name": "span",
+         "type": "TEXT",
+         "x": 28,
+         "y": 744,
+         "w": 142,
+         "h": 16,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "습도",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:105",
+         "name": "b",
+         "type": "TEXT",
+         "x": 28,
+         "y": 764,
+         "w": 142,
+         "h": 26,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "62%",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 20,
+          "fontWeight": 700,
+          "lineHeight": 26,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:106",
+         "name": "p",
+         "type": "TEXT",
+         "x": 28,
+         "y": 792,
+         "w": 142,
+         "h": 18,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "이슬점 10°",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:107",
+       "name": "dc",
+       "type": "FRAME",
+       "x": 194,
+       "y": 732,
+       "w": 166,
+       "h": 90,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.1,
+        "token": "color/text"
+       },
+       "radius": 16,
+       "children": [
+        {
+         "id": "1:108",
+         "name": "span",
+         "type": "TEXT",
+         "x": 206,
+         "y": 744,
+         "w": 142,
+         "h": 16,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "바람",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:109",
+         "name": "b",
+         "type": "TEXT",
+         "x": 206,
+         "y": 764,
+         "w": 142,
+         "h": 26,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "3m/s",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 20,
+          "fontWeight": 700,
+          "lineHeight": 26,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:110",
+         "name": "p",
+         "type": "TEXT",
+         "x": 206,
+         "y": 792,
+         "w": 142,
+         "h": 18,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "북서풍",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#C3D0DF",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

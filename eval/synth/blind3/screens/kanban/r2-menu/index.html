@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>모바일 앱 리뉴얼 · r2-menu</title>
+<style>:root{--bg:#FFFFFF;--page:#F1F3F6;--text:#16181D;--muted:#5B626D;--line:#E2E5EA;--brand:#7C3AED}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.app{max-width:none}
+.hd{flex:none;display:flex;align-items:center;gap:12px;height:64px;padding:0 24px;border-bottom:1px solid var(--line)}
+.hd h1{margin:0;font-size:18px;line-height:24px;white-space:nowrap}
+.mem{display:flex;align-items:center}.mem img{width:32px;height:32px;border-radius:16px;border:2px solid #fff;margin-left:-8px}.mem img:first-child{margin-left:0}
+.mem span{margin-left:-8px;width:32px;height:32px;border-radius:16px;border:2px solid #fff;background:#EDE9FE;color:#5B21B6;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.sp{flex:1}
+.hd input{width:240px;min-width:0;height:40px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:14px;font-family:inherit}
+.hd .new{display:flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:10px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;white-space:nowrap;flex:none}.hd .new svg{width:16px;height:16px}
+.board{flex:1;display:flex;gap:16px;padding:16px 24px;overflow-x:auto;align-items:flex-start}
+.col{flex:none;width:272px;background:#F6F7F9;border-radius:14px;padding:10px}
+.ch{display:flex;align-items:center;gap:8px;padding:4px 4px 10px}.ch b{font-size:14px;line-height:20px;white-space:nowrap}
+.ch .n{font-size:12px;line-height:16px;padding:1px 7px;border-radius:9px;background:#E4E7EC;color:#3F4652}
+.ch .add{margin-left:auto;width:32px;height:32px;border-radius:8px;background:transparent;font-size:18px;color:var(--text)}
+.cd{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
+.cd h3{margin:0 0 8px;padding-right:56px;font-size:14px;line-height:20px;font-weight:600}
+.cd .pr{position:absolute;right:10px;top:10px;font-size:11px;line-height:16px;font-weight:700;padding:2px 6px;border-radius:6px}
+.p-h{background:#FEE2E2;color:#991B1B}.p-m{background:#FEF3C7;color:#92400E}.p-l{background:#E0F2FE;color:#075985}
+.tg{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}.tg span{font-size:11px;line-height:16px;padding:2px 8px;border-radius:8px;font-weight:600}
+.t-d{background:#EDE9FE;color:#5B21B6}.t-f{background:#DCFCE7;color:#166534}.t-q{background:#FEF9C3;color:#854D0E}
+.ft{display:flex;align-items:center;gap:10px;font-size:12px;line-height:16px;color:var(--muted)}.ft img{width:24px;height:24px;border-radius:12px;margin-left:auto}
+.menu{position:absolute;right:8px;top:36px;z-index:3;width:140px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);padding:4px;margin:0;list-style:none}.menu li{padding:8px 10px;font-size:13px;line-height:18px;border-radius:6px}
+.cd{overflow:hidden}</style></head><body><div id="root"><div class="app"><header class="hd"><h1>모바일 앱 리뉴얼</h1><div class="mem"><img src="m1.png" alt="김하늘"><img src="m2.png" alt="박서준"><img src="m3.png" alt="이수민"><img src="m4.png" alt="정다은"><span>+3</span></div><div class="sp"></div><input placeholder="작업 검색"><button class="new"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>새 작업</button></header>
+<main class="board"><section class="col"><div class="ch"><b>할 일</b><span class="n">3</span><button class="add" aria-label="작업 추가">+</button></div><div class="cd"><span class="pr p-h">높음</span><h3>로그인 화면 오류 문구와 빈 상태 안내 정리</h3><div class="tg"><span class=t-d>디자인</span><span class=t-q>QA</span></div><div class="ft"><span>10월 14일</span><span>댓글 3</span><img src="m1.png" alt="담당자"></div></div><div class="cd"><span class="pr p-m">보통</span><h3>온보딩 설문 단계 이름과 진행 표시 확정</h3><div class="tg"><span class=t-d>디자인</span></div><div class="ft"><span>10월 16일</span><span>댓글 1</span><img src="m2.png" alt="담당자"></div></div><div class="cd"><span class="pr p-l">낮음</span><h3>아이콘 세트 정리</h3><div class="tg"><span class=t-d>디자인</span></div><div class="ft"><span>10월 20일</span><span>댓글 0</span><img src="m3.png" alt="담당자"></div></div></section>
+<section class="col"><div class="ch"><b>진행 중</b><span class="n">2</span><button class="add" aria-label="작업 추가">+</button></div><div class="cd"><span class="pr p-h">높음</span><h3>홈 화면 카드 컴포넌트를 새 디자인으로 교체</h3><div class="tg"><span class=t-f>프론트</span><span class=t-d>디자인</span></div><div class="ft"><span>10월 13일</span><span>댓글 5</span><img src="m4.png" alt="담당자"></div><ul class="menu"><li>수정</li><li>담당자 바꾸기</li><li>삭제</li></ul></div><div class="cd"><span class="pr p-m">보통</span><h3>결제 화면 접근성 점검과 대비 수정 목록 작성</h3><div class="tg"><span class=t-q>QA</span></div><div class="ft"><span>10월 15일</span><span>댓글 2</span><img src="m1.png" alt="담당자"></div></div></section>
+<section class="col"><div class="ch"><b>검토</b><span class="n">1</span><button class="add" aria-label="작업 추가">+</button></div><div class="cd"><span class="pr p-m">보통</span><h3>다크 모드 색 토큰</h3><div class="tg"><span class=t-d>디자인</span><span class=t-f>프론트</span></div><div class="ft"><span>10월 12일</span><span>댓글 4</span><img src="m2.png" alt="담당자"></div></div></section>
+<section class="col"><div class="ch"><b>완료</b><span class="n">2</span><button class="add" aria-label="작업 추가">+</button></div><div class="cd"><span class="pr p-l">낮음</span><h3>알림 설정 화면</h3><div class="tg"><span class=t-f>프론트</span></div><div class="ft"><span>10월 8일</span><span>댓글 1</span><img src="m3.png" alt="담당자"></div></div><div class="cd"><span class="pr p-l">낮음</span><h3>검색 결과 빈 화면</h3><div class="tg"><span class=t-d>디자인</span><span class=t-q>QA</span></div><div class="ft"><span>10월 7일</span><span>댓글 0</span><img src="m4.png" alt="담당자"></div></div></section></main></div></div></body></html>

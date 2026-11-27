@@ -1,0 +1,1125 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "재생 목록",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#E11D48",
+  "color/text": "#111111",
+  "color/muted": "#6B7280",
+  "color/line": "#E5E7EB",
+  "color/dark": "#18181B",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 440,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "재생 목록",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "재생 목록",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111111",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "intro",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 60,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 4,
+      "padding": [
+       8,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "새벽 감성 모음",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 126,
+       "h": 30,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "새벽 감성 모음",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 22,
+        "fontWeight": 700,
+        "lineHeight": 30,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111111",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:9",
+       "name": "곡 4개 · 16분",
+       "type": "TEXT",
+       "x": 20,
+       "y": 138,
+       "w": 67,
+       "h": 18,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "곡 4개 · 16분",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:10",
+     "name": "actions",
+     "type": "FRAME",
+     "x": 0,
+     "y": 156,
+     "w": 375,
+     "h": 64,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       16,
+       20,
+       8,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:11",
+       "name": "모두 재생",
+       "type": "FRAME",
+       "x": 20,
+       "y": 172,
+       "w": 89,
+       "h": 40,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "fill": {
+        "hex": "#E11D48",
+        "opacity": 1,
+        "token": "color/brand"
+       },
+       "radius": 20,
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         10,
+         18,
+         10,
+         18
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:12",
+         "name": "모두 재생",
+         "type": "TEXT",
+         "x": 38,
+         "y": 182,
+         "w": 53,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "모두 재생",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#FFFFFF",
+           "opacity": 1,
+           "token": "color/bg"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:13",
+       "name": "셔플",
+       "type": "FRAME",
+       "x": 117,
+       "y": 172,
+       "w": 61,
+       "h": 40,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "radius": 20,
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         10,
+         18,
+         10,
+         18
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:14",
+         "name": "셔플",
+         "type": "TEXT",
+         "x": 135,
+         "y": 182,
+         "w": 25,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "셔플",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#111111",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:15",
+     "name": "list",
+     "type": "FRAME",
+     "x": 0,
+     "y": 220,
+     "w": 375,
+     "h": 264,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:16",
+       "name": "song1",
+       "type": "FRAME",
+       "x": 0,
+       "y": 228,
+       "w": 375,
+       "h": 64,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         8,
+         20,
+         8,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:17",
+         "name": "cover1",
+         "type": "IMAGE",
+         "x": 20,
+         "y": 236,
+         "w": 48,
+         "h": 48,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         },
+         "image": {
+          "fit": "FILL"
+         },
+         "radius": 8
+        },
+        {
+         "id": "6:18",
+         "name": "txt",
+         "type": "FRAME",
+         "x": 80,
+         "y": 239,
+         "w": 239,
+         "h": 42,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 2,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:19",
+           "name": "밤의 산책",
+           "type": "TEXT",
+           "x": 80,
+           "y": 239,
+           "w": 56,
+           "h": 22,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "밤의 산책",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 600,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111111",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:20",
+           "name": "윤하늘",
+           "type": "TEXT",
+           "x": 80,
+           "y": 263,
+           "w": 34,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "윤하늘",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:21",
+         "name": "곡 메뉴",
+         "type": "VECTOR",
+         "x": 331,
+         "y": 248,
+         "w": 24,
+         "h": 24,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:22",
+       "name": "song2",
+       "type": "FRAME",
+       "x": 0,
+       "y": 292,
+       "w": 375,
+       "h": 64,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         8,
+         20,
+         8,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:23",
+         "name": "cover2",
+         "type": "IMAGE",
+         "x": 20,
+         "y": 300,
+         "w": 48,
+         "h": 48,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         },
+         "image": {
+          "fit": "FILL"
+         },
+         "radius": 8
+        },
+        {
+         "id": "6:24",
+         "name": "txt",
+         "type": "FRAME",
+         "x": 80,
+         "y": 303,
+         "w": 239,
+         "h": 42,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 2,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:25",
+           "name": "여름 끝자락",
+           "type": "TEXT",
+           "x": 80,
+           "y": 303,
+           "w": 69,
+           "h": 22,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "여름 끝자락",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 600,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111111",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:26",
+           "name": "모래와 바람",
+           "type": "TEXT",
+           "x": 80,
+           "y": 327,
+           "w": 60,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "모래와 바람",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:27",
+         "name": "곡 메뉴",
+         "type": "VECTOR",
+         "x": 331,
+         "y": 312,
+         "w": 24,
+         "h": 24,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:28",
+       "name": "song3",
+       "type": "FRAME",
+       "x": 0,
+       "y": 356,
+       "w": 375,
+       "h": 64,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         8,
+         20,
+         8,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:29",
+         "name": "cover3",
+         "type": "IMAGE",
+         "x": 20,
+         "y": 364,
+         "w": 48,
+         "h": 48,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         },
+         "image": {
+          "fit": "FILL"
+         },
+         "radius": 8
+        },
+        {
+         "id": "6:30",
+         "name": "txt",
+         "type": "FRAME",
+         "x": 80,
+         "y": 367,
+         "w": 239,
+         "h": 42,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 2,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:31",
+           "name": "새벽 세 시",
+           "type": "TEXT",
+           "x": 80,
+           "y": 367,
+           "w": 60,
+           "h": 22,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "새벽 세 시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 600,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111111",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:32",
+           "name": "김도윤 트리오",
+           "type": "TEXT",
+           "x": 80,
+           "y": 391,
+           "w": 71,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "김도윤 트리오",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:33",
+         "name": "곡 메뉴",
+         "type": "VECTOR",
+         "x": 331,
+         "y": 376,
+         "w": 24,
+         "h": 24,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:34",
+       "name": "song4",
+       "type": "FRAME",
+       "x": 0,
+       "y": 420,
+       "w": 375,
+       "h": 64,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         8,
+         20,
+         8,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:35",
+         "name": "cover4",
+         "type": "IMAGE",
+         "x": 20,
+         "y": 428,
+         "w": 48,
+         "h": 48,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         },
+         "image": {
+          "fit": "FILL"
+         },
+         "radius": 8
+        },
+        {
+         "id": "6:36",
+         "name": "txt",
+         "type": "FRAME",
+         "x": 80,
+         "y": 431,
+         "w": 239,
+         "h": 42,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 2,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:37",
+           "name": "우리가 걷던 길",
+           "type": "TEXT",
+           "x": 80,
+           "y": 431,
+           "w": 86,
+           "h": 22,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "우리가 걷던 길",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 600,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111111",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:38",
+           "name": "하루",
+           "type": "TEXT",
+           "x": 80,
+           "y": 455,
+           "w": 23,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "하루",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:39",
+         "name": "곡 메뉴",
+         "type": "VECTOR",
+         "x": 331,
+         "y": 440,
+         "w": 24,
+         "h": 24,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6:40",
+   "name": "mini player",
+   "type": "FRAME",
+   "x": 0,
+   "y": 748,
+   "w": 375,
+   "h": 64,
+   "sizing": {
+    "h": "FILL",
+    "v": "FIXED"
+   },
+   "fill": {
+    "hex": "#18181B",
+    "opacity": 1,
+    "token": "color/dark"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     12,
+     20,
+     12,
+     20
+    ],
+    "align": "CENTER",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:41",
+     "name": "now cover",
+     "type": "IMAGE",
+     "x": 20,
+     "y": 760,
+     "w": 40,
+     "h": 40,
+     "sizing": {
+      "h": "FIXED",
+      "v": "FIXED"
+     },
+     "image": {
+      "fit": "FILL"
+     },
+     "radius": 6
+    },
+    {
+     "id": "6:42",
+     "name": "now",
+     "type": "FRAME",
+     "x": 72,
+     "y": 762,
+     "w": 243,
+     "h": 36,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:43",
+       "name": "밤의 산책",
+       "type": "TEXT",
+       "x": 72,
+       "y": 762,
+       "w": 53,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "밤의 산책",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:44",
+       "name": "윤하늘",
+       "type": "TEXT",
+       "x": 72,
+       "y": 782,
+       "w": 32,
+       "h": 16,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "윤하늘",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#A1A1AA",
+         "opacity": 1,
+         "token": null
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:45",
+     "name": "재생",
+     "type": "VECTOR",
+     "x": 327,
+     "y": 766,
+     "w": 28,
+     "h": 28,
+     "sizing": {
+      "h": "FIXED",
+      "v": "FIXED"
+     }
+    }
+   ]
+  }
+ ]
+}

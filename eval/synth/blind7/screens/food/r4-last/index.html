@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>가게 · r4-last</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F2;--text:#15171A;--muted:#5E6570;--line:#E5E8EC;--brand:#EA580C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.body{flex:1;overflow-y:auto;padding-bottom:96px}
+.cover{display:block;width:100%;height:160px;object-fit:cover}
+.shop{padding:14px 16px;border-bottom:8px solid #F3F4F6}
+.shop h1{margin:0 0 4px;font-size:20px;line-height:28px}
+.shop .meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;line-height:18px;color:var(--muted)}
+.cats{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;border-bottom:1px solid var(--line)}
+.cats button{flex:none;height:34px;padding:0 14px;border-radius:17px;background:#F3F4F6;font-size:14px;color:var(--text)}
+.cats .on{background:var(--text);color:#fff}
+.mn{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.mn .w{flex:1;min-width:0}
+.mn b{display:block;font-size:15px;line-height:21px}
+.mn p{margin:2px 0 6px;font-size:13px;line-height:18px;color:var(--muted)}
+.mn .pr{font-size:15px;font-weight:700}
+.mn .ph{position:relative;flex:none;width:88px;height:88px}
+.mn .ph img{width:88px;height:88px;border-radius:10px;object-fit:cover}
+.mn .ph .add{position:absolute;right:4px;bottom:4px;width:32px;height:32px;border-radius:16px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center}
+.mn .ph .add svg{width:18px;height:18px}
+.best{display:inline-block;margin-left:6px;padding:0 6px;border-radius:4px;background:#FFEDD5;color:#9A3412;font-size:11px;line-height:18px;font-weight:700;vertical-align:2px}
+.cartbar{position:absolute;left:12px;right:12px;bottom:12px;height:56px;padding:0 16px;border-radius:14px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:700}
+.cartbar span{font-size:14px;font-weight:600}
+.body{padding-bottom:0}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><span class="ttl">가게</span><button class="icon" aria-label="찜하기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button></div>
+<div class="body"><img class="cover" src="cover.png" alt="가게 대표 사진">
+<div class="shop"><h1>성수동 한그릇 식당</h1><div class="meta"><span>★ 4.8 (1,204)</span><span>배달 25~35분</span><span>최소 주문 12,000원</span><span>배달팁 2,000원</span></div></div>
+<div class="cats"><button class="on">대표 메뉴</button><button>덮밥</button><button>면</button><button>정식</button><button>찌개</button><button>음료</button></div>
+<div class="mn"><div class="w"><b>직화 제육 덮밥<em class=best>인기</em></b><p>불향 가득한 제육과 계란 반숙</p><span class="pr">9,500원</span></div><div class="ph"><img src="m1.png" alt="직화 제육 덮밥 사진"><button class="add" aria-label="직화 제육 덮밥 담기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="mn"><div class="w"><b>들기름 막국수</b><p>메밀면에 들기름과 김가루를 듬뿍</p><span class="pr">8,000원</span></div><div class="ph"><img src="m2.png" alt="들기름 막국수 사진"><button class="add" aria-label="들기름 막국수 담기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="mn"><div class="w"><b>수제 돈가스 정식</b><p>등심 돈가스, 밥, 장국, 양배추 샐러드</p><span class="pr">11,000원</span></div><div class="ph"><img src="m3.png" alt="수제 돈가스 정식 사진"><button class="add" aria-label="수제 돈가스 정식 담기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="mn"><div class="w"><b>차돌 된장찌개</b><p>차돌박이와 두부를 넣고 끓인 된장찌개</p><span class="pr">9,000원</span></div><div class="ph"><img src="m4.png" alt="차돌 된장찌개 사진"><button class="add" aria-label="차돌 된장찌개 담기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
+</div>
+<button class="cartbar">장바구니 보기<span>2개 · 18,500원</span></button></div></div></body></html>

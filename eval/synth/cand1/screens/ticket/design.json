@@ -1,0 +1,587 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "예매 확인",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#7C3AED",
+  "color/text": "#1F1B2E",
+  "color/muted": "#6B6880",
+  "color/line": "#E7E5EE",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 196,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "예매 확인",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "예매 확인",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1F1B2E",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "show",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 44,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       20,
+       8,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "뮤지컬 〈별의 정원〉",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 150,
+       "h": 28,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "뮤지컬 〈별의 정원〉",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "lineHeight": 28,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1F1B2E",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:9",
+     "name": "rows",
+     "type": "FRAME",
+     "x": 0,
+     "y": 140,
+     "w": 375,
+     "h": 100,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:10",
+       "name": "row 일시",
+       "type": "FRAME",
+       "x": 0,
+       "y": 140,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:11",
+         "name": "일시",
+         "type": "TEXT",
+         "x": 20,
+         "y": 155,
+         "w": 25,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "일시",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#6B6880",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:12",
+         "name": "val 일시",
+         "type": "TEXT",
+         "x": 220,
+         "y": 154,
+         "w": 135,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "11월 23일(일) 오후 2시",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1F1B2E",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:13",
+       "name": "row 좌석",
+       "type": "FRAME",
+       "x": 0,
+       "y": 190,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:14",
+         "name": "좌석",
+         "type": "TEXT",
+         "x": 20,
+         "y": 205,
+         "w": 25,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "좌석",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#6B6880",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:15",
+         "name": "val 좌석",
+         "type": "TEXT",
+         "x": 278,
+         "y": 204,
+         "w": 77,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "R석 12열 7번",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1F1B2E",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6:16",
+   "name": "tabs",
+   "type": "FRAME",
+   "x": 0,
+   "y": 764,
+   "w": 375,
+   "h": 48,
+   "sizing": {
+    "h": "FILL",
+    "v": "FIXED"
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "opacity": 1,
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#E7E5EE",
+    "opacity": 1,
+    "token": "color/line"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:17",
+     "name": "예매 내역",
+     "type": "FRAME",
+     "x": 0,
+     "y": 764,
+     "w": 188,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:4",
+         "dest_name": "예매 내역",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       14,
+       0,
+       14,
+       0
+      ],
+      "align": "MIN",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:18",
+       "name": "예매 내역",
+       "type": "TEXT",
+       "x": 67,
+       "y": 778,
+       "w": 53,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "예매 내역",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#7C3AED",
+         "opacity": 1,
+         "token": "color/brand"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:19",
+     "name": "관심 공연",
+     "type": "FRAME",
+     "x": 188,
+     "y": 764,
+     "w": 188,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:5",
+         "dest_name": "관심 공연",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       14,
+       0,
+       14,
+       0
+      ],
+      "align": "MIN",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:20",
+       "name": "관심 공연",
+       "type": "TEXT",
+       "x": 255,
+       "y": 778,
+       "w": 53,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "관심 공연",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B6880",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

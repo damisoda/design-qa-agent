@@ -1,0 +1,1171 @@
+{
+ "note": "합성 예제 2판(10-10). 팀 앱과 다른 앱 6종, 결함 24개. 정답은 verify_synth.js가 확인해 verified에 적는다.",
+ "cases": [
+  {
+   "id": "synth-shop-ok",
+   "screen": "shop",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/shop/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-cart-ok",
+   "screen": "cart",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/cart/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-transfer-ok",
+   "screen": "transfer",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/transfer/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568",
+    "375x812@47,34",
+    "390x844@47,34",
+    "430x932@59,34"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-settings-ok",
+   "screen": "settings",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/settings/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-chat-ok",
+   "screen": "chat",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/chat/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-dash-ok",
+   "screen": "dash",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/screens/dash/ok",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "synth-shop-r1-name",
+   "screen": "shop",
+   "variant": "r1-name",
+   "code": "R1",
+   "defect": "긴 상품명에 줄바꿈을 막아(nowrap) 화면 밖으로 넘침",
+   "dir": "eval/synth/screens/shop/r1-name",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".name"
+   },
+   "hint": [
+    "북유럽 원목"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 46
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-shop-d4-stretch",
+   "screen": "shop",
+   "variant": "d4-stretch",
+   "code": "D4",
+   "defect": "상품 사진 높이를 고정하고 object-fit을 fill로 둬 4:3 사진이 세로로 늘어남",
+   "dir": "eval/synth/screens/shop/d4-stretch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_ratio",
+    "sel": ".photo"
+   },
+   "hint": [
+    "원목 선반 사진"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "1.33 → 0.89 (fill)",
+     "390x844": "1.33 → 0.93 (fill)",
+     "430x932": "1.33 → 1.02 (fill)",
+     "375x667": "1.33 → 0.89 (fill)",
+     "320x568": "1.33 → 0.76 (fill)"
+    },
+    "ok": {
+     "375x812": "1.33 → 1.33 (cover)",
+     "390x844": "1.33 → 1.33 (cover)",
+     "430x932": "1.33 → 1.33 (cover)",
+     "375x667": "1.33 → 1.33 (cover)",
+     "320x568": "1.33 → 1.33 (cover)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-shop-r4-buybar",
+   "screen": "shop",
+   "variant": "r4-buybar",
+   "code": "R4",
+   "defect": "구매 막대를 화면 아래에 겹쳐 고정하면서 목록 아래 여백을 안 줘 마지막 리뷰가 가려짐",
+   "dir": "eval/synth/screens/shop/r4-buybar",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".reviews .rev:last-child",
+    "scroll": ".scroll"
+   },
+   "hint": [
+    "튼튼하고"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "745~766 buy",
+     "390x844": "757~778 rev",
+     "430x932": "787~808 rev",
+     "375x667": "632~653 buy",
+     "320x568": "533~554 buy"
+    },
+    "ok": {
+     "375x812": "704~725 rev",
+     "390x844": "736~757 rev",
+     "430x932": "787~808 rev",
+     "375x667": "559~580 rev",
+     "320x568": "460~481 rev"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-shop-a1-like",
+   "screen": "shop",
+   "variant": "a1-like",
+   "code": "A1",
+   "defect": "찜 버튼을 20px로 줄여 누르기 어려움(터치 영역 기준 24px 미만, WCAG 2.2)",
+   "dir": "eval/synth/screens/shop/a1-like",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".like",
+    "min": 24
+   },
+   "hint": [
+    "찜하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 52,
+     "390x844": 52,
+     "430x932": 52,
+     "375x667": 52,
+     "320x568": 52
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-shop-d2-brand",
+   "screen": "shop",
+   "variant": "d2-brand",
+   "code": "D2",
+   "defect": "구매 버튼 색을 토큰(#0B7DB5) 대신 비슷한 #1A86BD로 씀(토큰 밖 값)",
+   "dir": "eval/synth/screens/shop/d2-brand",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".buy",
+    "prop": "background-color",
+    "value": "rgb(11, 125, 181)"
+   },
+   "hint": [
+    "구매하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "rgb(26, 134, 189)",
+     "390x844": "rgb(26, 134, 189)",
+     "430x932": "rgb(26, 134, 189)",
+     "375x667": "rgb(26, 134, 189)",
+     "320x568": "rgb(26, 134, 189)"
+    },
+    "ok": {
+     "375x812": "rgb(11, 125, 181)",
+     "390x844": "rgb(11, 125, 181)",
+     "430x932": "rgb(11, 125, 181)",
+     "375x667": "rgb(11, 125, 181)",
+     "320x568": "rgb(11, 125, 181)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-cart-a1-step",
+   "screen": "cart",
+   "variant": "a1-step",
+   "code": "A1",
+   "defect": "수량 버튼을 20px로 줄여 누르기 어려움",
+   "dir": "eval/synth/screens/cart/a1-step",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".step button",
+    "min": 24
+   },
+   "hint": [
+    "빼기",
+    "더하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 44,
+     "390x844": 44,
+     "430x932": 44,
+     "375x667": 44,
+     "320x568": 44
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-cart-r2-cta",
+   "screen": "cart",
+   "variant": "r2-cta",
+   "code": "R2",
+   "defect": "결제 버튼 폭을 150px로 고정하고 넘침을 숨겨 금액 문구가 잘림",
+   "dir": "eval/synth/screens/cart/r2-cta",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".cta"
+   },
+   "hint": [
+    "결제하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 21,
+     "390x844": 21,
+     "430x932": 21,
+     "375x667": 21,
+     "320x568": 21
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-cart-r1-coupon",
+   "screen": "cart",
+   "variant": "r1-coupon",
+   "code": "R1",
+   "defect": "쿠폰 입력칸에 글자 수 폭(size=34)을 주고 줄어들지 못하게 해 적용 버튼이 화면 밖으로 밀려남",
+   "dir": "eval/synth/screens/cart/r1-coupon",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".coupon"
+   },
+   "hint": [
+    "적용",
+    "쿠폰 코드"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 26
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-cart-r6-price",
+   "screen": "cart",
+   "variant": "r6-price",
+   "code": "R6",
+   "defect": "가격 칸을 좁게 고정해 '12,900원'이 두 줄로 꺾임",
+   "dir": "eval/synth/screens/cart/r6-price",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "wrap",
+    "sel": ".meta .p",
+    "line": 19
+   },
+   "hint": [
+    "12,900원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 38,
+     "390x844": 38,
+     "430x932": 38,
+     "375x667": 38,
+     "320x568": 38
+    },
+    "ok": {
+     "375x812": 19,
+     "390x844": 19,
+     "430x932": 19,
+     "375x667": 19,
+     "320x568": 19
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-transfer-r4-offscreen",
+   "screen": "transfer",
+   "variant": "r4-offscreen",
+   "code": "R4",
+   "defect": "키패드 줄 높이를 72px로 고정해 짧은 화면에서 '다음' 버튼이 화면 밖으로 밀려 누를 수 없음",
+   "dir": "eval/synth/screens/transfer/r4-offscreen",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "offscreen",
+    "sel": ".next"
+   },
+   "hint": [
+    "다음"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "버튼 585~641, 보이는 끝 812",
+     "390x844": "버튼 585~641, 보이는 끝 844",
+     "430x932": "버튼 585~641, 보이는 끝 932",
+     "375x667": "버튼 585~641, 보이는 끝 667",
+     "320x568": "버튼 585~641, 보이는 끝 568"
+    },
+    "ok": {
+     "375x812": "버튼 744~800, 보이는 끝 812",
+     "390x844": "버튼 776~832, 보이는 끝 844",
+     "430x932": "버튼 864~920, 보이는 끝 932",
+     "375x667": "버튼 599~655, 보이는 끝 667",
+     "320x568": "버튼 500~556, 보이는 끝 568"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-transfer-a2-hint",
+   "screen": "transfer",
+   "variant": "a2-hint",
+   "code": "A2",
+   "defect": "안내 문구 색을 #C9CDD2로 옅게 해 흰 배경과 대비가 기준(4.5:1) 미만",
+   "dir": "eval/synth/screens/transfer/a2-hint",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".hint",
+    "min": 4.5
+   },
+   "hint": [
+    "하루 최대"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.6,
+     "390x844": 1.6,
+     "430x932": 1.6,
+     "375x667": 1.6,
+     "320x568": 1.6
+    },
+    "ok": {
+     "375x812": 5.91,
+     "390x844": 5.91,
+     "430x932": 5.91,
+     "375x667": 5.91,
+     "320x568": 5.91
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-transfer-r6-amount",
+   "screen": "transfer",
+   "variant": "r6-amount",
+   "code": "R6",
+   "defect": "금액에 줄바꿈 허용을 넣어(단어 끊기) 좁은 화면에서 '1,250,000원'이 꺾임",
+   "dir": "eval/synth/screens/transfer/r6-amount",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "wrap",
+    "sel": ".amt",
+    "line": 64,
+    "pad": 24
+   },
+   "hint": [
+    "1,250,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 64,
+     "390x844": 64,
+     "430x932": 64,
+     "375x667": 64,
+     "320x568": 128
+    },
+    "ok": {
+     "375x812": 52,
+     "390x844": 52,
+     "430x932": 52,
+     "375x667": 52,
+     "320x568": 52
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-transfer-r4-notch",
+   "screen": "transfer",
+   "variant": "r4-notch",
+   "code": "R4",
+   "defect": "상단 안전영역 여백을 빼 노치 기기에서 제목줄이 상태바·노치 아래로 들어감",
+   "dir": "eval/synth/screens/transfer/r4-notch",
+   "sizes": [
+    "375x812@47,34",
+    "390x844@47,34",
+    "430x932@59,34"
+   ],
+   "check": {
+    "type": "safe_top",
+    "sel": ".top .ttl"
+   },
+   "hint": [
+    "송금"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812@47,34",
+     "390x844@47,34",
+     "430x932@59,34"
+    ],
+    "bad": {
+     "375x812@47,34": "글자 위 16, 안전영역 47",
+     "390x844@47,34": "글자 위 16, 안전영역 47",
+     "430x932@59,34": "글자 위 16, 안전영역 59"
+    },
+    "ok": {
+     "375x812@47,34": "글자 위 63, 안전영역 47",
+     "390x844@47,34": "글자 위 63, 안전영역 47",
+     "430x932@59,34": "글자 위 75, 안전영역 59"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-settings-a2-desc",
+   "screen": "settings",
+   "variant": "a2-desc",
+   "code": "A2",
+   "defect": "설명 글자를 #C7C7CC로 옅게 해 대비가 기준 미만",
+   "dir": "eval/synth/screens/settings/a2-desc",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".txt span",
+    "min": 4.5
+   },
+   "hint": [
+    "주문 상태가",
+    "쿠폰과 할인"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.68,
+     "390x844": 1.68,
+     "430x932": 1.68,
+     "375x667": 1.68,
+     "320x568": 1.68
+    },
+    "ok": {
+     "375x812": 5.07,
+     "390x844": 5.07,
+     "430x932": 5.07,
+     "375x667": 5.07,
+     "320x568": 5.07
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-settings-r3-switch",
+   "screen": "settings",
+   "variant": "r3-switch",
+   "code": "R3",
+   "defect": "제목에 줄바꿈을 막고 줄어들지 않게 해 좁은 화면에서 긴 제목이 스위치와 겹침",
+   "dir": "eval/synth/screens/settings/r3-switch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".txt b",
+    "other": ".sw"
+   },
+   "hint": [
+    "야간 알림"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 42
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-settings-a1-switch",
+   "screen": "settings",
+   "variant": "a1-switch",
+   "code": "A1",
+   "defect": "스위치를 30×18px로 줄여 누르기 어려움",
+   "dir": "eval/synth/screens/settings/a1-switch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".sw",
+    "min": 24
+   },
+   "hint": [
+    "주문 배송 알림"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 31,
+     "390x844": 31,
+     "430x932": 31,
+     "375x667": 31,
+     "320x568": 31
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-settings-r2-version",
+   "screen": "settings",
+   "variant": "r2-version",
+   "code": "R2",
+   "defect": "버전 칸 폭을 고정하고 말줄임으로 잘라 빌드 날짜가 안 보임",
+   "dir": "eval/synth/screens/settings/r2-version",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".ver"
+   },
+   "hint": [
+    "3.2.1"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 45,
+     "390x844": 45,
+     "430x932": 45,
+     "375x667": 45,
+     "320x568": 45
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-chat-r1-url",
+   "screen": "chat",
+   "variant": "r1-url",
+   "code": "R1",
+   "defect": "말풍선의 단어 끊기(overflow-wrap)를 빼 긴 링크가 말풍선 밖으로 넘침",
+   "dir": "eval/synth/screens/chat/r1-url",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".bub"
+   },
+   "hint": [
+    "figma.com"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 168,
+     "390x844": 157,
+     "430x932": 128,
+     "375x667": 168,
+     "320x568": 207
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-chat-d4-avatar",
+   "screen": "chat",
+   "variant": "d4-avatar",
+   "code": "D4",
+   "defect": "프로필 그림 경로가 틀려 깨진 그림이 보임",
+   "dir": "eval/synth/screens/chat/d4-avatar",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_broken",
+    "sel": ".top .av"
+   },
+   "hint": [
+    "디자인팀"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "0x0",
+     "390x844": "0x0",
+     "430x932": "0x0",
+     "375x667": "0x0",
+     "320x568": "0x0"
+    },
+    "ok": {
+     "375x812": "96x96",
+     "390x844": "96x96",
+     "430x932": "96x96",
+     "375x667": "96x96",
+     "320x568": "96x96"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-chat-r4-composer",
+   "screen": "chat",
+   "variant": "r4-composer",
+   "code": "R4",
+   "defect": "입력창을 화면 아래에 겹쳐 고정하면서 대화 목록 아래 여백을 안 줘 마지막 메시지가 가려짐",
+   "dir": "eval/synth/screens/chat/r4-composer",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".scroll .msg:last-child .bub",
+    "scroll": ".scroll"
+   },
+   "hint": [
+    "구현 들어갈게요"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "685~724 bub",
+     "390x844": "664~703 bub",
+     "430x932": "601~640 bub",
+     "375x667": "612~651 TEXTAREA",
+     "320x568": "513~552 TEXTAREA"
+    },
+    "ok": {
+     "375x812": "685~724 bub",
+     "390x844": "664~703 bub",
+     "430x932": "601~640 bub",
+     "375x667": "551~590 bub",
+     "320x568": "452~491 bub"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-chat-a1-send",
+   "screen": "chat",
+   "variant": "a1-send",
+   "code": "A1",
+   "defect": "보내기 버튼을 20px로 줄여 누르기 어려움",
+   "dir": "eval/synth/screens/chat/a1-send",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".sendb",
+    "min": 24
+   },
+   "hint": [
+    "보내기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 44,
+     "390x844": 44,
+     "430x932": 44,
+     "375x667": 44,
+     "320x568": 44
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-dash-r1-table",
+   "screen": "dash",
+   "variant": "r1-table",
+   "code": "R1",
+   "defect": "표 감싸개의 가로 스크롤을 빼 좁은 창에서 표가 화면 밖으로 나가고 페이지가 가로로 밀림",
+   "dir": "eval/synth/screens/dash/r1-table",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "page_overflow"
+   },
+   "hint": [
+    "주문 시각",
+    "상태",
+    "배송"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 141
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-dash-r3-kpi",
+   "screen": "dash",
+   "variant": "r3-kpi",
+   "code": "R3",
+   "defect": "KPI 칸을 4열로 고정해 좁은 창에서 큰 숫자가 옆 칸으로 넘어가 겹침",
+   "dir": "eval/synth/screens/dash/r3-kpi",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".kpi b",
+    "other": ".kpi"
+   },
+   "hint": [
+    "12,480,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 1309
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "synth-dash-a2-muted",
+   "screen": "dash",
+   "variant": "a2-muted",
+   "code": "A2",
+   "defect": "표 머리글 색을 #B0B7C3로 옅게 해 대비가 기준 미만",
+   "dir": "eval/synth/screens/dash/a2-muted",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": "th",
+    "min": 4.5
+   },
+   "hint": [
+    "주문번호"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 1.93,
+     "1024x768": 1.93,
+     "768x1024": 1.93
+    },
+    "ok": {
+     "1280x800": 7.36,
+     "1024x768": 7.36,
+     "768x1024": 7.36
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}

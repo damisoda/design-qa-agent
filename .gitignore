@@ -22,3 +22,6 @@ dqa/designs/
 eval/rag-*/before-retrieval.json
 eval/rag-*/after-retrieval.json
 eval/rag-*/before-code/
+
+# fixrate.js가 실행 때 만드는 오라클 사본
+eval/synth/.oracle_fixrate.js

@@ -1,0 +1,1387 @@
+{
+ "note": "블라인드 합성 예제(10-10). dqa 규칙 3fae9f3 고정, 한 번만 잰다. 규칙 밖 유형: S3 포커스 표시, D3 글자 스타일, F1 크기 방식, L1 정렬.",
+ "frozen_rules_commit": "3fae9f3",
+ "cases": [
+  {
+   "id": "blind-login-ok",
+   "screen": "login",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/login/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-feed-ok",
+   "screen": "feed",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/feed/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-map-ok",
+   "screen": "map",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/map/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-booking-ok",
+   "screen": "booking",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/booking/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-receipt-ok",
+   "screen": "receipt",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/receipt/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568",
+    "375x812@47,34",
+    "390x844@47,34",
+    "430x932@59,34"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-landing-ok",
+   "screen": "landing",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind/screens/landing/ok",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind-login-r2-error",
+   "screen": "login",
+   "variant": "r2-error",
+   "code": "R2",
+   "defect": "오류 문구 칸 높이를 한 줄(20px)로 고정하고 넘침을 숨겨 두 번째 줄이 잘림",
+   "dir": "eval/synth/blind/screens/login/r2-error",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".err"
+   },
+   "hint": [
+    "이메일 또는 비밀번호"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 0
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-login-a1-eye",
+   "screen": "login",
+   "variant": "a1-eye",
+   "code": "A1",
+   "defect": "비밀번호 보기 버튼을 아이콘 크기(18px)로 줄임",
+   "dir": "eval/synth/blind/screens/login/a1-eye",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".eye",
+    "min": 24
+   },
+   "hint": [
+    "비밀번호 보기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 40,
+     "390x844": 40,
+     "430x932": 40,
+     "375x667": 40,
+     "320x568": 40
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-login-r1-social",
+   "screen": "login",
+   "variant": "r1-social",
+   "code": "R1",
+   "defect": "간편 로그인 버튼 세 개를 한 줄로 바꾸면서 줄바꿈을 막아 좁은 화면에서 밖으로 넘침",
+   "dir": "eval/synth/blind/screens/login/r1-social",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".social"
+   },
+   "hint": [
+    "Apple로",
+    "네이버로",
+    "카카오로"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 113,
+     "390x844": 98,
+     "430x932": 58,
+     "375x667": 113,
+     "320x568": 168
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-login-a2-terms",
+   "screen": "login",
+   "variant": "a2-terms",
+   "code": "A2",
+   "defect": "약관 안내 글자를 #BDBDBD로 옅게 함",
+   "dir": "eval/synth/blind/screens/login/a2-terms",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".terms",
+    "min": 4.5
+   },
+   "hint": [
+    "계속하면"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.88,
+     "390x844": 1.88,
+     "430x932": 1.88,
+     "375x667": 1.88,
+     "320x568": 1.88
+    },
+    "ok": {
+     "375x812": 5.94,
+     "390x844": 5.94,
+     "430x932": 5.94,
+     "375x667": 5.94,
+     "320x568": 5.94
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-login-s3-focus",
+   "screen": "login",
+   "variant": "s3-focus",
+   "code": "S3",
+   "defect": "입력칸의 포커스 표시를 지워(outline:none만 남김) 키보드로 어디에 있는지 안 보임",
+   "dir": "eval/synth/blind/screens/login/s3-focus",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "focus_ring",
+    "sel": "#em"
+   },
+   "hint": [
+    "이메일"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "포커스 표시 없음"
+    },
+    "ok": {
+     "375x812": "바뀜"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-feed-d4-avatar",
+   "screen": "feed",
+   "variant": "d4-avatar",
+   "code": "D4",
+   "defect": "프로필 사진 높이만 28px로 바꾸고 object-fit을 fill로 둬 찌그러짐",
+   "dir": "eval/synth/blind/screens/feed/d4-avatar",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_ratio",
+    "sel": ".av"
+   },
+   "hint": [
+    "하늘공방",
+    "오늘의빵",
+    "산책하는곰"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "1 → 1.29 (fill)",
+     "390x844": "1 → 1.29 (fill)",
+     "430x932": "1 → 1.29 (fill)",
+     "375x667": "1 → 1.29 (fill)",
+     "320x568": "1 → 1.29 (fill)"
+    },
+    "ok": {
+     "375x812": "1 → 1 (cover)",
+     "390x844": "1 → 1 (cover)",
+     "430x932": "1 → 1 (cover)",
+     "375x667": "1 → 1 (cover)",
+     "320x568": "1 → 1 (cover)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-feed-r1-tag",
+   "screen": "feed",
+   "variant": "r1-tag",
+   "code": "R1",
+   "defect": "본문에 word-break:keep-all을 주고 단어 끊기를 빼 긴 해시태그가 화면 밖으로 넘침",
+   "dir": "eval/synth/blind/screens/feed/r1-tag",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".cap"
+   },
+   "hint": [
+    "주말나들이추천코스"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 23
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-feed-r3-count",
+   "screen": "feed",
+   "variant": "r3-count",
+   "code": "R3",
+   "defect": "좋아요 수를 절대 위치로 옮기면서 댓글 수 자리를 덜 비워 둘이 겹침",
+   "dir": "eval/synth/blind/screens/feed/r3-count",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".acts .like",
+    "other": ".acts .cmt"
+   },
+   "hint": [
+    "좋아요",
+    "댓글"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 532,
+     "390x844": 532,
+     "430x932": 532,
+     "375x667": 532,
+     "320x568": 532
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-feed-r4-fab",
+   "screen": "feed",
+   "variant": "r4-fab",
+   "code": "R4",
+   "defect": "목록 아래 여백을 없애 끝까지 내려도 마지막 글의 공유 버튼이 글쓰기 버튼에 가려짐",
+   "dir": "eval/synth/blind/screens/feed/r4-fab",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".post:last-child .share",
+    "scroll": ".list"
+   },
+   "hint": [
+    "공유"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "726~759 fab",
+     "390x844": "758~791 fab",
+     "430x932": "846~879 fab",
+     "375x667": "581~614 fab",
+     "320x568": "482~515 fab"
+    },
+    "ok": {
+     "375x812": "638~671 share",
+     "390x844": "670~703 share",
+     "430x932": "758~791 share",
+     "375x667": "493~526 share",
+     "320x568": "394~427 share"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-feed-d3-name",
+   "screen": "feed",
+   "variant": "d3-name",
+   "code": "D3",
+   "defect": "작성자 이름을 시안의 굵게(700) 대신 보통(400)으로 씀",
+   "dir": "eval/synth/blind/screens/feed/d3-name",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".who b",
+    "prop": "font-weight",
+    "value": "700"
+   },
+   "hint": [
+    "하늘공방"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "400"
+    },
+    "ok": {
+     "375x812": "700"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-map-a1-zoom",
+   "screen": "map",
+   "variant": "a1-zoom",
+   "code": "A1",
+   "defect": "지도 확대·축소 버튼을 20px로 줄임",
+   "dir": "eval/synth/blind/screens/map/a1-zoom",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".fbtns button",
+    "min": 24
+   },
+   "hint": [
+    "확대",
+    "축소",
+    "내 위치"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 44,
+     "390x844": 44,
+     "430x932": 44,
+     "375x667": 44,
+     "320x568": 44
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-map-r2-place",
+   "screen": "map",
+   "variant": "r2-place",
+   "code": "R2",
+   "defect": "장소 항목 높이를 두 줄 몫(56px)으로 고정하고 넘침을 숨겨 주소 줄이 잘림",
+   "dir": "eval/synth/blind/screens/map/r2-place",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_parent",
+    "sel": ".place span:last-child"
+   },
+   "hint": [
+    "서울 마포구"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 10,
+     "390x844": 10,
+     "430x932": 10,
+     "375x667": 10,
+     "320x568": 10
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-map-r3-pin",
+   "screen": "map",
+   "variant": "r3-pin",
+   "code": "R3",
+   "defect": "긴 장소 이름 핀을 오른쪽에 두어 좁은 화면에서 지도 버튼과 겹침",
+   "dir": "eval/synth/blind/screens/map/r3-pin",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".pin span",
+    "other": ".fbtns button"
+   },
+   "hint": [
+    "숲속로스터리"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 24,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-map-r4-sheet",
+   "screen": "map",
+   "variant": "r4-sheet",
+   "code": "R4",
+   "defect": "아래 시트를 60%로 키우면서 지도 버튼 위치를 안 옮겨 버튼이 시트에 가려짐",
+   "dir": "eval/synth/blind/screens/map/r4-sheet",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".fbtns button:last-child",
+    "scroll": ".places"
+   },
+   "hint": [
+    "내 위치",
+    "축소",
+    "확대"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "487~531 SPAN",
+     "390x844": "508~552 SPAN",
+     "430x932": "564~608 place",
+     "375x667": "394~438 B",
+     "320x568": "331~375 SPAN"
+    },
+    "ok": {
+     "375x812": "487~531 BUTTON",
+     "390x844": "508~552 BUTTON",
+     "430x932": "564~608 BUTTON",
+     "375x667": "394~438 BUTTON",
+     "320x568": "331~375 BUTTON"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-booking-r1-grid",
+   "screen": "booking",
+   "variant": "r1-grid",
+   "code": "R1",
+   "defect": "날짜 칸을 46px로 고정해 좁은 화면에서 달력이 밖으로 넘침",
+   "dir": "eval/synth/blind/screens/booking/r1-grid",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".days"
+   },
+   "hint": [
+    "31",
+    "30",
+    "토"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 34
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-booking-r6-slot",
+   "screen": "booking",
+   "variant": "r6-slot",
+   "code": "R6",
+   "defect": "시간 칩 폭을 44px로 고정하고 글자 끊기를 허용해 '13:30'이 꺾임",
+   "dir": "eval/synth/blind/screens/booking/r6-slot",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".slot"
+   },
+   "hint": [
+    "10:00",
+    "13:30"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-booking-r4-confirm",
+   "screen": "booking",
+   "variant": "r4-confirm",
+   "code": "R4",
+   "defect": "본문 스크롤을 빼(overflow:visible) 짧은 화면에서 예약 확정 버튼이 화면 밖으로 밀림",
+   "dir": "eval/synth/blind/screens/booking/r4-confirm",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "offscreen",
+    "sel": ".ok"
+   },
+   "hint": [
+    "예약 확정"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "버튼 683~737, 보이는 끝 812",
+     "390x844": "버튼 635~689, 보이는 끝 844",
+     "430x932": "버튼 635~689, 보이는 끝 932",
+     "375x667": "버튼 683~737, 보이는 끝 667",
+     "320x568": "버튼 683~737, 보이는 끝 568"
+    },
+    "ok": {
+     "375x812": "버튼 742~796, 보이는 끝 812",
+     "390x844": "버튼 774~828, 보이는 끝 844",
+     "430x932": "버튼 862~916, 보이는 끝 932",
+     "375x667": "버튼 597~651, 보이는 끝 667",
+     "320x568": "버튼 498~552, 보이는 끝 568"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-booking-a2-label",
+   "screen": "booking",
+   "variant": "a2-label",
+   "code": "A2",
+   "defect": "'선택한 시간' 라벨을 #B8BEC7로 옅게 함",
+   "dir": "eval/synth/blind/screens/booking/a2-label",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".sum .sl",
+    "min": 4.5
+   },
+   "hint": [
+    "선택한 시간"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.87,
+     "390x844": 1.87,
+     "430x932": 1.87,
+     "375x667": 1.87,
+     "320x568": 1.87
+    },
+    "ok": {
+     "375x812": 6.36,
+     "390x844": 6.36,
+     "430x932": 6.36,
+     "375x667": 6.36,
+     "320x568": 6.36
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-booking-f1-cal",
+   "screen": "booking",
+   "variant": "f1-cal",
+   "code": "F1",
+   "defect": "달력 폭을 시안의 Fill 대신 고정 343px로 써 큰 화면에서 오른쪽이 빔",
+   "dir": "eval/synth/blind/screens/booking/f1-cal",
+   "sizes": [
+    "430x932",
+    "390x844"
+   ],
+   "check": {
+    "type": "fill_width",
+    "sel": ".cal"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "430x932",
+     "390x844"
+    ],
+    "bad": {
+     "430x932": 55,
+     "390x844": 15
+    },
+    "ok": {
+     "430x932": 0,
+     "390x844": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-receipt-r4-safe",
+   "screen": "receipt",
+   "variant": "r4-safe",
+   "code": "R4",
+   "defect": "아래 버튼 줄의 안전영역 여백을 빼 홈 인디케이터 자리에 버튼이 들어감",
+   "dir": "eval/synth/blind/screens/receipt/r4-safe",
+   "sizes": [
+    "375x812@47,34",
+    "390x844@47,34",
+    "430x932@59,34"
+   ],
+   "check": {
+    "type": "safe_bottom",
+    "sel": ".actions button"
+   },
+   "hint": [
+    "확인",
+    "영수증 저장"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812@47,34",
+     "390x844@47,34",
+     "430x932@59,34"
+    ],
+    "bad": {
+     "375x812@47,34": 24,
+     "390x844@47,34": 24,
+     "430x932@59,34": 24
+    },
+    "ok": {
+     "375x812@47,34": -10,
+     "390x844@47,34": -10,
+     "430x932@59,34": -10
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-receipt-d4-barcode",
+   "screen": "receipt",
+   "variant": "d4-barcode",
+   "code": "D4",
+   "defect": "바코드 그림 높이를 120px로 고정하고 object-fit을 fill로 둬 늘어남",
+   "dir": "eval/synth/blind/screens/receipt/d4-barcode",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_ratio",
+    "sel": ".bar"
+   },
+   "hint": [
+    "영수증 바코드"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "4 → 2.79 (fill)",
+     "390x844": "4 → 2.92 (fill)",
+     "430x932": "4 → 3.25 (fill)",
+     "375x667": "4 → 2.79 (fill)",
+     "320x568": "4 → 2.33 (fill)"
+    },
+    "ok": {
+     "375x812": "4 → 4 (contain)",
+     "390x844": "4 → 4 (contain)",
+     "430x932": "4 → 4 (contain)",
+     "375x667": "4 → 4 (contain)",
+     "320x568": "4 → 4 (contain)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-receipt-r6-amount",
+   "screen": "receipt",
+   "variant": "r6-amount",
+   "code": "R6",
+   "defect": "금액에 글자 끊기를 허용해 좁은 화면에서 '₩1,234,000'이 꺾임",
+   "dir": "eval/synth/blind/screens/receipt/r6-amount",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".amt"
+   },
+   "hint": [
+    "₩1,234,000"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-receipt-r3-badge",
+   "screen": "receipt",
+   "variant": "r3-badge",
+   "code": "R3",
+   "defect": "제목 오른쪽 여백을 빼 좁은 화면에서 제목이 '결제 완료' 배지와 겹침",
+   "dir": "eval/synth/blind/screens/receipt/r3-badge",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".head h1",
+    "other": ".badge"
+   },
+   "hint": [
+    "결제가 완료",
+    "결제가 정상적으로"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 297,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 297,
+     "320x568": 1727
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   },
+   "hint_note": "10-10 측정 뒤 고침: 심을 때 바꾼 제목과 힌트가 안 맞은 채점 실수. 이 묶음은 이제 개발용이다"
+  },
+  {
+   "id": "blind-receipt-r1-approval",
+   "screen": "receipt",
+   "variant": "r1-approval",
+   "code": "R1",
+   "defect": "승인 번호의 단어 끊기를 빼 긴 번호가 화면 밖으로 넘침",
+   "dir": "eval/synth/blind/screens/receipt/r1-approval",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".r b"
+   },
+   "hint": [
+    "A0000000001234567890"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 10,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 10,
+     "320x568": 65
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-r1-hero",
+   "screen": "landing",
+   "variant": "r1-hero",
+   "code": "R1",
+   "defect": "히어로 제목에 줄바꿈을 막아 좁은 창에서 화면 밖으로 넘침",
+   "dir": "eval/synth/blind/screens/landing/r1-hero",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".hero h1"
+   },
+   "hint": [
+    "회의록부터"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 163
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-r3-cards",
+   "screen": "landing",
+   "variant": "r3-cards",
+   "code": "R3",
+   "defect": "기능 카드에 시안 폭 400px를 고정해 좁은 창에서 3열 칸보다 넓어져 옆 카드와 겹침",
+   "dir": "eval/synth/blind/screens/landing/r3-cards",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".card h3, .card p",
+    "other": ".card"
+   },
+   "hint": [
+    "회의 요약",
+    "할 일 연결",
+    "주간 보고"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 1099,
+     "768x1024": 2616
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-a2-foot",
+   "screen": "landing",
+   "variant": "a2-foot",
+   "code": "A2",
+   "defect": "바닥글 글자를 #A0A8B4로 옅게 함",
+   "dir": "eval/synth/blind/screens/landing/a2-foot",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".foot",
+    "min": 4.5
+   },
+   "hint": [
+    "플로우보드"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 2.29,
+     "1024x768": 2.29,
+     "768x1024": 2.29
+    },
+    "ok": {
+     "1280x800": 7.24,
+     "1024x768": 7.24,
+     "768x1024": 7.24
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-r2-plan",
+   "screen": "landing",
+   "variant": "r2-plan",
+   "code": "R2",
+   "defect": "요금제 칸 높이를 고정하고 넘침을 숨겨 기능 목록 끝이 잘림",
+   "dir": "eval/synth/blind/screens/landing/r2-plan",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "clipped_parent",
+    "sel": ".plan li"
+   },
+   "hint": [
+    "주간 보고 자동",
+    "회의 요약 무제한"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 42,
+     "1024x768": 42,
+     "768x1024": 42
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-a1-nav",
+   "screen": "landing",
+   "variant": "a1-nav",
+   "code": "A1",
+   "defect": "위 메뉴 링크의 최소 높이를 지워 글자 높이(18px)만 남김",
+   "dir": "eval/synth/blind/screens/landing/a1-nav",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".nav a",
+    "min": 24
+   },
+   "hint": [
+    "기능",
+    "요금제",
+    "고객 사례"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 16,
+     "1024x768": 16,
+     "768x1024": 16
+    },
+    "ok": {
+     "1280x800": 26,
+     "1024x768": 26,
+     "768x1024": 26
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind-landing-l1-titles",
+   "screen": "landing",
+   "variant": "l1-titles",
+   "code": "L1",
+   "defect": "두 번째 기능 카드 아이콘 아래 여백만 22px로 달라 제목 줄이 8px 어긋남",
+   "dir": "eval/synth/blind/screens/landing/l1-titles",
+   "sizes": [
+    "1280x800"
+   ],
+   "check": {
+    "type": "align_top",
+    "sel": ".card h3"
+   },
+   "hint": [
+    "할 일 연결"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800"
+    ],
+    "bad": {
+     "1280x800": 8
+    },
+    "ok": {
+     "1280x800": 0
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,574 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "알림",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#EA580C",
+  "color/text": "#292524",
+  "color/muted": "#78716C",
+  "color/line": "#E7E5E4",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 344,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "알림",
+       "type": "TEXT",
+       "x": 172,
+       "y": 58,
+       "w": 30,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "알림",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#292524",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "count",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 40,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       20,
+       8,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "count",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 73,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "새 알림 3개",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#292524",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:9",
+     "name": "list",
+     "type": "FRAME",
+     "x": 0,
+     "y": 136,
+     "w": 375,
+     "h": 204,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:10",
+       "name": "noti 캠핑 의자에 새 댓글이 달렸어요",
+       "type": "FRAME",
+       "x": 0,
+       "y": 136,
+       "w": 375,
+       "h": 68,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E7E5E4",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 2,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:11",
+         "name": "캠핑 의자에 새 댓글이",
+         "type": "TEXT",
+         "x": 20,
+         "y": 150,
+         "w": 185,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "캠핑 의자에 새 댓글이 달렸어요",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 500,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#292524",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:12",
+         "name": "3시간 전",
+         "type": "TEXT",
+         "x": 20,
+         "y": 174,
+         "w": 41,
+         "h": 16,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "3시간 전",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#78716C",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:13",
+       "name": "noti 관심 상품 가격이 내려갔어요",
+       "type": "FRAME",
+       "x": 0,
+       "y": 204,
+       "w": 375,
+       "h": 68,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E7E5E4",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 2,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:14",
+         "name": "관심 상품 가격이 내려",
+         "type": "TEXT",
+         "x": 20,
+         "y": 218,
+         "w": 168,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "관심 상품 가격이 내려갔어요",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 500,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#292524",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:15",
+         "name": "2시간 전",
+         "type": "TEXT",
+         "x": 20,
+         "y": 242,
+         "w": 41,
+         "h": 16,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "2시간 전",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#78716C",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:16",
+       "name": "noti 판매자가 답장을 보냈어요",
+       "type": "FRAME",
+       "x": 0,
+       "y": 272,
+       "w": 375,
+       "h": 68,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E7E5E4",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 2,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:17",
+         "name": "판매자가 답장을 보냈어",
+         "type": "TEXT",
+         "x": 20,
+         "y": 286,
+         "w": 151,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "판매자가 답장을 보냈어요",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 500,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#292524",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:18",
+         "name": "1시간 전",
+         "type": "TEXT",
+         "x": 20,
+         "y": 310,
+         "w": 39,
+         "h": 16,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "1시간 전",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#78716C",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:19",
+     "name": "판매자 프로필",
+     "type": "FRAME",
+     "x": 0,
+     "y": 340,
+     "w": 375,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "fill": {
+      "hex": "#EA580C",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:6",
+         "dest_name": "판매자 프로필",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:20",
+       "name": "판매자 프로필",
+       "type": "TEXT",
+       "x": 144,
+       "y": 352,
+       "w": 88,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "판매자 프로필",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

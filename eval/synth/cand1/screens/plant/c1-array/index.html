@@ -1,0 +1,23 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>내 식물 · c1-array</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#14532D;--muted:#4B5563;--line:#E5E7EB;--brand:#16A34A;--chip:#DCFCE7}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}.cta{display:flex;justify-content:center;margin:24px 20px 0;padding:12px 16px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;line-height:24px;font-weight:700;text-decoration:none}.card{margin:8px 20px 0;padding:16px;border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:10px}
+.card h2{margin:0;font-size:18px;line-height:26px;font-weight:700}.chips{display:flex;gap:8px}.chips span{padding:6px 12px;border-radius:15px;background:var(--chip);font-size:13px;line-height:18px;font-weight:500}
+.card p{margin:0;font-size:14px;line-height:20px;color:var(--muted)}.water{padding:10px 16px;border-radius:10px;background:var(--brand);color:#fff;font-size:15px;line-height:22px;font-weight:700}</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>내 식물</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><div id="plants"></div><a class="cta" href="info.html">식물 정보</a></div><script>const DATA = {"plants": [{"name": "몬스테라", "tags": ["반그늘", "주 1회"], "days": 4, "cycle": 7}]};
+function render() {
+  document.getElementById('plants').innerHTML = DATA.plants.map((p, i) => `<div class="card" data-plant="${i}"><h2>${p.name}</h2><div class="chips"><span>${JSON.stringify(p.tags)}</span></div>`
+    + `<p>물 준 지 ${p.days}일 · 물 주기 ${Math.round(p.days / p.cycle * 100)}%</p><button class="water" data-water="${i}">물 줬어요</button></div>`).join('');
+  document.querySelectorAll('[data-water]').forEach((b) => b.addEventListener('click', () => { DATA.plants[+b.dataset.water].days = 0; render() }));
+}
+render();
+</script><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

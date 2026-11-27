@@ -1,0 +1,735 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "숙소 상세",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#F97316",
+  "color/text": "#1F2937",
+  "color/muted": "#6B7280",
+  "color/chip": "#F3F4F6",
+  "color/bg": "#FFFFFF",
+  "color/line": "#E5E7EB"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 450,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "숙소 상세",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "숙소 상세",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1F2937",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "hero",
+     "type": "IMAGE",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 220,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "image": {
+      "fit": "FILL"
+     }
+    },
+    {
+     "id": "6:8",
+     "name": "info",
+     "type": "FRAME",
+     "x": 0,
+     "y": 316,
+     "w": 375,
+     "h": 178,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 12,
+      "padding": [
+       20,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:9",
+       "name": "애월 바다 앞 독채 스",
+       "type": "TEXT",
+       "x": 20,
+       "y": 336,
+       "w": 195,
+       "h": 28,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "애월 바다 앞 독채 스테이",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "lineHeight": 28,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1F2937",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:10",
+       "name": "rating",
+       "type": "FRAME",
+       "x": 20,
+       "y": 376,
+       "w": 335,
+       "h": 20,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 4,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "CENTER",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:11",
+         "name": "별",
+         "type": "VECTOR",
+         "x": 20,
+         "y": 378,
+         "w": 16,
+         "h": 16,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         }
+        },
+        {
+         "id": "6:12",
+         "name": "4.8",
+         "type": "TEXT",
+         "x": 40,
+         "y": 376,
+         "w": 21,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "4.8",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1F2937",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:13",
+         "name": "후기 213개 · 제주",
+         "type": "TEXT",
+         "x": 65,
+         "y": 376,
+         "w": 136,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "후기 213개 · 제주 애월읍",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#6B7280",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:14",
+       "name": "chips",
+       "type": "FRAME",
+       "x": 20,
+       "y": 408,
+       "w": 335,
+       "h": 30,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:15",
+         "name": "chip 오션뷰",
+         "type": "FRAME",
+         "x": 20,
+         "y": 408,
+         "w": 58,
+         "h": 30,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F3F4F6",
+          "opacity": 1,
+          "token": "color/chip"
+         },
+         "radius": 15,
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           6,
+           12,
+           6,
+           12
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:16",
+           "name": "오션뷰",
+           "type": "TEXT",
+           "x": 32,
+           "y": 414,
+           "w": 34,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "오션뷰",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 500,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#1F2937",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:17",
+         "name": "chip 무료 주차",
+         "type": "FRAME",
+         "x": 86,
+         "y": 408,
+         "w": 73,
+         "h": 30,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F3F4F6",
+          "opacity": 1,
+          "token": "color/chip"
+         },
+         "radius": 15,
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           6,
+           12,
+           6,
+           12
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:18",
+           "name": "무료 주차",
+           "type": "TEXT",
+           "x": 98,
+           "y": 414,
+           "w": 49,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "무료 주차",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 500,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#1F2937",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:19",
+         "name": "chip 조식 포함",
+         "type": "FRAME",
+         "x": 167,
+         "y": 408,
+         "w": 73,
+         "h": 30,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F3F4F6",
+          "opacity": 1,
+          "token": "color/chip"
+         },
+         "radius": 15,
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           6,
+           12,
+           6,
+           12
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:20",
+           "name": "조식 포함",
+           "type": "TEXT",
+           "x": 179,
+           "y": 414,
+           "w": 49,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "조식 포함",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 500,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#1F2937",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "6:21",
+       "name": "창을 열면 바로 바다가",
+       "type": "TEXT",
+       "x": 20,
+       "y": 450,
+       "w": 335,
+       "h": 44,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "창을 열면 바로 바다가 보이는 독채예요. 마당에서 노을을 보며 바비큐를 할 수 있어요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 22,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6:22",
+   "name": "bottom bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 716,
+   "w": 375,
+   "h": 96,
+   "sizing": {
+    "h": "FILL",
+    "v": "FIXED"
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "opacity": 1,
+    "token": "color/bg"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 0,
+    "padding": [
+     12,
+     20,
+     32,
+     20
+    ],
+    "align": "CENTER",
+    "justify": "SPACE_BETWEEN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:23",
+     "name": "price",
+     "type": "FRAME",
+     "x": 20,
+     "y": 733,
+     "w": 82,
+     "h": 42,
+     "sizing": {
+      "h": "HUG",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:24",
+       "name": "189,000원",
+       "type": "TEXT",
+       "x": 20,
+       "y": 733,
+       "w": 82,
+       "h": 26,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "189,000원",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": 26,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1F2937",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:25",
+       "name": "1박 · 세금 포함",
+       "type": "TEXT",
+       "x": 20,
+       "y": 759,
+       "w": 70,
+       "h": 16,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "1박 · 세금 포함",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:26",
+     "name": "예약하기",
+     "type": "FRAME",
+     "x": 243,
+     "y": 730,
+     "w": 112,
+     "h": 48,
+     "sizing": {
+      "h": "HUG",
+      "v": "HUG"
+     },
+     "fill": {
+      "hex": "#F97316",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       12,
+       28,
+       12,
+       28
+      ],
+      "align": "CENTER",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:27",
+       "name": "예약하기",
+       "type": "TEXT",
+       "x": 271,
+       "y": 742,
+       "w": 56,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "예약하기",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

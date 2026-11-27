@@ -1,0 +1,1079 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "landing",
+ "base": "1280x800",
+ "frame": {
+  "name": "플로우보드",
+  "width": 1280,
+  "height": 800,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#FFFFFF",
+  "color/text": "#0F172A",
+  "color/muted": "#475569",
+  "color/line": "#E2E8F0",
+  "color/brand": "#2563EB",
+  "color/surface": "#F8FAFC"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "nav",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 1280,
+   "h": 64,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 24,
+    "padding": [
+     0,
+     40,
+     0,
+     40
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "b",
+     "type": "TEXT",
+     "x": 40,
+     "y": 20,
+     "w": 87,
+     "h": 24,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "플로우보드",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 20,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#0F172A",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:3",
+     "name": "a",
+     "type": "TEXT",
+     "x": 946,
+     "y": 10,
+     "w": 26,
+     "h": 44,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "기능",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": null,
+      "color": {
+       "hex": "#475569",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:4",
+     "name": "a",
+     "type": "TEXT",
+     "x": 996,
+     "y": 10,
+     "w": 39,
+     "h": 44,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "요금제",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": null,
+      "color": {
+       "hex": "#475569",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:5",
+     "name": "a",
+     "type": "TEXT",
+     "x": 1059,
+     "y": 10,
+     "w": 56,
+     "h": 44,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "고객 사례",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": null,
+      "color": {
+       "hex": "#475569",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:6",
+     "name": "button",
+     "type": "TEXT",
+     "x": 1139,
+     "y": 12,
+     "w": 101,
+     "h": 40,
+     "sizing": {
+      "h": "HUG"
+     },
+     "fill": {
+      "hex": "#2563EB",
+      "token": "color/brand"
+     },
+     "radius": 10,
+     "text": {
+      "content": "무료로 시작",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:7",
+   "name": "hero",
+   "type": "FRAME",
+   "x": 0,
+   "y": 64,
+   "w": 1280,
+   "h": 338,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:8",
+     "name": "h1",
+     "type": "TEXT",
+     "x": 190,
+     "y": 136,
+     "w": 900,
+     "h": 58,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "회의록부터 할 일까지, 팀의 흐름을 한 화면에서",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 48,
+      "fontWeight": 700,
+      "lineHeight": 58,
+      "color": {
+       "hex": "#0F172A",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:9",
+     "name": "p",
+     "type": "TEXT",
+     "x": 320,
+     "y": 210,
+     "w": 640,
+     "h": 56,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "흩어진 문서와 메신저를 오가지 않아도 됩니다. 플로우보드가 결정과 할 일을 자동으로 정리합니다.",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 18,
+      "fontWeight": 400,
+      "lineHeight": 28,
+      "color": {
+       "hex": "#475569",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:10",
+     "name": "cta",
+     "type": "TEXT",
+     "x": 567,
+     "y": 294,
+     "w": 147,
+     "h": 52,
+     "sizing": {
+      "h": "HUG"
+     },
+     "fill": {
+      "hex": "#2563EB",
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "text": {
+      "content": "14일 무료 체험",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:11",
+   "name": "feat",
+   "type": "FRAME",
+   "x": 0,
+   "y": 402,
+   "w": 1280,
+   "h": 212,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "GRID",
+    "gap": 24,
+    "padding": [
+     0,
+     40,
+     56,
+     40
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "1:12",
+     "name": "card",
+     "type": "FRAME",
+     "x": 40,
+     "y": 402,
+     "w": 384,
+     "h": 156,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:13",
+       "name": "i",
+       "type": "FRAME",
+       "x": 65,
+       "y": 427,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#DBEAFE",
+        "token": null
+       },
+       "radius": 10
+      },
+      {
+       "id": "1:14",
+       "name": "h3",
+       "type": "TEXT",
+       "x": 65,
+       "y": 481,
+       "w": 334,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "회의 요약",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:15",
+       "name": "p",
+       "type": "TEXT",
+       "x": 65,
+       "y": 510,
+       "w": 334,
+       "h": 23,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "회의가 끝나면 결정 사항과 담당자를 자동으로 정리해요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23,
+        "color": {
+         "hex": "#475569",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:16",
+     "name": "card",
+     "type": "FRAME",
+     "x": 448,
+     "y": 402,
+     "w": 384,
+     "h": 156,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:17",
+       "name": "i",
+       "type": "FRAME",
+       "x": 473,
+       "y": 427,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#DBEAFE",
+        "token": null
+       },
+       "radius": 10
+      },
+      {
+       "id": "1:18",
+       "name": "h3",
+       "type": "TEXT",
+       "x": 473,
+       "y": 481,
+       "w": 334,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "할 일 연결",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:19",
+       "name": "p",
+       "type": "TEXT",
+       "x": 473,
+       "y": 510,
+       "w": 334,
+       "h": 23,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "메신저에서 나온 할 일을 보드로 바로 옮겨요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23,
+        "color": {
+         "hex": "#475569",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:20",
+     "name": "card",
+     "type": "FRAME",
+     "x": 856,
+     "y": 402,
+     "w": 384,
+     "h": 156,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:21",
+       "name": "i",
+       "type": "FRAME",
+       "x": 881,
+       "y": 427,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#DBEAFE",
+        "token": null
+       },
+       "radius": 10
+      },
+      {
+       "id": "1:22",
+       "name": "h3",
+       "type": "TEXT",
+       "x": 881,
+       "y": 481,
+       "w": 334,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "주간 보고",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:23",
+       "name": "p",
+       "type": "TEXT",
+       "x": 881,
+       "y": 510,
+       "w": 334,
+       "h": 23,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "한 주의 진행 상황을 한 장으로 만들어 공유해요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23,
+        "color": {
+         "hex": "#475569",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:24",
+   "name": "price",
+   "type": "FRAME",
+   "x": 0,
+   "y": 614,
+   "w": 1280,
+   "h": 277,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "GRID",
+    "gap": 24,
+    "padding": [
+     0,
+     40,
+     56,
+     40
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "1:25",
+     "name": "plan",
+     "type": "FRAME",
+     "x": 40,
+     "y": 614,
+     "w": 384,
+     "h": 221,
+     "sizing": {
+      "h": "FILL"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:26",
+       "name": "b",
+       "type": "TEXT",
+       "x": 65,
+       "y": 639,
+       "w": 334,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "스타터",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:27",
+       "name": "strong",
+       "type": "TEXT",
+       "x": 65,
+       "y": 666,
+       "w": 334,
+       "h": 36,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "무료",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:28",
+       "name": "ul",
+       "type": "FRAME",
+       "x": 65,
+       "y": 714,
+       "w": 334,
+       "h": 72,
+       "sizing": {
+        "h": "FILL"
+       },
+       "children": [
+        {
+         "id": "1:29",
+         "name": "li",
+         "type": "TEXT",
+         "x": 83,
+         "y": 714,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "팀원 5명까지",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:30",
+         "name": "li",
+         "type": "TEXT",
+         "x": 83,
+         "y": 738,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "보드 3개",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:31",
+         "name": "li",
+         "type": "TEXT",
+         "x": 83,
+         "y": 762,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "회의 요약 월 10회",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:32",
+     "name": "plan",
+     "type": "FRAME",
+     "x": 448,
+     "y": 614,
+     "w": 384,
+     "h": 221,
+     "sizing": {
+      "h": "FILL"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:33",
+       "name": "b",
+       "type": "TEXT",
+       "x": 473,
+       "y": 639,
+       "w": 334,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "팀",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:34",
+       "name": "strong",
+       "type": "TEXT",
+       "x": 473,
+       "y": 666,
+       "w": 334,
+       "h": 36,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "₩9,900",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:35",
+       "name": "ul",
+       "type": "FRAME",
+       "x": 473,
+       "y": 714,
+       "w": 334,
+       "h": 96,
+       "sizing": {
+        "h": "FILL"
+       },
+       "children": [
+        {
+         "id": "1:36",
+         "name": "li",
+         "type": "TEXT",
+         "x": 491,
+         "y": 714,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "팀원 50명까지",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:37",
+         "name": "li",
+         "type": "TEXT",
+         "x": 491,
+         "y": 738,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "보드 무제한",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:38",
+         "name": "li",
+         "type": "TEXT",
+         "x": 491,
+         "y": 762,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "회의 요약 무제한",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:39",
+         "name": "li",
+         "type": "TEXT",
+         "x": 491,
+         "y": 786,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "주간 보고 자동 생성",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:40",
+     "name": "plan",
+     "type": "FRAME",
+     "x": 856,
+     "y": 614,
+     "w": 384,
+     "h": 221,
+     "sizing": {
+      "h": "FILL"
+     },
+     "radius": 16,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E8F0",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:41",
+       "name": "b",
+       "type": "TEXT",
+       "x": 881,
+       "y": 639,
+       "w": 334,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "엔터프라이즈",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:42",
+       "name": "strong",
+       "type": "TEXT",
+       "x": 881,
+       "y": 666,
+       "w": 334,
+       "h": 36,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "문의",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#0F172A",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:43",
+       "name": "ul",
+       "type": "FRAME",
+       "x": 881,
+       "y": 714,
+       "w": 334,
+       "h": 48,
+       "sizing": {
+        "h": "FILL"
+       },
+       "children": [
+        {
+         "id": "1:44",
+         "name": "li",
+         "type": "TEXT",
+         "x": 899,
+         "y": 714,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "SSO·감사 로그",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:45",
+         "name": "li",
+         "type": "TEXT",
+         "x": 899,
+         "y": 738,
+         "w": 316,
+         "h": 24,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "전담 매니저",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 24,
+          "color": {
+           "hex": "#475569",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:46",
+   "name": "foot",
+   "type": "TEXT",
+   "x": 0,
+   "y": 891,
+   "w": 1280,
+   "h": 76,
+   "sizing": {
+    "h": "FILL"
+   },
+   "fill": {
+    "hex": "#F8FAFC",
+    "token": "color/surface"
+   },
+   "text": {
+    "content": "© 2026 플로우보드 · 서울특별시 마포구 · 사업자등록번호 000-00-00000 · 고객센터 1588-0000",
+    "fontFamily": "Apple SD Gothic Neo",
+    "fontSize": 13,
+    "fontWeight": 400,
+    "lineHeight": 20,
+    "color": {
+     "hex": "#475569",
+     "token": "color/muted"
+    },
+    "wrap": "WRAP"
+   }
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>지도 검색 · r2-place</title>
+<style>:root{--bg:#FFFFFF;--page:#E8EBEF;--text:#1B1F24;--muted:#59616B;--line:#E2E5E9;--brand:#03A84E}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.search{flex:none;display:flex;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line)}.search input{flex:1;min-width:0;height:44px;border-radius:10px;border:1px solid var(--line);padding:0 12px;font-size:15px;font-family:inherit}
+.search button{height:44px;padding:0 10px;background:transparent;font-size:15px;color:var(--muted)}
+.map{flex:1;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px) 0 0/40px 40px,#EEF3EC}
+.pin{position:absolute;display:flex;align-items:center;gap:6px}.pin i{width:14px;height:14px;border-radius:50%;background:var(--brand);border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.pin span{font-size:12px;font-weight:700;background:#fff;padding:2px 6px;border-radius:6px;white-space:nowrap}
+.fbtns{position:absolute;right:12px;bottom:calc(36% + 12px);display:flex;flex-direction:column;gap:8px}
+.fbtns button{width:44px;height:44px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);font-size:20px}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:36%;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -2px 10px rgba(0,0,0,.12);display:flex;flex-direction:column}
+.handle{width:36px;height:5px;border-radius:3px;background:#D5D9DE;margin:8px auto}
+.places{flex:1;overflow-y:auto}.place{padding:10px 16px;border-bottom:1px solid var(--line)}
+.place b{display:block;font-size:15px;line-height:21px}.place span{display:block;font-size:13px;line-height:18px;color:var(--muted)}
+.place{height:56px;overflow:hidden}</style></head><body><div id="root"><div class="app"><div class="search"><input placeholder="장소, 주소 검색" value="카페"><button>취소</button></div>
+<div class="map"><div class="pin" style="left:24%;top:18%"><i></i><span>모모커피</span></div><div class="pin" style="left:30%;top:28%"><i></i><span>숲속로스터리 망원점</span></div><div class="pin" style="left:18%;top:42%"><i></i><span>카페 온</span></div>
+<div class="fbtns"><button aria-label="확대">+</button><button aria-label="축소">−</button><button aria-label="내 위치">◎</button></div>
+<div class="sheet"><div class="handle"></div><div class="places">
+<div class="place"><b>숲속로스터리 망원점</b><span>카페 · 320m</span><span>서울 마포구 망원로 12길 34, 1층</span></div>
+<div class="place"><b>모모커피</b><span>카페 · 450m</span><span>서울 마포구 포은로 8</span></div>
+<div class="place"><b>카페 온</b><span>카페 · 610m</span><span>서울 마포구 성미산로 22</span></div></div></div></div></div></div></body></html>

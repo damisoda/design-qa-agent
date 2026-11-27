@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>장바구니 · r2-cta</title>
+<style>:root{--bg:#FFFFFF;--page:#F0F0F0;--text:#1A1A1A;--muted:#6E6E6E;--line:#EEEEEE;--brand:#0F7C78;--point:#C2410C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.store{padding:14px 16px;font-size:16px;font-weight:700;border-bottom:1px solid var(--line)}
+.item{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);position:relative}
+.thumb{width:64px;height:64px;border-radius:10px;flex:none;object-fit:cover}
+.meta{flex:1;min-width:0}.meta b{display:block;font-size:15px;line-height:22px}.meta span{display:block;font-size:13px;line-height:19px;color:var(--muted)}
+.meta .p{color:var(--text);font-weight:700;margin-top:4px}
+.step{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;height:44px;align-self:flex-end;flex:none}
+.step button{width:44px;height:44px;background:#fff;font-size:18px}.step i{font-style:normal;width:24px;text-align:center;font-size:15px}
+.coupon{display:flex;gap:8px;padding:16px}.coupon input{flex:1;min-width:0;height:44px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font-size:15px;font-family:inherit}
+.coupon button{height:44px;padding:0 16px;border-radius:10px;background:#F4F4F4;font-size:15px;font-weight:600}
+.sum{padding:8px 16px 16px}.sum p{display:flex;justify-content:space-between;margin:8px 0;font-size:15px}.sum .tot{font-size:17px;font-weight:700}.sum .tot em{font-style:normal;color:var(--text)}
+.ctabar{flex:none;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.cta{width:100%;height:54px;border-radius:12px;background:var(--brand);color:#fff;font-size:17px;font-weight:700;white-space:nowrap}
+.cta{width:150px;overflow:hidden;text-overflow:clip;font-size:19px;padding:0 12px}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#222" stroke-width="2"/></svg></button><span class="ttl">장바구니</span></div>
+<div class="scroll"><div class="store">버거하우스 서교점</div>
+<div class="item"><img class="thumb" src="food1.png" alt=""><div class="meta"><b>더블 치즈버거 세트</b><span>감자튀김 L · 콜라 제로로 변경 · 피클 빼기</span><span class="p">12,900원</span></div>
+<div class="step"><button aria-label="빼기">−</button><i>1</i><button aria-label="더하기">+</button></div></div>
+<div class="item"><img class="thumb" src="food2.png" alt=""><div class="meta"><b>치킨 텐더 4조각</b><span>허니머스터드</span><span class="p">6,500원</span></div>
+<div class="step"><button aria-label="빼기">−</button><i>1</i><button aria-label="더하기">+</button></div></div>
+<div class="item"><img class="thumb" src="food3.png" alt=""><div class="meta"><b>바닐라 쉐이크</b><span>레귤러</span><span class="p">4,500원</span></div>
+<div class="step"><button aria-label="빼기">−</button><i>1</i><button aria-label="더하기">+</button></div></div>
+<div class="coupon"><input placeholder="쿠폰 코드 입력"><button>적용</button></div>
+<div class="sum"><p><span>상품 금액</span><span>23,900원</span></p><p><span>배달팁</span><span>3,000원</span></p><p class="tot"><span>총 결제 금액</span><em>26,900원</em></p></div></div>
+<div class="ctabar"><button class="cta">26,900원 결제하기</button></div></div></div></body></html>

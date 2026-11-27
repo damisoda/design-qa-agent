@@ -1,0 +1,2014 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "flight",
+ "base": "375x812",
+ "frame": {
+  "name": "항공편 검색",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#EEF1F5",
+  "color/text": "#101828",
+  "color/muted": "#5B6474",
+  "color/line": "#E4E7EC",
+  "color/brand": "#1D4ED8"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "뒤로",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 27,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "tt",
+     "type": "FRAME",
+     "x": 72,
+     "y": 7,
+     "w": 287,
+     "h": 38,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:5",
+       "name": "b",
+       "type": "TEXT",
+       "x": 72,
+       "y": 7,
+       "w": 287,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "서울(김포) → 제주",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 22,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:6",
+       "name": "span",
+       "type": "TEXT",
+       "x": 72,
+       "y": 29,
+       "w": 287,
+       "h": 16,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "10월 18일(토) · 성인 1명 · 일반석",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#5B6474",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:7",
+   "name": "dates",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 73,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 6,
+    "padding": [
+     10,
+     16,
+     10,
+     16
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "1:8",
+     "name": "button",
+     "type": "FRAME",
+     "x": 16,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:9",
+       "name": "b",
+       "type": "TEXT",
+       "x": 23,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "72,400",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:10",
+     "name": "button",
+     "type": "FRAME",
+     "x": 90,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:11",
+       "name": "b",
+       "type": "TEXT",
+       "x": 97,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "81,900",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:12",
+     "name": "on",
+     "type": "FRAME",
+     "x": 164,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#EFF4FF",
+      "token": null
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#1D4ED8",
+      "token": "color/brand"
+     },
+     "children": [
+      {
+       "id": "1:13",
+       "name": "b",
+       "type": "TEXT",
+       "x": 171,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "68,900",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:14",
+     "name": "button",
+     "type": "FRAME",
+     "x": 238,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:15",
+       "name": "b",
+       "type": "TEXT",
+       "x": 245,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "95,000",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:16",
+     "name": "button",
+     "type": "FRAME",
+     "x": 312,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:17",
+       "name": "b",
+       "type": "TEXT",
+       "x": 319,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "61,200",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:18",
+     "name": "button",
+     "type": "FRAME",
+     "x": 386,
+     "y": 62,
+     "w": 68,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:19",
+       "name": "b",
+       "type": "TEXT",
+       "x": 393,
+       "y": 88,
+       "w": 54,
+       "h": 16,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "59,800",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#101828",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:20",
+   "name": "chips",
+   "type": "FRAME",
+   "x": 0,
+   "y": 125,
+   "w": 375,
+   "h": 40,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 6,
+    "padding": [
+     10,
+     16,
+     0,
+     16
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": true
+   },
+   "children": [
+    {
+     "id": "1:21",
+     "name": "span",
+     "type": "TEXT",
+     "x": 16,
+     "y": 135,
+     "w": 56,
+     "h": 30,
+     "sizing": {
+      "h": "HUG"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "직항만",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 18,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:22",
+     "name": "span",
+     "type": "TEXT",
+     "x": 78,
+     "y": 135,
+     "w": 70,
+     "h": 30,
+     "sizing": {
+      "h": "HUG"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "오전 출발",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 18,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:23",
+     "name": "span",
+     "type": "TEXT",
+     "x": 154,
+     "y": 135,
+     "w": 82,
+     "h": 30,
+     "sizing": {
+      "h": "HUG"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "수하물 포함",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 18,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:24",
+     "name": "span",
+     "type": "TEXT",
+     "x": 242,
+     "y": 135,
+     "w": 70,
+     "h": 30,
+     "sizing": {
+      "h": "HUG"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "환불 가능",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 18,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:25",
+   "name": "list",
+   "type": "FRAME",
+   "x": 0,
+   "y": 165,
+   "w": 375,
+   "h": 647,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:26",
+     "name": "fl",
+     "type": "FRAME",
+     "x": 16,
+     "y": 185,
+     "w": 343,
+     "h": 128,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:27",
+       "name": "best",
+       "type": "TEXT",
+       "x": 29,
+       "y": 176,
+       "w": 45,
+       "h": 20,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#1D4ED8",
+        "token": "color/brand"
+       },
+       "radius": 8,
+       "text": {
+        "content": "최저가",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:28",
+       "name": "air",
+       "type": "FRAME",
+       "x": 31,
+       "y": 200,
+       "w": 313,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:29",
+         "name": "img",
+         "type": "IMAGE",
+         "x": 31,
+         "y": 204,
+         "w": 42,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "image": {
+          "src": "logo1.png",
+          "natural": [
+           120,
+           40
+          ],
+          "fit": "contain"
+         }
+        },
+        {
+         "id": "1:30",
+         "name": "span",
+         "type": "TEXT",
+         "x": 81,
+         "y": 202,
+         "w": 45,
+         "h": 18,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "하늘항공",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#5B6474",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:31",
+         "name": "price",
+         "type": "TEXT",
+         "x": 274,
+         "y": 200,
+         "w": 70,
+         "h": 22,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "68,900원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 17,
+          "fontWeight": 800,
+          "lineHeight": 22,
+          "color": {
+           "hex": "#BE123C",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:32",
+       "name": "row",
+       "type": "FRAME",
+       "x": 31,
+       "y": 232,
+       "w": 313,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:33",
+         "name": "t",
+         "type": "FRAME",
+         "x": 31,
+         "y": 232,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:34",
+           "name": "b",
+           "type": "TEXT",
+           "x": 31,
+           "y": 232,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "07:05",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:35",
+           "name": "span",
+           "type": "TEXT",
+           "x": 31,
+           "y": 258,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "GMP",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:36",
+         "name": "dur",
+         "type": "FRAME",
+         "x": 97,
+         "y": 241,
+         "w": 181,
+         "h": 25,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:37",
+           "name": "i",
+           "type": "FRAME",
+           "x": 97,
+           "y": 261,
+           "w": 181,
+           "h": 1,
+           "sizing": {
+            "h": "FILL"
+           },
+           "fill": {
+            "hex": "#C9CED6",
+            "token": null
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:38",
+         "name": "t",
+         "type": "FRAME",
+         "x": 288,
+         "y": 232,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:39",
+           "name": "b",
+           "type": "TEXT",
+           "x": 288,
+           "y": 232,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "08:15",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:40",
+           "name": "span",
+           "type": "TEXT",
+           "x": 288,
+           "y": 258,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "CJU",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "1:41",
+       "name": "left",
+       "type": "TEXT",
+       "x": 31,
+       "y": 282,
+       "w": 313,
+       "h": 16,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "잔여 3석",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#B42318",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:42",
+     "name": "fl",
+     "type": "FRAME",
+     "x": 16,
+     "y": 329,
+     "w": 343,
+     "h": 104,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:43",
+       "name": "air",
+       "type": "FRAME",
+       "x": 31,
+       "y": 344,
+       "w": 313,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:44",
+         "name": "img",
+         "type": "IMAGE",
+         "x": 31,
+         "y": 348,
+         "w": 42,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "image": {
+          "src": "logo2.png",
+          "natural": [
+           120,
+           40
+          ],
+          "fit": "contain"
+         }
+        },
+        {
+         "id": "1:45",
+         "name": "span",
+         "type": "TEXT",
+         "x": 81,
+         "y": 346,
+         "w": 45,
+         "h": 18,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "바다항공",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#5B6474",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:46",
+         "name": "price",
+         "type": "TEXT",
+         "x": 276,
+         "y": 344,
+         "w": 68,
+         "h": 22,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "74,200원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 17,
+          "fontWeight": 800,
+          "lineHeight": 22,
+          "color": {
+           "hex": "#BE123C",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:47",
+       "name": "row",
+       "type": "FRAME",
+       "x": 31,
+       "y": 376,
+       "w": 313,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:48",
+         "name": "t",
+         "type": "FRAME",
+         "x": 31,
+         "y": 376,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:49",
+           "name": "b",
+           "type": "TEXT",
+           "x": 31,
+           "y": 376,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "09:30",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:50",
+           "name": "span",
+           "type": "TEXT",
+           "x": 31,
+           "y": 402,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "GMP",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:51",
+         "name": "dur",
+         "type": "FRAME",
+         "x": 97,
+         "y": 385,
+         "w": 181,
+         "h": 25,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:52",
+           "name": "i",
+           "type": "FRAME",
+           "x": 97,
+           "y": 405,
+           "w": 181,
+           "h": 1,
+           "sizing": {
+            "h": "FILL"
+           },
+           "fill": {
+            "hex": "#C9CED6",
+            "token": null
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:53",
+         "name": "t",
+         "type": "FRAME",
+         "x": 288,
+         "y": 376,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:54",
+           "name": "b",
+           "type": "TEXT",
+           "x": 288,
+           "y": 376,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "10:40",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:55",
+           "name": "span",
+           "type": "TEXT",
+           "x": 288,
+           "y": 402,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "CJU",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:56",
+     "name": "fl",
+     "type": "FRAME",
+     "x": 16,
+     "y": 449,
+     "w": 343,
+     "h": 128,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:57",
+       "name": "air",
+       "type": "FRAME",
+       "x": 31,
+       "y": 464,
+       "w": 313,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:58",
+         "name": "img",
+         "type": "IMAGE",
+         "x": 31,
+         "y": 468,
+         "w": 42,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "image": {
+          "src": "logo3.png",
+          "natural": [
+           120,
+           40
+          ],
+          "fit": "contain"
+         }
+        },
+        {
+         "id": "1:59",
+         "name": "span",
+         "type": "TEXT",
+         "x": 81,
+         "y": 466,
+         "w": 45,
+         "h": 18,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "구름항공",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#5B6474",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:60",
+         "name": "price",
+         "type": "TEXT",
+         "x": 276,
+         "y": 464,
+         "w": 68,
+         "h": 22,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "81,000원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 17,
+          "fontWeight": 800,
+          "lineHeight": 22,
+          "color": {
+           "hex": "#BE123C",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:61",
+       "name": "row",
+       "type": "FRAME",
+       "x": 31,
+       "y": 496,
+       "w": 313,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:62",
+         "name": "t",
+         "type": "FRAME",
+         "x": 31,
+         "y": 496,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:63",
+           "name": "b",
+           "type": "TEXT",
+           "x": 31,
+           "y": 496,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "12:15",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:64",
+           "name": "span",
+           "type": "TEXT",
+           "x": 31,
+           "y": 522,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "GMP",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:65",
+         "name": "dur",
+         "type": "FRAME",
+         "x": 97,
+         "y": 505,
+         "w": 181,
+         "h": 25,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:66",
+           "name": "i",
+           "type": "FRAME",
+           "x": 97,
+           "y": 525,
+           "w": 181,
+           "h": 1,
+           "sizing": {
+            "h": "FILL"
+           },
+           "fill": {
+            "hex": "#C9CED6",
+            "token": null
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:67",
+         "name": "t",
+         "type": "FRAME",
+         "x": 288,
+         "y": 496,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:68",
+           "name": "b",
+           "type": "TEXT",
+           "x": 288,
+           "y": 496,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "13:25",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:69",
+           "name": "span",
+           "type": "TEXT",
+           "x": 288,
+           "y": 522,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "CJU",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "1:70",
+       "name": "left",
+       "type": "TEXT",
+       "x": 31,
+       "y": 546,
+       "w": 313,
+       "h": 16,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "잔여 5석",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#B42318",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:71",
+     "name": "fl",
+     "type": "FRAME",
+     "x": 16,
+     "y": 593,
+     "w": 343,
+     "h": 104,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 14,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:72",
+       "name": "air",
+       "type": "FRAME",
+       "x": 31,
+       "y": 608,
+       "w": 313,
+       "h": 22,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:73",
+         "name": "img",
+         "type": "IMAGE",
+         "x": 31,
+         "y": 612,
+         "w": 42,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "image": {
+          "src": "logo1.png",
+          "natural": [
+           120,
+           40
+          ],
+          "fit": "contain"
+         }
+        },
+        {
+         "id": "1:74",
+         "name": "span",
+         "type": "TEXT",
+         "x": 81,
+         "y": 610,
+         "w": 45,
+         "h": 18,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "하늘항공",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#5B6474",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:75",
+         "name": "price",
+         "type": "TEXT",
+         "x": 275,
+         "y": 608,
+         "w": 69,
+         "h": 22,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "92,500원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 17,
+          "fontWeight": 800,
+          "lineHeight": 22,
+          "color": {
+           "hex": "#BE123C",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:76",
+       "name": "row",
+       "type": "FRAME",
+       "x": 31,
+       "y": 640,
+       "w": 313,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:77",
+         "name": "t",
+         "type": "FRAME",
+         "x": 31,
+         "y": 640,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:78",
+           "name": "b",
+           "type": "TEXT",
+           "x": 31,
+           "y": 640,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "18:40",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:79",
+           "name": "span",
+           "type": "TEXT",
+           "x": 31,
+           "y": 666,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "GMP",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:80",
+         "name": "dur",
+         "type": "FRAME",
+         "x": 97,
+         "y": 649,
+         "w": 181,
+         "h": 25,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:81",
+           "name": "i",
+           "type": "FRAME",
+           "x": 97,
+           "y": 669,
+           "w": 181,
+           "h": 1,
+           "sizing": {
+            "h": "FILL"
+           },
+           "fill": {
+            "hex": "#C9CED6",
+            "token": null
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:82",
+         "name": "t",
+         "type": "FRAME",
+         "x": 288,
+         "y": 640,
+         "w": 56,
+         "h": 42,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "children": [
+          {
+           "id": "1:83",
+           "name": "b",
+           "type": "TEXT",
+           "x": 288,
+           "y": 640,
+           "w": 56,
+           "h": 26,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "19:50",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 26,
+            "color": {
+             "hex": "#101828",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:84",
+           "name": "span",
+           "type": "TEXT",
+           "x": 288,
+           "y": 666,
+           "w": 56,
+           "h": 16,
+           "sizing": {
+            "h": "HUG"
+           },
+           "text": {
+            "content": "CJU",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6474",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:85",
+   "name": "sort",
+   "type": "FRAME",
+   "x": 0,
+   "y": 748,
+   "w": 375,
+   "h": 64,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 8,
+    "padding": [
+     10,
+     16,
+     10,
+     16
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#E4E7EC",
+    "token": "color/line"
+   },
+   "children": [
+    {
+     "id": "1:86",
+     "name": "button",
+     "type": "TEXT",
+     "x": 16,
+     "y": 759,
+     "w": 168,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "정렬: 가격 낮은 순",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "lineHeight": null,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:87",
+     "name": "button",
+     "type": "TEXT",
+     "x": 192,
+     "y": 759,
+     "w": 168,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E4E7EC",
+      "token": "color/line"
+     },
+     "text": {
+      "content": "필터 2",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "lineHeight": null,
+      "color": {
+       "hex": "#101828",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1879 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "booking",
+ "base": "375x812",
+ "frame": {
+  "name": "예약",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#EEF0F4",
+  "color/text": "#141A23",
+  "color/muted": "#566070",
+  "color/line": "#E1E5EB",
+  "color/brand": "#5B3CC4"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "ttl",
+     "type": "TEXT",
+     "x": 16,
+     "y": 16,
+     "w": 343,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "예약",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#141A23",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:3",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 682,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:4",
+     "name": "mon",
+     "type": "FRAME",
+     "x": 16,
+     "y": 64,
+     "w": 343,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "space-between",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:5",
+       "name": "이전 달",
+       "type": "TEXT",
+       "x": 16,
+       "y": 64,
+       "w": 44,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#F2F3F6",
+        "token": null
+       },
+       "radius": 10,
+       "text": {
+        "content": "‹",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:6",
+       "name": "b",
+       "type": "TEXT",
+       "x": 140,
+       "y": 76,
+       "w": 95,
+       "h": 21,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "2026년 10월",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#141A23",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:7",
+       "name": "다음 달",
+       "type": "TEXT",
+       "x": 315,
+       "y": 64,
+       "w": 44,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#F2F3F6",
+        "token": null
+       },
+       "radius": 10,
+       "text": {
+        "content": "›",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:8",
+     "name": "cal",
+     "type": "FRAME",
+     "x": 16,
+     "y": 116,
+     "w": 343,
+     "h": 239,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:9",
+       "name": "wk",
+       "type": "FRAME",
+       "x": 16,
+       "y": 116,
+       "w": 343,
+       "h": 23,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "GRID",
+        "gap": 4,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:10",
+         "name": "span",
+         "type": "TEXT",
+         "x": 16,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "일",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:11",
+         "name": "span",
+         "type": "TEXT",
+         "x": 66,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "월",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:12",
+         "name": "span",
+         "type": "TEXT",
+         "x": 115,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "화",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:13",
+         "name": "span",
+         "type": "TEXT",
+         "x": 165,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "수",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:14",
+         "name": "span",
+         "type": "TEXT",
+         "x": 214,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "목",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:15",
+         "name": "span",
+         "type": "TEXT",
+         "x": 264,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "금",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:16",
+         "name": "span",
+         "type": "TEXT",
+         "x": 313,
+         "y": 116,
+         "w": 46,
+         "h": 23,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "토",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#566070",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:17",
+       "name": "days",
+       "type": "FRAME",
+       "x": 16,
+       "y": 139,
+       "w": 343,
+       "h": 216,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "GRID",
+        "gap": 4,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:18",
+         "name": "span",
+         "type": "FRAME",
+         "x": 16,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         }
+        },
+        {
+         "id": "1:19",
+         "name": "span",
+         "type": "FRAME",
+         "x": 66,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         }
+        },
+        {
+         "id": "1:20",
+         "name": "span",
+         "type": "FRAME",
+         "x": 115,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         }
+        },
+        {
+         "id": "1:21",
+         "name": "span",
+         "type": "FRAME",
+         "x": 165,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         }
+        },
+        {
+         "id": "1:22",
+         "name": "past",
+         "type": "TEXT",
+         "x": 214,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "1",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:23",
+         "name": "past",
+         "type": "TEXT",
+         "x": 264,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "2",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:24",
+         "name": "past",
+         "type": "TEXT",
+         "x": 313,
+         "y": 139,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "3",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:25",
+         "name": "past",
+         "type": "TEXT",
+         "x": 16,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "4",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:26",
+         "name": "past",
+         "type": "TEXT",
+         "x": 66,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "5",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:27",
+         "name": "past",
+         "type": "TEXT",
+         "x": 115,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "6",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:28",
+         "name": "past",
+         "type": "TEXT",
+         "x": 165,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "7",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:29",
+         "name": "past",
+         "type": "TEXT",
+         "x": 214,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "8",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:30",
+         "name": "past",
+         "type": "TEXT",
+         "x": 264,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "9",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B7280",
+           "token": null
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:31",
+         "name": "button",
+         "type": "TEXT",
+         "x": 313,
+         "y": 183,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "10",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:32",
+         "name": "button",
+         "type": "TEXT",
+         "x": 16,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "11",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:33",
+         "name": "button",
+         "type": "TEXT",
+         "x": 66,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "12",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:34",
+         "name": "button",
+         "type": "TEXT",
+         "x": 115,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "13",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:35",
+         "name": "button",
+         "type": "TEXT",
+         "x": 165,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "14",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:36",
+         "name": "button",
+         "type": "TEXT",
+         "x": 214,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "15",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:37",
+         "name": "button",
+         "type": "TEXT",
+         "x": 264,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "16",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:38",
+         "name": "on",
+         "type": "TEXT",
+         "x": 313,
+         "y": 227,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#5B3CC4",
+          "token": "color/brand"
+         },
+         "radius": 10,
+         "text": {
+          "content": "17",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:39",
+         "name": "button",
+         "type": "TEXT",
+         "x": 16,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "18",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:40",
+         "name": "button",
+         "type": "TEXT",
+         "x": 66,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "19",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:41",
+         "name": "button",
+         "type": "TEXT",
+         "x": 115,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "20",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:42",
+         "name": "button",
+         "type": "TEXT",
+         "x": 165,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "21",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:43",
+         "name": "button",
+         "type": "TEXT",
+         "x": 214,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "22",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:44",
+         "name": "button",
+         "type": "TEXT",
+         "x": 264,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "23",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:45",
+         "name": "button",
+         "type": "TEXT",
+         "x": 313,
+         "y": 271,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "24",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:46",
+         "name": "button",
+         "type": "TEXT",
+         "x": 16,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "25",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:47",
+         "name": "button",
+         "type": "TEXT",
+         "x": 66,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "26",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:48",
+         "name": "button",
+         "type": "TEXT",
+         "x": 115,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "27",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:49",
+         "name": "button",
+         "type": "TEXT",
+         "x": 165,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "28",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:50",
+         "name": "button",
+         "type": "TEXT",
+         "x": 214,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "29",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:51",
+         "name": "button",
+         "type": "TEXT",
+         "x": 264,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "30",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:52",
+         "name": "button",
+         "type": "TEXT",
+         "x": 313,
+         "y": 315,
+         "w": 46,
+         "h": 40,
+         "sizing": {
+          "h": "FILL"
+         },
+         "fill": {
+          "hex": "#FFFFFF",
+          "token": "color/bg"
+         },
+         "radius": 10,
+         "text": {
+          "content": "31",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#141A23",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:53",
+     "name": "slots",
+     "type": "FRAME",
+     "x": 16,
+     "y": 371,
+     "w": 343,
+     "h": 136,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": true
+     },
+     "children": [
+      {
+       "id": "1:54",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 16,
+       "y": 371,
+       "w": 65,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "10:00",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:55",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 89,
+       "y": 371,
+       "w": 65,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#5B3CC4",
+        "token": "color/brand"
+       },
+       "text": {
+        "content": "10:30",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#5B3CC4",
+         "token": "color/brand"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:56",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 162,
+       "y": 371,
+       "w": 62,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "11:00",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:57",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 232,
+       "y": 371,
+       "w": 60,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "11:30",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:58",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 16,
+       "y": 419,
+       "w": 63,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "13:30",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:59",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 87,
+       "y": 419,
+       "w": 64,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "14:00",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:60",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 159,
+       "y": 419,
+       "w": 64,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "15:00",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:61",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 231,
+       "y": 419,
+       "w": 63,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "16:30",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:62",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 16,
+       "y": 467,
+       "w": 63,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "17:00",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:63",
+       "name": "slot",
+       "type": "TEXT",
+       "x": 87,
+       "y": 467,
+       "w": 63,
+       "h": 40,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 20,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "18:30",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:64",
+     "name": "req",
+     "type": "FRAME",
+     "x": 16,
+     "y": 523,
+     "w": 343,
+     "h": 111,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:65",
+       "name": "textarea",
+       "type": "FRAME",
+       "x": 16,
+       "y": 546,
+       "w": 343,
+       "h": 88,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 10,
+       "stroke": {
+        "width": 1,
+        "hex": "#E1E5EB",
+        "token": "color/line"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:66",
+     "name": "sum",
+     "type": "FRAME",
+     "x": 16,
+     "y": 646,
+     "w": 343,
+     "h": 17,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:67",
+       "name": "sl",
+       "type": "TEXT",
+       "x": 16,
+       "y": 646,
+       "w": 64,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "선택한 시간",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#566070",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:68",
+       "name": "b",
+       "type": "TEXT",
+       "x": 84,
+       "y": 646,
+       "w": 203,
+       "h": 17,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "10월 17일(토) 10:30 · 디자이너 지수",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#141A23",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:69",
+   "name": "ok",
+   "type": "TEXT",
+   "x": 16,
+   "y": 742,
+   "w": 343,
+   "h": 54,
+   "sizing": {
+    "h": "FILL"
+   },
+   "fill": {
+    "hex": "#5B3CC4",
+    "token": "color/brand"
+   },
+   "radius": 14,
+   "text": {
+    "content": "예약 확정",
+    "fontFamily": "Apple SD Gothic Neo",
+    "fontSize": 17,
+    "fontWeight": 700,
+    "lineHeight": null,
+    "color": {
+     "hex": "#FFFFFF",
+     "token": "color/bg"
+    },
+    "wrap": "WRAP"
+   }
+  }
+ ]
+}

@@ -1,0 +1,829 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "shop",
+ "base": "375x812",
+ "frame": {
+  "name": "상품 상세",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#F2F2F2",
+  "color/text": "#111111",
+  "color/muted": "#6B6B6B",
+  "color/line": "#EAEAEA",
+  "color/brand": "#0B7DB5",
+  "color/sale": "#C9302C"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "뒤로",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 27,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "ttl",
+     "type": "TEXT",
+     "x": 72,
+     "y": 16,
+     "w": 231,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "상품 상세",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#111111",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:5",
+     "name": "장바구니",
+     "type": "FRAME",
+     "x": 315,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:6",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 326,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:7",
+   "name": "scroll",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 687,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:8",
+     "name": "hero",
+     "type": "FRAME",
+     "x": 0,
+     "y": 52,
+     "w": 375,
+     "h": 281,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#F7F7F7",
+      "token": null
+     },
+     "children": [
+      {
+       "id": "1:9",
+       "name": "photo",
+       "type": "IMAGE",
+       "x": 0,
+       "y": 52,
+       "w": 375,
+       "h": 281,
+       "sizing": {
+        "h": "FILL"
+       },
+       "image": {
+        "src": "photo.png",
+        "natural": [
+         800,
+         600
+        ],
+        "fit": "cover"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:10",
+     "name": "info",
+     "type": "FRAME",
+     "x": 0,
+     "y": 333,
+     "w": 375,
+     "h": 112,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:11",
+       "name": "brand",
+       "type": "TEXT",
+       "x": 16,
+       "y": 349,
+       "w": 343,
+       "h": 16,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "우드랩 셀렉트",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#6B6B6B",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:12",
+       "name": "name",
+       "type": "TEXT",
+       "x": 16,
+       "y": 369,
+       "w": 343,
+       "h": 26,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "북유럽 원목 3단 선반 화이트오크 조립식 수납장",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 26,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:13",
+       "name": "price",
+       "type": "FRAME",
+       "x": 16,
+       "y": 403,
+       "w": 343,
+       "h": 30,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "baseline",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:14",
+         "name": "pct",
+         "type": "TEXT",
+         "x": 16,
+         "y": 408,
+         "w": 35,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "32%",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#C9302C",
+           "token": "color/sale"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:15",
+         "name": "b",
+         "type": "TEXT",
+         "x": 59,
+         "y": 403,
+         "w": 88,
+         "h": 30,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "39,900원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "lineHeight": 30,
+          "color": {
+           "hex": "#111111",
+           "token": "color/text"
+          },
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "1:16",
+         "name": "s",
+         "type": "TEXT",
+         "x": 155,
+         "y": 412,
+         "w": 51,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "59,000원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#6B6B6B",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:17",
+     "name": "sec",
+     "type": "FRAME",
+     "x": 0,
+     "y": 445,
+     "w": 375,
+     "h": 101,
+     "sizing": {
+      "h": "FILL"
+     },
+     "stroke": {
+      "width": 8,
+      "hex": "#F5F5F5",
+      "token": null
+     },
+     "children": [
+      {
+       "id": "1:18",
+       "name": "lab",
+       "type": "TEXT",
+       "x": 16,
+       "y": 467,
+       "w": 343,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "색상",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:19",
+       "name": "chips",
+       "type": "FRAME",
+       "x": 16,
+       "y": 496,
+       "w": 343,
+       "h": 36,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 8,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": true
+       },
+       "children": [
+        {
+         "id": "1:20",
+         "name": "chip",
+         "type": "TEXT",
+         "x": 16,
+         "y": 496,
+         "w": 91,
+         "h": 36,
+         "sizing": {
+          "h": "HUG"
+         },
+         "radius": 18,
+         "stroke": {
+          "width": 1,
+          "hex": "#0B7DB5",
+          "token": "color/brand"
+         },
+         "text": {
+          "content": "화이트오크",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 600,
+          "lineHeight": null,
+          "color": {
+           "hex": "#0B7DB5",
+           "token": "color/brand"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:21",
+         "name": "chip",
+         "type": "TEXT",
+         "x": 115,
+         "y": 496,
+         "w": 54,
+         "h": 36,
+         "sizing": {
+          "h": "HUG"
+         },
+         "radius": 18,
+         "stroke": {
+          "width": 1,
+          "hex": "#EAEAEA",
+          "token": "color/line"
+         },
+         "text": {
+          "content": "월넛",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#111111",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:22",
+         "name": "chip",
+         "type": "TEXT",
+         "x": 177,
+         "y": 496,
+         "w": 54,
+         "h": 36,
+         "sizing": {
+          "h": "HUG"
+         },
+         "radius": 18,
+         "stroke": {
+          "width": 1,
+          "hex": "#EAEAEA",
+          "token": "color/line"
+         },
+         "text": {
+          "content": "블랙",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": null,
+          "color": {
+           "hex": "#111111",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:23",
+     "name": "sec",
+     "type": "FRAME",
+     "x": 0,
+     "y": 546,
+     "w": 375,
+     "h": 86,
+     "sizing": {
+      "h": "FILL"
+     },
+     "stroke": {
+      "width": 8,
+      "hex": "#F5F5F5",
+      "token": null
+     },
+     "children": [
+      {
+       "id": "1:24",
+       "name": "lab",
+       "type": "TEXT",
+       "x": 16,
+       "y": 568,
+       "w": 343,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "배송",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:25",
+       "name": "rev",
+       "type": "TEXT",
+       "x": 16,
+       "y": 597,
+       "w": 343,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "내일(금) 도착 보장 · 무료배송",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 21,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:26",
+     "name": "sec",
+     "type": "FRAME",
+     "x": 0,
+     "y": 632,
+     "w": 375,
+     "h": 148,
+     "sizing": {
+      "h": "FILL"
+     },
+     "stroke": {
+      "width": 8,
+      "hex": "#F5F5F5",
+      "token": null
+     },
+     "children": [
+      {
+       "id": "1:27",
+       "name": "lab",
+       "type": "TEXT",
+       "x": 16,
+       "y": 654,
+       "w": 343,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "리뷰 128",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:28",
+       "name": "rev",
+       "type": "TEXT",
+       "x": 16,
+       "y": 683,
+       "w": 343,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "조립이 쉬워요. 30분이면 끝납니다.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 21,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:29",
+       "name": "rev",
+       "type": "TEXT",
+       "x": 16,
+       "y": 714,
+       "w": 343,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "색이 사진보다 조금 밝아요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 21,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:30",
+       "name": "rev",
+       "type": "TEXT",
+       "x": 16,
+       "y": 745,
+       "w": 343,
+       "h": 21,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "튼튼하고 흔들림이 없어요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 21,
+        "color": {
+         "hex": "#111111",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:31",
+   "name": "buybar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 739,
+   "w": 375,
+   "h": 73,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 8,
+    "padding": [
+     10,
+     16,
+     10,
+     16
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#EAEAEA",
+    "token": "color/line"
+   },
+   "children": [
+    {
+     "id": "1:32",
+     "name": "찜하기",
+     "type": "FRAME",
+     "x": 16,
+     "y": 750,
+     "w": 52,
+     "h": 52,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#EAEAEA",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:33",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 31,
+       "y": 765,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:34",
+     "name": "buy",
+     "type": "TEXT",
+     "x": 76,
+     "y": 750,
+     "w": 283,
+     "h": 52,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#0B7DB5",
+      "token": "color/brand"
+     },
+     "radius": 10,
+     "text": {
+      "content": "구매하기",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  }
+ ]
+}

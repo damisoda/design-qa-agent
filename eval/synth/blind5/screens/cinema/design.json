@@ -1,0 +1,2669 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "cinema",
+ "base": "375x812",
+ "frame": {
+  "name": "좌석 선택",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#ECEEF2",
+  "color/text": "#121418",
+  "color/muted": "#5C6370",
+  "color/line": "#E3E6EA",
+  "color/brand": "#DC2626"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "뒤로",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 27,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "ttl",
+     "type": "TEXT",
+     "x": 72,
+     "y": 16,
+     "w": 287,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "좌석 선택",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#121418",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:5",
+   "name": "mv",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 93,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     12,
+     16,
+     12,
+     16
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "1:6",
+     "name": "img",
+     "type": "IMAGE",
+     "x": 16,
+     "y": 64,
+     "w": 48,
+     "h": 68,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "radius": 6,
+     "image": {
+      "src": "poster.png",
+      "natural": [
+       96,
+       136
+      ],
+      "fit": "cover"
+     }
+    },
+    {
+     "id": "1:7",
+     "name": "div",
+     "type": "FRAME",
+     "x": 76,
+     "y": 64,
+     "w": 160,
+     "h": 68,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "children": [
+      {
+       "id": "1:8",
+       "name": "b",
+       "type": "TEXT",
+       "x": 76,
+       "y": 64,
+       "w": 160,
+       "h": 22,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "한강의 밤",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 22,
+        "color": {
+         "hex": "#121418",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:9",
+       "name": "span",
+       "type": "TEXT",
+       "x": 76,
+       "y": 86,
+       "w": 160,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "10월 18일(토) 19:30 · 3관 · 2D",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:10",
+       "name": "span",
+       "type": "TEXT",
+       "x": 76,
+       "y": 104,
+       "w": 160,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "15세 관람가 · 118분",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:11",
+   "name": "hall",
+   "type": "FRAME",
+   "x": 0,
+   "y": 145,
+   "w": 375,
+   "h": 667,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:12",
+     "name": "screen",
+     "type": "FRAME",
+     "x": 40,
+     "y": 161,
+     "w": 295,
+     "h": 6,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#C7CCD4",
+      "token": null
+     },
+     "radius": 3
+    },
+    {
+     "id": "1:13",
+     "name": "scr",
+     "type": "TEXT",
+     "x": 16,
+     "y": 173,
+     "w": 343,
+     "h": 16,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "SCREEN",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 16,
+      "color": {
+       "hex": "#5C6370",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:14",
+     "name": "seats",
+     "type": "FRAME",
+     "x": 16,
+     "y": 205,
+     "w": 343,
+     "h": 325,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "GRID",
+      "gap": 4,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:15",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 217,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "A",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:16",
+       "name": "A열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:17",
+       "name": "A열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:18",
+       "name": "A열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:19",
+       "name": "A열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:20",
+       "name": "A열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:21",
+       "name": "A열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:22",
+       "name": "A열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:23",
+       "name": "A열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 205,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:24",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 258,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "B",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:25",
+       "name": "B열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:26",
+       "name": "B열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:27",
+       "name": "B열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:28",
+       "name": "B열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:29",
+       "name": "B열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:30",
+       "name": "B열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:31",
+       "name": "B열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:32",
+       "name": "B열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 246,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:33",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 299,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "C",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:34",
+       "name": "C열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:35",
+       "name": "C열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:36",
+       "name": "C열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:37",
+       "name": "C열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:38",
+       "name": "C열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:39",
+       "name": "C열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:40",
+       "name": "C열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:41",
+       "name": "C열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 287,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:42",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 340,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "D",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:43",
+       "name": "D열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:44",
+       "name": "D열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:45",
+       "name": "D열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:46",
+       "name": "D열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:47",
+       "name": "D열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:48",
+       "name": "D열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:49",
+       "name": "D열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:50",
+       "name": "D열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 328,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:51",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 381,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "E",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:52",
+       "name": "E열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:53",
+       "name": "E열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:54",
+       "name": "E열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:55",
+       "name": "E열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#DC2626",
+        "token": "color/brand"
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:56",
+       "name": "E열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#DC2626",
+        "token": "color/brand"
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:57",
+       "name": "E열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:58",
+       "name": "E열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:59",
+       "name": "E열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 370,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:60",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 422,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "F",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:61",
+       "name": "F열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:62",
+       "name": "F열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:63",
+       "name": "F열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:64",
+       "name": "F열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:65",
+       "name": "F열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:66",
+       "name": "F열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:67",
+       "name": "F열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:68",
+       "name": "F열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 411,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:69",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 463,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "G",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:70",
+       "name": "G열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:71",
+       "name": "G열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:72",
+       "name": "G열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:73",
+       "name": "G열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:74",
+       "name": "G열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:75",
+       "name": "G열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:76",
+       "name": "G열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:77",
+       "name": "G열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 452,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:78",
+       "name": "rw",
+       "type": "TEXT",
+       "x": 16,
+       "y": 504,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "H",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "lineHeight": 14,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:79",
+       "name": "H열 1번",
+       "type": "TEXT",
+       "x": 34,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:80",
+       "name": "H열 2번",
+       "type": "TEXT",
+       "x": 75,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:81",
+       "name": "H열 3번",
+       "type": "TEXT",
+       "x": 116,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "3",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:82",
+       "name": "H열 4번",
+       "type": "TEXT",
+       "x": 157,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "4",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:83",
+       "name": "H열 5번",
+       "type": "TEXT",
+       "x": 199,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "5",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:84",
+       "name": "H열 6번",
+       "type": "TEXT",
+       "x": 240,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "6",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:85",
+       "name": "H열 7번",
+       "type": "TEXT",
+       "x": 281,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#E5E7EB",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "7",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#4B5563",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:86",
+       "name": "H열 8번",
+       "type": "TEXT",
+       "x": 322,
+       "y": 493,
+       "w": 37,
+       "h": 37,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#9CA3AF",
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "8",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 10,
+        "fontWeight": 400,
+        "lineHeight": 12,
+        "color": {
+         "hex": "#F3F4F6",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:87",
+     "name": "legend",
+     "type": "FRAME",
+     "x": 16,
+     "y": 546,
+     "w": 343,
+     "h": 16,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 16,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "center",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:88",
+       "name": "span",
+       "type": "FRAME",
+       "x": 69,
+       "y": 546,
+       "w": 65,
+       "h": 16,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 6,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:89",
+         "name": "i",
+         "type": "FRAME",
+         "x": 69,
+         "y": 547,
+         "w": 14,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "fill": {
+          "hex": "#E5E7EB",
+          "token": null
+         },
+         "radius": 4
+        }
+       ]
+      },
+      {
+       "id": "1:90",
+       "name": "s",
+       "type": "FRAME",
+       "x": 150,
+       "y": 546,
+       "w": 75,
+       "h": 16,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 6,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:91",
+         "name": "i",
+         "type": "FRAME",
+         "x": 150,
+         "y": 547,
+         "w": 14,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "fill": {
+          "hex": "#DC2626",
+          "token": "color/brand"
+         },
+         "radius": 4
+        }
+       ]
+      },
+      {
+       "id": "1:92",
+       "name": "t",
+       "type": "FRAME",
+       "x": 241,
+       "y": 546,
+       "w": 65,
+       "h": 16,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 6,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:93",
+         "name": "i",
+         "type": "FRAME",
+         "x": 241,
+         "y": 547,
+         "w": 14,
+         "h": 14,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "fill": {
+          "hex": "#9CA3AF",
+          "token": null
+         },
+         "radius": 4
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:94",
+   "name": "pay",
+   "type": "FRAME",
+   "x": 0,
+   "y": 705,
+   "w": 375,
+   "h": 107,
+   "sizing": {
+    "h": "FILL"
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#E3E6EA",
+    "token": "color/line"
+   },
+   "children": [
+    {
+     "id": "1:95",
+     "name": "sum",
+     "type": "FRAME",
+     "x": 16,
+     "y": 718,
+     "w": 343,
+     "h": 24,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "baseline",
+      "justify": "space-between",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:96",
+       "name": "span",
+       "type": "TEXT",
+       "x": 16,
+       "y": 722,
+       "w": 141,
+       "h": 18,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "선택한 좌석 E4, E5 · 성인 2",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#5C6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:97",
+       "name": "b",
+       "type": "TEXT",
+       "x": 284,
+       "y": 718,
+       "w": 75,
+       "h": 24,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "30,000원",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "color": {
+         "hex": "#121418",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:98",
+     "name": "button",
+     "type": "TEXT",
+     "x": 16,
+     "y": 752,
+     "w": 343,
+     "h": 48,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#DC2626",
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "text": {
+      "content": "결제하기",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 16,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  }
+ ]
+}
