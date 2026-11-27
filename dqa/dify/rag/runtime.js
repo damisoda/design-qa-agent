@@ -60,7 +60,7 @@ async function adaptive (body, cfg, job, startAndWait, runStatus) {
   const host=await serveDist(m.targets.head.dist);const base=m.targets.base&&m.targets.base.dist?await serveDist(m.targets.base.dist):null
   fs.mkdirSync(path.join(dir,'before-adaptive'),{recursive:true});for(const name of ['manifest.json','defects.json','summary.json'])fs.copyFileSync(path.join(dir,name),path.join(dir,'before-adaptive',name))
   const sizes=[...new Map([...m.sizes,...selected.sizes].map(s=>[s.slice(0,2).join('x'),s.slice(0,2)])).values()]
-  const args=['check','--url',host.origin,'--src',m.targets.head.src||m.targets.head.dist,'--recipe',m.recipes.map(r=>r.id).join(','),'--widths',sizes.map(s=>s.join('x')).join(','),'--llm','off','--title',m.title]
+  const args=['check','--url',host.origin,'--src',m.targets.head.src||m.targets.head.dist,'--recipe',m.recipes.map(r=>r.id).join(','),'--widths',sizes.map(s=>s.join('x')).join(','),'--llm','off','--title',m.title,'--snapshot-run',body.run_id]
   if(base)args.push('--base-url',base.origin,'--base-src',m.targets.base.src||m.targets.base.dist)
   if(m.design)args.push('--design',Object.entries(m.design).map(([k,d])=>k+'='+path.join(dir,d.json)).join(','))
   if(inv.interact)args.push('--interact')
@@ -68,7 +68,7 @@ async function adaptive (body, cfg, job, startAndWait, runStatus) {
   job.adaptivePending = { m, audit, host, base }
   try {
     const r = await startAndWait(args,null,3000,body.run_id)
-    if (r.done) finishAdaptive(job, cfg, r.code)
+    if (r.done) finishAdaptive(job, cfg, r.code, r.error)
     return {...runStatus(body.run_id,cfg),report_enabled:job.body.llm!=='off'}
   } catch (e) { releaseAdaptive(job); throw e }
 }
@@ -78,16 +78,22 @@ function releaseAdaptive (job) {
   pending.host.close(); if (pending.base) pending.base.close()
   job.adaptivePending = null
 }
-function finishAdaptive (job, cfg, code) {
+function finishAdaptive (job, cfg, code, error) {
   const pending = job.adaptivePending
   if (!pending) return
   const { m, audit } = pending; const dir = path.join(RUNS, job.id)
   try {
     const next = readJSON(path.join(dir, 'manifest.json'))
     next.targets=m.targets;next.local=m.local;next.repo=m.repo;next.build=m.build;next.design=m.design
-    audit.status=code===null || code===2 || next.status!=='done' ? 'failed' : 'done'
+    audit.status=![0,1].includes(code) || next.status!=='done' ? 'failed' : 'done'
     audit.finished_at=new Date().toISOString();audit.total_sec=Math.round((Date.parse(audit.finished_at)-Date.parse(audit.started_at))/100)/10
     next.adaptive={source:'dify',extra_sizes:audit.selected.sizes,interaction_sizes:audit.selected.clicks,basis:audit.plan.map(p=>p.basis),status:audit.status}
+    if (audit.status === 'failed') {
+      audit.error = error || next.error || '추가 크기·버튼 검사를 완료하지 못했습니다'
+      next.status = 'incomplete'; next.exit_code = 2; next.error = audit.error
+      const summary = readJSON(path.join(dir, 'summary.json'), null)
+      if (summary) { summary.exit_code = 2; writeJSON(path.join(dir, 'summary.json'), summary) }
+    }
     writeJSON(path.join(dir,'manifest.json'),next);writeJSON(path.join(dir,'rag_plan.json'),audit)
   } finally { releaseAdaptive(job) }
 }

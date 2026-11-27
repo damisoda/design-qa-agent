@@ -52,6 +52,7 @@ function confidence (d) {
 
 async function check (args, cfg) {
   const recipeIds = String(args.recipe || '').split(',').filter(Boolean)
+  require('../server/local-selection').validateCheckScope(recipeIds, args)
   if (!recipeIds.length && !args.repo && !args.local) throw new Error('--recipe가 필요하다(dqa recipe list)')
   const run = createRun('check', args['run-id'])
   const progress = require('./live').createLive(run); run.live = progress

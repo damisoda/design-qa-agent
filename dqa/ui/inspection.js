@@ -37,7 +37,7 @@
     <div class="inspector-view-filter" role="group" aria-label="표시할 요소"><button type="button" id="element-problems" aria-pressed="false">차이 있는 요소</button><button type="button" id="element-all" aria-pressed="true">전체 요소</button></div><div class="element-workspace"><nav class="element-list" id="element-list" aria-label="확인한 요소 목록"></nav><div class="element-canvases" id="element-canvases"></div><aside class="element-detail" id="element-detail" aria-label="선택 요소의 측정 근거"></aside></div></section>`
   }
   function mount (id, api, file, toast) {
-    const records = new Map(); let size = ''; let phase = 'measure'; let selected = ''; let follow = true; let context = null; let closed = false; let scheduled = false; let revealed = ''; let onlyProblems = null
+    const records = new Map(); let size = ''; let phase = 'measure'; let selected = ''; let follow = true; let context = null; let closed = false; let scheduled = false; let revealed = ''; let onlyProblems = false
     const stream = new EventSource(`/api/runs/${encodeURIComponent(id)}/inspection-stream`)
     const schedule = () => { if (scheduled || closed) return; scheduled = true; requestAnimationFrame(() => { scheduled = false; render() }) }
     const receive = row => {
@@ -59,7 +59,7 @@
     document.querySelectorAll('[data-inspection-phase]').forEach(b => { b.onclick = () => { phase = b.dataset.inspectionPhase; selected = ''; follow = false; schedule() } })
     document.getElementById('element-follow').onclick = () => {
       follow = !follow
-      if (follow) { const last = [...records.values()].filter(r => r.side === 'head' && r.size === size).sort((a, b) => b.seq - a.seq)[0]; if (last) { phase = last.phase; selected = keyOf(last) } }
+      if (follow) { onlyProblems = false; const last = [...records.values()].filter(r => r.side === 'head' && r.size === size).sort((a, b) => b.seq - a.seq)[0]; if (last) { phase = last.phase; selected = keyOf(last) } }
       schedule()
     }
     function figure (caption, shot, box, width, height, variant, number) {
@@ -78,7 +78,7 @@
       document.querySelectorAll('[data-inspection-phase]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.inspectionPhase === phase)); b.classList.toggle('on', b.dataset.inspectionPhase === phase) })
       const available = groupRows(all, size, phase)
       const differing = g => g.rows.some(r => r.findings && r.findings.length)
-      if (onlyProblems === null && available.some(differing)) onlyProblems = true
+      // Following shows every observed element; filtering is an explicit user choice.
       const groups = onlyProblems ? available.filter(differing) : available
       document.getElementById('element-problems').setAttribute('aria-pressed', String(!!onlyProblems))
       document.getElementById('element-problems').textContent = `차이 있는 요소 ${available.filter(differing).length}`
@@ -91,7 +91,7 @@
       list.innerHTML = groups.map(g => {
         const row = g.latest; const label = row.figma ? row.figma.name : row.element && (row.element.label || row.element.tag) || '요소'
         const findings = g.rows.flatMap(r => r.findings || [])
-        return `<button type="button" data-element-key="${esc(g.key)}" aria-pressed="${g.key === selected}"><b>${esc(label)}</b><span>${statusLabel(row, context && context.running, findings.length)} · ${esc(testName(row.test))}</span></button>`
+        return `<button type="button" data-element-key="${esc(g.key)}" aria-pressed="${g.key === selected}"><b>${esc(label)}</b><span>${statusLabel(row, context && context.running, findings.length)} · ${esc(findings.length ? [...new Set(findings.map(f => testName(f.rule)))].join(' · ') : testName(row.test))}</span></button>`
       }).join('') || '<p class="hint">이 크기·단계에서 확인한 요소가 아직 없습니다. 시안 비교와 버튼 반응은 검사한 크기에서만 표시됩니다.</p>'
       list.querySelectorAll('[data-element-key]').forEach(b => { b.onclick = () => { selected = b.dataset.elementKey; follow = false; schedule() } })
       if (focused) { const b = [...list.querySelectorAll('[data-element-key]')].find(x => x.dataset.elementKey === focused); if (b) b.focus({ preventScroll: true }) }
@@ -104,7 +104,8 @@
       if (!group) { state.textContent = onlyProblems && available.length ? '지금까지 이 단계에서 측정 차이가 나온 요소가 없습니다. 전체 요소에서 측정 기록을 확인하세요.' : emptyMessage(all, size, phase, context && context.running); canvases.innerHTML = `<div class="element-no-image">${esc(state.textContent)}</div>`; canvases.dataset.html = ''; detail.innerHTML = ''; return }
       const row = group.latest; const label = row.figma ? row.figma.name : row.element && (row.element.label || row.element.tag) || '요소'
       const ongoing = row.status === 'checking' && context && context.running && ['measure', 'design', 'interact'].includes(context.progress && context.progress.phase)
-      state.textContent = `${ongoing ? '현재 검사' : '확인한 요소'}: ${label} · ${testName(row.test)}${row.total ? ` (${row.ordinal}/${row.total})` : ''}`
+      const observedRules = [...new Set(group.rows.flatMap(r => r.findings || []).map(f => testName(f.rule)))]
+      state.textContent = `${ongoing ? '현재 검사' : '확인한 요소'}: ${label} · ${observedRules.length && !ongoing ? observedRules.join(' · ') : testName(row.test)}${row.total ? ` (${row.ordinal}/${row.total})` : ''}`
       const matching = (context && context.defects || []).filter(d => (phase === 'design' ? d.kind === 'design' : phase === 'interact' ? d.kind === 'interact' : !['design', 'interact'].includes(d.kind)) && d.screen === row.screen && (d.design && d.design.node ? d.design.node.id === row.figma?.id : (d.elements || []).some(e => e.path === row.element?.path))).sort(DqaTriage.compare)
       const ordered = [...(context && context.defects || [])].sort(DqaTriage.compare)
       const marker = matching.length ? ordered.findIndex(d => d.id === matching[0].id) + 1 : available.indexOf(group) + 1

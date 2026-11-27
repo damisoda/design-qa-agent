@@ -38,10 +38,10 @@ function resolveDesign (args, t, recipes, run, cfg) {
     if (!spec || !(spec.frame || spec.nodes)) continue
     const safe = r.id.replace(/[^\w.-]+/g, '_')
     fs.mkdirSync(run.file('design'), { recursive: true })
-    fs.copyFileSync(f, run.file(`design/${safe}.json`))
-    const png = path.join(path.dirname(f), 'design.png')
+    if (path.resolve(f) !== path.resolve(run.file(`design/${safe}.json`))) fs.copyFileSync(f, run.file(`design/${safe}.json`))
+    const png = args['snapshot-run'] ? f.replace(/\.json$/, '.png') : path.join(path.dirname(f), 'design.png')
     const hasPng = fs.existsSync(png)
-    if (hasPng) fs.copyFileSync(png, run.file(`design/${safe}.png`))
+    if (hasPng && path.resolve(png) !== path.resolve(run.file(`design/${safe}.png`))) fs.copyFileSync(png, run.file(`design/${safe}.png`))
     out[r.id] = {
       source: f, file: spec.file || null, page: spec.page || null, figma: spec.figma || null, frame_id: spec.frame && spec.frame.id, page_id: spec.page_id || null,
       frame: spec.frame ? spec.frame.name : null,
