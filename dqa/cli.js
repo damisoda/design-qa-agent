@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // dqa — 디자인-구현 결함 검수 도구(로컬).
-//   dqa check  --dist <빌드|이름> [--base-dist <빌드|이름>] --recipe <id>[,<id>] [--widths mobile5|notch3|375x812,390x844] [--safe 47,34] [--scroll none] [--design <design.json|폴더>] [--run-id <ID>] [--llm auto|off] [--src <소스>] [--base-src <소스>]
+//   dqa check  --dist <빌드|이름> [--base-dist <빌드|이름>] --recipe <id>[,<id>] [--widths mobile5|notch3|375x812,390x844] [--safe 47,34] [--scroll none] [--design <design.json|폴더>] [--run-id <ID>] [--llm auto|off] [--src <소스>] [--base-src <소스>] [--device ios [--ios-device "iPhone 17 Pro"]]
 //   dqa check  --url <http://127.0.0.1:포트> --recipe <id> [--base-url <주소>] [--src <소스>]
 //   dqa check  --repo cbh --pr <번호> | --ref <sha|브랜치> [--base <ref>] [--recipe ...]
 //   dqa check  --local <작업 폴더> [--base HEAD|none|<ref>] [--recipe ...]   (작업 폴더는 읽기만, 기본 비교는 커밋 전 HEAD)
