@@ -1,0 +1,32 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>맞춤 설정 · r4-toast</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF1F5;--text:#111827;--muted:#5B6472;--line:#DDE2E8;--brand:#2F5BD3}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.top .skip{height:44px;padding:0 4px;background:transparent;font-size:14px;color:var(--muted)}
+.steps{flex:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:12px 16px 8px}
+.steps div{font-size:12px;line-height:16px;color:var(--muted);text-align:center;padding-top:8px;border-top:3px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.steps .on{color:var(--text);font-weight:700;border-top-color:var(--brand)}
+.qa{flex:1;overflow-y:auto;padding:16px 20px 24px}
+.qa h1{margin:0 0 6px;font-size:22px;line-height:30px}.qa .sub{margin:0 0 18px;font-size:14px;line-height:21px;color:var(--muted)}
+.opt{display:flex;align-items:center;gap:12px;min-height:56px;padding:0 16px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;font-size:15px}
+.opt input{width:22px;height:22px;margin:0;accent-color:var(--brand);flex:none}
+.opt.sel{border-color:var(--brand);background:#F0F5FF}
+.qa h2{margin:22px 0 4px;font-size:17px;line-height:24px}
+.scale{display:flex;gap:6px;margin-top:8px}.scale button{flex:1;min-width:0;height:56px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:13px;line-height:17px;padding:0 2px;color:var(--text)}
+.foot{flex:none;padding:12px 20px 16px;border-top:1px solid var(--line);background:#fff}
+.next{display:block;width:100%;height:52px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;font-weight:700}
+.toast{position:absolute;left:16px;right:16px;bottom:96px;height:44px;border-radius:10px;background:#1F2937;color:#fff;font-size:14px;display:flex;align-items:center;padding:0 14px}
+.toast{bottom:16px}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#222" stroke-width="2"/></svg></button><span class="ttl">맞춤 설정</span><button class="skip">건너뛰기</button></div>
+<div class="steps"><div>기본 정보 입력</div><div class="on">관심 운동</div><div>알림 받을 시간</div><div>완료</div></div>
+<div class="qa"><h1>어떤 운동을 좋아하세요?</h1><p class="sub">여러 개를 고를 수 있어요. 나중에 바꿀 수 있어요.</p>
+<label class="opt sel"><input type="checkbox" checked>러닝</label><label class="opt"><input type="checkbox">요가 · 필라테스</label><label class="opt"><input type="checkbox">근력 운동</label><label class="opt"><input type="checkbox">등산</label>
+<h2>운동 강도는 어느 정도가 좋나요?</h2>
+<div class="scale"><button>가볍게</button><button>조금</button><button>보통</button><button>꽤</button><button>강하게</button></div></div>
+<div class="foot"><button class="next">다음</button></div>
+<div class="toast" role="status">임시 저장했어요</div></div></div></body></html>

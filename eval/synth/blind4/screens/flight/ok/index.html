@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>항공편 검색 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF1F5;--text:#101828;--muted:#5B6474;--line:#E4E7EC;--brand:#1D4ED8}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.top .tt{flex:1;min-width:0}.top .tt b{display:block;font-size:16px;line-height:22px}.top .tt span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.dates{flex:none;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--line)}
+.dates button{flex:none;width:68px;height:52px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:12px;line-height:16px;color:var(--text)}
+.dates button b{display:block;font-size:13px}.dates .on{border-color:var(--brand);background:#EFF4FF}
+.chips{flex:none;display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 0}.chips span{font-size:13px;line-height:18px;padding:5px 10px;border-radius:14px;border:1px solid var(--line)}
+.list{flex:1;overflow-y:auto;padding:4px 16px 88px}
+.fl{position:relative;border:1px solid var(--line);border-radius:14px;padding:14px;margin:16px 0 10px;background:#fff}
+.fl .best{position:absolute;left:12px;top:-10px;font-size:11px;line-height:16px;font-weight:700;padding:2px 8px;border-radius:8px;background:var(--brand);color:#fff}
+.fl .air{display:flex;align-items:center;gap:8px;font-size:13px;line-height:18px;color:var(--muted)}.fl .air img{width:42px;height:14px;object-fit:contain}
+.fl .air .price{margin-left:auto;font-size:17px;line-height:22px;font-weight:800;color:#BE123C}
+.fl .row{display:flex;align-items:center;gap:10px;margin-top:10px}
+.fl .t{flex:none;min-width:56px}.fl .t b{display:block;font-size:20px;line-height:26px}.fl .t span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.fl .t.r{text-align:right}
+.fl .dur{flex:1;min-width:0;text-align:center;font-size:12px;line-height:16px;color:var(--muted)}.fl .dur i{display:block;height:1px;background:#C9CED6;margin:4px 0}
+.fl .left{margin:8px 0 0;font-size:12px;line-height:16px;color:#B42318}
+.sort{position:absolute;left:0;right:0;bottom:0;height:64px;display:flex;gap:8px;padding:10px 16px;background:#fff;border-top:1px solid var(--line)}
+.sort button{flex:1;height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:600;color:var(--text)}
+</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="tt"><b>서울(김포) → 제주</b><span>10월 18일(토) · 성인 1명 · 일반석</span></div></div>
+<div class="dates"><button>10.16 목<b>72,400</b></button><button>10.17 금<b>81,900</b></button><button class=on>10.18 토<b>68,900</b></button><button>10.19 일<b>95,000</b></button><button>10.20 월<b>61,200</b></button><button>10.21 화<b>59,800</b></button></div>
+<div class="chips"><span>직항만</span><span>오전 출발</span><span>수하물 포함</span><span>환불 가능</span></div>
+<div class="list"><div class="fl"><span class="best">최저가</span><div class="air"><img src="logo1.png" alt="하늘항공 로고"><span>하늘항공</span><span class="price">68,900원</span></div>
+<div class="row"><div class="t"><b>07:05</b><span>GMP</span></div><div class="dur">1시간 10분 · 직항 · 기내 수하물 10kg<i></i></div><div class="t r"><b>08:15</b><span>CJU</span></div></div><p class="left">잔여 3석</p></div><div class="fl"><div class="air"><img src="logo2.png" alt="바다항공 로고"><span>바다항공</span><span class="price">74,200원</span></div>
+<div class="row"><div class="t"><b>09:30</b><span>GMP</span></div><div class="dur">1시간 10분 · 직항 · 기내 수하물 10kg<i></i></div><div class="t r"><b>10:40</b><span>CJU</span></div></div></div><div class="fl"><div class="air"><img src="logo3.png" alt="구름항공 로고"><span>구름항공</span><span class="price">81,000원</span></div>
+<div class="row"><div class="t"><b>12:15</b><span>GMP</span></div><div class="dur">1시간 10분 · 직항 · 기내 수하물 10kg<i></i></div><div class="t r"><b>13:25</b><span>CJU</span></div></div><p class="left">잔여 5석</p></div><div class="fl"><div class="air"><img src="logo1.png" alt="하늘항공 로고"><span>하늘항공</span><span class="price">92,500원</span></div>
+<div class="row"><div class="t"><b>18:40</b><span>GMP</span></div><div class="dur">1시간 10분 · 직항 · 기내 수하물 10kg<i></i></div><div class="t r"><b>19:50</b><span>CJU</span></div></div></div></div>
+<div class="sort"><button>정렬: 가격 낮은 순</button><button>필터 2</button></div></div></div></body></html>

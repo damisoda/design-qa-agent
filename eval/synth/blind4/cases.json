@@ -1,0 +1,1660 @@
+{
+ "note": "블라인드 합성 예제 4묶음(10-10). 블라인드 3의 빈틈을 고친 규칙을 고정하고 한 번만 잰다. 규칙 밖 유형: D2 색 토큰(2), D3 글자 굵기, S4 선택 상태, F1 크기 방식, L1 정렬. 채점은 R3를 짝 기준으로 본다(상대 쪽 라벨도 힌트로 인정).",
+ "frozen_rules_sha1": "55c64714337262f2cc7805d8d04a993d95754f6b",
+ "cases": [
+  {
+   "id": "blind4-flight-ok",
+   "screen": "flight",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/flight/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-budget-ok",
+   "screen": "budget",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/budget/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-tracking-ok",
+   "screen": "tracking",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/tracking/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-meds-ok",
+   "screen": "meds",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/meds/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-address-ok",
+   "screen": "address",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/address/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-calendar-ok",
+   "screen": "calendar",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind4/screens/calendar/ok",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind4-flight-r3-left",
+   "screen": "flight",
+   "variant": "r3-left",
+   "code": "R3",
+   "defect": "'잔여 좌석' 안내를 카드 오른쪽 위 절대 위치로 옮겨 가격 글자 위에 얹힘",
+   "dir": "eval/synth/blind4/screens/flight/r3-left",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".fl .left",
+    "other": ".fl .price"
+   },
+   "hint": [
+    "잔여 3석",
+    "잔여 5석",
+    "68,900원",
+    "81,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 530,
+     "390x844": 530,
+     "430x932": 530,
+     "375x667": 530,
+     "320x568": 530
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-flight-r1-dur",
+   "screen": "flight",
+   "variant": "r1-dur",
+   "code": "R1",
+   "defect": "소요 시간 칸이 줄어들지 않게 하고 줄바꿈을 막아 도착 시각이 카드 밖으로 밀림",
+   "dir": "eval/synth/blind4/screens/flight/r1-dur",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".fl .row"
+   },
+   "hint": [
+    "08:15",
+    "10:40",
+    "13:25",
+    "19:50",
+    "CJU",
+    "1시간 10분"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 47
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-flight-a2-code",
+   "screen": "flight",
+   "variant": "a2-code",
+   "code": "A2",
+   "defect": "공항 코드 글자를 #A0A7B1로 옅게 함",
+   "dir": "eval/synth/blind4/screens/flight/a2-code",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".fl .t span",
+    "min": 4.5
+   },
+   "hint": [
+    "GMP",
+    "CJU"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2.43,
+     "390x844": 2.43,
+     "430x932": 2.43,
+     "375x667": 2.43,
+     "320x568": 2.43
+    },
+    "ok": {
+     "375x812": 5.97,
+     "390x844": 5.97,
+     "430x932": 5.97,
+     "375x667": 5.97,
+     "320x568": 5.97
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-flight-d4-logo",
+   "screen": "flight",
+   "variant": "d4-logo",
+   "code": "D4",
+   "defect": "가로로 긴 항공사 로고를 아이콘 칸(24×24)에 object-fit 없이 넣어 찌그러짐",
+   "dir": "eval/synth/blind4/screens/flight/d4-logo",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_ratio",
+    "sel": ".fl .air img"
+   },
+   "hint": [
+    "하늘항공 로고",
+    "바다항공 로고",
+    "구름항공 로고"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "3 → 1 (fill)",
+     "390x844": "3 → 1 (fill)",
+     "430x932": "3 → 1 (fill)",
+     "375x667": "3 → 1 (fill)",
+     "320x568": "3 → 1 (fill)"
+    },
+    "ok": {
+     "375x812": "3 → 3 (contain)",
+     "390x844": "3 → 3 (contain)",
+     "430x932": "3 → 3 (contain)",
+     "375x667": "3 → 3 (contain)",
+     "320x568": "3 → 3 (contain)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-flight-r4-sort",
+   "screen": "flight",
+   "variant": "r4-sort",
+   "code": "R4",
+   "defect": "목록 아래 여백을 8px로 줄여 끝까지 내려도 마지막 항공편이 정렬 막대에 가려짐",
+   "dir": "eval/synth/blind4/screens/flight/r4-sort",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".list > .fl:last-child .t.r",
+    "scroll": ".list"
+   },
+   "hint": [
+    "19:50",
+    "CJU",
+    "18:40",
+    "GMP"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "640~682 B",
+     "390x844": "640~682 B",
+     "430x932": "640~682 B",
+     "375x667": "592~634 sort",
+     "320x568": "493~535 sort"
+    },
+    "ok": {
+     "375x812": "640~682 B",
+     "390x844": "640~682 B",
+     "430x932": "640~682 B",
+     "375x667": "512~554 B",
+     "320x568": "413~455 B"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-flight-d2-price",
+   "screen": "flight",
+   "variant": "d2-price",
+   "code": "D2",
+   "defect": "가격 색을 토큰(#BE123C) 대신 비슷한 #E11D48로 직접 씀",
+   "dir": "eval/synth/blind4/screens/flight/d2-price",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".fl .air .price",
+    "prop": "color",
+    "value": "rgb(190, 18, 60)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(225, 29, 72)"
+    },
+    "ok": {
+     "375x812": "rgb(190, 18, 60)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-r6-amt",
+   "screen": "budget",
+   "variant": "r6-amt",
+   "code": "R6",
+   "defect": "금액 칸을 48px로 줄이고 글자 끊기를 허용해 '411,000원'이 꺾임",
+   "dir": "eval/synth/blind4/screens/budget/r6-amt",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".cat .amt"
+   },
+   "hint": [
+    "411,000원",
+    "231,000원",
+    "282,600원",
+    "256,900원",
+    "103,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-r3-center",
+   "screen": "budget",
+   "variant": "r3-center",
+   "code": "R3",
+   "defect": "도넛 가운데 글자를 40px로 키워 글자가 링 위로 넘어감",
+   "dir": "eval/synth/blind4/screens/budget/r3-center",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "text_in_circle",
+    "sel": ".donut .c b",
+    "circle": ".donut svg",
+    "r": 68
+   },
+   "hint": [
+    "식비 32%"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 17,
+     "390x844": 17,
+     "430x932": 17,
+     "375x667": 17,
+     "320x568": 17
+    },
+    "ok": {
+     "375x812": -20,
+     "390x844": -20,
+     "430x932": -20,
+     "375x667": -20,
+     "320x568": -20
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-a2-sub",
+   "screen": "budget",
+   "variant": "a2-sub",
+   "code": "A2",
+   "defect": "지난달 비교 문구를 밝은 초록(#34D399)으로 바꿈",
+   "dir": "eval/synth/blind4/screens/budget/a2-sub",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".sum p",
+    "min": 4.5
+   },
+   "hint": [
+    "지난달보다"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.84,
+     "390x844": 1.84,
+     "430x932": 1.84,
+     "375x667": 1.84,
+     "320x568": 1.84
+    },
+    "ok": {
+     "375x812": 5.24,
+     "390x844": 5.24,
+     "430x932": 5.24,
+     "375x667": 5.24,
+     "320x568": 5.24
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-r1-tx",
+   "screen": "budget",
+   "variant": "r1-tx",
+   "code": "R1",
+   "defect": "내역 이름 칸이 줄어들지 않게 하고 줄바꿈을 막아 긴 가게 이름이 금액을 화면 밖으로 밀어냄",
+   "dir": "eval/synth/blind4/screens/budget/r1-tx",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".tx"
+   },
+   "hint": [
+    "GS25 망원한강공원",
+    "-12,300원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 15,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 15,
+     "320x568": 70
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-a1-mon",
+   "screen": "budget",
+   "variant": "a1-mon",
+   "code": "A1",
+   "defect": "이전·다음 달 버튼을 20px로 줄임",
+   "dir": "eval/synth/blind4/screens/budget/a1-mon",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".mon button",
+    "min": 24
+   },
+   "hint": [
+    "이전 달",
+    "다음 달"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 40,
+     "390x844": 40,
+     "430x932": 40,
+     "375x667": 40,
+     "320x568": 40
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-budget-d2-dot",
+   "screen": "budget",
+   "variant": "d2-dot",
+   "code": "D2",
+   "defect": "범례의 식비 점 색을 도넛 색(#F97316)과 다른 #F59E0B로 씀",
+   "dir": "eval/synth/blind4/screens/budget/d2-dot",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".cat i",
+    "prop": "background-color",
+    "value": "rgb(249, 115, 22)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(245, 158, 11)"
+    },
+    "ok": {
+     "375x812": "rgb(249, 115, 22)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-r3-steps",
+   "screen": "tracking",
+   "variant": "r3-steps",
+   "code": "R3",
+   "defect": "단계 이름을 동그라미 옆에 두려고 절대 위치로 올렸다가 단계 선 위에 겹침",
+   "dir": "eval/synth/blind4/screens/tracking/r3-steps",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".steps .s span",
+    "other": ".steps .ln"
+   },
+   "hint": [
+    "주문 접수",
+    "조리 중",
+    "배달 중",
+    "도착"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 103,
+     "390x844": 103,
+     "430x932": 103,
+     "375x667": 103,
+     "320x568": 103
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-r4-panel",
+   "screen": "tracking",
+   "variant": "r4-panel",
+   "code": "R4",
+   "defect": "아래 패널의 스크롤을 넘침 숨김으로 바꿔 작은 화면에서 '주문 취소'에 닿을 수 없음",
+   "dir": "eval/synth/blind4/screens/tracking/r4-panel",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "offscreen",
+    "sel": ".cancel"
+   },
+   "hint": [
+    "주문 취소"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "버튼 689~733, 보이는 끝 812",
+     "390x844": "버튼 701~745, 보이는 끝 844",
+     "430x932": "버튼 734~778, 보이는 끝 932",
+     "375x667": "버튼 633~677, 보이는 끝 667",
+     "320x568": "버튼 604~648, 보이는 끝 568"
+    },
+    "ok": {
+     "375x812": "버튼 689~733, 보이는 끝 Infinity",
+     "390x844": "버튼 701~745, 보이는 끝 844",
+     "430x932": "버튼 734~778, 보이는 끝 932",
+     "375x667": "버튼 633~677, 보이는 끝 Infinity",
+     "320x568": "버튼 604~648, 보이는 끝 Infinity"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-a1-chat",
+   "screen": "tracking",
+   "variant": "a1-chat",
+   "code": "A1",
+   "defect": "채팅 버튼을 22px로 줄임",
+   "dir": "eval/synth/blind4/screens/tracking/a1-chat",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".rider button",
+    "min": 24
+   },
+   "hint": [
+    "채팅"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 22,
+     "390x844": 22,
+     "430x932": 22,
+     "375x667": 22,
+     "320x568": 22
+    },
+    "ok": {
+     "375x812": 44,
+     "390x844": 44,
+     "430x932": 44,
+     "375x667": 44,
+     "320x568": 44
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-a2-eta",
+   "screen": "tracking",
+   "variant": "a2-eta",
+   "code": "A2",
+   "defect": "지도 위 도착 예정 칩의 배경을 반투명(55%)으로 하고 글자를 #8A94A3로 옅게 함",
+   "dir": "eval/synth/blind4/screens/tracking/a2-eta",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast_img",
+    "sel": ".map .eta",
+    "img": ".map img",
+    "min": 4.5
+   },
+   "hint": [
+    "도착 예정"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2.9,
+     "390x844": 2.9,
+     "430x932": 2.9,
+     "375x667": 2.9,
+     "320x568": 2.9
+    },
+    "ok": {
+     "375x812": 17.86,
+     "390x844": 17.86,
+     "430x932": 17.86,
+     "375x667": 17.86,
+     "320x568": 17.86
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-r2-items",
+   "screen": "tracking",
+   "variant": "r2-items",
+   "code": "R2",
+   "defect": "주문 내역 목록 높이를 48px로 고정하고 넘침을 숨겨 세 번째 항목이 잘림",
+   "dir": "eval/synth/blind4/screens/tracking/r2-items",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_parent",
+    "sel": ".items li"
+   },
+   "hint": [
+    "갈릭 디핑 소스",
+    "500원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 32,
+     "390x844": 32,
+     "430x932": 32,
+     "375x667": 32,
+     "320x568": 32
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-tracking-d3-h1",
+   "screen": "tracking",
+   "variant": "d3-h1",
+   "code": "D3",
+   "defect": "도착 안내 제목 굵기를 시안 800 대신 500으로 씀",
+   "dir": "eval/synth/blind4/screens/tracking/d3-h1",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".panel h1",
+    "prop": "font-weight",
+    "value": "800"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "500"
+    },
+    "ok": {
+     "375x812": "800"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-a1-switch",
+   "screen": "meds",
+   "variant": "a1-switch",
+   "code": "A1",
+   "defect": "알림 스위치를 28×16px로 줄임",
+   "dir": "eval/synth/blind4/screens/meds/a1-switch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".md [role=switch]",
+    "min": 24
+   },
+   "hint": [
+    "알림"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 16,
+     "390x844": 16,
+     "430x932": 16,
+     "375x667": 16,
+     "320x568": 16
+    },
+    "ok": {
+     "375x812": 26,
+     "390x844": 26,
+     "430x932": 26,
+     "375x667": 26,
+     "320x568": 26
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-r3-lines",
+   "screen": "meds",
+   "variant": "r3-lines",
+   "code": "R3",
+   "defect": "약 이름 줄 높이를 10px로 잘못 넣어 두 줄로 감긴 이름의 줄끼리 겹침",
+   "dir": "eval/synth/blind4/screens/meds/r3-lines",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "line_overlap",
+    "sel": ".md .nm"
+   },
+   "hint": [
+    "비타민D",
+    "혈압약",
+    "암로디핀"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 6,
+     "390x844": 6,
+     "430x932": -99,
+     "375x667": 6,
+     "320x568": 6
+    },
+    "ok": {
+     "375x812": -6,
+     "390x844": -6,
+     "430x932": -99,
+     "375x667": -6,
+     "320x568": -6
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-r2-note",
+   "screen": "meds",
+   "variant": "r2-note",
+   "code": "R2",
+   "defect": "안내 상자 높이를 38px로 고정하고 넘침을 숨겨 두 번째 줄이 잘림",
+   "dir": "eval/synth/blind4/screens/meds/r2-note",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_parent",
+    "sel": ".note span"
+   },
+   "hint": [
+    "식후 30분"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 10,
+     "390x844": 10,
+     "430x932": 10,
+     "375x667": 10,
+     "320x568": 29
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-a2-time",
+   "screen": "meds",
+   "variant": "a2-time",
+   "code": "A2",
+   "defect": "아직 안 먹은 시간 칩 글자를 #A3AAB5로 옅게 함",
+   "dir": "eval/synth/blind4/screens/meds/a2-time",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".tm span:not(.done)",
+    "min": 4.5
+   },
+   "hint": [
+    "20:00",
+    "08:00",
+    "19:00"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2.13,
+     "390x844": 2.13,
+     "430x932": 2.13,
+     "375x667": 2.13,
+     "320x568": 2.13
+    },
+    "ok": {
+     "375x812": 16.15,
+     "390x844": 16.15,
+     "430x932": 16.15,
+     "375x667": 16.15,
+     "320x568": 16.15
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-d4-pill",
+   "screen": "meds",
+   "variant": "d4-pill",
+   "code": "D4",
+   "defect": "약 사진 확장자를 잘못 적어(.webp) 첫 약 사진이 깨짐",
+   "dir": "eval/synth/blind4/screens/meds/d4-pill",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_broken",
+    "sel": ".md img"
+   },
+   "hint": [
+    "오메가3"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "0x0",
+     "390x844": "0x0",
+     "430x932": "0x0",
+     "375x667": "0x0",
+     "320x568": "0x0"
+    },
+    "ok": {
+     "375x812": "88x88",
+     "390x844": "88x88",
+     "430x932": "88x88",
+     "375x667": "88x88",
+     "320x568": "88x88"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-meds-s4-done",
+   "screen": "meds",
+   "variant": "s4-done",
+   "code": "S4",
+   "defect": "먹은 시간 칩의 완료 표시(배경·굵기)를 빼 먹었는지 안 보임",
+   "dir": "eval/synth/blind4/screens/meds/s4-done",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".tm .done",
+    "prop": "background-color",
+    "value": "rgb(237, 233, 254)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(243, 244, 246)"
+    },
+    "ok": {
+     "375x812": "rgb(237, 233, 254)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-r1-phone",
+   "screen": "address",
+   "variant": "r1-phone",
+   "code": "R1",
+   "defect": "입력칸 폭을 시안 값 240px로 고정해 '인증번호 받기'·'주소 찾기' 버튼이 화면 밖으로 밀림",
+   "dir": "eval/synth/blind4/screens/address/r1-phone",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".f .row"
+   },
+   "hint": [
+    "인증번호 받기",
+    "주소 찾기",
+    "010-0000-0000"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 19,
+     "390x844": 4,
+     "430x932": 0,
+     "375x667": 19,
+     "320x568": 74
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-a2-ph",
+   "screen": "address",
+   "variant": "a2-ph",
+   "code": "A2",
+   "defect": "입력칸 안내 글자(placeholder)를 #C4C9D0로 옅게 함",
+   "dir": "eval/synth/blind4/screens/address/a2-ph",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast_placeholder",
+    "sel": ".f input",
+    "min": 4.5
+   },
+   "hint": [
+    "동, 호수",
+    "예: #1234"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.66,
+     "390x844": 1.66,
+     "430x932": 1.66,
+     "375x667": 1.66,
+     "320x568": 1.66
+    },
+    "ok": {
+     "375x812": 4.83,
+     "390x844": 4.83,
+     "430x932": 4.83,
+     "375x667": 4.83,
+     "320x568": 4.83
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-r4-save",
+   "screen": "address",
+   "variant": "r4-save",
+   "code": "R4",
+   "defect": "폼 아래 여백을 16px로 줄여 끝까지 내려도 '기본 배송지로 저장'이 저장 버튼 막대에 가려짐",
+   "dir": "eval/synth/blind4/screens/address/r4-save",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".chk",
+    "scroll": ".form"
+   },
+   "hint": [
+    "기본 배송지로 저장"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "674~718 chk",
+     "390x844": "674~718 chk",
+     "430x932": "674~718 chk",
+     "375x667": "607~651 BUTTON",
+     "320x568": "508~552 BUTTON"
+    },
+    "ok": {
+     "375x812": "668~712 chk",
+     "390x844": "674~718 chk",
+     "430x932": "674~718 chk",
+     "375x667": "523~567 chk",
+     "320x568": "424~468 chk"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-a1-clear",
+   "screen": "address",
+   "variant": "a1-clear",
+   "code": "A1",
+   "defect": "이름 지우기 버튼을 16px로 줄임",
+   "dir": "eval/synth/blind4/screens/address/a1-clear",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".f .clear",
+    "min": 24
+   },
+   "hint": [
+    "이름 지우기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 16,
+     "390x844": 16,
+     "430x932": 16,
+     "375x667": 16,
+     "320x568": 16
+    },
+    "ok": {
+     "375x812": 40,
+     "390x844": 40,
+     "430x932": 40,
+     "375x667": 40,
+     "320x568": 40
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-r2-err",
+   "screen": "address",
+   "variant": "r2-err",
+   "code": "R2",
+   "defect": "오류 문구 높이를 한 줄(18px)로 고정하고 넘침을 숨겨 두 번째 줄이 잘림",
+   "dir": "eval/synth/blind4/screens/address/r2-err",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".f .err"
+   },
+   "hint": [
+    "휴대폰 번호 형식"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-address-f1-save",
+   "screen": "address",
+   "variant": "f1-save",
+   "code": "F1",
+   "defect": "저장 버튼을 시안의 Fill 대신 고정 240px로 씀",
+   "dir": "eval/synth/blind4/screens/address/f1-save",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "fill_width",
+    "sel": ".save button"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": 103
+    },
+    "ok": {
+     "375x812": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-r3-ev",
+   "screen": "calendar",
+   "variant": "r3-ev",
+   "code": "R3",
+   "defect": "같은 시간에 겹친 일정을 반으로 나누지 않아 두 일정이 서로 덮음",
+   "dir": "eval/synth/blind4/screens/calendar/r3-ev",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".ev.half span",
+    "other": ".ev.half2"
+   },
+   "hint": [
+    "1:1 면담",
+    "고객 인터뷰"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 680,
+     "1024x768": 680,
+     "768x1024": 680
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-r2-short",
+   "screen": "calendar",
+   "variant": "r2-short",
+   "code": "R2",
+   "defect": "30분짜리 일정에도 시간 줄을 보여 높이 30px 칸에서 시간 글자가 잘림",
+   "dir": "eval/synth/blind4/screens/calendar/r2-short",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "clipped_parent",
+    "sel": ".ev.short span"
+   },
+   "hint": [
+    "16:00–16:30",
+    "짧은 확인"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 6,
+     "1024x768": 6,
+     "768x1024": 6
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-a2-past",
+   "screen": "calendar",
+   "variant": "a2-past",
+   "code": "A2",
+   "defect": "지난 일정을 투명도 40%로 흐리게 해 글자가 안 읽힘",
+   "dir": "eval/synth/blind4/screens/calendar/a2-past",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "contrast_opacity",
+    "sel": ".ev.past b",
+    "min": 4.5
+   },
+   "hint": [
+    "주간 회의",
+    "디자인 리뷰"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 2.09,
+     "1024x768": 2.09,
+     "768x1024": 2.09
+    },
+    "ok": {
+     "1280x800": 6.36,
+     "1024x768": 6.36,
+     "768x1024": 6.36
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-r1-hd",
+   "screen": "calendar",
+   "variant": "r1-hd",
+   "code": "R1",
+   "defect": "검색칸을 280px로 고정해 좁은 창에서 머리글이 넘침",
+   "dir": "eval/synth/blind4/screens/calendar/r1-hd",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".hd"
+   },
+   "hint": [
+    "새 일정",
+    "일정 검색"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 53
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-a1-nav",
+   "screen": "calendar",
+   "variant": "a1-nav",
+   "code": "A1",
+   "defect": "이전·다음 주 버튼을 20px로 줄임",
+   "dir": "eval/synth/blind4/screens/calendar/a1-nav",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".hd .nav",
+    "min": 24
+   },
+   "hint": [
+    "이전 주",
+    "다음 주"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 20,
+     "1024x768": 20,
+     "768x1024": 20
+    },
+    "ok": {
+     "1280x800": 36,
+     "1024x768": 36,
+     "768x1024": 36
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind4-calendar-l1-time",
+   "screen": "calendar",
+   "variant": "l1-time",
+   "code": "L1",
+   "defect": "시간 라벨의 위치 보정(-7px)을 빼 라벨이 격자선보다 아래로 내려감",
+   "dir": "eval/synth/blind4/screens/calendar/l1-time",
+   "sizes": [
+    "1280x800"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".tc span",
+    "prop": "transform",
+    "value": "matrix(1, 0, 0, 1, 0, -7)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "1280x800"
+    ],
+    "bad": {
+     "1280x800": "none"
+    },
+    "ok": {
+     "1280x800": "matrix(1, 0, 0, 1, 0, -7)"
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}

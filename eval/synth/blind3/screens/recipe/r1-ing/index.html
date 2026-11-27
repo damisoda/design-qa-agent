@@ -1,0 +1,41 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>레시피 · r1-ing</title>
+<style>:root{--bg:#FFFFFF;--page:#EFEDEA;--text:#1C1A17;--muted:#615B53;--line:#E7E3DD;--brand:#C2410C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.body{flex:1;overflow-y:auto;padding-bottom:150px}
+.hero{position:relative}.food{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero .time{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;font-size:13px;line-height:18px;font-weight:700;padding:4px 10px;border-radius:12px}
+.head{padding:16px 20px 8px}.head h1{margin:0;font-size:22px;line-height:30px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chips span{font-size:13px;line-height:18px;padding:4px 10px;border-radius:12px;background:#F5F1EC;color:var(--muted)}
+.serv{display:flex;align-items:center;gap:12px;margin:8px 20px 4px;padding:10px 14px;border:1px solid var(--line);border-radius:12px}
+.serv .l{flex:1;font-size:15px;font-weight:600}
+.serv button{width:36px;height:36px;border-radius:18px;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--text);flex:none}
+.serv b{min-width:40px;text-align:center;font-size:16px;white-space:nowrap}
+.body h2{margin:20px 20px 8px;font-size:17px}
+.ing{list-style:none;margin:0;padding:0 20px}
+.ing li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:21px}
+.ing li span{flex:1;min-width:0}.ing li b{flex:none;font-weight:600}
+.steps{list-style:none;margin:0;padding:0 20px}
+.steps li{display:flex;gap:12px;padding:10px 0}
+.steps i{flex:none;width:28px;height:28px;border-radius:14px;background:var(--brand);color:#fff;font-style:normal;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps p{margin:3px 0 0;font-size:15px;line-height:23px}
+.timer{position:absolute;left:16px;right:16px;bottom:84px;height:48px;border-radius:24px;background:#1C1A17;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 18px;font-size:14px}
+.timer button{height:36px;padding:0 14px;border-radius:18px;background:#fff;color:#1C1A17;font-size:14px;font-weight:700}
+.bar{position:absolute;left:0;right:0;bottom:0;height:72px;display:flex;align-items:center;gap:10px;padding:0 16px;background:#fff;border-top:1px solid var(--line)}
+.bar .like{width:48px;height:48px;border-radius:12px;border:1px solid var(--line);background:#fff;flex:none;display:flex;align-items:center;justify-content:center}.bar .like svg{width:22px;height:22px}
+.bar .start{flex:1;height:48px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;font-weight:700}
+.ing li span{flex:none;white-space:nowrap}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><span class="ttl">레시피</span><button class="icon" aria-label="공유"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5h14v-5"/></svg></button></div>
+<div class="body"><div class="hero"><img class="food" src="pasta.png" alt="바질 토마토 파스타 사진"><span class="time">20분</span></div>
+<div class="head"><h1>바질 토마토 파스타</h1><div class="chips"><span>2인분 기준</span><span>난이도 쉬움</span><span>냄비 하나</span></div></div>
+<div class="serv"><span class="l">인분</span><button aria-label="1인분 줄이기">−</button><b>2인분</b><button aria-label="1인분 늘리기">+</button></div>
+<h2>재료</h2><ul class="ing"><li><span>스파게티면</span><b>200g</b></li><li><span>방울토마토</span><b>12개</b></li><li><span>마늘</span><b>4쪽</b></li><li><span>엑스트라 버진 올리브유(없으면 카놀라유나 포도씨유)</span><b>3큰술</b></li><li><span>생 바질</span><b>한 줌</b></li><li><span>파르메산 치즈</span><b>30g</b></li></ul>
+<h2>만드는 법</h2><ol class="steps"><li><i>1</i><p>냄비에 물을 끓이고 소금을 한 숟갈 넣은 뒤 면을 8분 삶아요.</p></li><li><i>2</i><p>마늘을 얇게 썰어 올리브유에 약한 불로 볶아요.</p></li><li><i>3</i><p>방울토마토를 반으로 잘라 넣고 살짝 으깨질 때까지 볶아요.</p></li><li><i>4</i><p>삶은 면과 면수 반 컵을 넣고 섞은 뒤 바질과 치즈를 올려요.</p></li></ol></div>
+<div class="timer"><span>다음 단계까지 03:12</span><button>일시정지</button></div>
+<div class="bar"><button class="like" aria-label="찜하기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button><button class="start">요리 시작</button></div></div></div></body></html>

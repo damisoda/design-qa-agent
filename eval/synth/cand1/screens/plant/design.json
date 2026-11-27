@@ -1,0 +1,554 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "내 식물",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#16A34A",
+  "color/text": "#14532D",
+  "color/muted": "#4B5563",
+  "color/line": "#E5E7EB",
+  "color/chip": "#DCFCE7",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 288,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "내 식물",
+       "type": "TEXT",
+       "x": 163,
+       "y": 58,
+       "w": 49,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "내 식물",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#14532D",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "card wrap",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 188,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "plant card",
+       "type": "FRAME",
+       "x": 20,
+       "y": 104,
+       "w": 335,
+       "h": 180,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "radius": 16,
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 10,
+        "padding": [
+         16,
+         16,
+         16,
+         16
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:9",
+         "name": "몬스테라",
+         "type": "TEXT",
+         "x": 36,
+         "y": 120,
+         "w": 63,
+         "h": 26,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "몬스테라",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "lineHeight": 26,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#14532D",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:10",
+         "name": "chips",
+         "type": "FRAME",
+         "x": 36,
+         "y": 156,
+         "w": 303,
+         "h": 30,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 8,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:11",
+           "name": "chip 반그늘",
+           "type": "FRAME",
+           "x": 36,
+           "y": 156,
+           "w": 58,
+           "h": 30,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "fill": {
+            "hex": "#DCFCE7",
+            "opacity": 1,
+            "token": "color/chip"
+           },
+           "radius": 15,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             6,
+             12,
+             6,
+             12
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:12",
+             "name": "반그늘",
+             "type": "TEXT",
+             "x": 48,
+             "y": 162,
+             "w": 34,
+             "h": 18,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "반그늘",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 13,
+              "fontWeight": 500,
+              "lineHeight": 18,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#14532D",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          },
+          {
+           "id": "6:13",
+           "name": "chip 주 1회",
+           "type": "FRAME",
+           "x": 102,
+           "y": 156,
+           "w": 55,
+           "h": 30,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "fill": {
+            "hex": "#DCFCE7",
+            "opacity": 1,
+            "token": "color/chip"
+           },
+           "radius": 15,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             6,
+             12,
+             6,
+             12
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:14",
+             "name": "주 1회",
+             "type": "TEXT",
+             "x": 114,
+             "y": 162,
+             "w": 31,
+             "h": 18,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "주 1회",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 13,
+              "fontWeight": 500,
+              "lineHeight": 18,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#14532D",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "6:15",
+         "name": "status",
+         "type": "TEXT",
+         "x": 36,
+         "y": 196,
+         "w": 148,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "물 준 지 4일 · 물 주기 57%",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#4B5563",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:16",
+         "name": "물 줬어요",
+         "type": "FRAME",
+         "x": 36,
+         "y": 226,
+         "w": 303,
+         "h": 42,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#16A34A",
+          "opacity": 1,
+          "token": "color/brand"
+         },
+         "radius": 10,
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           10,
+           16,
+           10,
+           16
+          ],
+          "align": "MIN",
+          "justify": "CENTER",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:17",
+           "name": "물 줬어요",
+           "type": "TEXT",
+           "x": 160,
+           "y": 236,
+           "w": 56,
+           "h": 22,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "물 줬어요",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 22,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#FFFFFF",
+             "opacity": 1,
+             "token": "color/bg"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:18",
+     "name": "식물 정보",
+     "type": "FRAME",
+     "x": 0,
+     "y": 284,
+     "w": 375,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "fill": {
+      "hex": "#16A34A",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:3",
+         "dest_name": "식물 정보",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:19",
+       "name": "식물 정보",
+       "type": "TEXT",
+       "x": 158,
+       "y": 296,
+       "w": 60,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "식물 정보",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

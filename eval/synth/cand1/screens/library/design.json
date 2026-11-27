@@ -1,0 +1,484 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "내 서재",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#0F766E",
+  "color/text": "#111827",
+  "color/muted": "#6B7280",
+  "color/line": "#E5E7EB",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 286,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "내 서재",
+       "type": "TEXT",
+       "x": 163,
+       "y": 58,
+       "w": 49,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "내 서재",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111827",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "greet",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 46,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       20,
+       12,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "greeting",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 194,
+       "h": 26,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "김하늘 님, 대출 중인 책 2권",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "lineHeight": 26,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111827",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:9",
+     "name": "books",
+     "type": "FRAME",
+     "x": 0,
+     "y": 142,
+     "w": 375,
+     "h": 140,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:10",
+       "name": "book 느린 산책의 기술",
+       "type": "FRAME",
+       "x": 0,
+       "y": 142,
+       "w": 375,
+       "h": 70,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 2,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:11",
+         "name": "느린 산책의 기술",
+         "type": "TEXT",
+         "x": 20,
+         "y": 156,
+         "w": 99,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "느린 산책의 기술",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#111827",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:12",
+         "name": "11월 20일까지 반납",
+         "type": "TEXT",
+         "x": 20,
+         "y": 180,
+         "w": 99,
+         "h": 18,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "11월 20일까지 반납",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#6B7280",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:13",
+       "name": "book 바다를 건너는 법",
+       "type": "FRAME",
+       "x": 0,
+       "y": 212,
+       "w": 375,
+       "h": 70,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 2,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:14",
+         "name": "바다를 건너는 법",
+         "type": "TEXT",
+         "x": 20,
+         "y": 226,
+         "w": 99,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "바다를 건너는 법",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#111827",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:15",
+         "name": "11월 24일까지 반납",
+         "type": "TEXT",
+         "x": 20,
+         "y": 250,
+         "w": 98,
+         "h": 18,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "11월 24일까지 반납",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#6B7280",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:16",
+     "name": "대출 내역 보기",
+     "type": "FRAME",
+     "x": 0,
+     "y": 282,
+     "w": 375,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "fill": {
+      "hex": "#0F766E",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:1",
+         "dest_name": "대출 내역",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:17",
+       "name": "대출 내역 보기",
+       "type": "TEXT",
+       "x": 142,
+       "y": 294,
+       "w": 92,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "대출 내역 보기",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1018 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "오늘의 기록",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#059669",
+  "color/text": "#0F172A",
+  "color/muted": "#64748B",
+  "color/surface": "#F1F5F9",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 458,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "오늘의 기록",
+       "type": "TEXT",
+       "x": 148,
+       "y": 58,
+       "w": 78,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "오늘의 기록",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#0F172A",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "date",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 62,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 4,
+      "padding": [
+       8,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "10월 12일 일요일",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 95,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "10월 12일 일요일",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#059669",
+         "opacity": 1,
+         "token": "color/brand"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:9",
+       "name": "오늘도 잘 걷고 있어요",
+       "type": "TEXT",
+       "x": 20,
+       "y": 128,
+       "w": 189,
+       "h": 30,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "오늘도 잘 걷고 있어요",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 22,
+        "fontWeight": 700,
+        "lineHeight": 30,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#0F172A",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:10",
+     "name": "grid",
+     "type": "FRAME",
+     "x": 0,
+     "y": 158,
+     "w": 375,
+     "h": 244,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 12,
+      "padding": [
+       20,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:11",
+       "name": "r1",
+       "type": "FRAME",
+       "x": 20,
+       "y": 178,
+       "w": 335,
+       "h": 106,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:12",
+         "name": "tile 걸음",
+         "type": "FRAME",
+         "x": 20,
+         "y": 178,
+         "w": 162,
+         "h": 106,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F1F5F9",
+          "opacity": 1,
+          "token": "color/surface"
+         },
+         "radius": 16,
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 4,
+          "padding": [
+           16,
+           16,
+           16,
+           16
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:13",
+           "name": "걸음",
+           "type": "TEXT",
+           "x": 36,
+           "y": 194,
+           "w": 23,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "걸음",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:14",
+           "name": "8,214",
+           "type": "TEXT",
+           "x": 36,
+           "y": 216,
+           "w": 56,
+           "h": 32,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "8,214",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#0F172A",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:15",
+           "name": "걸음",
+           "type": "TEXT",
+           "x": 36,
+           "y": 252,
+           "w": 21,
+           "h": 16,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "걸음",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:16",
+         "name": "tile 거리",
+         "type": "FRAME",
+         "x": 194,
+         "y": 178,
+         "w": 162,
+         "h": 106,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F1F5F9",
+          "opacity": 1,
+          "token": "color/surface"
+         },
+         "radius": 16,
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 4,
+          "padding": [
+           16,
+           16,
+           16,
+           16
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:17",
+           "name": "거리",
+           "type": "TEXT",
+           "x": 210,
+           "y": 194,
+           "w": 23,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "거리",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:18",
+           "name": "6.1",
+           "type": "TEXT",
+           "x": 210,
+           "y": 216,
+           "w": 29,
+           "h": 32,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "6.1",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#0F172A",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:19",
+           "name": "km",
+           "type": "TEXT",
+           "x": 210,
+           "y": 252,
+           "w": 16,
+           "h": 16,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "km",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "6:20",
+       "name": "r2",
+       "type": "FRAME",
+       "x": 20,
+       "y": 296,
+       "w": 335,
+       "h": 106,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:21",
+         "name": "tile 소모 열량",
+         "type": "FRAME",
+         "x": 20,
+         "y": 296,
+         "w": 162,
+         "h": 106,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F1F5F9",
+          "opacity": 1,
+          "token": "color/surface"
+         },
+         "radius": 16,
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 4,
+          "padding": [
+           16,
+           16,
+           16,
+           16
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:22",
+           "name": "소모 열량",
+           "type": "TEXT",
+           "x": 36,
+           "y": 312,
+           "w": 49,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "소모 열량",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:23",
+           "name": "342",
+           "type": "TEXT",
+           "x": 36,
+           "y": 334,
+           "w": 40,
+           "h": 32,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "342",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#0F172A",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:24",
+           "name": "kcal",
+           "type": "TEXT",
+           "x": 36,
+           "y": 370,
+           "w": 20,
+           "h": 16,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "kcal",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:25",
+         "name": "tile 활동 시간",
+         "type": "FRAME",
+         "x": 194,
+         "y": 296,
+         "w": 162,
+         "h": 106,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "fill": {
+          "hex": "#F1F5F9",
+          "opacity": 1,
+          "token": "color/surface"
+         },
+         "radius": 16,
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 4,
+          "padding": [
+           16,
+           16,
+           16,
+           16
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:26",
+           "name": "활동 시간",
+           "type": "TEXT",
+           "x": 210,
+           "y": 312,
+           "w": 49,
+           "h": 18,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "활동 시간",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:27",
+           "name": "54",
+           "type": "TEXT",
+           "x": 210,
+           "y": 334,
+           "w": 27,
+           "h": 32,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "54",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "lineHeight": 32,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#0F172A",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:28",
+           "name": "분",
+           "type": "TEXT",
+           "x": 210,
+           "y": 370,
+           "w": 11,
+           "h": 16,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "분",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#64748B",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:29",
+     "name": "goal",
+     "type": "FRAME",
+     "x": 0,
+     "y": 402,
+     "w": 375,
+     "h": 68,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 12,
+      "padding": [
+       24,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:30",
+       "name": "goal head",
+       "type": "FRAME",
+       "x": 20,
+       "y": 426,
+       "w": 335,
+       "h": 24,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:31",
+         "name": "주간 목표",
+         "type": "TEXT",
+         "x": 20,
+         "y": 426,
+         "w": 60,
+         "h": 24,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "주간 목표",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 16,
+          "fontWeight": 700,
+          "lineHeight": 24,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#0F172A",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:32",
+         "name": "5/7일",
+         "type": "TEXT",
+         "x": 323,
+         "y": 428,
+         "w": 32,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "5/7일",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 600,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#059669",
+           "opacity": 1,
+           "token": "color/brand"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:33",
+       "name": "bar",
+       "type": "FRAME",
+       "x": 20,
+       "y": 462,
+       "w": 335,
+       "h": 8,
+       "sizing": {
+        "h": "FILL",
+        "v": "FIXED"
+       },
+       "fill": {
+        "hex": "#E2E8F0",
+        "opacity": 1,
+        "token": null
+       },
+       "radius": 4,
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 0,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:34",
+         "name": "bar fill",
+         "type": "FRAME",
+         "x": 20,
+         "y": 462,
+         "w": 239,
+         "h": 8,
+         "sizing": {
+          "h": "FIXED",
+          "v": "FIXED"
+         },
+         "fill": {
+          "hex": "#059669",
+          "opacity": 1,
+          "token": "color/brand"
+         },
+         "radius": 4,
+         "layout": {
+          "mode": "VERTICAL",
+          "gap": 0,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "MIN",
+          "justify": "MIN",
+          "wrap": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:35",
+     "name": "tip",
+     "type": "FRAME",
+     "x": 0,
+     "y": 470,
+     "w": 375,
+     "h": 32,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       12,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:36",
+       "name": "어제보다 1,240걸음",
+       "type": "TEXT",
+       "x": 20,
+       "y": 482,
+       "w": 180,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "어제보다 1,240걸음 더 걸었어요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#64748B",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

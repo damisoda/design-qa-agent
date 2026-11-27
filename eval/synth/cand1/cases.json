@@ -1,0 +1,396 @@
+{
+ "note": "후보 묶음 1(11-12). 규칙·시안 비교 밖 결함(C1 화면 글자 뜻, C2 버튼 목적지·동작)의 정답. 시안을 먼저 쓰고 구현을 따로 짰다. 화면 글자는 목 데이터를 JS로 그린다.",
+ "interact": true,
+ "frozen_rules_sha1": "c0b13add2de47b99f177618dc05d94a4c2838215",
+ "cases": [
+  {
+   "id": "cand1-library-ok",
+   "screen": "library",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/cand1/screens/library/ok",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": null,
+   "hint": []
+  },
+  {
+   "id": "cand1-parking-ok",
+   "screen": "parking",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/cand1/screens/parking/ok",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": null,
+   "hint": []
+  },
+  {
+   "id": "cand1-plant-ok",
+   "screen": "plant",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/cand1/screens/plant/ok",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": null,
+   "hint": []
+  },
+  {
+   "id": "cand1-ticket-ok",
+   "screen": "ticket",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/cand1/screens/ticket/ok",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": null,
+   "hint": []
+  },
+  {
+   "id": "cand1-market-ok",
+   "screen": "market",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/cand1/screens/market/ok",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": null,
+   "hint": []
+  },
+  {
+   "id": "cand1-library-c1-undefined",
+   "screen": "library",
+   "variant": "c1-undefined",
+   "code": "C1",
+   "defect": "인사말이 없는 필드(nickname)를 읽어 'undefined 님'으로 보임",
+   "dir": "eval/synth/cand1/screens/library/c1-undefined",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": "#greet",
+    "expected": "김하늘 님, 대출 중인 책 2권",
+    "actual": "undefined 님, 대출 중인 책 2권",
+    "confirm": "pattern",
+    "family": "빈 값"
+   },
+   "hint": [
+    "undefined 님, 대출 중인 책 2권"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:48.598Z",
+    "observed": "undefined 님, 대출 중인 책 2권",
+    "ok_observed": "김하늘 님, 대출 중인 책 2권"
+   }
+  },
+  {
+   "id": "cand1-library-c2-dest",
+   "screen": "library",
+   "variant": "c2-dest",
+   "code": "C2",
+   "defect": "'대출 내역 보기'가 시안 연결(대출 내역) 대신 설정 화면으로 감",
+   "dir": "eval/synth/cand1/screens/library/c2-dest",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "link",
+    "label": "대출 내역 보기",
+    "expected": "대출 내역",
+    "actual": "설정",
+    "confirm": "prototype",
+    "family": "목적지 틀림"
+   },
+   "hint": [
+    "대출 내역 보기"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:49.072Z",
+    "observed": "설정",
+    "ok_observed": "대출 내역"
+   }
+  },
+  {
+   "id": "cand1-parking-c1-timezone",
+   "screen": "parking",
+   "variant": "c1-timezone",
+   "code": "C1",
+   "defect": "입차 시각을 한국 시간으로 바꾸지 않아 9시간 이른 05:30으로 보임",
+   "dir": "eval/synth/cand1/screens/parking/c1-timezone",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": ".row:nth-child(2) b",
+    "expected": "14:30",
+    "actual": "05:30",
+    "confirm": "data",
+    "family": "시간대"
+   },
+   "hint": [
+    "05:30"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:49.480Z",
+    "observed": "05:30",
+    "ok_observed": "14:30"
+   }
+  },
+  {
+   "id": "cand1-parking-c1-number",
+   "screen": "parking",
+   "variant": "c1-number",
+   "code": "C1",
+   "defect": "요금에 자릿수 구분을 빠뜨려 '4500원'으로 보임",
+   "dir": "eval/synth/cand1/screens/parking/c1-number",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": ".row:nth-child(4) b",
+    "expected": "4,500원",
+    "actual": "4500원",
+    "confirm": "data",
+    "family": "숫자 형식"
+   },
+   "hint": [
+    "4500원"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:49.940Z",
+    "observed": "4500원",
+    "ok_observed": "4,500원"
+   }
+  },
+  {
+   "id": "cand1-parking-c1-negative",
+   "screen": "parking",
+   "variant": "c1-negative",
+   "code": "C1",
+   "defect": "갱신 시각 차이를 거꾸로 빼 '-3분 전'으로 보임",
+   "dir": "eval/synth/cand1/screens/parking/c1-negative",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": "#note",
+    "expected": "요금표 갱신 3분 전",
+    "actual": "요금표 갱신 -3분 전",
+    "confirm": "pattern",
+    "family": "음수 시간"
+   },
+   "hint": [
+    "요금표 갱신 -3분 전"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:50.369Z",
+    "observed": "요금표 갱신 -3분 전",
+    "ok_observed": "요금표 갱신 3분 전"
+   }
+  },
+  {
+   "id": "cand1-plant-c1-array",
+   "screen": "plant",
+   "variant": "c1-array",
+   "code": "C1",
+   "defect": "관리 태그 배열을 칩 하나에 그대로 넣어 '[\"반그늘\",\"주 1회\"]'로 보임",
+   "dir": "eval/synth/cand1/screens/plant/c1-array",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": ".chips",
+    "expected": "반그늘 주 1회",
+    "actual": "[\"반그늘\",\"주 1회\"]",
+    "confirm": "pattern",
+    "family": "배열 그대로"
+   },
+   "hint": [
+    "[\"반그늘\",\"주 1회\"]"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:50.784Z",
+    "observed": "[\"반그늘\",\"주 1회\"]",
+    "ok_observed": "반그늘 주 1회"
+   }
+  },
+  {
+   "id": "cand1-plant-c1-nan",
+   "screen": "plant",
+   "variant": "c1-nan",
+   "code": "C1",
+   "defect": "물 주기 비율에 없는 필드(cycleDays)를 써 'NaN%'로 보임",
+   "dir": "eval/synth/cand1/screens/plant/c1-nan",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": ".card p",
+    "expected": "물 준 지 4일 · 물 주기 57%",
+    "actual": "물 준 지 4일 · 물 주기 NaN%",
+    "confirm": "pattern",
+    "family": "NaN"
+   },
+   "hint": [
+    "물 준 지 4일 · 물 주기 NaN%"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:51.189Z",
+    "observed": "물 준 지 4일 · 물 주기 NaN%",
+    "ok_observed": "물 준 지 4일 · 물 주기 57%"
+   }
+  },
+  {
+   "id": "cand1-plant-c2-action",
+   "screen": "plant",
+   "variant": "c2-action",
+   "code": "C2",
+   "defect": "'물 줬어요'를 누르면 기록을 0일로 되돌리는 대신 식물 카드를 지움",
+   "dir": "eval/synth/cand1/screens/plant/c2-action",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "action",
+    "label": "물 줬어요",
+    "expected": "물 준 지 0일",
+    "actual": "카드가 사라짐",
+    "confirm": "interact",
+    "family": "문구와 다른 동작"
+   },
+   "hint": [
+    "물 줬어요"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:51.924Z",
+    "observed": "카드가 사라짐",
+    "ok_observed": "물 준 지 0일"
+   }
+  },
+  {
+   "id": "cand1-ticket-c1-raw",
+   "screen": "ticket",
+   "variant": "c1-raw",
+   "code": "C1",
+   "defect": "좌석을 서버 원문 형식 'R-12-7'로 보임",
+   "dir": "eval/synth/cand1/screens/ticket/c1-raw",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": ".row:nth-child(2) b",
+    "expected": "R석 12열 7번",
+    "actual": "R-12-7",
+    "confirm": "data",
+    "family": "서버 원문"
+   },
+   "hint": [
+    "R-12-7"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:52.342Z",
+    "observed": "R-12-7",
+    "ok_observed": "R석 12열 7번"
+   }
+  },
+  {
+   "id": "cand1-ticket-c2-sametab",
+   "screen": "ticket",
+   "variant": "c2-sametab",
+   "code": "C2",
+   "defect": "'관심 공연' 탭이 '예매 내역'과 같은 화면으로 감",
+   "dir": "eval/synth/cand1/screens/ticket/c2-sametab",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "link",
+    "label": "관심 공연",
+    "expected": "관심 공연",
+    "actual": "예매 내역",
+    "confirm": "prototype",
+    "family": "두 탭 같은 화면"
+   },
+   "hint": [
+    "관심 공연"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:52.790Z",
+    "observed": "예매 내역",
+    "ok_observed": "관심 공연"
+   }
+  },
+  {
+   "id": "cand1-market-c1-count",
+   "screen": "market",
+   "variant": "c1-count",
+   "code": "C1",
+   "defect": "새 알림 개수에 읽은 알림까지 더해 '새 알림 4개'로 보이지만 목록은 3개",
+   "dir": "eval/synth/cand1/screens/market/c1-count",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "text",
+    "sel": "#count",
+    "expected": "새 알림 3개",
+    "actual": "새 알림 4개",
+    "confirm": "data",
+    "family": "개수 불일치"
+   },
+   "hint": [
+    "새 알림 4개"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:53.178Z",
+    "observed": "새 알림 4개",
+    "ok_observed": "새 알림 3개"
+   }
+  },
+  {
+   "id": "cand1-market-c2-dest",
+   "screen": "market",
+   "variant": "c2-dest",
+   "code": "C2",
+   "defect": "'판매자 프로필'이 시안 연결(판매자 프로필) 대신 채팅 화면으로 감",
+   "dir": "eval/synth/cand1/screens/market/c2-dest",
+   "sizes": [
+    "375x812"
+   ],
+   "truth": {
+    "kind": "link",
+    "label": "판매자 프로필",
+    "expected": "판매자 프로필",
+    "actual": "채팅",
+    "confirm": "prototype",
+    "family": "목적지 틀림"
+   },
+   "hint": [
+    "판매자 프로필"
+   ],
+   "verified": {
+    "at": "2026-11-12T06:01:53.676Z",
+    "observed": "채팅",
+    "ok_observed": "판매자 프로필"
+   }
+  }
+ ]
+}

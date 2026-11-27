@@ -1,0 +1,819 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "송금 확인",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#2563EB",
+  "color/text": "#111827",
+  "color/muted": "#6B7280",
+  "color/surface": "#F3F4F6",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 422,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "송금 확인",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "송금 확인",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111827",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "amount",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 152,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 4,
+      "padding": [
+       32,
+       20,
+       28,
+       20
+      ],
+      "align": "CENTER",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "김지은님에게",
+       "type": "TEXT",
+       "x": 148,
+       "y": 128,
+       "w": 78,
+       "h": 22,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "김지은님에게",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 22,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:9",
+       "name": "150,000원",
+       "type": "TEXT",
+       "x": 120,
+       "y": 154,
+       "w": 136,
+       "h": 40,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "150,000원",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "lineHeight": 40,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#111827",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:10",
+       "name": "을 보낼까요?",
+       "type": "TEXT",
+       "x": 150,
+       "y": 198,
+       "w": 76,
+       "h": 22,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "을 보낼까요?",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 22,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:11",
+     "name": "detail",
+     "type": "FRAME",
+     "x": 0,
+     "y": 248,
+     "w": 375,
+     "h": 162,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:12",
+       "name": "card",
+       "type": "FRAME",
+       "x": 20,
+       "y": 248,
+       "w": 335,
+       "h": 162,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "fill": {
+        "hex": "#F3F4F6",
+        "opacity": 1,
+        "token": "color/surface"
+       },
+       "radius": 16,
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 14,
+        "padding": [
+         20,
+         20,
+         20,
+         20
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:13",
+         "name": "row1",
+         "type": "FRAME",
+         "x": 40,
+         "y": 268,
+         "w": 295,
+         "h": 20,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "CENTER",
+          "justify": "SPACE_BETWEEN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:14",
+           "name": "받는 분",
+           "type": "TEXT",
+           "x": 40,
+           "y": 268,
+           "w": 41,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "받는 분",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:15",
+           "name": "김지은",
+           "type": "TEXT",
+           "x": 298,
+           "y": 268,
+           "w": 37,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "김지은",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111827",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:16",
+         "name": "row2",
+         "type": "FRAME",
+         "x": 40,
+         "y": 302,
+         "w": 295,
+         "h": 20,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "CENTER",
+          "justify": "SPACE_BETWEEN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:17",
+           "name": "받는 계좌",
+           "type": "TEXT",
+           "x": 40,
+           "y": 302,
+           "w": 53,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "받는 계좌",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:18",
+           "name": "국민 123456-01",
+           "type": "TEXT",
+           "x": 216,
+           "y": 302,
+           "w": 119,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "국민 123456-01-789",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111827",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:19",
+         "name": "row3",
+         "type": "FRAME",
+         "x": 40,
+         "y": 336,
+         "w": 295,
+         "h": 20,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "CENTER",
+          "justify": "SPACE_BETWEEN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:20",
+           "name": "수수료",
+           "type": "TEXT",
+           "x": 40,
+           "y": 336,
+           "w": 37,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "수수료",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:21",
+           "name": "면제",
+           "type": "TEXT",
+           "x": 310,
+           "y": 336,
+           "w": 25,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "면제",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111827",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        },
+        {
+         "id": "6:22",
+         "name": "row4",
+         "type": "FRAME",
+         "x": 40,
+         "y": 370,
+         "w": 295,
+         "h": 20,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 0,
+          "padding": [
+           0,
+           0,
+           0,
+           0
+          ],
+          "align": "CENTER",
+          "justify": "SPACE_BETWEEN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:23",
+           "name": "보내는 날",
+           "type": "TEXT",
+           "x": 40,
+           "y": 370,
+           "w": 53,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "보내는 날",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#6B7280",
+             "opacity": 1,
+             "token": "color/muted"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          },
+          {
+           "id": "6:24",
+           "name": "오늘 즉시",
+           "type": "TEXT",
+           "x": 282,
+           "y": 370,
+           "w": 53,
+           "h": 20,
+           "sizing": {
+            "h": "HUG",
+            "v": "HUG"
+           },
+           "text": {
+            "content": "오늘 즉시",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 20,
+            "letterSpacing": 0,
+            "color": {
+             "hex": "#111827",
+             "opacity": 1,
+             "token": "color/text"
+            },
+            "align": "LEFT",
+            "wrap": "NONE"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:25",
+     "name": "note",
+     "type": "FRAME",
+     "x": 0,
+     "y": 410,
+     "w": 375,
+     "h": 56,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       16,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:26",
+       "name": "보낸 뒤에는 취소할 수",
+       "type": "TEXT",
+       "x": 20,
+       "y": 426,
+       "w": 335,
+       "h": 40,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "보낸 뒤에는 취소할 수 없어요. 받는 분 이름을 한 번 더 확인해 주세요.",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#6B7280",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6:27",
+   "name": "bottom bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 716,
+   "w": 375,
+   "h": 96,
+   "sizing": {
+    "h": "FILL",
+    "v": "FIXED"
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "opacity": 1,
+    "token": "color/bg"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     12,
+     20,
+     32,
+     20
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:28",
+     "name": "송금하기",
+     "type": "FRAME",
+     "x": 20,
+     "y": 728,
+     "w": 335,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "fill": {
+      "hex": "#2563EB",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "7:1",
+         "dest_name": "송금 완료",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:29",
+       "name": "송금하기",
+       "type": "TEXT",
+       "x": 160,
+       "y": 742,
+       "w": 56,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "송금하기",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

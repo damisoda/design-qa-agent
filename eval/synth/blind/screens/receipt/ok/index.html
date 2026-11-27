@@ -1,0 +1,27 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>결제 완료 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#EDF0F2;--text:#121417;--muted:#59606B;--line:#E5E8EB;--brand:#0E7A4F}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.safe{flex:none;height:env(safe-area-inset-top,0px)}
+.body{flex:1;min-height:0;overflow-y:auto;padding:24px 20px}
+.head{position:relative;padding-right:84px}.head h1{margin:0;font-size:22px;line-height:30px}.badge{position:absolute;right:0;top:2px;height:26px;padding:0 10px;border-radius:13px;background:#E7F6EE;color:var(--brand);font-size:13px;font-weight:700;display:flex;align-items:center}
+.amt{margin:12px 0 18px;font-size:34px;line-height:42px;font-weight:800;white-space:nowrap}
+.rows{border-top:1px solid var(--line)}.r{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.r span{color:var(--muted);flex:none}.r b{font-weight:600;text-align:right;min-width:0;overflow-wrap:anywhere}
+.bar{display:block;width:100%;height:auto;aspect-ratio:4/1;object-fit:contain;margin:18px 0 6px}
+.cap{margin:0;text-align:center;font-size:12px;color:var(--muted)}
+.actions{flex:none;display:flex;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.actions button{flex:1;height:52px;border-radius:12px;font-size:16px;font-weight:700;background:#F1F3F5;color:var(--text)}.actions .main{background:var(--brand);color:#fff}
+</style></head><body><div id="root"><div class="app"><div class="safe"></div><div class="top"><span class="ttl">결제 완료</span></div><div class="body">
+<div class="head"><h1>결제가 정상적으로 완료되었어요</h1><span class="badge">결제 완료</span></div>
+<div class="amt">₩1,234,000</div>
+<div class="rows"><div class="r"><span>결제 수단</span><b>신한카드 (1234)</b></div><div class="r"><span>승인 번호</span><b>A00000000012345678902026101015420199</b></div><div class="r"><span>결제 일시</span><b>2026-10-10 15:42</b></div><div class="r"><span>가맹점</span><b>그린가전 홍대점</b></div></div>
+<img class="bar" src="barcode.png" alt="영수증 바코드"><p class="cap">매장에서 바코드를 보여 주세요</p></div>
+<div class="actions"><button>영수증 저장</button><button class="main">확인</button></div></div></div></body></html>

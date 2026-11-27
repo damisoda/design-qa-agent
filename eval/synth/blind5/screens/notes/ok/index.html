@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>내 노트 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#F1F3F6;--text:#16181D;--muted:#5B626D;--line:#E3E6EA;--brand:#7C3AED}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.app{max-width:none;flex-direction:row}
+.side{flex:none;width:200px;border-right:1px solid var(--line);padding:14px 10px;background:#FAFAFB;display:flex;flex-direction:column;gap:2px}
+.side h2{margin:0 8px 10px;font-size:15px;line-height:20px}
+.side a{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 10px;border-radius:8px;font-size:14px;color:var(--text);text-decoration:none}.side a.on{background:#EDE9FE;font-weight:700}
+.side a .n{margin-left:auto;font-size:12px;color:var(--muted)}
+.list{flex:none;width:240px;border-right:1px solid var(--line);overflow-y:auto}
+.nt{display:block;padding:12px 14px;border-bottom:1px solid var(--line);color:var(--text);text-decoration:none}.nt.on{background:#F5F3FF}
+.nt b{display:block;font-size:14px;line-height:20px}.nt span{display:block;margin-top:2px;font-size:12px;line-height:16px;color:var(--muted)}
+.ed{flex:1;min-width:0;display:flex;flex-direction:column}
+.tb{flex:none;display:flex;align-items:center;gap:2px;height:48px;padding:0 12px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tb button{flex:none;width:36px;height:36px;border-radius:8px;background:transparent;font-size:13px;font-weight:700;color:var(--text)}
+.doc{flex:1;overflow-y:auto;padding:20px 28px}
+.doc h1{margin:0 0 6px;font-size:24px;line-height:32px}
+.doc .meta{margin:0 0 16px;font-size:12px;line-height:16px;color:var(--muted)}
+.doc p{margin:0 0 12px;font-size:15px;line-height:25px}
+.ck{display:flex;align-items:flex-start;gap:10px;margin:6px 0;font-size:15px;line-height:22px}.ck input{width:18px;height:18px;margin:2px 0 0;flex:none}
+.cm{flex:none;width:220px;border-left:1px solid var(--line);padding:14px;overflow-y:auto;background:#FCFCFD}
+.cm h2{margin:0 0 10px;font-size:14px;line-height:20px}
+.c{padding:10px;border-radius:10px;background:#fff;border:1px solid var(--line);margin-bottom:8px}.c b{display:block;font-size:13px;line-height:18px}.c p{margin:4px 0 0;font-size:13px;line-height:19px}.c span{display:block;margin-top:4px;font-size:11px;line-height:14px;color:var(--muted)}
+@media (max-width:900px){.cm{display:none}.list{width:220px}}
+</style></head><body><div id="root"><div class="app"><aside class="side"><h2>내 노트</h2><a class="on" href="#">전체 노트<span class="n">42</span></a><a href="#">업무<span class="n">18</span></a><a href="#">개인<span class="n">11</span></a><a href="#">공부<span class="n">9</span></a><a href="#">휴지통<span class="n">4</span></a></aside>
+<section class="list"><a class="nt on" href="#"><b>4분기 회고 준비</b><span>10월 10일 · 회의</span></a><a class="nt" href="#"><b>디자인 시스템 개편 일정과 담당자 정리 (초안)</b><span>10월 9일 · 업무</span></a><a class="nt" href="#"><b>주말 장보기</b><span>10월 8일 · 개인</span></a><a class="nt" href="#"><b>읽을 책: 사용자 인터뷰 방법과 질문 목록 만들기</b><span>10월 6일 · 공부</span></a></section>
+<main class="ed"><div class="tb"><button aria-label="B 서식">B</button><button aria-label="I 서식">I</button><button aria-label="U 서식">U</button><button aria-label="H1 서식">H1</button><button aria-label="H2 서식">H2</button><button aria-label="목록 서식">목록</button><button aria-label="할 일 서식">할 일</button><button aria-label="링크 서식">링크</button><button aria-label="그림 서식">그림</button><button aria-label="표 서식">표</button><button aria-label="코드 서식">코드</button><button aria-label="인용 서식">인용</button></div>
+<div class="doc"><h1>4분기 회고 준비</h1><p class="meta">마지막 수정 10월 10일 오후 3:12 · 김하늘</p>
+<p>이번 분기에는 온보딩 개선과 디자인 시스템 개편을 함께 진행했다. 회고에서는 잘된 점, 아쉬운 점, 다음 분기에 바꿀 점을 하나씩 정리한다.</p>
+<label class="ck"><input type="checkbox" checked>회고 일정 공지하기</label><label class="ck"><input type="checkbox">팀별 지표 모으기(가입 전환율, 이탈률)</label><label class="ck"><input type="checkbox">지난 회고에서 정한 할 일 확인하기</label></div></main>
+<aside class="cm"><h2>댓글 2</h2><div class="c"><b>박서준</b><p>지표는 대시보드 링크로 붙이면 좋겠어요.</p><span>오후 2:40</span></div><div class="c"><b>이수민</b><p>회고 템플릿은 지난번 것을 쓸게요.</p><span>오후 3:05</span></div></aside></div></div></body></html>

@@ -1,0 +1,788 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "map",
+ "base": "375x812",
+ "frame": {
+  "name": "지도 검색",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#E8EBEF",
+  "color/text": "#1B1F24",
+  "color/muted": "#59616B",
+  "color/line": "#E2E5E9",
+  "color/brand": "#03A84E"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "search",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 65,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 8,
+    "padding": [
+     10,
+     12,
+     10,
+     12
+    ],
+    "align": "normal",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "input",
+     "type": "FRAME",
+     "x": 12,
+     "y": 10,
+     "w": 297,
+     "h": 44,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E5E9",
+      "token": "color/line"
+     }
+    },
+    {
+     "id": "1:3",
+     "name": "button",
+     "type": "TEXT",
+     "x": 317,
+     "y": 10,
+     "w": 46,
+     "h": 44,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "취소",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": null,
+      "color": {
+       "hex": "#59616B",
+       "token": "color/muted"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:4",
+   "name": "map",
+   "type": "FRAME",
+   "x": 0,
+   "y": 65,
+   "w": 375,
+   "h": 747,
+   "sizing": {
+    "h": "FILL"
+   },
+   "fill": {
+    "hex": "#EEF3EC",
+    "token": null
+   },
+   "children": [
+    {
+     "id": "1:5",
+     "name": "pin",
+     "type": "FRAME",
+     "x": 90,
+     "y": 199,
+     "w": 74,
+     "h": 19,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 6,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:6",
+       "name": "i",
+       "type": "FRAME",
+       "x": 90,
+       "y": 202,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#03A84E",
+        "token": "color/brand"
+       },
+       "radius": 50,
+       "stroke": {
+        "width": 3,
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       }
+      },
+      {
+       "id": "1:7",
+       "name": "span",
+       "type": "TEXT",
+       "x": 110,
+       "y": 199,
+       "w": 54,
+       "h": 19,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 6,
+       "text": {
+        "content": "모모커피",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1B1F24",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:8",
+     "name": "pin",
+     "type": "FRAME",
+     "x": 113,
+     "y": 274,
+     "w": 129,
+     "h": 19,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 6,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:9",
+       "name": "i",
+       "type": "FRAME",
+       "x": 113,
+       "y": 277,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#03A84E",
+        "token": "color/brand"
+       },
+       "radius": 50,
+       "stroke": {
+        "width": 3,
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       }
+      },
+      {
+       "id": "1:10",
+       "name": "span",
+       "type": "TEXT",
+       "x": 133,
+       "y": 274,
+       "w": 109,
+       "h": 19,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 6,
+       "text": {
+        "content": "숲속로스터리 망원점",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1B1F24",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:11",
+     "name": "pin",
+     "type": "FRAME",
+     "x": 68,
+     "y": 379,
+     "w": 66,
+     "h": 19,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 6,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:12",
+       "name": "i",
+       "type": "FRAME",
+       "x": 68,
+       "y": 381,
+       "w": 14,
+       "h": 14,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#03A84E",
+        "token": "color/brand"
+       },
+       "radius": 50,
+       "stroke": {
+        "width": 3,
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       }
+      },
+      {
+       "id": "1:13",
+       "name": "span",
+       "type": "TEXT",
+       "x": 88,
+       "y": 379,
+       "w": 46,
+       "h": 19,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 6,
+       "text": {
+        "content": "카페 온",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1B1F24",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:14",
+     "name": "fbtns",
+     "type": "FRAME",
+     "x": 319,
+     "y": 383,
+     "w": 44,
+     "h": 148,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 8,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:15",
+       "name": "확대",
+       "type": "TEXT",
+       "x": 319,
+       "y": 383,
+       "w": 44,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 12,
+       "text": {
+        "content": "+",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:16",
+       "name": "축소",
+       "type": "TEXT",
+       "x": 319,
+       "y": 435,
+       "w": 44,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 12,
+       "text": {
+        "content": "−",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:17",
+       "name": "내 위치",
+       "type": "TEXT",
+       "x": 319,
+       "y": 487,
+       "w": 44,
+       "h": 44,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 12,
+       "text": {
+        "content": "◎",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#000000",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:18",
+     "name": "sheet",
+     "type": "FRAME",
+     "x": 0,
+     "y": 543,
+     "w": 375,
+     "h": 269,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": false
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 16,
+     "children": [
+      {
+       "id": "1:19",
+       "name": "handle",
+       "type": "FRAME",
+       "x": 170,
+       "y": 551,
+       "w": 36,
+       "h": 5,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "fill": {
+        "hex": "#D5D9DE",
+        "token": null
+       },
+       "radius": 3
+      },
+      {
+       "id": "1:20",
+       "name": "places",
+       "type": "FRAME",
+       "x": 0,
+       "y": 564,
+       "w": 375,
+       "h": 248,
+       "sizing": {
+        "h": "FILL"
+       },
+       "children": [
+        {
+         "id": "1:21",
+         "name": "place",
+         "type": "FRAME",
+         "x": 0,
+         "y": 564,
+         "w": 375,
+         "h": 78,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:22",
+           "name": "b",
+           "type": "TEXT",
+           "x": 16,
+           "y": 574,
+           "w": 343,
+           "h": 21,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "숲속로스터리 망원점",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 21,
+            "color": {
+             "hex": "#1B1F24",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:23",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 595,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "카페 · 320m",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:24",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 613,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "서울 마포구 망원로 12길 34, 1층",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:25",
+         "name": "place",
+         "type": "FRAME",
+         "x": 0,
+         "y": 642,
+         "w": 375,
+         "h": 78,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:26",
+           "name": "b",
+           "type": "TEXT",
+           "x": 16,
+           "y": 652,
+           "w": 343,
+           "h": 21,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "모모커피",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 21,
+            "color": {
+             "hex": "#1B1F24",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:27",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 673,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "카페 · 450m",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:28",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 691,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "서울 마포구 포은로 8",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:29",
+         "name": "place",
+         "type": "FRAME",
+         "x": 0,
+         "y": 720,
+         "w": 375,
+         "h": 78,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:30",
+           "name": "b",
+           "type": "TEXT",
+           "x": 16,
+           "y": 730,
+           "w": 343,
+           "h": 21,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "카페 온",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "lineHeight": 21,
+            "color": {
+             "hex": "#1B1F24",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:31",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 751,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "카페 · 610m",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:32",
+           "name": "span",
+           "type": "TEXT",
+           "x": 16,
+           "y": 769,
+           "w": 343,
+           "h": 18,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "서울 마포구 성미산로 22",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "lineHeight": 18,
+            "color": {
+             "hex": "#59616B",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

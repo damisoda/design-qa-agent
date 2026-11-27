@@ -1,0 +1,21 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>예매 확인 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#1F1B2E;--muted:#6B6880;--line:#E7E5EE;--brand:#7C3AED}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}.row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.row span{font-size:14px;line-height:20px;color:var(--muted)}.row b{font-size:15px;line-height:22px;font-weight:600}.show{margin:8px 20px;font-size:20px;line-height:28px;font-weight:700}
+.tabs{position:absolute;left:0;right:0;bottom:0;height:48px;display:flex;background:#fff;box-shadow:inset 0 1px 0 var(--line)}
+.tabs a{flex:1;display:flex;justify-content:center;align-items:center;font-size:14px;line-height:20px;font-weight:600;color:var(--muted);text-decoration:none}.tabs a.on{color:var(--brand)}</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>예매 확인</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><p class="show" id="show"></p><div id="rows"></div></div><nav class="tabs"><a class="on" href="history.html">예매 내역</a><a href="likes.html">관심 공연</a></nav><script>const DATA = {"show": "뮤지컬 〈별의 정원〉", "when": "11월 23일(일) 오후 2시", "seat": {"grade": "R", "row": 12, "no": 7}};
+document.getElementById('show').textContent = DATA.show;
+const seat = (s) => `${s.grade}석 ${s.row}열 ${s.no}번`;
+document.getElementById('rows').innerHTML = [['일시', DATA.when], ['좌석', seat(DATA.seat)]].map(([k, v]) => `<div class="row"><span>${k}</span><b>${v}</b></div>`).join('');
+</script><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

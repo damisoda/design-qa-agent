@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>마이페이지 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#ECEEF1;--text:#16191D;--muted:#5C6470;--line:#E2E5E9;--brand:#0B5CAD}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.pf{flex:1;overflow-y:auto;padding-bottom:16px}
+.cover{display:block;width:100%;height:120px;object-fit:cover;background:#DCE6F2}
+.gear{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:22px;background:rgba(255,255,255,.92);font-size:18px;color:var(--text)}
+.who{display:flex;align-items:flex-end;gap:12px;padding:0 20px;margin-top:-36px}
+.who img{width:80px;height:80px;border-radius:40px;border:4px solid #fff;object-fit:cover;flex:none;background:#fff}
+.who .nm{flex:1;min-width:0;padding-bottom:6px}
+.who h1{margin:0;font-size:20px;line-height:26px;display:flex;align-items:center;gap:6px}
+.ver{font-style:normal;font-size:11px;line-height:16px;font-weight:700;color:var(--brand);background:#E6F0FB;padding:2px 6px;border-radius:6px;white-space:nowrap}
+.who p{margin:2px 0 0;font-size:13px;line-height:18px;color:var(--muted)}
+.bio{margin:12px 20px 0;font-size:14px;line-height:21px}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:16px 20px;border:1px solid var(--line);border-radius:14px}
+.nums div{padding:12px 0;text-align:center}.nums b{display:block;font-size:18px;line-height:24px}.nums span{font-size:12px;line-height:16px;color:var(--muted)}
+.menu a{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 20px;border-top:1px solid var(--line);color:var(--text);text-decoration:none;font-size:15px}
+.menu a .v{font-size:13px;color:var(--muted)}
+</style></head><body><div id="root"><div class="app"><div class="pf"><img class="cover" src="cover.png" alt="프로필 배경 사진">
+<div class="who"><img src="avatar.png" alt="프로필 사진"><div class="nm"><h1><span>김하늘별</span><em class="ver">인증</em></h1><p>@haneul.star · 서울</p></div></div>
+<p class="bio">주말마다 산에 오르고, 평일엔 동네 빵집을 기록해요. 사진은 직접 찍어요.</p>
+<div class="nums"><div><b>128</b><span>게시물</span></div><div><b>2,481</b><span>팔로워</span></div><div><b>312</b><span>팔로잉</span></div></div>
+<nav class="menu"><a href="#"><span>저장한 글</span><span class="v">32개</span></a><a href="#"><span>알림 설정</span><span class="v">켜짐</span></a><a href="#"><span>결제 수단</span><span class="v">카드 1개</span></a><a href="#"><span>고객센터</span><span class="v">평일 9~18시</span></a></nav></div>
+<button class="gear" aria-label="설정">⚙</button></div></div></body></html>

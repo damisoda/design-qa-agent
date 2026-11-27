@@ -1,0 +1,23 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>오늘의 기록 · l2-goal</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#0F172A;--muted:#64748B;--line:#E2E8F0;--brand:#059669;--surface:#F1F5F9}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}
+.date{padding:8px 20px 0}.date span{display:block;font-size:14px;line-height:20px;font-weight:600;color:var(--brand)}.date h2{margin:4px 0 0;font-size:22px;line-height:30px;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px 20px 0}
+.tile{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:16px;background:var(--surface);text-align:left}
+.tile span{font-size:13px;line-height:18px;color:var(--muted)}.tile b{font-size:24px;line-height:32px;font-weight:700}.tile i{font-style:normal;font-size:12px;line-height:16px;color:var(--muted)}
+.goal{padding:24px 20px 0}.goal .gh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.goal h3{margin:0;font-size:16px;line-height:24px;font-weight:700}.goal .gh span{font-size:14px;line-height:20px;font-weight:600;color:var(--brand)}
+.bar{height:8px;border-radius:4px;background:var(--line)}.bar i{display:block;width:71.4%;height:8px;border-radius:4px;background:var(--brand)}
+.tip{margin:12px 20px 0;font-size:14px;line-height:20px;color:var(--muted)}
+.goal{padding-top:40px}</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>오늘의 기록</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><div class="date"><span>10월 12일 일요일</span><h2>오늘도 잘 걷고 있어요</h2></div><div class="grid"><button class="tile" data-sheet="걸음 자세히"><span>걸음</span><b>8,214</b><i>걸음</i></button><button class="tile" data-sheet="거리 자세히"><span>거리</span><b>6.1</b><i>km</i></button><button class="tile" data-sheet="소모 열량 자세히"><span>소모 열량</span><b>342</b><i>kcal</i></button><button class="tile" data-sheet="활동 시간 자세히"><span>활동 시간</span><b>54</b><i>분</i></button></div><div class="goal"><div class="gh"><h3>주간 목표</h3><span>5/7일</span></div><div class="bar"><i></i></div></div><p class="tip">어제보다 1,240걸음 더 걸었어요.</p></div><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

@@ -1,0 +1,1192 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "lecture",
+ "base": "375x812",
+ "frame": {
+  "name": "강의",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#ECEEF1",
+  "color/text": "#14171C",
+  "color/muted": "#5B6370",
+  "color/line": "#E2E5EA",
+  "color/brand": "#0F766E"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "뒤로",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 27,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "ttl",
+     "type": "TEXT",
+     "x": 72,
+     "y": 16,
+     "w": 287,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "강의",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#14171C",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:5",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 760,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:6",
+     "name": "player",
+     "type": "FRAME",
+     "x": 0,
+     "y": 52,
+     "w": 375,
+     "h": 211,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#000000",
+      "token": null
+     },
+     "children": [
+      {
+       "id": "1:7",
+       "name": "poster",
+       "type": "IMAGE",
+       "x": 0,
+       "y": 52,
+       "w": 375,
+       "h": 211,
+       "sizing": {
+        "h": "FILL"
+       },
+       "image": {
+        "src": "poster.png",
+        "natural": [
+         960,
+         540
+        ],
+        "fit": "cover"
+       }
+      },
+      {
+       "id": "1:8",
+       "name": "재생",
+       "type": "TEXT",
+       "x": 156,
+       "y": 125,
+       "w": 64,
+       "h": 64,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.92,
+        "token": "color/bg"
+       },
+       "radius": 32,
+       "text": {
+        "content": "▶",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 22,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#111111",
+         "token": null
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:9",
+       "name": "chap",
+       "type": "TEXT",
+       "x": 12,
+       "y": 62,
+       "w": 95,
+       "h": 26,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#000000",
+        "opacity": 0.55,
+        "token": null
+       },
+       "radius": 6,
+       "text": {
+        "content": "1강 · 강의 소개",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:10",
+       "name": "dur",
+       "type": "TEXT",
+       "x": 328,
+       "y": 231,
+       "w": 39,
+       "h": 20,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#000000",
+        "opacity": 0.72,
+        "token": null
+       },
+       "radius": 4,
+       "text": {
+        "content": "12:34",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:11",
+       "name": "prog",
+       "type": "FRAME",
+       "x": 0,
+       "y": 259,
+       "w": 375,
+       "h": 4,
+       "sizing": {
+        "h": "FILL"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "opacity": 0.35,
+        "token": "color/bg"
+       },
+       "children": [
+        {
+         "id": "1:12",
+         "name": "i",
+         "type": "FRAME",
+         "x": 0,
+         "y": 259,
+         "w": 131,
+         "h": 4,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "fill": {
+          "hex": "#0F766E",
+          "token": "color/brand"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:13",
+     "name": "info",
+     "type": "FRAME",
+     "x": 0,
+     "y": 263,
+     "w": 375,
+     "h": 114,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:14",
+       "name": "h1",
+       "type": "TEXT",
+       "x": 20,
+       "y": 277,
+       "w": 335,
+       "h": 28,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "피그마로 시작하는 UI 디자인 기초",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "lineHeight": 28,
+        "color": {
+         "hex": "#14171C",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:15",
+       "name": "who",
+       "type": "FRAME",
+       "x": 20,
+       "y": 317,
+       "w": 335,
+       "h": 56,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 10,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:16",
+         "name": "img",
+         "type": "IMAGE",
+         "x": 20,
+         "y": 327,
+         "w": 36,
+         "h": 36,
+         "sizing": {
+          "h": "FIXED"
+         },
+         "radius": 18,
+         "image": {
+          "src": "teacher.png",
+          "natural": [
+           72,
+           72
+          ],
+          "fit": "fill"
+         }
+        },
+        {
+         "id": "1:17",
+         "name": "nm",
+         "type": "FRAME",
+         "x": 66,
+         "y": 317,
+         "w": 217,
+         "h": 56,
+         "sizing": {
+          "h": "FILL"
+         },
+         "children": [
+          {
+           "id": "1:18",
+           "name": "b",
+           "type": "TEXT",
+           "x": 66,
+           "y": 317,
+           "w": 217,
+           "h": 40,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "김하늘 · 前 카카오 프로덕트 디자이너 · 10년 차",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "lineHeight": 20,
+            "color": {
+             "hex": "#14171C",
+             "token": "color/text"
+            },
+            "wrap": "WRAP"
+           }
+          },
+          {
+           "id": "1:19",
+           "name": "span",
+           "type": "TEXT",
+           "x": 66,
+           "y": 357,
+           "w": 217,
+           "h": 16,
+           "sizing": {
+            "h": "FILL"
+           },
+           "text": {
+            "content": "수강생 12,480명",
+            "fontFamily": "Apple SD Gothic Neo",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 16,
+            "color": {
+             "hex": "#5B6370",
+             "token": "color/muted"
+            },
+            "wrap": "WRAP"
+           }
+          }
+         ]
+        },
+        {
+         "id": "1:20",
+         "name": "follow",
+         "type": "TEXT",
+         "x": 293,
+         "y": 328,
+         "w": 62,
+         "h": 34,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#0F766E",
+          "token": "color/brand"
+         },
+         "radius": 17,
+         "text": {
+          "content": "팔로우",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:21",
+     "name": "tabs",
+     "type": "FRAME",
+     "x": 0,
+     "y": 389,
+     "w": 375,
+     "h": 42,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       0,
+       8,
+       0,
+       8
+      ],
+      "align": "normal",
+      "justify": "normal",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "1:22",
+       "name": "on",
+       "type": "TEXT",
+       "x": 8,
+       "y": 389,
+       "w": 120,
+       "h": 41,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "개요",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#14171C",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:23",
+       "name": "a",
+       "type": "TEXT",
+       "x": 128,
+       "y": 389,
+       "w": 120,
+       "h": 41,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "목차",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#5B6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:24",
+       "name": "a",
+       "type": "TEXT",
+       "x": 247,
+       "y": 389,
+       "w": 120,
+       "h": 41,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "자료",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#5B6370",
+         "token": "color/muted"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:25",
+     "name": "desc",
+     "type": "TEXT",
+     "x": 20,
+     "y": 443,
+     "w": 335,
+     "h": 66,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "버튼, 카드, 목록 같은 기본 화면 요소를 직접 만들며 오토 레이아웃과 컴포넌트를 익혀요. 마지막 강의에서는 작은 앱 화면 하나를 처음부터 끝까지 완성합니다.",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 22,
+      "color": {
+       "hex": "#14171C",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:26",
+     "name": "files",
+     "type": "FRAME",
+     "x": 20,
+     "y": 521,
+     "w": 335,
+     "h": 54,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 8,
+      "padding": [
+       6,
+       6,
+       6,
+       12
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 10,
+     "stroke": {
+      "width": 1,
+      "hex": "#E2E5EA",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:27",
+       "name": "span",
+       "type": "TEXT",
+       "x": 33,
+       "y": 539,
+       "w": 267,
+       "h": 17,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "강의 자료 모음.zip · 24MB",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#14171C",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:28",
+       "name": "자료 받기",
+       "type": "FRAME",
+       "x": 308,
+       "y": 528,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "center",
+        "justify": "center",
+        "wrap": false
+       },
+       "radius": 10,
+       "children": [
+        {
+         "id": "1:29",
+         "name": "svg",
+         "type": "VECTOR",
+         "x": 318,
+         "y": 538,
+         "w": 20,
+         "h": 20,
+         "sizing": {
+          "h": "FIXED"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:30",
+     "name": "chs",
+     "type": "FRAME",
+     "x": 0,
+     "y": 587,
+     "w": 375,
+     "h": 180,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:31",
+       "name": "ch",
+       "type": "FRAME",
+       "x": 0,
+       "y": 587,
+       "w": 375,
+       "h": 45,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         12,
+         20,
+         12,
+         20
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "fill": {
+        "hex": "#F0FDFA",
+        "token": null
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E2E5EA",
+        "token": "color/line"
+       },
+       "children": [
+        {
+         "id": "1:32",
+         "name": "no",
+         "type": "TEXT",
+         "x": 20,
+         "y": 602,
+         "w": 28,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "01",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:33",
+         "name": "nm",
+         "type": "TEXT",
+         "x": 60,
+         "y": 600,
+         "w": 255,
+         "h": 20,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "강의 소개와 준비물",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#14171C",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:34",
+         "name": "time",
+         "type": "TEXT",
+         "x": 327,
+         "y": 602,
+         "w": 28,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "04:12",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:35",
+       "name": "ch",
+       "type": "FRAME",
+       "x": 0,
+       "y": 632,
+       "w": 375,
+       "h": 45,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         12,
+         20,
+         12,
+         20
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E2E5EA",
+        "token": "color/line"
+       },
+       "children": [
+        {
+         "id": "1:36",
+         "name": "no",
+         "type": "TEXT",
+         "x": 20,
+         "y": 647,
+         "w": 28,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "02",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:37",
+         "name": "nm",
+         "type": "TEXT",
+         "x": 60,
+         "y": 645,
+         "w": 256,
+         "h": 20,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "프레임과 오토 레이아웃",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#14171C",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:38",
+         "name": "time",
+         "type": "TEXT",
+         "x": 328,
+         "y": 647,
+         "w": 27,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "12:34",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:39",
+       "name": "ch",
+       "type": "FRAME",
+       "x": 0,
+       "y": 677,
+       "w": 375,
+       "h": 45,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         12,
+         20,
+         12,
+         20
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E2E5EA",
+        "token": "color/line"
+       },
+       "children": [
+        {
+         "id": "1:40",
+         "name": "no",
+         "type": "TEXT",
+         "x": 20,
+         "y": 692,
+         "w": 28,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "03",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:41",
+         "name": "nm",
+         "type": "TEXT",
+         "x": 60,
+         "y": 690,
+         "w": 256,
+         "h": 20,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "컴포넌트와 변형 만들기",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#14171C",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:42",
+         "name": "time",
+         "type": "TEXT",
+         "x": 328,
+         "y": 692,
+         "w": 27,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "15:02",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:43",
+       "name": "ch",
+       "type": "FRAME",
+       "x": 0,
+       "y": 722,
+       "w": 375,
+       "h": 45,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         12,
+         20,
+         12,
+         20
+        ],
+        "align": "center",
+        "justify": "normal",
+        "wrap": false
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E2E5EA",
+        "token": "color/line"
+       },
+       "children": [
+        {
+         "id": "1:44",
+         "name": "no",
+         "type": "TEXT",
+         "x": 20,
+         "y": 737,
+         "w": 28,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "04",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:45",
+         "name": "nm",
+         "type": "TEXT",
+         "x": 60,
+         "y": 735,
+         "w": 256,
+         "h": 20,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "작은 앱 화면 완성하기",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "color": {
+           "hex": "#14171C",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:46",
+         "name": "time",
+         "type": "TEXT",
+         "x": 328,
+         "y": 737,
+         "w": 27,
+         "h": 16,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "18:47",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "lineHeight": 16,
+          "color": {
+           "hex": "#5B6370",
+           "token": "color/muted"
+          },
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:47",
+   "name": "next",
+   "type": "FRAME",
+   "x": 0,
+   "y": 740,
+   "w": 375,
+   "h": 72,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 0,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#E2E5EA",
+    "token": "color/line"
+   },
+   "children": [
+    {
+     "id": "1:48",
+     "name": "button",
+     "type": "TEXT",
+     "x": 16,
+     "y": 753,
+     "w": 343,
+     "h": 48,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#0F766E",
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "text": {
+      "content": "다음 강의 보기",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 16,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  }
+ ]
+}

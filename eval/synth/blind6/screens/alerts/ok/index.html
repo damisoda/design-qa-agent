@@ -1,0 +1,22 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>알림 설정 · ok</title>
+<style>:root{--bg:#FFFFFF;--page:#EEF0F3;--text:#18181B;--muted:#71717A;--line:#E4E4E7;--brand:#4F46E5;--off:#D4D4D8}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:44px}
+.scroll{flex:1;overflow-y:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;padding:20px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);z-index:5}
+.sheet[hidden]{display:none}
+.hd{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.hd h1{margin:0;font-size:17px;line-height:24px;font-weight:700}.hb{width:40px;height:40px;padding:8px;display:flex}
+.intro{margin:8px 20px 0;font-size:14px;line-height:20px;color:var(--muted)}
+.group{margin:16px 20px 0;border:1px solid var(--line);border-radius:16px}
+.opt{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.opt .t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.opt b{font-size:15px;line-height:22px;font-weight:600}.opt span{font-size:12px;line-height:16px;color:var(--muted)}
+.tg{width:44px;height:26px;padding:3px;border-radius:13px;background:var(--off);display:flex;justify-content:flex-start;flex:none}
+.tg i{width:20px;height:20px;border-radius:10px;background:#fff}.tg.on{background:var(--brand);justify-content:flex-end}
+.hist{display:block;margin:20px auto 0;text-align:center;font-size:14px;line-height:20px;font-weight:600;color:var(--brand);text-decoration:none}
+</style></head><body><div id="root"><div class="app"><header class="hd"><a class="hb" href="list.html" aria-label="뒤로"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a><h1>알림 설정</h1><button class="hb" data-sheet="메뉴" aria-label="더보기"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></header><div class="scroll"><p class="intro">받고 싶은 알림만 켜 두세요</p><div class="group"><div class="opt"><div class="t"><b>새 메시지</b><span>친구가 보낸 메시지를 바로 알려요</span></div><button class="tg on" role="switch" aria-checked="true" aria-label="새 메시지" data-toggle><i></i></button></div><div class="opt"><div class="t"><b>모임 일정</b><span>참여한 모임의 하루 전 알림</span></div><button class="tg on" role="switch" aria-checked="true" aria-label="모임 일정" data-toggle><i></i></button></div><div class="opt"><div class="t"><b>이벤트·혜택</b><span>할인과 새 소식을 알려요</span></div><button class="tg" role="switch" aria-checked="false" aria-label="이벤트·혜택" data-toggle><i></i></button></div><div class="opt"><div class="t"><b>야간 알림</b><span>밤 9시부터 아침 8시까지</span></div><button class="tg" role="switch" aria-checked="false" aria-label="야간 알림" data-toggle><i></i></button></div></div><a class="hist" href="history.html">알림 기록 보기</a></div><div class="sheet" id="sheet" hidden><p style="margin:0 0 12px;font-size:16px;font-weight:700"></p><button data-close style="width:100%;height:44px;border-radius:12px;background:#111;color:#fff">닫기</button></div></div></div><script>
+document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', () => { const s = document.getElementById('sheet'); s.querySelector('p').textContent = b.getAttribute('data-sheet'); s.hidden = false }))
+document.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => { document.getElementById('sheet').hidden = true }))
+document.querySelectorAll('[data-toggle]').forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); b.setAttribute('aria-checked', b.classList.contains('on')) }))
+</script></body></html>

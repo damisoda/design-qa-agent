@@ -1,0 +1,31 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>상품 상세 · d4-stretch</title>
+<style>:root{--bg:#FFFFFF;--page:#F2F2F2;--text:#111111;--muted:#6B6B6B;--line:#EAEAEA;--brand:#0B7DB5;--sale:#C9302C}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.hero{background:#F7F7F7}.photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.info{padding:16px 16px 12px}.brand{margin:0;font-size:13px;color:var(--muted)}
+.name{margin:4px 0 8px;font-size:18px;line-height:26px;font-weight:600}
+.price{margin:0;display:flex;align-items:baseline;gap:8px}.price .pct{color:var(--sale);font-size:18px;font-weight:700}
+.price b{font-size:22px;line-height:30px;white-space:nowrap}.price s{font-size:13px;color:var(--muted)}
+.sec{padding:14px 16px;border-top:8px solid #F5F5F5}.lab{margin:0 0 10px;font-size:15px;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{height:36px;padding:0 14px;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;font-size:14px}
+.chip.on{border-color:var(--brand);color:var(--brand);font-weight:600}
+.rev{margin:0 0 10px;font-size:14px;line-height:21px}.rev:last-child{margin-bottom:0}
+.buybar{flex:none;display:flex;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--bg)}
+.like{width:52px;height:52px;border-radius:10px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+.like svg{width:22px;height:22px}
+.buy{flex:1;height:52px;border-radius:10px;background:var(--brand);color:#fff;font-size:17px;font-weight:700}
+.photo{height:420px;aspect-ratio:auto;object-fit:fill}</style></head><body><div id="root"><div class="app"><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#222" stroke-width="2"/></svg></button><span class="ttl">상품 상세</span><button class="icon" aria-label="장바구니"><svg viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6" fill="none" stroke="#222" stroke-width="2"/></svg></button></div>
+<div class="scroll"><div class="hero"><img class="photo" src="photo.png" alt="원목 선반 사진"></div>
+<div class="info"><p class="brand">우드랩 셀렉트</p><h1 class="name">북유럽 원목 3단 선반 화이트오크 조립식 수납장</h1><p class="price"><span class="pct">32%</span><b>39,900원</b><s>59,000원</s></p></div>
+<div class="sec"><p class="lab">색상</p><div class="chips"><span class="chip on">화이트오크</span><span class="chip">월넛</span><span class="chip">블랙</span></div></div>
+<div class="sec"><p class="lab">배송</p><p class="rev">내일(금) 도착 보장 · 무료배송</p></div>
+<div class="sec reviews"><p class="lab">리뷰 128</p><p class="rev">조립이 쉬워요. 30분이면 끝납니다.</p><p class="rev">색이 사진보다 조금 밝아요.</p><p class="rev">튼튼하고 흔들림이 없어요.</p></div></div>
+<div class="buybar"><button class="like" aria-label="찜하기"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z" fill="none" stroke="#222" stroke-width="2"/></svg></button><button class="buy">구매하기</button></div></div></div></body></html>

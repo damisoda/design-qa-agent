@@ -1,0 +1,25 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>송금 · a2-hint</title>
+<style>:root{--bg:#FFFFFF;--page:#E9ECF1;--text:#191F28;--muted:#5B6573;--line:#E5E8EB;--brand:#1B64DA}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.safe{flex:none;height:env(safe-area-inset-top,0px)}
+.who{padding:20px 24px 0}.who p{margin:0;font-size:15px;color:var(--muted)}.who b{font-size:22px;line-height:32px;color:var(--text)}
+.amt{padding:20px 24px 4px;font-size:40px;line-height:52px;font-weight:700;letter-spacing:-0.5px;white-space:nowrap}
+.hint{padding:0 24px;margin:0;font-size:13px;line-height:18px;color:var(--muted)}
+.quick{display:flex;gap:8px;padding:16px 24px}.quick button{flex:1;height:40px;border-radius:10px;background:#F2F4F6;font-size:14px;font-weight:600;color:#3D4752}
+.pad{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;min-height:0;padding:0 8px}
+.pad button{background:#fff;font-size:24px;font-weight:600;color:var(--text);min-height:0}
+.next{flex:none;margin:8px 16px calc(12px + env(safe-area-inset-bottom,0px));height:56px;border-radius:14px;background:var(--brand);color:#fff;font-size:17px;font-weight:700}
+.hint{color:#C9CDD2}</style></head><body><div id="root"><div class="app"><div class="safe"></div><div class="top"><button class="icon" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#222" stroke-width="2"/></svg></button><span class="ttl">송금</span></div>
+<div class="who"><p>받는 분</p><b>김민지 · 국민 123-45-6789</b></div>
+<div class="amt" data-amt>1,250,000원</div><p class="hint">하루 최대 1,000만원까지 보낼 수 있어요</p>
+<div class="quick"><button>+1만</button><button>+5만</button><button>+10만</button><button>전액</button></div>
+<div class="pad"><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>00</button><button>0</button><button>⌫</button></div>
+<button class="next">다음</button></div></div></body></html>

@@ -1,0 +1,1032 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "알림 설정",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#4F46E5",
+  "color/text": "#18181B",
+  "color/muted": "#71717A",
+  "color/line": "#E4E4E7",
+  "color/off": "#D4D4D8",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 408,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "알림 설정",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "알림 설정",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#18181B",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "intro",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 28,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       8,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "받고 싶은 알림만 켜 ",
+       "type": "TEXT",
+       "x": 20,
+       "y": 104,
+       "w": 148,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "받고 싶은 알림만 켜 두세요",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#71717A",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:9",
+     "name": "group wrap",
+     "type": "FRAME",
+     "x": 0,
+     "y": 124,
+     "w": 375,
+     "h": 288,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       16,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:10",
+       "name": "group",
+       "type": "FRAME",
+       "x": 20,
+       "y": 140,
+       "w": 335,
+       "h": 272,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E4E4E7",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "radius": 16,
+       "layout": {
+        "mode": "VERTICAL",
+        "gap": 0,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "MIN",
+        "justify": "MIN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:11",
+         "name": "opt 새 메시지",
+         "type": "FRAME",
+         "x": 20,
+         "y": 140,
+         "w": 335,
+         "h": 68,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 12,
+          "padding": [
+           14,
+           16,
+           14,
+           16
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:12",
+           "name": "txt",
+           "type": "FRAME",
+           "x": 36,
+           "y": 154,
+           "w": 247,
+           "h": 40,
+           "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+           },
+           "layout": {
+            "mode": "VERTICAL",
+            "gap": 2,
+            "padding": [
+             0,
+             0,
+             0,
+             0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:13",
+             "name": "새 메시지",
+             "type": "TEXT",
+             "x": 36,
+             "y": 154,
+             "w": 56,
+             "h": 22,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "새 메시지",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 15,
+              "fontWeight": 600,
+              "lineHeight": 22,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#18181B",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            },
+            {
+             "id": "6:14",
+             "name": "친구가 보낸 메시지를 ",
+             "type": "TEXT",
+             "x": 36,
+             "y": 178,
+             "w": 158,
+             "h": 16,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "친구가 보낸 메시지를 바로 알려요",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 12,
+              "fontWeight": 400,
+              "lineHeight": 16,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#71717A",
+               "opacity": 1,
+               "token": "color/muted"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          },
+          {
+           "id": "6:15",
+           "name": "toggle 새 메시지",
+           "type": "FRAME",
+           "x": 295,
+           "y": 161,
+           "w": 44,
+           "h": 26,
+           "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+           },
+           "fill": {
+            "hex": "#4F46E5",
+            "opacity": 1,
+            "token": "color/brand"
+           },
+           "radius": 13,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             3,
+             3,
+             3,
+             3
+            ],
+            "align": "CENTER",
+            "justify": "MAX",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:16",
+             "name": "knob",
+             "type": "FRAME",
+             "x": 316,
+             "y": 164,
+             "w": 20,
+             "h": 20,
+             "sizing": {
+              "h": "FIXED",
+              "v": "FIXED"
+             },
+             "fill": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": null
+             },
+             "radius": 10,
+             "layout": {
+              "mode": "VERTICAL",
+              "gap": 0,
+              "padding": [
+               0,
+               0,
+               0,
+               0
+              ],
+              "align": "MIN",
+              "justify": "MIN",
+              "wrap": false
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "6:17",
+         "name": "opt 모임 일정",
+         "type": "FRAME",
+         "x": 20,
+         "y": 208,
+         "w": 335,
+         "h": 68,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 12,
+          "padding": [
+           14,
+           16,
+           14,
+           16
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:18",
+           "name": "txt",
+           "type": "FRAME",
+           "x": 36,
+           "y": 222,
+           "w": 247,
+           "h": 40,
+           "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+           },
+           "layout": {
+            "mode": "VERTICAL",
+            "gap": 2,
+            "padding": [
+             0,
+             0,
+             0,
+             0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:19",
+             "name": "모임 일정",
+             "type": "TEXT",
+             "x": 36,
+             "y": 222,
+             "w": 56,
+             "h": 22,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "모임 일정",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 15,
+              "fontWeight": 600,
+              "lineHeight": 22,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#18181B",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            },
+            {
+             "id": "6:20",
+             "name": "참여한 모임의 하루 전",
+             "type": "TEXT",
+             "x": 36,
+             "y": 246,
+             "w": 127,
+             "h": 16,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "참여한 모임의 하루 전 알림",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 12,
+              "fontWeight": 400,
+              "lineHeight": 16,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#71717A",
+               "opacity": 1,
+               "token": "color/muted"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          },
+          {
+           "id": "6:21",
+           "name": "toggle 모임 일정",
+           "type": "FRAME",
+           "x": 295,
+           "y": 229,
+           "w": 44,
+           "h": 26,
+           "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+           },
+           "fill": {
+            "hex": "#4F46E5",
+            "opacity": 1,
+            "token": "color/brand"
+           },
+           "radius": 13,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             3,
+             3,
+             3,
+             3
+            ],
+            "align": "CENTER",
+            "justify": "MAX",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:22",
+             "name": "knob",
+             "type": "FRAME",
+             "x": 316,
+             "y": 232,
+             "w": 20,
+             "h": 20,
+             "sizing": {
+              "h": "FIXED",
+              "v": "FIXED"
+             },
+             "fill": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": null
+             },
+             "radius": 10,
+             "layout": {
+              "mode": "VERTICAL",
+              "gap": 0,
+              "padding": [
+               0,
+               0,
+               0,
+               0
+              ],
+              "align": "MIN",
+              "justify": "MIN",
+              "wrap": false
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "6:23",
+         "name": "opt 이벤트·혜택",
+         "type": "FRAME",
+         "x": 20,
+         "y": 276,
+         "w": 335,
+         "h": 68,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 12,
+          "padding": [
+           14,
+           16,
+           14,
+           16
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:24",
+           "name": "txt",
+           "type": "FRAME",
+           "x": 36,
+           "y": 290,
+           "w": 247,
+           "h": 40,
+           "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+           },
+           "layout": {
+            "mode": "VERTICAL",
+            "gap": 2,
+            "padding": [
+             0,
+             0,
+             0,
+             0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:25",
+             "name": "이벤트·혜택",
+             "type": "TEXT",
+             "x": 36,
+             "y": 290,
+             "w": 70,
+             "h": 22,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "이벤트·혜택",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 15,
+              "fontWeight": 600,
+              "lineHeight": 22,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#18181B",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            },
+            {
+             "id": "6:26",
+             "name": "할인과 새 소식을 알려",
+             "type": "TEXT",
+             "x": 36,
+             "y": 314,
+             "w": 114,
+             "h": 16,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "할인과 새 소식을 알려요",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 12,
+              "fontWeight": 400,
+              "lineHeight": 16,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#71717A",
+               "opacity": 1,
+               "token": "color/muted"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          },
+          {
+           "id": "6:27",
+           "name": "toggle 이벤트·혜택",
+           "type": "FRAME",
+           "x": 295,
+           "y": 297,
+           "w": 44,
+           "h": 26,
+           "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+           },
+           "fill": {
+            "hex": "#D4D4D8",
+            "opacity": 1,
+            "token": "color/off"
+           },
+           "radius": 13,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             3,
+             3,
+             3,
+             3
+            ],
+            "align": "CENTER",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:28",
+             "name": "knob",
+             "type": "FRAME",
+             "x": 298,
+             "y": 300,
+             "w": 20,
+             "h": 20,
+             "sizing": {
+              "h": "FIXED",
+              "v": "FIXED"
+             },
+             "fill": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": null
+             },
+             "radius": 10,
+             "layout": {
+              "mode": "VERTICAL",
+              "gap": 0,
+              "padding": [
+               0,
+               0,
+               0,
+               0
+              ],
+              "align": "MIN",
+              "justify": "MIN",
+              "wrap": false
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "6:29",
+         "name": "opt 야간 알림",
+         "type": "FRAME",
+         "x": 20,
+         "y": 344,
+         "w": 335,
+         "h": 68,
+         "sizing": {
+          "h": "FILL",
+          "v": "HUG"
+         },
+         "layout": {
+          "mode": "HORIZONTAL",
+          "gap": 12,
+          "padding": [
+           14,
+           16,
+           14,
+           16
+          ],
+          "align": "CENTER",
+          "justify": "MIN",
+          "wrap": false
+         },
+         "children": [
+          {
+           "id": "6:30",
+           "name": "txt",
+           "type": "FRAME",
+           "x": 36,
+           "y": 358,
+           "w": 247,
+           "h": 40,
+           "sizing": {
+            "h": "FILL",
+            "v": "HUG"
+           },
+           "layout": {
+            "mode": "VERTICAL",
+            "gap": 2,
+            "padding": [
+             0,
+             0,
+             0,
+             0
+            ],
+            "align": "MIN",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:31",
+             "name": "야간 알림",
+             "type": "TEXT",
+             "x": 36,
+             "y": 358,
+             "w": 56,
+             "h": 22,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "야간 알림",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 15,
+              "fontWeight": 600,
+              "lineHeight": 22,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#18181B",
+               "opacity": 1,
+               "token": "color/text"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            },
+            {
+             "id": "6:32",
+             "name": "밤 9시부터 아침 8시",
+             "type": "TEXT",
+             "x": 36,
+             "y": 382,
+             "w": 117,
+             "h": 16,
+             "sizing": {
+              "h": "HUG",
+              "v": "HUG"
+             },
+             "text": {
+              "content": "밤 9시부터 아침 8시까지",
+              "fontFamily": "Apple SD Gothic Neo",
+              "fontSize": 12,
+              "fontWeight": 400,
+              "lineHeight": 16,
+              "letterSpacing": 0,
+              "color": {
+               "hex": "#71717A",
+               "opacity": 1,
+               "token": "color/muted"
+              },
+              "align": "LEFT",
+              "wrap": "NONE"
+             }
+            }
+           ]
+          },
+          {
+           "id": "6:33",
+           "name": "toggle 야간 알림",
+           "type": "FRAME",
+           "x": 295,
+           "y": 365,
+           "w": 44,
+           "h": 26,
+           "sizing": {
+            "h": "FIXED",
+            "v": "FIXED"
+           },
+           "fill": {
+            "hex": "#D4D4D8",
+            "opacity": 1,
+            "token": "color/off"
+           },
+           "radius": 13,
+           "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 0,
+            "padding": [
+             3,
+             3,
+             3,
+             3
+            ],
+            "align": "CENTER",
+            "justify": "MIN",
+            "wrap": false
+           },
+           "children": [
+            {
+             "id": "6:34",
+             "name": "knob",
+             "type": "FRAME",
+             "x": 298,
+             "y": 368,
+             "w": 20,
+             "h": 20,
+             "sizing": {
+              "h": "FIXED",
+              "v": "FIXED"
+             },
+             "fill": {
+              "hex": "#FFFFFF",
+              "opacity": 1,
+              "token": null
+             },
+             "radius": 10,
+             "layout": {
+              "mode": "VERTICAL",
+              "gap": 0,
+              "padding": [
+               0,
+               0,
+               0,
+               0
+              ],
+              "align": "MIN",
+              "justify": "MIN",
+              "wrap": false
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:35",
+     "name": "history",
+     "type": "FRAME",
+     "x": 0,
+     "y": 412,
+     "w": 375,
+     "h": 40,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       20,
+       20,
+       0,
+       20
+      ],
+      "align": "CENTER",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:36",
+       "name": "알림 기록 보기",
+       "type": "TEXT",
+       "x": 147,
+       "y": 432,
+       "w": 81,
+       "h": 20,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "알림 기록 보기",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 20,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#4F46E5",
+         "opacity": 1,
+         "token": "color/brand"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

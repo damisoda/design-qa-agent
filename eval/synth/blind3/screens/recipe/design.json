@@ -1,0 +1,1583 @@
+{
+ "source": "synthetic design spec (dqa eval, 2026-10-10). Figma 플러그인 내보내기와 같은 모양이며, 맞게 만든 구현을 기준 크기로 재서 만들었다.",
+ "screen": "recipe",
+ "base": "375x812",
+ "frame": {
+  "name": "레시피",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "token": "color/bg"
+  }
+ },
+ "tokens": {
+  "color/bg": "#FFFFFF",
+  "color/page": "#EFEDEA",
+  "color/text": "#1C1A17",
+  "color/muted": "#615B53",
+  "color/line": "#E7E3DD",
+  "color/brand": "#C2410C"
+ },
+ "nodes": [
+  {
+   "id": "1:1",
+   "name": "top",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 52,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 12,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "children": [
+    {
+     "id": "1:2",
+     "name": "뒤로",
+     "type": "FRAME",
+     "x": 16,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:3",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 27,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:4",
+     "name": "ttl",
+     "type": "TEXT",
+     "x": 72,
+     "y": 16,
+     "w": 231,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "레시피",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#1C1A17",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:5",
+     "name": "공유",
+     "type": "FRAME",
+     "x": 315,
+     "y": 4,
+     "w": 44,
+     "h": 44,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "radius": 12,
+     "children": [
+      {
+       "id": "1:6",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 326,
+       "y": 15,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:7",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 52,
+   "w": 375,
+   "h": 760,
+   "sizing": {
+    "h": "FILL"
+   },
+   "children": [
+    {
+     "id": "1:8",
+     "name": "hero",
+     "type": "FRAME",
+     "x": 0,
+     "y": 52,
+     "w": 375,
+     "h": 281,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:9",
+       "name": "food",
+       "type": "IMAGE",
+       "x": 0,
+       "y": 52,
+       "w": 375,
+       "h": 281,
+       "sizing": {
+        "h": "FILL"
+       },
+       "image": {
+        "src": "pasta.png",
+        "natural": [
+         800,
+         600
+        ],
+        "fit": "cover"
+       }
+      },
+      {
+       "id": "1:10",
+       "name": "time",
+       "type": "TEXT",
+       "x": 12,
+       "y": 295,
+       "w": 47,
+       "h": 26,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#000000",
+        "opacity": 0.62,
+        "token": null
+       },
+       "radius": 12,
+       "text": {
+        "content": "20분",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 18,
+        "color": {
+         "hex": "#FFFFFF",
+         "token": "color/bg"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:11",
+     "name": "head",
+     "type": "FRAME",
+     "x": 0,
+     "y": 333,
+     "w": 375,
+     "h": 88,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:12",
+       "name": "h1",
+       "type": "TEXT",
+       "x": 20,
+       "y": 349,
+       "w": 335,
+       "h": 30,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "바질 토마토 파스타",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 22,
+        "fontWeight": 700,
+        "lineHeight": 30,
+        "color": {
+         "hex": "#1C1A17",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:13",
+       "name": "chips",
+       "type": "FRAME",
+       "x": 20,
+       "y": 387,
+       "w": 335,
+       "h": 26,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 6,
+        "padding": [
+         0,
+         0,
+         0,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": true
+       },
+       "children": [
+        {
+         "id": "1:14",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 387,
+         "w": 75,
+         "h": 26,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#F5F1EC",
+          "token": null
+         },
+         "radius": 12,
+         "text": {
+          "content": "2인분 기준",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#615B53",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:15",
+         "name": "span",
+         "type": "TEXT",
+         "x": 101,
+         "y": 387,
+         "w": 80,
+         "h": 26,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#F5F1EC",
+          "token": null
+         },
+         "radius": 12,
+         "text": {
+          "content": "난이도 쉬움",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#615B53",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:16",
+         "name": "span",
+         "type": "TEXT",
+         "x": 187,
+         "y": 387,
+         "w": 68,
+         "h": 26,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#F5F1EC",
+          "token": null
+         },
+         "radius": 12,
+         "text": {
+          "content": "냄비 하나",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "lineHeight": 18,
+          "color": {
+           "hex": "#615B53",
+           "token": "color/muted"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:17",
+     "name": "serv",
+     "type": "FRAME",
+     "x": 20,
+     "y": 429,
+     "w": 335,
+     "h": 58,
+     "sizing": {
+      "h": "FILL"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 12,
+      "padding": [
+       10,
+       14,
+       10,
+       14
+      ],
+      "align": "center",
+      "justify": "normal",
+      "wrap": false
+     },
+     "radius": 12,
+     "stroke": {
+      "width": 1,
+      "hex": "#E7E3DD",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:18",
+       "name": "l",
+       "type": "TEXT",
+       "x": 35,
+       "y": 449,
+       "w": 157,
+       "h": 19,
+       "sizing": {
+        "h": "FILL"
+       },
+       "text": {
+        "content": "인분",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1C1A17",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:19",
+       "name": "1인분 줄이기",
+       "type": "TEXT",
+       "x": 204,
+       "y": 440,
+       "w": 36,
+       "h": 36,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 18,
+       "stroke": {
+        "width": 1,
+        "hex": "#E7E3DD",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "−",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1C1A17",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      },
+      {
+       "id": "1:20",
+       "name": "b",
+       "type": "TEXT",
+       "x": 252,
+       "y": 449,
+       "w": 40,
+       "h": 19,
+       "sizing": {
+        "h": "HUG"
+       },
+       "text": {
+        "content": "2인분",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1C1A17",
+         "token": "color/text"
+        },
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "1:21",
+       "name": "1인분 늘리기",
+       "type": "TEXT",
+       "x": 304,
+       "y": 440,
+       "w": 36,
+       "h": 36,
+       "sizing": {
+        "h": "HUG"
+       },
+       "fill": {
+        "hex": "#FFFFFF",
+        "token": "color/bg"
+       },
+       "radius": 18,
+       "stroke": {
+        "width": 1,
+        "hex": "#E7E3DD",
+        "token": "color/line"
+       },
+       "text": {
+        "content": "+",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": null,
+        "color": {
+         "hex": "#1C1A17",
+         "token": "color/text"
+        },
+        "wrap": "WRAP"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:22",
+     "name": "h2",
+     "type": "TEXT",
+     "x": 20,
+     "y": 507,
+     "w": 335,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "재료",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#1C1A17",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:23",
+     "name": "ing",
+     "type": "FRAME",
+     "x": 0,
+     "y": 535,
+     "w": 375,
+     "h": 273,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:24",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 535,
+       "w": 335,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:25",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 545,
+         "w": 288,
+         "h": 21,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "스파게티면",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:26",
+         "name": "b",
+         "type": "TEXT",
+         "x": 320,
+         "y": 545,
+         "w": 35,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "200g",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:27",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 577,
+       "w": 335,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:28",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 587,
+         "w": 296,
+         "h": 21,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "방울토마토",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:29",
+         "name": "b",
+         "type": "TEXT",
+         "x": 328,
+         "y": 587,
+         "w": 27,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "12개",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:30",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 619,
+       "w": 335,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:31",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 629,
+         "w": 301,
+         "h": 21,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "마늘",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:32",
+         "name": "b",
+         "type": "TEXT",
+         "x": 333,
+         "y": 629,
+         "w": 22,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "4쪽",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:33",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 661,
+       "w": 335,
+       "h": 63,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:34",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 671,
+         "w": 289,
+         "h": 42,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "엑스트라 버진 올리브유(없으면 카놀라유나 포도씨유)",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:35",
+         "name": "b",
+         "type": "TEXT",
+         "x": 321,
+         "y": 671,
+         "w": 34,
+         "h": 42,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "3큰술",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:36",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 724,
+       "w": 335,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:37",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 734,
+         "w": 293,
+         "h": 21,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "생 바질",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:38",
+         "name": "b",
+         "type": "TEXT",
+         "x": 325,
+         "y": 734,
+         "w": 30,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "한 줌",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:39",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 766,
+       "w": 335,
+       "h": 42,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:40",
+         "name": "span",
+         "type": "TEXT",
+         "x": 20,
+         "y": 776,
+         "w": 298,
+         "h": 21,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "파르메산 치즈",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:41",
+         "name": "b",
+         "type": "TEXT",
+         "x": 330,
+         "y": 776,
+         "w": 25,
+         "h": 21,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "30g",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 21,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "1:42",
+     "name": "h2",
+     "type": "TEXT",
+     "x": 20,
+     "y": 828,
+     "w": 335,
+     "h": 20,
+     "sizing": {
+      "h": "FILL"
+     },
+     "text": {
+      "content": "만드는 법",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#1C1A17",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:43",
+     "name": "steps",
+     "type": "FRAME",
+     "x": 0,
+     "y": 856,
+     "w": 375,
+     "h": 255,
+     "sizing": {
+      "h": "FILL"
+     },
+     "children": [
+      {
+       "id": "1:44",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 856,
+       "w": 335,
+       "h": 69,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:45",
+         "name": "i",
+         "type": "TEXT",
+         "x": 20,
+         "y": 866,
+         "w": 28,
+         "h": 28,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#C2410C",
+          "token": "color/brand"
+         },
+         "radius": 14,
+         "text": {
+          "content": "1",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:46",
+         "name": "p",
+         "type": "TEXT",
+         "x": 60,
+         "y": 869,
+         "w": 295,
+         "h": 46,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "냄비에 물을 끓이고 소금을 한 숟갈 넣은 뒤 면을 8분 삶아요.",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 23,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:47",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 925,
+       "w": 335,
+       "h": 48,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:48",
+         "name": "i",
+         "type": "TEXT",
+         "x": 20,
+         "y": 935,
+         "w": 28,
+         "h": 28,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#C2410C",
+          "token": "color/brand"
+         },
+         "radius": 14,
+         "text": {
+          "content": "2",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:49",
+         "name": "p",
+         "type": "TEXT",
+         "x": 60,
+         "y": 938,
+         "w": 274,
+         "h": 25,
+         "sizing": {
+          "h": "HUG"
+         },
+         "text": {
+          "content": "마늘을 얇게 썰어 올리브유에 약한 불로 볶아요.",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 23,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:50",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 973,
+       "w": 335,
+       "h": 69,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:51",
+         "name": "i",
+         "type": "TEXT",
+         "x": 20,
+         "y": 983,
+         "w": 28,
+         "h": 28,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#C2410C",
+          "token": "color/brand"
+         },
+         "radius": 14,
+         "text": {
+          "content": "3",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:52",
+         "name": "p",
+         "type": "TEXT",
+         "x": 60,
+         "y": 986,
+         "w": 295,
+         "h": 46,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "방울토마토를 반으로 잘라 넣고 살짝 으깨질 때까지 볶아요.",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 23,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      },
+      {
+       "id": "1:53",
+       "name": "li",
+       "type": "FRAME",
+       "x": 20,
+       "y": 1042,
+       "w": 335,
+       "h": 69,
+       "sizing": {
+        "h": "FILL"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 12,
+        "padding": [
+         10,
+         0,
+         10,
+         0
+        ],
+        "align": "normal",
+        "justify": "normal",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "1:54",
+         "name": "i",
+         "type": "TEXT",
+         "x": 20,
+         "y": 1052,
+         "w": 28,
+         "h": 28,
+         "sizing": {
+          "h": "HUG"
+         },
+         "fill": {
+          "hex": "#C2410C",
+          "token": "color/brand"
+         },
+         "radius": 14,
+         "text": {
+          "content": "4",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 700,
+          "lineHeight": null,
+          "color": {
+           "hex": "#FFFFFF",
+           "token": "color/bg"
+          },
+          "wrap": "WRAP"
+         }
+        },
+        {
+         "id": "1:55",
+         "name": "p",
+         "type": "TEXT",
+         "x": 60,
+         "y": 1055,
+         "w": 295,
+         "h": 46,
+         "sizing": {
+          "h": "FILL"
+         },
+         "text": {
+          "content": "삶은 면과 면수 반 컵을 넣고 섞은 뒤 바질과 치즈를 올려요.",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "lineHeight": 23,
+          "color": {
+           "hex": "#1C1A17",
+           "token": "color/text"
+          },
+          "wrap": "WRAP"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1:56",
+   "name": "timer",
+   "type": "FRAME",
+   "x": 16,
+   "y": 680,
+   "w": 343,
+   "h": 48,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 0,
+    "padding": [
+     0,
+     6,
+     0,
+     18
+    ],
+    "align": "center",
+    "justify": "space-between",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#1C1A17",
+    "token": "color/text"
+   },
+   "radius": 24,
+   "children": [
+    {
+     "id": "1:57",
+     "name": "span",
+     "type": "TEXT",
+     "x": 34,
+     "y": 696,
+     "w": 112,
+     "h": 17,
+     "sizing": {
+      "h": "HUG"
+     },
+     "text": {
+      "content": "다음 단계까지 03:12",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    },
+    {
+     "id": "1:58",
+     "name": "button",
+     "type": "TEXT",
+     "x": 277,
+     "y": 686,
+     "w": 76,
+     "h": 36,
+     "sizing": {
+      "h": "HUG"
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 18,
+     "text": {
+      "content": "일시정지",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 14,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#1C1A17",
+       "token": "color/text"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  },
+  {
+   "id": "1:59",
+   "name": "bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 740,
+   "w": 375,
+   "h": 72,
+   "sizing": {
+    "h": "FILL"
+   },
+   "layout": {
+    "mode": "HORIZONTAL",
+    "gap": 10,
+    "padding": [
+     0,
+     16,
+     0,
+     16
+    ],
+    "align": "center",
+    "justify": "normal",
+    "wrap": false
+   },
+   "fill": {
+    "hex": "#FFFFFF",
+    "token": "color/bg"
+   },
+   "stroke": {
+    "width": 1,
+    "hex": "#E7E3DD",
+    "token": "color/line"
+   },
+   "children": [
+    {
+     "id": "1:60",
+     "name": "찜하기",
+     "type": "FRAME",
+     "x": 16,
+     "y": 753,
+     "w": 48,
+     "h": 48,
+     "sizing": {
+      "h": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       1,
+       6,
+       1,
+       6
+      ],
+      "align": "center",
+      "justify": "center",
+      "wrap": false
+     },
+     "fill": {
+      "hex": "#FFFFFF",
+      "token": "color/bg"
+     },
+     "radius": 12,
+     "stroke": {
+      "width": 1,
+      "hex": "#E7E3DD",
+      "token": "color/line"
+     },
+     "children": [
+      {
+       "id": "1:61",
+       "name": "svg",
+       "type": "VECTOR",
+       "x": 29,
+       "y": 766,
+       "w": 22,
+       "h": 22,
+       "sizing": {
+        "h": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1:62",
+     "name": "start",
+     "type": "TEXT",
+     "x": 74,
+     "y": 753,
+     "w": 285,
+     "h": 48,
+     "sizing": {
+      "h": "FILL"
+     },
+     "fill": {
+      "hex": "#C2410C",
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "text": {
+      "content": "요리 시작",
+      "fontFamily": "Apple SD Gothic Neo",
+      "fontSize": 16,
+      "fontWeight": 700,
+      "lineHeight": null,
+      "color": {
+       "hex": "#FFFFFF",
+       "token": "color/bg"
+      },
+      "wrap": "WRAP"
+     }
+    }
+   ]
+  }
+ ]
+}

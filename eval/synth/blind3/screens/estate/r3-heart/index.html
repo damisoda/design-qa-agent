@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>매물 상세 · r3-heart</title>
+<style>:root{--bg:#FFFFFF;--page:#EDEFF2;--text:#121417;--muted:#5A6069;--line:#E3E6EA;--brand:#2563EB}*{box-sizing:border-box}html,body{margin:0;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text);background:var(--page)}
+button{font-family:inherit;border:0;cursor:pointer}
+#root{min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top .ttl{font-size:17px;font-weight:700;flex:1}
+.icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:transparent;flex:none}
+.icon svg{width:22px;height:22px}
+.scroll{flex:1;overflow-y:auto}
+
+.body{flex:1;overflow-y:auto;padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+.gal{position:relative}.photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gal .nav{position:absolute;left:0;right:0;top:calc(10px + env(safe-area-inset-top,0px));display:flex;justify-content:space-between;padding:0 12px}
+.gal .nav button{width:40px;height:40px;border-radius:20px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center}.gal .nav svg{width:20px;height:20px}
+.cnt{position:absolute;right:12px;bottom:12px;font-size:12px;line-height:16px;padding:3px 8px;border-radius:10px;background:rgba(0,0,0,.6);color:#fff}
+.info{position:relative;padding:16px 20px 4px}
+.info h1{margin:0;padding-right:52px;font-size:22px;line-height:30px}
+.info .addr{margin:4px 0 0;font-size:14px;line-height:20px;color:var(--muted)}
+.info .heart{position:absolute;right:16px;top:12px;width:44px;height:44px;border-radius:22px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}.info .heart svg{width:20px;height:20px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 20px 0}.tags span{font-size:12px;line-height:16px;padding:4px 10px;border-radius:12px;background:#EFF6FF;color:#1E40AF;white-space:nowrap}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 20px 0}
+.spec div{padding:12px;border-radius:12px;background:#F6F7F9}.spec span{display:block;font-size:12px;line-height:16px;color:var(--muted)}.spec b{display:block;margin-top:2px;font-size:15px;line-height:21px}
+.desc{margin:16px 20px 0;font-size:14px;line-height:22px}
+.mapimg{display:block;width:calc(100% - 40px);margin:16px 20px 0;aspect-ratio:2/1;object-fit:cover;border-radius:12px}
+.agent{display:flex;align-items:center;gap:10px;margin:16px 20px 0}.agent img{width:40px;height:40px;border-radius:20px;flex:none}.agent b{display:block;font-size:14px;line-height:20px}.agent span{display:block;font-size:12px;line-height:16px;color:var(--muted)}
+.cta{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--line)}
+.cta .call{width:52px;height:48px;border-radius:12px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;flex:none}.cta .call svg{width:22px;height:22px}
+.cta .ask{flex:1;height:48px;border-radius:12px;background:var(--brand);color:#fff;font-size:16px;font-weight:700}
+.info h1{padding-right:0}</style></head><body><div id="root"><div class="app"><div class="body"><div class="gal"><img class="photo" src="room.png" alt="거실 사진"><div class="nav"><button aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button aria-label="공유"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5h14v-5"/></svg></button></div><span class="cnt">1 / 12</span></div>
+<div class="info"><h1>월세 1,000 / 65 · 관리비 8만 원 별도</h1><p class="addr">서울 마포구 성산동 · 망원역 도보 7분</p><button class="heart" aria-label="찜하기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button></div>
+<div class="tags"><span>풀옵션</span><span>역세권</span><span>반려동물 가능</span><span>엘리베이터</span><span>주차 1대</span></div>
+<div class="spec"><div><span>전용면적</span><b>33㎡ (10평)</b></div><div><span>층수</span><b>3층 / 15층</b></div><div><span>방 · 욕실</span><b>1개 · 1개</b></div><div><span>관리비</span><b>월 8만 원</b></div></div>
+<p class="desc">남향이라 햇빛이 잘 들고, 작년에 도배와 장판을 새로 했어요. 망원시장과 한강공원이 가까워요.</p>
+<img class="mapimg" src="map.png" alt="매물 위치 지도">
+<div class="agent"><img src="agent.png" alt="중개사 사진"><div><b>박서준 공인중개사</b><span>망원역 바른부동산 · 응답률 98%</span></div></div></div>
+<div class="cta"><button class="call" aria-label="전화하기"><svg viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></button><button class="ask">문의하기</button></div></div></div></body></html>

@@ -1,0 +1,664 @@
+{
+ "source": "design-first spec (eval/synth/design_model.py, 2026-10-12). 시안을 먼저 쓰고 구현은 따로 만들었다.",
+ "file": "블라인드 6",
+ "frame": {
+  "id": "6:0",
+  "name": "주차 정산",
+  "width": 375,
+  "height": 812,
+  "fill": {
+   "hex": "#FFFFFF",
+   "opacity": 1,
+   "token": "color/bg"
+  }
+ },
+ "base": "375x812",
+ "tokens": {
+  "color/brand": "#2563EB",
+  "color/text": "#1E293B",
+  "color/muted": "#64748B",
+  "color/line": "#E2E8F0",
+  "color/bg": "#FFFFFF"
+ },
+ "nodes": [
+  {
+   "id": "6:1",
+   "name": "Status Bar",
+   "type": "FRAME",
+   "x": 0,
+   "y": 0,
+   "w": 375,
+   "h": 44
+  },
+  {
+   "id": "6:2",
+   "name": "body",
+   "type": "FRAME",
+   "x": 0,
+   "y": 44,
+   "w": 375,
+   "h": 328,
+   "sizing": {
+    "h": "FILL",
+    "v": "HUG"
+   },
+   "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "padding": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "align": "MIN",
+    "justify": "MIN",
+    "wrap": false
+   },
+   "children": [
+    {
+     "id": "6:3",
+     "name": "Header",
+     "type": "FRAME",
+     "x": 0,
+     "y": 44,
+     "w": 375,
+     "h": 52,
+     "sizing": {
+      "h": "FILL",
+      "v": "FIXED"
+     },
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       6,
+       8,
+       6,
+       8
+      ],
+      "align": "CENTER",
+      "justify": "SPACE_BETWEEN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:4",
+       "name": "뒤로",
+       "type": "VECTOR",
+       "x": 8,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      },
+      {
+       "id": "6:5",
+       "name": "주차 정산",
+       "type": "TEXT",
+       "x": 156,
+       "y": 58,
+       "w": 64,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "주차 정산",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 17,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#1E293B",
+         "opacity": 1,
+         "token": "color/text"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      },
+      {
+       "id": "6:6",
+       "name": "더보기",
+       "type": "VECTOR",
+       "x": 327,
+       "y": 50,
+       "w": 40,
+       "h": 40,
+       "sizing": {
+        "h": "FIXED",
+        "v": "FIXED"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:7",
+     "name": "rows",
+     "type": "FRAME",
+     "x": 0,
+     "y": 96,
+     "w": 375,
+     "h": 200,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:8",
+       "name": "row 차량 번호",
+       "type": "FRAME",
+       "x": 0,
+       "y": 96,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:9",
+         "name": "차량 번호",
+         "type": "TEXT",
+         "x": 20,
+         "y": 111,
+         "w": 53,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "차량 번호",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#64748B",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:10",
+         "name": "val 차량 번호",
+         "type": "TEXT",
+         "x": 291,
+         "y": 110,
+         "w": 64,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "12가 3456",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1E293B",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:11",
+       "name": "row 입차 시각",
+       "type": "FRAME",
+       "x": 0,
+       "y": 146,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:12",
+         "name": "입차 시각",
+         "type": "TEXT",
+         "x": 20,
+         "y": 161,
+         "w": 53,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "입차 시각",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#64748B",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:13",
+         "name": "val 입차 시각",
+         "type": "TEXT",
+         "x": 319,
+         "y": 160,
+         "w": 36,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "14:30",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1E293B",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:14",
+       "name": "row 주차 시간",
+       "type": "FRAME",
+       "x": 0,
+       "y": 196,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:15",
+         "name": "주차 시간",
+         "type": "TEXT",
+         "x": 20,
+         "y": 211,
+         "w": 53,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "주차 시간",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#64748B",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:16",
+         "name": "val 주차 시간",
+         "type": "TEXT",
+         "x": 288,
+         "y": 210,
+         "w": 67,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "2시간 10분",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1E293B",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      },
+      {
+       "id": "6:17",
+       "name": "row 정산 요금",
+       "type": "FRAME",
+       "x": 0,
+       "y": 246,
+       "w": 375,
+       "h": 50,
+       "sizing": {
+        "h": "FILL",
+        "v": "HUG"
+       },
+       "stroke": {
+        "width": 1,
+        "hex": "#E5E7EB",
+        "opacity": 1,
+        "token": "color/line"
+       },
+       "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 0,
+        "padding": [
+         14,
+         20,
+         14,
+         20
+        ],
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "wrap": false
+       },
+       "children": [
+        {
+         "id": "6:18",
+         "name": "정산 요금",
+         "type": "TEXT",
+         "x": 20,
+         "y": 261,
+         "w": 53,
+         "h": 20,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "정산 요금",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "lineHeight": 20,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#64748B",
+           "opacity": 1,
+           "token": "color/muted"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        },
+        {
+         "id": "6:19",
+         "name": "val 정산 요금",
+         "type": "TEXT",
+         "x": 303,
+         "y": 260,
+         "w": 52,
+         "h": 22,
+         "sizing": {
+          "h": "HUG",
+          "v": "HUG"
+         },
+         "text": {
+          "content": "4,500원",
+          "fontFamily": "Apple SD Gothic Neo",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "lineHeight": 22,
+          "letterSpacing": 0,
+          "color": {
+           "hex": "#1E293B",
+           "opacity": 1,
+           "token": "color/text"
+          },
+          "align": "LEFT",
+          "wrap": "NONE"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6:20",
+     "name": "note",
+     "type": "FRAME",
+     "x": 0,
+     "y": 296,
+     "w": 375,
+     "h": 28,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "layout": {
+      "mode": "VERTICAL",
+      "gap": 0,
+      "padding": [
+       12,
+       20,
+       0,
+       20
+      ],
+      "align": "MIN",
+      "justify": "MIN",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:21",
+       "name": "posted",
+       "type": "TEXT",
+       "x": 20,
+       "y": 308,
+       "w": 89,
+       "h": 16,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "요금표 갱신 3분 전",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 16,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#64748B",
+         "opacity": 1,
+         "token": "color/muted"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6:22",
+     "name": "정산하기",
+     "type": "FRAME",
+     "x": 0,
+     "y": 324,
+     "w": 375,
+     "h": 48,
+     "sizing": {
+      "h": "FILL",
+      "v": "HUG"
+     },
+     "fill": {
+      "hex": "#2563EB",
+      "opacity": 1,
+      "token": "color/brand"
+     },
+     "radius": 12,
+     "reactions": [
+      {
+       "trigger": "ON_CLICK",
+       "actions": [
+        {
+         "type": "NODE",
+         "navigation": "NAVIGATE",
+         "dest": "8:2",
+         "dest_name": "결제",
+         "url": null
+        }
+       ]
+      }
+     ],
+     "layout": {
+      "mode": "HORIZONTAL",
+      "gap": 0,
+      "padding": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "wrap": false
+     },
+     "children": [
+      {
+       "id": "6:23",
+       "name": "정산하기",
+       "type": "TEXT",
+       "x": 160,
+       "y": 336,
+       "w": 56,
+       "h": 24,
+       "sizing": {
+        "h": "HUG",
+        "v": "HUG"
+       },
+       "text": {
+        "content": "정산하기",
+        "fontFamily": "Apple SD Gothic Neo",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "lineHeight": 24,
+        "letterSpacing": 0,
+        "color": {
+         "hex": "#FFFFFF",
+         "opacity": 1,
+         "token": "color/bg"
+        },
+        "align": "LEFT",
+        "wrap": "NONE"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

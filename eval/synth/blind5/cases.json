@@ -1,0 +1,1750 @@
+{
+ "note": "블라인드 합성 예제 5묶음(10-10). 블라인드 4의 빈틈을 고친 규칙을 고정하고 한 번만 잰다. 규칙 밖 유형: D2 색 토큰(2), S4 선택 상태(2), L1 정렬, L2 간격. 채점은 R3를 짝 기준으로 본다.",
+ "frozen_rules_sha1": "aa0244a9c1a7baab08c71bce365bee4253bcd17d",
+ "cases": [
+  {
+   "id": "blind5-cinema-ok",
+   "screen": "cinema",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/cinema/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-community-ok",
+   "screen": "community",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/community/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-smarthome-ok",
+   "screen": "smarthome",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/smarthome/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-stocks-ok",
+   "screen": "stocks",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/stocks/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-quiz-ok",
+   "screen": "quiz",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/quiz/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-notes-ok",
+   "screen": "notes",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind5/screens/notes/ok",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind5-cinema-a1-seat",
+   "screen": "cinema",
+   "variant": "a1-seat",
+   "code": "A1",
+   "defect": "좌석 칸을 18px로 고정해 누를 곳이 작음",
+   "dir": "eval/synth/blind5/screens/cinema/a1-seat",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".seats button",
+    "min": 24
+   },
+   "hint": [
+    "열"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 37,
+     "390x844": 39,
+     "430x932": 44,
+     "375x667": 37,
+     "320x568": 30
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-cinema-r1-grid",
+   "screen": "cinema",
+   "variant": "r1-grid",
+   "code": "R1",
+   "defect": "좌석 칸을 시안 값 40px로 고정해 좁은 화면에서 좌석 격자가 밖으로 넘침",
+   "dir": "eval/synth/blind5/screens/cinema/r1-grid",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".seats"
+   },
+   "hint": [
+    "열"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 23,
+     "390x844": 8,
+     "430x932": 0,
+     "375x667": 23,
+     "320x568": 78
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-cinema-a2-legend",
+   "screen": "cinema",
+   "variant": "a2-legend",
+   "code": "A2",
+   "defect": "범례 글자를 #B0B7C3로 옅게 함",
+   "dir": "eval/synth/blind5/screens/cinema/a2-legend",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".legend span",
+    "min": 4.5
+   },
+   "hint": [
+    "선택 가능",
+    "선택한 좌석",
+    "예매 완료"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2.02,
+     "390x844": 2.02,
+     "430x932": 2.02,
+     "375x667": 2.02,
+     "320x568": 2.02
+    },
+    "ok": {
+     "375x812": 6.05,
+     "390x844": 6.05,
+     "430x932": 6.05,
+     "375x667": 6.05,
+     "320x568": 6.05
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-cinema-r4-pay",
+   "screen": "cinema",
+   "variant": "r4-pay",
+   "code": "R4",
+   "defect": "좌석 영역 아래 여백을 16px로 줄여 끝까지 내려도 범례가 결제 막대에 가려짐",
+   "dir": "eval/synth/blind5/screens/cinema/r4-pay",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".legend span:last-child",
+    "scroll": ".hall"
+   },
+   "hint": [
+    "예매 완료",
+    "선택 가능",
+    "선택한 좌석"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "546~562 t",
+     "390x844": "561~577 t",
+     "430x932": "601~617 t",
+     "375x667": "546~562 t",
+     "320x568": "491~507 pay"
+    },
+    "ok": {
+     "375x812": "546~562 t",
+     "390x844": "561~577 t",
+     "430x932": "601~617 t",
+     "375x667": "531~547 t",
+     "320x568": "432~448 t"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-cinema-r3-price",
+   "screen": "cinema",
+   "variant": "r3-price",
+   "code": "R3",
+   "defect": "합계 금액을 결제 막대 왼쪽 위 절대 위치로 옮겨 선택한 좌석 글자 위에 얹힘",
+   "dir": "eval/synth/blind5/screens/cinema/r3-price",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".pay .sum span",
+    "other": ".pay .sum b"
+   },
+   "hint": [
+    "30,000원",
+    "선택한 좌석"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1199,
+     "390x844": 1199,
+     "430x932": 1199,
+     "375x667": 1199,
+     "320x568": 1199
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-cinema-d2-sel",
+   "screen": "cinema",
+   "variant": "d2-sel",
+   "code": "D2",
+   "defect": "선택한 좌석 색을 토큰(#DC2626) 대신 #EF4444로 직접 씀",
+   "dir": "eval/synth/blind5/screens/cinema/d2-sel",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".seats .sel",
+    "prop": "background-color",
+    "value": "rgb(220, 38, 38)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(239, 68, 68)"
+    },
+    "ok": {
+     "375x812": "rgb(220, 38, 38)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-r1-pics",
+   "screen": "community",
+   "variant": "r1-pics",
+   "code": "R1",
+   "defect": "사진 두 장의 칸을 시안 값 200px로 고정해 좁은 화면에서 밖으로 넘침",
+   "dir": "eval/synth/blind5/screens/community/r1-pics",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".pics"
+   },
+   "hint": [
+    "노을 사진"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 63,
+     "390x844": 48,
+     "430x932": 8,
+     "375x667": 63,
+     "320x568": 118
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-r2-tx",
+   "screen": "community",
+   "variant": "r2-tx",
+   "code": "R2",
+   "defect": "본문을 세 줄로 자르고 '더보기'를 두지 않아 내용이 잘림",
+   "dir": "eval/synth/blind5/screens/community/r2-tx",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".post .tx"
+   },
+   "hint": [
+    "주말마다"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 24
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-r3-badge",
+   "screen": "community",
+   "variant": "r3-badge",
+   "code": "R3",
+   "defect": "'작성자' 배지를 절대 위치로 옮겨 대댓글 작성자 이름 위에 얹힘",
+   "dir": "eval/synth/blind5/screens/community/r3-badge",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".cm.re .h b",
+    "other": ".cm .h em"
+   },
+   "hint": [
+    "작성자",
+    "망원동산책러"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 562,
+     "390x844": 562,
+     "430x932": 562,
+     "375x667": 562,
+     "320x568": 562
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-a1-share",
+   "screen": "community",
+   "variant": "a1-share",
+   "code": "A1",
+   "defect": "공유 버튼을 아이콘 크기 18px로 줄임",
+   "dir": "eval/synth/blind5/screens/community/a1-share",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".acts button[aria-label]",
+    "min": 24
+   },
+   "hint": [
+    "공유"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 38,
+     "390x844": 38,
+     "430x932": 38,
+     "375x667": 38,
+     "320x568": 38
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-r4-reply",
+   "screen": "community",
+   "variant": "r4-reply",
+   "code": "R4",
+   "defect": "본문 아래 여백을 없애 끝까지 내려도 마지막 댓글이 입력 막대에 가려짐",
+   "dir": "eval/synth/blind5/screens/community/r4-reply",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".cmts .cm:last-child p",
+    "scroll": ".body"
+   },
+   "hint": [
+    "어떤 카메라",
+    "노을수집가"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "703~724 P",
+     "390x844": "710~731 P",
+     "430x932": "730~751 P",
+     "375x667": "628~649 INPUT",
+     "320x568": "508~550 INPUT"
+    },
+    "ok": {
+     "375x812": "689~710 P",
+     "390x844": "710~731 P",
+     "430x932": "730~751 P",
+     "375x667": "544~565 P",
+     "320x568": "424~466 P"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-a2-time",
+   "screen": "community",
+   "variant": "a2-time",
+   "code": "A2",
+   "defect": "글·댓글 시각 글자를 #B8BEC6로 옅게 함",
+   "dir": "eval/synth/blind5/screens/community/a2-time",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".cm .h span",
+    "min": 4.5
+   },
+   "hint": [
+    "시간 전",
+    "분 전"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.87,
+     "390x844": 1.87,
+     "430x932": 1.87,
+     "375x667": 1.87,
+     "320x568": 1.87
+    },
+    "ok": {
+     "375x812": 5.98,
+     "390x844": 5.98,
+     "430x932": 5.98,
+     "375x667": 5.98,
+     "320x568": 5.98
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-community-l1-au",
+   "screen": "community",
+   "variant": "l1-au",
+   "code": "L1",
+   "defect": "작성자 줄의 세로 가운데 맞춤을 빼 이름이 사진 위쪽에 붙음",
+   "dir": "eval/synth/blind5/screens/community/l1-au",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".au",
+    "prop": "align-items",
+    "value": "center"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "flex-start"
+    },
+    "ok": {
+     "375x812": "center"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-r3-dial",
+   "screen": "smarthome",
+   "variant": "r3-dial",
+   "code": "R3",
+   "defect": "다이얼 가운데 온도 글자를 56px로 키워 링 위로 넘어감",
+   "dir": "eval/synth/blind5/screens/smarthome/r3-dial",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "text_in_circle",
+    "sel": ".dial .v b",
+    "circle": ".dial svg",
+    "r": 71
+   },
+   "hint": [
+    "23.5°"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 3,
+     "390x844": 3,
+     "430x932": 3,
+     "375x667": 3,
+     "320x568": 3
+    },
+    "ok": {
+     "375x812": -22,
+     "390x844": -22,
+     "430x932": -22,
+     "375x667": -22,
+     "320x568": -22
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-a2-grad",
+   "screen": "smarthome",
+   "variant": "a2-grad",
+   "code": "A2",
+   "defect": "그라데이션 온도 카드 글자를 흰색으로 바꿔 밝은 배경에서 안 읽힘",
+   "dir": "eval/synth/blind5/screens/smarthome/a2-grad",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".thermo .lb, .thermo .sub",
+    "min": 4.5
+   },
+   "hint": [
+    "거실 온도",
+    "난방 중"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok": {
+     "375x812": 7.56,
+     "390x844": 7.56,
+     "430x932": 7.56,
+     "375x667": 7.56,
+     "320x568": 7.56
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-r6-st",
+   "screen": "smarthome",
+   "variant": "r6-st",
+   "code": "R6",
+   "defect": "기기 상태 칸을 20px로 고정해 '켜짐'·'꺼짐'이 꺾임",
+   "dir": "eval/synth/blind5/screens/smarthome/r6-st",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".dv .st"
+   },
+   "hint": [
+    "켜짐",
+    "꺼짐",
+    "대기",
+    "잠김"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-r2-nm",
+   "screen": "smarthome",
+   "variant": "r2-nm",
+   "code": "R2",
+   "defect": "기기 이름 높이를 한 줄(20px)로 고정하고 넘침을 숨겨 긴 이름이 잘림",
+   "dir": "eval/synth/blind5/screens/smarthome/r2-nm",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".dv .nm"
+   },
+   "hint": [
+    "거실 스탠드"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-a1-sw",
+   "screen": "smarthome",
+   "variant": "a1-sw",
+   "code": "A1",
+   "defect": "기기 스위치를 30×16px로 줄임",
+   "dir": "eval/synth/blind5/screens/smarthome/a1-sw",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".dv [role=switch]",
+    "min": 24
+   },
+   "hint": [
+    "켜고 끄기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 16,
+     "390x844": 16,
+     "430x932": 16,
+     "375x667": 16,
+     "320x568": 16
+    },
+    "ok": {
+     "375x812": 24,
+     "390x844": 24,
+     "430x932": 24,
+     "375x667": 24,
+     "320x568": 24
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-smarthome-s4-on",
+   "screen": "smarthome",
+   "variant": "s4-on",
+   "code": "S4",
+   "defect": "켜진 기기 칸의 켜짐 표시(배경·테두리)를 빼 무엇이 켜졌는지 안 보임",
+   "dir": "eval/synth/blind5/screens/smarthome/s4-on",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".dv.on",
+    "prop": "background-color",
+    "value": "rgb(240, 253, 250)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(255, 255, 255)"
+    },
+    "ok": {
+     "375x812": "rgb(240, 253, 250)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-r3-tip",
+   "screen": "stocks",
+   "variant": "r3-tip",
+   "code": "R3",
+   "defect": "차트 말풍선을 왼쪽 끝(left:0)에 고정해 세로축 글자 위에 얹힘",
+   "dir": "eval/synth/blind5/screens/stocks/r3-tip",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".chart .yl span",
+    "other": ".chart .tip"
+   },
+   "hint": [
+    "6.6백만",
+    "10월 10일"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 236,
+     "390x844": 236,
+     "430x932": 236,
+     "375x667": 236,
+     "320x568": 236
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-a2-dn",
+   "screen": "stocks",
+   "variant": "a2-dn",
+   "code": "A2",
+   "defect": "하락 수익률 글자를 #93C5FD로 옅게 함",
+   "dir": "eval/synth/blind5/screens/stocks/a2-dn",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".hd .v .dn",
+    "min": 4.5
+   },
+   "hint": [
+    "-8.84%",
+    "-2.97%"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.8,
+     "390x844": 1.8,
+     "430x932": 1.8,
+     "375x667": 1.8,
+     "320x568": 1.8
+    },
+    "ok": {
+     "375x812": 5.17,
+     "390x844": 5.17,
+     "430x932": 5.17,
+     "375x667": 5.17,
+     "320x568": 5.17
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-r1-name",
+   "screen": "stocks",
+   "variant": "r1-name",
+   "code": "R1",
+   "defect": "종목 이름 칸이 줄어들지 않게 하고 줄바꿈을 막아 평가금액이 화면 밖으로 밀림",
+   "dir": "eval/synth/blind5/screens/stocks/r1-name",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".hd"
+   },
+   "hint": [
+    "한국항공우주산업",
+    "742,500원",
+    "-8.84%"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-d4-logo",
+   "screen": "stocks",
+   "variant": "d4-logo",
+   "code": "D4",
+   "defect": "종목 로고 경로를 잘못 적어 SK하이닉스 로고가 깨짐",
+   "dir": "eval/synth/blind5/screens/stocks/d4-logo",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_broken",
+    "sel": ".hd img[alt^=\"SK\"]"
+   },
+   "hint": [
+    "SK하이닉스 로고"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "0x0",
+     "390x844": "0x0",
+     "430x932": "0x0",
+     "375x667": "0x0",
+     "320x568": "0x0"
+    },
+    "ok": {
+     "375x812": "72x72",
+     "390x844": "72x72",
+     "430x932": "72x72",
+     "375x667": "72x72",
+     "320x568": "72x72"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-r6-pct",
+   "screen": "stocks",
+   "variant": "r6-pct",
+   "code": "R6",
+   "defect": "수익률 칸을 36px로 고정하고 글자 끊기를 허용해 '+12.48%'가 꺾임",
+   "dir": "eval/synth/blind5/screens/stocks/r6-pct",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".hd .v .up, .hd .v .dn"
+   },
+   "hint": [
+    "+12.48%",
+    "+4.12%",
+    "-8.84%",
+    "-2.97%"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-stocks-d2-up",
+   "screen": "stocks",
+   "variant": "d2-up",
+   "code": "D2",
+   "defect": "오늘 수익 색을 토큰(#DC2626) 대신 #EF4444로 직접 씀",
+   "dir": "eval/synth/blind5/screens/stocks/d2-up",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".tot .chg",
+    "prop": "color",
+    "value": "rgb(220, 38, 38)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(239, 68, 68)"
+    },
+    "ok": {
+     "375x812": "rgb(220, 38, 38)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-r1-code",
+   "screen": "quiz",
+   "variant": "r1-code",
+   "code": "R1",
+   "defect": "코드 블록의 가로 스크롤을 빼 긴 줄이 화면 밖으로 넘침",
+   "dir": "eval/synth/blind5/screens/quiz/r1-code",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": "pre",
+    "allow_scroll": true
+   },
+   "hint": [
+    "console.log",
+    "const nums"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 200,
+     "390x844": 185,
+     "430x932": 145,
+     "375x667": 200,
+     "320x568": 255
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-a1-pause",
+   "screen": "quiz",
+   "variant": "a1-pause",
+   "code": "A1",
+   "defect": "일시정지 버튼을 18px로 줄임",
+   "dir": "eval/synth/blind5/screens/quiz/a1-pause",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".qh .tm button",
+    "min": 24
+   },
+   "hint": [
+    "일시정지"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 28,
+     "390x844": 28,
+     "430x932": 28,
+     "375x667": 28,
+     "320x568": 28
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-r4-next",
+   "screen": "quiz",
+   "variant": "r4-next",
+   "code": "R4",
+   "defect": "본문 아래 여백을 16px로 줄여 끝까지 내려도 해설이 '다음 문제' 막대에 가려짐",
+   "dir": "eval/synth/blind5/screens/quiz/r4-next",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".ex",
+    "scroll": ".body"
+   },
+   "hint": [
+    "map으로",
+    "filter"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "461~527 ex",
+     "390x844": "461~527 ex",
+     "430x932": "461~527 ex",
+     "375x667": "461~527 ex",
+     "320x568": "465~552 BUTTON"
+    },
+    "ok": {
+     "375x812": "461~527 ex",
+     "390x844": "461~527 ex",
+     "430x932": "461~527 ex",
+     "375x667": "461~527 ex",
+     "320x568": "381~468 ex"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-r2-ex",
+   "screen": "quiz",
+   "variant": "r2-ex",
+   "code": "R2",
+   "defect": "해설 상자 높이를 42px로 고정하고 넘침을 숨겨 해설이 잘림",
+   "dir": "eval/synth/blind5/screens/quiz/r2-ex",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".ex"
+   },
+   "hint": [
+    "map으로"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 24,
+     "390x844": 24,
+     "430x932": 24,
+     "375x667": 24,
+     "320x568": 45
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-a2-cnt",
+   "screen": "quiz",
+   "variant": "a2-cnt",
+   "code": "A2",
+   "defect": "진행 숫자(3 / 10)를 #B6BCC6로 옅게 함",
+   "dir": "eval/synth/blind5/screens/quiz/a2-cnt",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".qh .cnt",
+    "min": 4.5
+   },
+   "hint": [
+    "3 / 10"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.91,
+     "390x844": 1.91,
+     "430x932": 1.91,
+     "375x667": 1.91,
+     "320x568": 1.91
+    },
+    "ok": {
+     "375x812": 5.98,
+     "390x844": 5.98,
+     "430x932": 5.98,
+     "375x667": 5.98,
+     "320x568": 5.98
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-r3-timer",
+   "screen": "quiz",
+   "variant": "r3-timer",
+   "code": "R3",
+   "defect": "타이머 칩을 절대 위치로 옮겨 문제 번호·문제 글자 위에 얹힘",
+   "dir": "eval/synth/blind5/screens/quiz/r3-timer",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".q, .no",
+    "other": ".qh .tm"
+   },
+   "hint": [
+    "다음 코드를",
+    "04:12",
+    "문제 3"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1328,
+     "390x844": 1013,
+     "430x932": 173,
+     "375x667": 1328,
+     "320x568": 1464
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-quiz-s4-sel",
+   "screen": "quiz",
+   "variant": "s4-sel",
+   "code": "S4",
+   "defect": "고른 보기의 선택 표시(테두리·배경)를 빼 무엇을 골랐는지 안 보임",
+   "dir": "eval/synth/blind5/screens/quiz/s4-sel",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".ch.sel",
+    "prop": "background-color",
+    "value": "rgb(238, 242, 255)"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(255, 255, 255)"
+    },
+    "ok": {
+     "375x812": "rgb(238, 242, 255)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-r1-tb",
+   "screen": "notes",
+   "variant": "r1-tb",
+   "code": "R1",
+   "defect": "서식 도구 막대의 가로 스크롤을 빼 좁은 창에서 버튼이 편집 영역 밖으로 넘침",
+   "dir": "eval/synth/blind5/screens/notes/r1-tb",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".tb",
+    "allow_scroll": true
+   },
+   "hint": [
+    "인용",
+    "코드",
+    "표",
+    "그림",
+    "링크"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 0,
+     "1024x768": 102,
+     "768x1024": 118
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-r3-cm",
+   "screen": "notes",
+   "variant": "r3-cm",
+   "code": "R3",
+   "defect": "댓글 패널을 시안 좌표(left:900px) 절대 위치로 고정해 편집 글자 위에 얹힘",
+   "dir": "eval/synth/blind5/screens/notes/r3-cm",
+   "sizes": [
+    "1280x800",
+    "1024x768"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".doc p, .doc .ck",
+    "other": ".cm"
+   },
+   "hint": [
+    "이번 분기",
+    "팀별 지표",
+    "회고 일정",
+    "지난 회고",
+    "박서준",
+    "이수민"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768"
+    ],
+    "bad": {
+     "1280x800": 9680,
+     "1024x768": 3926
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-a2-meta",
+   "screen": "notes",
+   "variant": "a2-meta",
+   "code": "A2",
+   "defect": "노트 목록의 날짜·분류 글자를 #B5BBC4로 옅게 함",
+   "dir": "eval/synth/blind5/screens/notes/a2-meta",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".nt span",
+    "min": 4.5
+   },
+   "hint": [
+    "10월 10일",
+    "10월 9일",
+    "10월 8일",
+    "10월 6일"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 1.76,
+     "1024x768": 1.76,
+     "768x1024": 1.76
+    },
+    "ok": {
+     "1280x800": 5.61,
+     "1024x768": 5.61,
+     "768x1024": 5.61
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-r2-title",
+   "screen": "notes",
+   "variant": "r2-title",
+   "code": "R2",
+   "defect": "노트 목록 제목 높이를 한 줄(20px)로 고정하고 넘침을 숨겨 긴 제목이 잘림",
+   "dir": "eval/synth/blind5/screens/notes/r2-title",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".nt b"
+   },
+   "hint": [
+    "디자인 시스템",
+    "읽을 책"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 20,
+     "1024x768": 20,
+     "768x1024": 20
+    },
+    "ok": {
+     "1280x800": 0,
+     "1024x768": 0,
+     "768x1024": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-a1-tb",
+   "screen": "notes",
+   "variant": "a1-tb",
+   "code": "A1",
+   "defect": "서식 버튼을 20px로 줄임",
+   "dir": "eval/synth/blind5/screens/notes/a1-tb",
+   "sizes": [
+    "1280x800",
+    "1024x768",
+    "768x1024"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".tb button",
+    "min": 24
+   },
+   "hint": [
+    "서식"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "1280x800",
+     "1024x768",
+     "768x1024"
+    ],
+    "bad": {
+     "1280x800": 20,
+     "1024x768": 20,
+     "768x1024": 20
+    },
+    "ok": {
+     "1280x800": 36,
+     "1024x768": 36,
+     "768x1024": 36
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind5-notes-l2-side",
+   "screen": "notes",
+   "variant": "l2-side",
+   "code": "L2",
+   "defect": "왼쪽 메뉴 항목 간격을 시안 2px 대신 10px로 씀",
+   "dir": "eval/synth/blind5/screens/notes/l2-side",
+   "sizes": [
+    "1280x800"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".side",
+    "prop": "row-gap",
+    "value": "2px"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "1280x800"
+    ],
+    "bad": {
+     "1280x800": "10px"
+    },
+    "ok": {
+     "1280x800": "2px"
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}

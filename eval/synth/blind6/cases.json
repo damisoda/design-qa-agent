@@ -1,0 +1,369 @@
+{
+ "note": "블라인드 합성 예제 6묶음(10-12). 시안을 먼저 쓰고(design_model.py) 구현을 따로 짰다. 시안 비교·눌러 보기 코드를 고정하고 한 번만 잰다. 묶음 전체를 --interact로 잰다.",
+ "interact": true,
+ "frozen_rules_sha1": "ad60c71727500c664d9e02c439d957c5f1b8a83c",
+ "cases": [
+  {
+   "id": "blind6-playlist-ok",
+   "screen": "playlist",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind6/screens/playlist/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind6-transfer-ok",
+   "screen": "transfer",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind6/screens/transfer/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind6-health-ok",
+   "screen": "health",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind6/screens/health/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind6-stay-ok",
+   "screen": "stay",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind6/screens/stay/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind6-alerts-ok",
+   "screen": "alerts",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind6/screens/alerts/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind6-playlist-d3-title",
+   "screen": "playlist",
+   "variant": "d3-title",
+   "code": "D3",
+   "defect": "곡 제목 굵기를 시안 600 대신 기본 400으로 둠",
+   "dir": "eval/synth/blind6/screens/playlist/d3-title",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".song b",
+    "prop": "font-weight",
+    "value": "600"
+   },
+   "hint": [
+    "밤의 산책"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "400"
+    },
+    "ok": {
+     "375x812": "600"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-playlist-m2-cover",
+   "screen": "playlist",
+   "variant": "m2-cover",
+   "code": "M2",
+   "defect": "두 번째 곡의 표지 그림을 조건 실수로 그리지 않음",
+   "dir": "eval/synth/blind6/screens/playlist/m2-cover",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".song:nth-child(2) img",
+    "prop": "display",
+    "value": "block"
+   },
+   "hint": [
+    "cover2"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": null
+    },
+    "ok": {
+     "375x812": "block"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-transfer-d2-amount",
+   "screen": "transfer",
+   "variant": "d2-amount",
+   "code": "D2",
+   "defect": "금액 글자색을 시안의 본문색 대신 브랜드 파랑으로 씀",
+   "dir": "eval/synth/blind6/screens/transfer/d2-amount",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".amt b",
+    "prop": "color",
+    "value": "rgb(17, 24, 39)"
+   },
+   "hint": [
+    "150,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(37, 99, 235)"
+    },
+    "ok": {
+     "375x812": "rgb(17, 24, 39)"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-transfer-t1-cta",
+   "screen": "transfer",
+   "variant": "t1-cta",
+   "code": "T1",
+   "defect": "버튼 문구를 시안 '송금하기' 대신 '보내기'로 씀",
+   "dir": "eval/synth/blind6/screens/transfer/t1-cta",
+   "sizes": [
+    "375x812"
+   ],
+   "check": null,
+   "hint": [
+    "보내기",
+    "송금하기"
+   ]
+  },
+  {
+   "id": "blind6-health-f1-tiles",
+   "screen": "health",
+   "variant": "f1-tiles",
+   "code": "F1",
+   "defect": "기록 칸을 시안의 Fill 대신 150px 고정 폭으로 씀",
+   "dir": "eval/synth/blind6/screens/health/f1-tiles",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".grid",
+    "prop": "grid-template-columns",
+    "value": "161.5px 161.5px"
+   },
+   "hint": [
+    "걸음",
+    "거리"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "150px 150px"
+    },
+    "ok": {
+     "375x812": "161.5px 161.5px"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-health-l2-goal",
+   "screen": "health",
+   "variant": "l2-goal",
+   "code": "L2",
+   "defect": "주간 목표 위 간격을 시안 24px 대신 40px로 씀",
+   "dir": "eval/synth/blind6/screens/health/l2-goal",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".goal",
+    "prop": "padding-top",
+    "value": "24px"
+   },
+   "hint": [
+    "주간 목표"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "40px"
+    },
+    "ok": {
+     "375x812": "24px"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-stay-d5-chip",
+   "screen": "stay",
+   "variant": "d5-chip",
+   "code": "D5",
+   "defect": "편의시설 칩 모서리를 시안 15px 대신 4px로 씀",
+   "dir": "eval/synth/blind6/screens/stay/d5-chip",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".chips button",
+    "prop": "border-top-left-radius",
+    "value": "15px"
+   },
+   "hint": [
+    "오션뷰"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "4px"
+    },
+    "ok": {
+     "375x812": "15px"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-stay-l1-price",
+   "screen": "stay",
+   "variant": "l1-price",
+   "code": "L1",
+   "defect": "하단 바의 세로 가운데 맞춤을 빼 가격과 버튼이 위로 붙음",
+   "dir": "eval/synth/blind6/screens/stay/l1-price",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".bb",
+    "prop": "align-items",
+    "value": "center"
+   },
+   "hint": [],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "flex-start"
+    },
+    "ok": {
+     "375x812": "center"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind6-alerts-i1-toggle",
+   "screen": "alerts",
+   "variant": "i1-toggle",
+   "code": "I1",
+   "defect": "야간 알림 스위치에 누름 처리를 빠뜨림(눌러도 켜지지 않음)",
+   "dir": "eval/synth/blind6/screens/alerts/i1-toggle",
+   "sizes": [
+    "375x812"
+   ],
+   "check": null,
+   "hint": [
+    "야간 알림"
+   ]
+  },
+  {
+   "id": "blind6-alerts-d2-toggle",
+   "screen": "alerts",
+   "variant": "d2-toggle",
+   "code": "D2",
+   "defect": "켜진 스위치 색을 시안 브랜드색 대신 초록으로 씀",
+   "dir": "eval/synth/blind6/screens/alerts/d2-toggle",
+   "sizes": [
+    "375x812"
+   ],
+   "check": {
+    "type": "style",
+    "sel": ".tg.on",
+    "prop": "background-color",
+    "value": "rgb(79, 70, 229)"
+   },
+   "hint": [
+    "새 메시지",
+    "모임 일정"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812"
+    ],
+    "bad": {
+     "375x812": "rgb(34, 197, 94)"
+    },
+    "ok": {
+     "375x812": "rgb(79, 70, 229)"
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,1504 @@
+{
+ "note": "블라인드 합성 예제 7묶음(11-19). 수정 성공률 최종 평가용. 규칙 수정안·모델 개선 전에 만들어 잠근다. 개선 작업 중에는 열지 않는다.",
+ "frozen_sha1": "720411ef3c66d51152a359ffd64cfbdcb1779895",
+ "cases": [
+  {
+   "id": "blind7-food-ok",
+   "screen": "food",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/food/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-pet-ok",
+   "screen": "pet",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/pet/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-carshare-ok",
+   "screen": "carshare",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/carshare/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-podcast-ok",
+   "screen": "podcast",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/podcast/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-job-ok",
+   "screen": "job",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/job/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-laundry-ok",
+   "screen": "laundry",
+   "variant": "ok",
+   "code": null,
+   "defect": "맞게 만든 구현",
+   "dir": "eval/synth/blind7/screens/laundry/ok",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": null,
+   "hint": []
+  },
+  {
+   "id": "blind7-food-r1-meta",
+   "screen": "food",
+   "variant": "r1-meta",
+   "code": "R1",
+   "defect": "가게 정보 줄의 줄바꿈을 막아 배달팁 글자가 화면 밖으로 밀림",
+   "dir": "eval/synth/blind7/screens/food/r1-meta",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".shop .meta"
+   },
+   "hint": [
+    "배달팁",
+    "최소 주문"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 22,
+     "390x844": 7,
+     "430x932": 0,
+     "375x667": 22,
+     "320x568": 77
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-food-r3-best",
+   "screen": "food",
+   "variant": "r3-best",
+   "code": "R3",
+   "defect": "'인기' 배지를 절대 위치로 옮겨 메뉴 설명 글자 위에 얹힘",
+   "dir": "eval/synth/blind7/screens/food/r3-best",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".mn p",
+    "other": ".best"
+   },
+   "hint": [
+    "인기",
+    "불향 가득한"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 372,
+     "390x844": 372,
+     "430x932": 372,
+     "375x667": 372,
+     "320x568": 372
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-food-a1-add",
+   "screen": "food",
+   "variant": "a1-add",
+   "code": "A1",
+   "defect": "메뉴 담기 버튼을 20px로 줄임",
+   "dir": "eval/synth/blind7/screens/food/a1-add",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".mn .ph .add",
+    "min": 24
+   },
+   "hint": [
+    "담기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 32,
+     "390x844": 32,
+     "430x932": 32,
+     "375x667": 32,
+     "320x568": 32
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-food-r4-last",
+   "screen": "food",
+   "variant": "r4-last",
+   "code": "R4",
+   "defect": "본문 아래 여백을 없애 끝까지 내려도 마지막 메뉴가 장바구니 막대에 가려짐",
+   "dir": "eval/synth/blind7/screens/food/r4-last",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".mn:last-child .pr",
+    "scroll": ".body"
+   },
+   "hint": [
+    "차돌 된장찌개",
+    "9,000원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "756~775 cartbar",
+     "390x844": "788~807 cartbar",
+     "430x932": "765~784 pr",
+     "375x667": "611~630 cartbar",
+     "320x568": "530~549 cartbar"
+    },
+    "ok": {
+     "375x812": "660~679 pr",
+     "390x844": "692~711 pr",
+     "430x932": "765~784 pr",
+     "375x667": "515~534 pr",
+     "320x568": "434~453 pr"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-food-a2-desc",
+   "screen": "food",
+   "variant": "a2-desc",
+   "code": "A2",
+   "defect": "메뉴 설명 글자를 #B9BFC8로 옅게 함",
+   "dir": "eval/synth/blind7/screens/food/a2-desc",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".mn p",
+    "min": 4.5
+   },
+   "hint": [
+    "불향 가득한",
+    "메밀면에"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.85,
+     "390x844": 1.85,
+     "430x932": 1.85,
+     "375x667": 1.85,
+     "320x568": 1.85
+    },
+    "ok": {
+     "375x812": 5.88,
+     "390x844": 5.88,
+     "430x932": 5.88,
+     "375x667": 5.88,
+     "320x568": 5.88
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-pet-r2-memo",
+   "screen": "pet",
+   "variant": "r2-memo",
+   "code": "R2",
+   "defect": "메모 상자 높이를 44px로 고정하고 넘침을 숨겨 메모가 잘림",
+   "dir": "eval/synth/blind7/screens/pet/r2-memo",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".memo"
+   },
+   "hint": [
+    "사료는 하루"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 46,
+     "390x844": 46,
+     "430x932": 24,
+     "375x667": 46,
+     "320x568": 46
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-pet-r6-km",
+   "screen": "pet",
+   "variant": "r6-km",
+   "code": "R6",
+   "defect": "산책 거리 칸을 28px로 고정해 '2.1km'가 두 줄로 꺾임",
+   "dir": "eval/synth/blind7/screens/pet/r6-km",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".walk .km"
+   },
+   "hint": [
+    "2.1km",
+    "1.0km",
+    "3.4km"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-pet-r3-stat",
+   "screen": "pet",
+   "variant": "r3-stat",
+   "code": "R3",
+   "defect": "숫자 아래 설명 글자를 위로 14px 끌어올려 숫자와 겹침",
+   "dir": "eval/synth/blind7/screens/pet/r3-stat",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".stat span",
+    "other": ".stat b"
+   },
+   "hint": [
+    "12.4kg",
+    "몸무게"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 815,
+     "390x844": 815,
+     "430x932": 815,
+     "375x667": 815,
+     "320x568": 815
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-pet-d4-dog",
+   "screen": "pet",
+   "variant": "d4-dog",
+   "code": "D4",
+   "defect": "프로필 사진 경로를 잘못 적어 사진이 깨짐",
+   "dir": "eval/synth/blind7/screens/pet/d4-dog",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_broken",
+    "sel": ".hd img"
+   },
+   "hint": [
+    "보리 사진"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "0x0",
+     "390x844": "0x0",
+     "430x932": "0x0",
+     "375x667": "0x0",
+     "320x568": "0x0"
+    },
+    "ok": {
+     "375x812": "144x144",
+     "390x844": "144x144",
+     "430x932": "144x144",
+     "375x667": "144x144",
+     "320x568": "144x144"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-pet-a2-chip",
+   "screen": "pet",
+   "variant": "a2-chip",
+   "code": "A2",
+   "defect": "특징 칩 글자색을 #86EFAC로 바꿔 연한 배경에서 안 읽힘",
+   "dir": "eval/synth/blind7/screens/pet/a2-chip",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".chips span",
+    "min": 4.5
+   },
+   "hint": [
+    "중성화 완료",
+    "닭고기 알레르기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.34,
+     "390x844": 1.34,
+     "430x932": 1.34,
+     "375x667": 1.34,
+     "320x568": 1.34
+    },
+    "ok": {
+     "375x812": 6.81,
+     "390x844": 6.81,
+     "430x932": 6.81,
+     "375x667": 6.81,
+     "320x568": 6.81
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-carshare-r3-zone",
+   "screen": "carshare",
+   "variant": "r3-zone",
+   "code": "R3",
+   "defect": "대여 장소 안내를 지도 가운데로 옮겨 위치 핀 위에 얹힘",
+   "dir": "eval/synth/blind7/screens/carshare/r3-zone",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".map .zone",
+    "other": ".map .pin"
+   },
+   "hint": [
+    "성수역 3번 출구"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 288,
+     "390x844": 288,
+     "430x932": 288,
+     "375x667": 288,
+     "320x568": 576
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-carshare-a1-sw",
+   "screen": "carshare",
+   "variant": "a1-sw",
+   "code": "A1",
+   "defect": "옵션 스위치를 34×18px로 줄임",
+   "dir": "eval/synth/blind7/screens/carshare/a1-sw",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".sw",
+    "min": 24
+   },
+   "hint": [
+    "차량 손해 면책",
+    "편도 반납"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 28,
+     "390x844": 28,
+     "430x932": 28,
+     "375x667": 28,
+     "320x568": 28
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-carshare-r1-tm",
+   "screen": "carshare",
+   "variant": "r1-tm",
+   "code": "R1",
+   "defect": "대여·반납 칸을 시안 값 170px로 고정해 좁은 화면에서 밖으로 넘침",
+   "dir": "eval/synth/blind7/screens/carshare/r1-tm",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".tm"
+   },
+   "hint": [
+    "반납",
+    "16:00"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 5,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 5,
+     "320x568": 60
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-carshare-r4-fee",
+   "screen": "carshare",
+   "variant": "r4-fee",
+   "code": "R4",
+   "defect": "본문 아래 여백을 줄여 끝까지 내려도 결제 예정 금액이 결제 막대에 가려짐",
+   "dir": "eval/synth/blind7/screens/carshare/r4-fee",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".fee .t",
+    "scroll": ".body"
+   },
+   "hint": [
+    "결제 예정 금액"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "660~684 t",
+     "390x844": "660~684 t",
+     "430x932": "660~684 t",
+     "375x667": "619~643 BUTTON",
+     "320x568": "520~544 BUTTON"
+    },
+    "ok": {
+     "375x812": "660~684 t",
+     "390x844": "660~684 t",
+     "430x932": "660~684 t",
+     "375x667": "539~563 t",
+     "320x568": "440~464 t"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-carshare-r2-car",
+   "screen": "carshare",
+   "variant": "r2-car",
+   "code": "R2",
+   "defect": "차량 정보 칸 높이를 40px로 고정하고 넘침을 숨겨 차량 번호가 잘림",
+   "dir": "eval/synth/blind7/screens/carshare/r2-car",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".car .w"
+   },
+   "hint": [
+    "12가 3456",
+    "배터리"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-podcast-r4-ch",
+   "screen": "podcast",
+   "variant": "r4-ch",
+   "code": "R4",
+   "defect": "본문 아래 여백을 없애 끝까지 내려도 마지막 챕터가 미니 플레이어에 가려짐",
+   "dir": "eval/synth/blind7/screens/podcast/r4-ch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".ch div:last-child b",
+    "scroll": ".body"
+   },
+   "hint": [
+    "배포 실수 모음"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "487~507 B",
+     "390x844": "487~507 B",
+     "430x932": "487~507 B",
+     "375x667": "487~507 B",
+     "320x568": "509~529 B"
+    },
+    "ok": {
+     "375x812": "487~507 B",
+     "390x844": "487~507 B",
+     "430x932": "487~507 B",
+     "375x667": "487~507 B",
+     "320x568": "427~447 B"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-podcast-r1-ctl",
+   "screen": "podcast",
+   "variant": "r1-ctl",
+   "code": "R1",
+   "defect": "재생 버튼 줄의 버튼들이 줄어들지 않게 하고 재생 버튼 폭을 200px로 고정해 길이 표시가 화면 밖으로 밀림",
+   "dir": "eval/synth/blind7/screens/podcast/r1-ctl",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".ctl"
+   },
+   "hint": [
+    "58:12",
+    "저장"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 4,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 4,
+     "320x568": 59
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-podcast-r6-ch",
+   "screen": "podcast",
+   "variant": "r6-ch",
+   "code": "R6",
+   "defect": "챕터 시각 칸을 24px로 줄여 '00:00'이 두 줄로 꺾임",
+   "dir": "eval/synth/blind7/screens/podcast/r6-ch",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".ch div span"
+   },
+   "hint": [
+    "00:00",
+    "06:40",
+    "24:15",
+    "41:30"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-podcast-a2-mini",
+   "screen": "podcast",
+   "variant": "a2-mini",
+   "code": "A2",
+   "defect": "미니 플레이어 재생 시각 글자를 #4C4766로 바꿔 어두운 배경에서 안 읽힘",
+   "dir": "eval/synth/blind7/screens/podcast/a2-mini",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "contrast",
+    "sel": ".mini span",
+    "min": 4.5
+   },
+   "hint": [
+    "12:04 / 58:12"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1.91,
+     "390x844": 1.91,
+     "430x932": 1.91,
+     "375x667": 1.91,
+     "320x568": 1.91
+    },
+    "ok": {
+     "375x812": 9.38,
+     "390x844": 9.38,
+     "430x932": 9.38,
+     "375x667": 9.38,
+     "320x568": 9.38
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-podcast-r3-title",
+   "screen": "podcast",
+   "variant": "r3-title",
+   "code": "R3",
+   "defect": "에피소드 제목의 줄 높이를 14px로 줄여 두 줄 제목이 서로 겹치고 아래 날짜 줄에 닿음",
+   "dir": "eval/synth/blind7/screens/podcast/r3-title",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".show h1",
+    "other": ".show .w span:last-child"
+   },
+   "hint": [
+    "타입스크립트 6",
+    "2026년 11월 17일"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 695,
+     "390x844": 742,
+     "430x932": 835,
+     "375x667": 695,
+     "320x568": 480
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-job-r1-kv",
+   "screen": "job",
+   "variant": "r1-kv",
+   "code": "R1",
+   "defect": "회사 주소 칸이 줄바꿈되지 않게 해 긴 주소가 상자 밖으로 넘침",
+   "dir": "eval/synth/blind7/screens/job/r1-kv",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow_text",
+    "sel": ".kv dd"
+   },
+   "hint": [
+    "성수이로 118"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 157,
+     "390x844": 142,
+     "430x932": 102,
+     "375x667": 157,
+     "320x568": 212
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-job-a1-save",
+   "screen": "job",
+   "variant": "a1-save",
+   "code": "A1",
+   "defect": "공고 저장 버튼을 22px로 줄임",
+   "dir": "eval/synth/blind7/screens/job/a1-save",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".apply .sv",
+    "min": 24
+   },
+   "hint": [
+    "공고 저장"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 22,
+     "390x844": 22,
+     "430x932": 22,
+     "375x667": 22,
+     "320x568": 22
+    },
+    "ok": {
+     "375x812": 52,
+     "390x844": 52,
+     "430x932": 52,
+     "375x667": 52,
+     "320x568": 52
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-job-r4-req",
+   "screen": "job",
+   "variant": "r4-req",
+   "code": "R4",
+   "defect": "본문 아래 여백을 16px로 줄여 끝까지 내려도 마감 안내가 지원 막대에 가려짐",
+   "dir": "eval/synth/blind7/screens/job/r4-req",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".dl",
+    "scroll": ".body"
+   },
+   "hint": [
+    "마감까지 16일"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "606~622 dl",
+     "390x844": "606~622 dl",
+     "430x932": "577~593 dl",
+     "375x667": "606~622 ap",
+     "320x568": "536~552 ap"
+    },
+    "ok": {
+     "375x812": "606~622 dl",
+     "390x844": "606~622 dl",
+     "430x932": "577~593 dl",
+     "375x667": "551~567 dl",
+     "320x568": "452~468 dl"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-job-d4-logo",
+   "screen": "job",
+   "variant": "d4-logo",
+   "code": "D4",
+   "defect": "회사 로고 경로를 잘못 적어 로고가 깨짐",
+   "dir": "eval/synth/blind7/screens/job/d4-logo",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "img_broken",
+    "sel": ".co img"
+   },
+   "hint": [
+    "회사 로고"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "0x0",
+     "390x844": "0x0",
+     "430x932": "0x0",
+     "375x667": "0x0",
+     "320x568": "0x0"
+    },
+    "ok": {
+     "375x812": "88x88",
+     "390x844": "88x88",
+     "430x932": "88x88",
+     "375x667": "88x88",
+     "320x568": "88x88"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-job-r3-dl",
+   "screen": "job",
+   "variant": "r3-dl",
+   "code": "R3",
+   "defect": "마감 안내를 본문 위쪽 고정 위치로 옮겨 공고 제목 위에 얹힘",
+   "dir": "eval/synth/blind7/screens/job/r3-dl",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overlap_text",
+    "sel": ".body h1",
+    "other": ".dl"
+   },
+   "hint": [
+    "프런트엔드 엔지니어",
+    "마감까지"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 1139,
+     "390x844": 1139,
+     "430x932": 1139,
+     "375x667": 1139,
+     "320x568": 1139
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-laundry-r6-sum",
+   "screen": "laundry",
+   "variant": "r6-sum",
+   "code": "R6",
+   "defect": "예상 금액 칸을 40px로 고정해 '27,500원'이 두 줄로 꺾임",
+   "dir": "eval/synth/blind7/screens/laundry/r6-sum",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "lines",
+    "sel": ".sum .r b"
+   },
+   "hint": [
+    "27,500원"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 2,
+     "390x844": 2,
+     "430x932": 2,
+     "375x667": 2,
+     "320x568": 2
+    },
+    "ok": {
+     "375x812": 1,
+     "390x844": 1,
+     "430x932": 1,
+     "375x667": 1,
+     "320x568": 1
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-laundry-a1-qty",
+   "screen": "laundry",
+   "variant": "a1-qty",
+   "code": "A1",
+   "defect": "수량 버튼을 18px로 줄임",
+   "dir": "eval/synth/blind7/screens/laundry/a1-qty",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "target",
+    "sel": ".qty button",
+    "min": 24
+   },
+   "hint": [
+    "빼기",
+    "더하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 18,
+     "390x844": 18,
+     "430x932": 18,
+     "375x667": 18,
+     "320x568": 18
+    },
+    "ok": {
+     "375x812": 32,
+     "390x844": 32,
+     "430x932": 32,
+     "375x667": 32,
+     "320x568": 32
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-laundry-r2-addr",
+   "screen": "laundry",
+   "variant": "r2-addr",
+   "code": "R2",
+   "defect": "주소 줄 높이를 20px로 고정하고 넘침을 숨겨 두 줄 주소가 잘림",
+   "dir": "eval/synth/blind7/screens/laundry/r2-addr",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "clipped_text",
+    "sel": ".addr span"
+   },
+   "hint": [
+    "월드컵로"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 20,
+     "390x844": 20,
+     "430x932": 20,
+     "375x667": 20,
+     "320x568": 20
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-laundry-r4-req",
+   "screen": "laundry",
+   "variant": "r4-req",
+   "code": "R4",
+   "defect": "아래 합계 막대 높이만큼 여백을 두지 않아 끝까지 내려도 요청 사항 칸이 가려짐",
+   "dir": "eval/synth/blind7/screens/laundry/r4-req",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "covered",
+    "sel": ".req",
+    "scroll": ".body"
+   },
+   "hint": [
+    "요청 사항"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "320x568"
+    ],
+    "bad": {
+     "375x812": "519~591 req",
+     "390x844": "519~591 req",
+     "430x932": "519~591 req",
+     "375x667": "519~591 req",
+     "320x568": "479~551 BUTTON"
+    },
+    "ok": {
+     "375x812": "519~591 req",
+     "390x844": "519~591 req",
+     "430x932": "519~591 req",
+     "375x667": "478~550 req",
+     "320x568": "379~451 req"
+    },
+    "ok_clean": true
+   }
+  },
+  {
+   "id": "blind7-laundry-r1-it",
+   "screen": "laundry",
+   "variant": "r1-it",
+   "code": "R1",
+   "defect": "옷 이름 칸 폭을 시안 값 260px로 고정해 수량 버튼이 화면 밖으로 밀림",
+   "dir": "eval/synth/blind7/screens/laundry/r1-it",
+   "sizes": [
+    "375x812",
+    "390x844",
+    "430x932",
+    "375x667",
+    "320x568"
+   ],
+   "check": {
+    "type": "overflow",
+    "sel": ".it"
+   },
+   "hint": [
+    "이불(퀸 이상)",
+    "더하기"
+   ],
+   "verified": {
+    "expected_sizes": [
+     "375x812",
+     "390x844",
+     "430x932",
+     "375x667",
+     "320x568"
+    ],
+    "bad": {
+     "375x812": 77,
+     "390x844": 62,
+     "430x932": 22,
+     "375x667": 77,
+     "320x568": 132
+    },
+    "ok": {
+     "375x812": 0,
+     "390x844": 0,
+     "430x932": 0,
+     "375x667": 0,
+     "320x568": 0
+    },
+    "ok_clean": true
+   }
+  }
+ ]
+}
