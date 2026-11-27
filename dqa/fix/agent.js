@@ -67,6 +67,10 @@ function observeSearch (srcRoot, srcDir, a) {
   } catch (e) { return `"${a.text}" 검색 결과 없음` }
 }
 
+const BRANCH_HINTS = ['',
+  '[이번 갈래의 방향]\n스타일 값(CSS·SCSS 규칙, 인라인·객체 스타일)에서 원인을 찾아 고친다. 다른 갈래에서 실패한 수정은 반복하지 않는다.',
+  '[이번 갈래의 방향]\n컴포넌트·마크업(JSX·HTML 구조, 속성, 조건부 표시, 문구를 만드는 코드)에서 원인을 찾아 고친다. 다른 갈래에서 실패한 수정은 반복하지 않는다.']
+
 const brief = (r) => r.ok ? '검증 통과: 결함이 사라졌고 다른 결함은 생기거나 커지지 않았다'
   : r.error ? r.error
   : r.build_ok === false ? `빌드 실패: ${(r.build_log || '').split('\n').filter((l) => /error/i.test(l)).slice(-3).join(' / ').slice(0, 300)}`
@@ -124,10 +128,18 @@ async function codeAgent (d, ctx) {
   const grouped = '[이번 공통 작업에서 함께 해결해야 하는 모든 결함]\n'+JSON.stringify(ctx.taskTargets||[{id:d.id,screen:d.screen,labels:d.labels}])+'\n하나의 대표 요소만 고치면 성공이 아니다. 이 목록의 모든 화면 결함을 해결하고 다른 화면의 정상 변형은 보존한다.'
   const fact = grouped + '\n' + interactionFacts + '\n' + consumerEvidence + '\n' + spec + facts(compact ? { ...inputDefect, causes: { ...inputDefect.causes, candidates: (inputDefect.causes?.candidates || []).map(({ snippet, context, ...c }) => c) } } : inputDefect, d.screen_title) + '\n[앱 시안 계약: 고장 나지 않은 화면도 보존]\n' + JSON.stringify(ctx.appContracts || []) + '\n[등록 화면의 실제 버튼 소스: 변경 전]\n' + JSON.stringify(ctx.appSources || []) + '\n[실제 소스 파일 목록]\n' + sourceFiles + '\n[원인 후보 위치와 코드]\n' + anchors + '\n[시안 목적지 문구의 실제 소스 검색]\n' + routeEvidence
   const prior = attempts.filter((a) => a.edits).map((a) => `- 규칙 수정안 ${a.edits[0].file}:${a.edits[0].line} "${a.edits[0].replace.trim().slice(0, 120)}" → ${brief(a)}`).join('\n')
-  const msgs = [{ role: 'system', content: SYSTEM }, { role: 'user', content: `${fact}${prior ? `\n\n[이미 해 본 수정]\n${prior}` : ''}\n\n첫 행동을 JSON으로 써라.` }]
-  const readFiles = new Set();
-  let reads = 0; let edits = 0; const maxSteps = 12; const tried = new Set(attempts.filter((a) => a.edits).map((a) => a.edits[0].replace.replace(/\s+/g, ' ').trim()))
+  // 갈래(branch): 같은 사실에서 방향을 달리한 독립 시도를 차례로 돌리고, 검증을 통과한 첫 수정을 채택한다. 기본 1갈래 = 기존 동작
+  const nBranch = Math.max(1, Math.min(BRANCH_HINTS.length, Number(process.env.DQA_BRANCHES || cfg.fix?.branches || 1)))
+  const tried = new Set(attempts.filter((a) => a.edits).map((a) => a.edits[0].replace.replace(/\s+/g, ' ').trim()))
   const scopes = require('./scoped-style').scopeEvidence(ctx)
+  const needsReplan0 = needsReplan; const scopedOnly0 = scopedOnly
+  for (let branch = 0; branch < nBranch; branch++) {
+  const hint = BRANCH_HINTS[branch]
+  needsReplan = needsReplan0; scopedOnly = scopedOnly0
+  if (branch) { say(`${d.rule}: 새 갈래 ${branch + 1}/${nBranch} — ${hint.split('\n')[1]}`); trail.push({ step: trail.length + 1, action: 'branch', detail: `${branch + 1}/${nBranch}`, result: hint.split('\n')[1] }) }
+  const msgs = [{ role: 'system', content: SYSTEM }, { role: 'user', content: `${fact}${prior ? `\n\n[이미 해 본 수정]\n${prior}` : ''}${hint ? '\n\n' + hint : ''}\n\n첫 행동을 JSON으로 써라.` }]
+  const readFiles = new Set();
+  let reads = 0; let edits = 0; const maxSteps = 12
   const failedActions = new Map()
   for (let step = 0; step < maxSteps; step++) {
     // 문맥 보호: 오래된 관찰은 첫 줄만 남긴다
@@ -200,6 +212,7 @@ async function codeAgent (d, ctx) {
     if(/실패|바뀌는 것이 없|이미 해 본/.test(String(obs))) failedActions.set(actionKey,(failedActions.get(actionKey)||0)+1)
     say(`${d.rule}: ${a.action} → ${String(obs).split('\n')[0].slice(0, 160)}`)
     msgs.push({ role: 'user', content: `${obs}\n\n다음 행동을 JSON으로 써라.` })
+  }
   }
   return { attempts, trail, verified: null }
 }
