@@ -74,9 +74,19 @@ function * compareSteps (spec, dom, alt, opt = {}, tall = null) {
   const dTexts = nodes.filter((n) => n.text && norm(n.text.content))
   const used = new Set(); const units = []
   const cand = []
+  const doneN = new Set()
+  const bindings = dom.runtime_text || {}
+  for (const n of dTexts.filter(n => Object.hasOwn(bindings, n.id))) {
+    const t = dom.texts.find(t => t.i === bindings[n.id] && !used.has(t.i))
+    if (!t) continue
+    used.add(t.i); doneN.add(n.idx)
+    units.push({ n, t, b: pickBox(n, t), exact: true, runtime: true })
+  }
   for (const n of dTexts) {
+    if (Object.hasOwn(bindings, n.id)) continue
     const want = norm(n.text.content)
     for (const t of dom.texts) {
+      if (used.has(t.i)) continue
       const decoration = norm(t.full).slice(want.length).trim(); const arrowLabel = norm(t.full).startsWith(want) && /^[〉›»→‹〈]$/.test(decoration) && nodes.some(v=>v.type==='VECTOR'&&v.w<=32&&v.h<=32&&v.x>=n.x+n.w-2&&v.x<n.x+n.w+40&&Math.abs(v.y-n.y)<n.h);
       const exact = norm(t.full) === want || (t.mixed && norm(t.own) === want) || arrowLabel
       if (!exact) continue
@@ -85,16 +95,16 @@ function * compareSteps (spec, dom, alt, opt = {}, tall = null) {
     }
   }
   cand.sort((a, b) => a.dist - b.dist)
-  const doneN = new Set()
   for (const c of cand) { if (doneN.has(c.n.idx) || used.has(c.t.i)) continue; doneN.add(c.n.idx); used.add(c.t.i); units.push({ n: c.n, t: c.t, b: c.b, exact: true }) }
   // 전역 어긋남(가운데 값): 시안에만 있는 상태 표시줄 등으로 전체가 밀린 만큼
-  const offX = median(units.map((u) => center(u.t.mixed ? u.t.box : u.b)[0] - center(dbox(u.n))[0]))
-  const offY = median(units.map((u) => center(u.b)[1] - center(dbox(u.n))[1]))
+  const offX = median(units.filter(u => !u.runtime).map((u) => center(u.t.mixed ? u.t.box : u.b)[0] - center(dbox(u.n))[0]))
+  const offY = median(units.filter(u => !u.runtime).map((u) => center(u.b)[1] - center(dbox(u.n))[1]))
   const ox = Math.abs(offX) >= 2 ? offX : 0; const oy = Math.abs(offY) >= 2 ? offY : 0
   // 내용이 조금 다른 글자(문구 다름)와 짝이 없는 글자(빠짐)
   for (const n of dTexts.filter((n) => !doneN.has(n.idx))) {
     const want = norm(n.text.content); let best = null
-    for (const t of dom.texts) {
+    const bound = Object.hasOwn(bindings, n.id)
+    for (const t of bound ? [] : dom.texts) {
       if (used.has(t.i)) continue
       const s = Math.max(sim(norm(t.full), want), t.mixed ? sim(norm(t.own), want) : 0)
       if (s < TOL.fuzzy) continue
@@ -104,10 +114,10 @@ function * compareSteps (spec, dom, alt, opt = {}, tall = null) {
     }
     // 시안 글자가 입력칸의 안내 글자(placeholder) 그 자체로 구현돼 있으면 빠진 것이 아니다.
     // 포함 관계는 인정하지 않는다(라벨 4개를 안내 글자 하나에 몰아 쓴 것은 시안과 다른 구조다)
-    const ph = !best && (dom.boxes || []).find((b) => b.ph && 1 - lev(b.ph, want) / Math.max(b.ph.length, want.length) >= 0.8 && Math.hypot(center(shift(b.box, ox, oy))[0] - center(dbox(n))[0], center(shift(b.box, ox, oy))[1] - center(dbox(n))[1]) <= 160)
+    const ph = !bound && !best && (dom.boxes || []).find((b) => b.ph && 1 - lev(b.ph, want) / Math.max(b.ph.length, want.length) >= 0.8 && Math.hypot(center(shift(b.box, ox, oy))[0] - center(dbox(n))[0], center(shift(b.box, ox, oy))[1] - center(dbox(n))[1]) <= 160)
     if (ph) { doneN.add(n.idx); continue }
     if (best) { used.add(best.t.i); doneN.add(n.idx); units.push({ n, t: best.t, b: best.b, exact: false, s: best.s }) } else {
-      issues.push({ rule: 'M1', metric: 'missing', value: 1, threshold: 1, text: `시안의 글자 "${want.slice(0, 40)}"가 구현에 없다`, dom: null, design: { id: n.id, name: n.name, type: n.type, box: { x: n.x, y: n.y, w: n.w, h: n.h }, text: want } })
+      issues.push({ rule: 'M1', metric: 'missing', value: 1, threshold: 1, text: bound ? `런타임 요소 "${n.name}"의 표시 글자를 확인할 수 없다` : `시안의 글자 "${want.slice(0, 40)}"가 구현에 없다`, dom: null, design: { id: n.id, name: n.name, type: n.type, box: { x: n.x, y: n.y, w: n.w, h: n.h }, text: want } })
     }
   }
   function record (test, ordinal, total, input, status) {

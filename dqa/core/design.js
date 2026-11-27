@@ -43,7 +43,7 @@ function resolveDesign (args, t, recipes, run, cfg) {
     const hasPng = fs.existsSync(png)
     if (hasPng && path.resolve(png) !== path.resolve(run.file(`design/${safe}.png`))) fs.copyFileSync(png, run.file(`design/${safe}.png`))
     out[r.id] = {
-      source: f, file: spec.file || null, page: spec.page || null, figma: spec.figma || null, frame_id: spec.frame && spec.frame.id, page_id: spec.page_id || null,
+      source: f, exported_at: spec.exported_at || null, file: spec.file || null, page: spec.page || null, figma: spec.figma || null, frame_id: spec.frame && spec.frame.id, page_id: spec.page_id || null,
       frame: spec.frame ? spec.frame.name : null,
       base: spec.base || (spec.frame ? `${spec.frame.width}x${spec.frame.height}` : null),
       frame_size: spec.frame && spec.frame.width ? [spec.frame.width, spec.frame.height] : null,
@@ -56,4 +56,4 @@ function resolveDesign (args, t, recipes, run, cfg) {
   return Object.keys(out).length ? out : null
 }
 
-module.exports = { resolveDesign }
+module.exports = { resolveDesign, designFile }

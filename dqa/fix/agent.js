@@ -8,7 +8,7 @@ const { facts, askJSON, numbersOk } = require('../judge/ollama')
 const ACTION = {
   type: 'object',
   properties: {
-    action: { type: 'string', enum: ['read', 'search', 'replan', 'style', 'rn_style', 'jsx_prop', 'edit', 'give_up'] },
+    action: { type: 'string', enum: ['read', 'search', 'replan', 'style', 'rn_style', 'jsx_prop', 'edit_lines', 'edit', 'give_up'] },
     file: { type: 'string' }, start: { type: 'integer' }, end: { type: 'integer' },
     selector: { type: 'string' }, property: { type: 'string' }, value: { type: 'string' }, text: { type: 'string' }, scope: { type: 'string' },
     find: { type: 'string' }, replace: { type: 'string' }, why: { type: 'string' },
@@ -22,6 +22,7 @@ const SYSTEM = `너는 디자인 결함을 고치는 코드 에이전트다. 측
 - {"action":"read","file":"경로","start":줄,"end":줄} 파일의 줄 범위를 읽는다(한 번에 40줄까지).
 - {"action":"search","text":"찾을 글자"} 소스에서 글자를 찾는다.
 - {"action":"style","file":"CSS 파일","selector":"실제 클래스 선택자","property":"CSS 속성","value":"시안 값","why":"근거"} 공통 스타일 회귀에는 이 도구를 우선 사용한다. 실제 소스에 있는 클래스 조합에만 규칙을 추가/수정한다. 예시는 답이 아니며 실제 화면 계약과 클래스를 선택한다.
+- {"action":"edit_lines","file":"직접 read한 경로","start":교체시작줄,"end":교체끝줄,"replace":"해당 줄 전체의 새 코드","why":"근거"} 기존 줄을 다시 복사할 필요가 없다. 한 줄은 start와 end를 같게 한다. JS/HTML 수정에는 이 도구를 우선 사용한다.
 - {"action":"edit","file":"경로","start":find가실제로시작하는줄,"find":"바꿀 코드 블록 그대로","replace":"고친 코드 블록","why":"왜 이 수정으로 결함이 사라지는지 한두 문장"} 도구가 사본에 적용해 다시 빌드하고 같은 크기로 재서 결과를 알려 준다.
 - {"action":"rn_style","file":"실제 TSX 파일","selector":"StyleSheet.create 안의 스타일 키","property":"color 등 RN 속성","value":"시안 값"} React Native 스타일을 바꾼다. CSS 전용 style은 RN에 사용하지 않는다.
 - {"action":"jsx_prop","file":"실제 TSX 파일","selector":"실제 JSX 컴포넌트 이름","property":"color 등 속성","value":"시안 값","start":선택적시작줄} JSX 속성을 수정한다. start를 비우면 이 파일의 같은 컴포넌트 사용처 전부를 수정·검증한다.
@@ -35,7 +36,17 @@ const SYSTEM = `너는 디자인 결함을 고치는 코드 에이전트다. 측
 5. I4의 목적지 화면 문구는 도착 확인 기준이지 현재 버튼의 라벨이 아니다. 버튼 문구를 목적지 제목으로 바꾸거나 현재 화면에 덧붙여 통과시키지 않는다. 가려짐 근거가 없으면 이동 실패를 CSS 문제로 가정하지 말고 클릭 핸들러와 실제 이동 주소를 확인한다. 화면 이름으로 파일 경로를 만들지 않는다. 이동 수정은 기대 화면 문구를 소스에서 검색해 실제 존재하는 목적지 파일을 확인하고 사용한다.
 6. 공통 CSS 회귀가 발생한 상태에서는 edit 행동이 잠긴다. replan 후 반드시 style 행동을 사용한다. 공통 CSS 값을 바꿔 다른 변형이 깨졌다면 같은 전역 선언을 다시 edit하지 않는다. style로 실제 코드에 존재하는 변형 클래스 조합을 선택해 필요한 범위에만 시안 값을 적용한다.
 7. 다른 화면 회귀가 생기면 반드시 replan을 한 뒤 edit한다. [앱 시안 계약]에서 화면별 의도 차이를 확인한다. 공통 스타일 수정이 모든 변형을 같은 값으로 만들면 안 된다.
-8. [진단 사실]과 [지식]을 먼저 본다. why에 쓰는 숫자는 사실·코드에 있는 것만.`
+8. J1은 실제 사용자 흐름의 검증 실패다. 기대값과 관측값을 읽고 렌더링 또는 이벤트 코드를 수정한다. 예시 응답 값을 코드에 복사하면 안 된다.
+9. [진단 사실]과 [지식]을 먼저 본다. why에 쓰는 숫자는 사실·코드에 있는 것만.`
+
+const JOURNEY_SYSTEM = `Repair the existing frontend code so the browser checks pass.
+Return one JSON action. Begin by reading the relevant source. Prefer the file and lines from the source search results.
+- {"action":"read","file":"existing source path","start":1,"end":20} reads up to 40 lines.
+- {"action":"search","text":"observed endpoint, selector, action key, or identifier"} searches existing source.
+- {"action":"edit_lines","file":"file you read","start":12,"end":12,"replace":"complete replacement for the selected lines","why":"short reason"} tries the actual code and reports browser results.
+- {"action":"replan","scope":"where you are looking","reason":"new diagnosis based on prior feedback"} follows a rejected change.
+- {"action":"give_up","reason":"why no safe change could be found"} when evidence is exhausted.
+A recorded API request and a visible value that stays the same across different responses indicate a data binding problem. Follow fetch, response parsing, and the DOM assignment in source. Use the returned value, keep existing formatting, and preserve the valid response case. Do not put fixture or expected values into the app. For a clicked control with unchanged output, start at the source line that handles the observed clicked action. Trace how that branch updates state before changing the rendering or filtering algorithm. Make the smallest complete change. To update one expression, replace just the single numbered source line. Do not include neighboring lines. Do not modify fixtures or checks.`
 
 function inside (srcRoot, srcDir, rel) {
   const abs = path.resolve(srcRoot, rel || '')
@@ -45,6 +56,7 @@ const fileErr = (srcRoot, srcDir, rel) => {
   const abs = inside(srcRoot, srcDir, rel)
   if (!abs) return `${rel}는 소스 폴더(${srcDir}) 밖이다`
   if (!fs.existsSync(abs)) return `${rel} 파일이 없다. 컴포넌트는 다른 파일 안에 정의돼 있을 수 있다. search로 "function 이름"을 찾는다`
+  if (!require('../code/source-context').safe(srcRoot, srcDir, rel) || !/\.(?:[jt]sx?|css|scss|html|vue|svelte)$/.test(rel)) return '지원하는 프런트 소스 파일만 읽을 수 있습니다'
   return null
 }
 
@@ -55,6 +67,7 @@ function observeRead (srcRoot, srcDir, a) {
   const lines = fs.readFileSync(abs, 'utf8').split('\n')
   let s = Math.max(1, a.start || 1); let e = Math.min(lines.length, a.end || s + 39)
   if (e - s > 39) e = s + 39
+  if (s > e || fs.statSync(abs).size > 350000) return '읽기 실패: 유효한 소스 줄 범위를 지정하세요'
   return `${a.file} ${s}~${e}줄(전체 ${lines.length}줄):\n` + lines.slice(s - 1, e).map((t, i) => `${s + i}: ${t.slice(0, 6000)}`).join('\n')
 }
 
@@ -67,12 +80,32 @@ function observeSearch (srcRoot, srcDir, a) {
   } catch (e) { return `"${a.text}" 검색 결과 없음` }
 }
 
+function findJourneyWindow (srcRoot, srcDir, files, terms) {
+  const { safe } = require('../code/source-context')
+  for (const term of terms.filter(Boolean)) {
+    for (const file of files) {
+      if (!/\.[jt]sx?$/.test(file) || /\.(?:test|spec)\.[jt]sx?$/.test(file)) continue
+      const absolute = safe(srcRoot, srcDir, file)
+      if (!absolute || fs.statSync(absolute).size > 350000) continue
+      const lines = fs.readFileSync(absolute, 'utf8').split('\n')
+      const index = lines.findIndex(line => line.includes(term))
+      if (index < 0) continue
+      const start = Math.max(1, index - 3)
+      const end = Math.min(lines.length, index + 7)
+      const content = lines.slice(start - 1, end).map((line, i) => `${start + i}: ${line}`).join('\n')
+      if (content.length <= 6000) return { file, start, end, content, term }
+    }
+  }
+  return null
+}
+
 const BRANCH_HINTS = ['',
   '[이번 갈래의 방향]\n스타일 값(CSS·SCSS 규칙, 인라인·객체 스타일)에서 원인을 찾아 고친다. 다른 갈래에서 실패한 수정은 반복하지 않는다.',
   '[이번 갈래의 방향]\n컴포넌트·마크업(JSX·HTML 구조, 속성, 조건부 표시, 문구를 만드는 코드)에서 원인을 찾아 고친다. 다른 갈래에서 실패한 수정은 반복하지 않는다.']
 
 const brief = (r) => r.ok ? '검증 통과: 결함이 사라졌고 다른 결함은 생기거나 커지지 않았다'
   : r.error ? r.error
+  : r.journey_failures?.length ? '사용자 흐름 재검증 실패: ' + r.journey_failures.join(' / ')
   : r.build_ok === false ? `빌드 실패: ${(r.build_log || '').split('\n').filter((l) => /error/i.test(l)).slice(-3).join(' / ').slice(0, 300)}`
     : r.coverage_errors?.length ? '재검증 범위 누락: ' + r.coverage_errors.join(' / ')
     : `${r.still && r.still.length ? '결함 남음: ' + r.still.map(id => {const d=(r.after||[]).find(x=>x.id===id);return d?d.screen+' '+d.labels.join('·'):id}).join(', ') : '결함은 사라짐'}${r.regress && r.regress.length ? `, 다른 결함 악화·생김: ${r.regress.map((g) => `${g.screen || "화면 미상"} ${g.rule} ${g.labels.join('·')} ${g.status === 'new' ? '새로 생김' : `${g.px}px로 커짐`}`).join(', ')}` : ''}. 이 수정은 되돌렸다`
@@ -83,8 +116,11 @@ function allowedActions (needsReplan, scopedOnly, reads = 0) {
   return reads >= 5 ? actions.filter(a=>a!=='read' && a!=='search') : actions
 }
 
-function actionSchema(d,scopes,needsReplan,scopedOnly,reads){
- const properties={...ACTION.properties,action:{type:'string',enum:allowedActions(needsReplan,scopedOnly,reads)}};
+function actionSchema(d,scopes,needsReplan,scopedOnly,reads,local=false){
+ const actions = allowedActions(needsReplan,scopedOnly,reads)
+ const choices = actions.filter(action => !(local && action === 'edit') &&
+  !(d.kind === 'journey' && ['style', 'rn_style', 'jsx_prop'].includes(action)))
+ const properties={...ACTION.properties,action:{type:'string',enum:choices}};
  const color=(d.design?.values||[]).find(v=>v.prop==='background-color'&&/^#[0-9a-f]{6}$/i.test(v.design));
  if(scopedOnly&&color){
   const selectors=scopes.filter(s=>!s.conflicting&&s.covers_all_target_screens!==false&&s.expected_fills.length&&s.expected_fills.every(v=>v.toUpperCase()===color.design.toUpperCase())).map(s=>s.selector);
@@ -114,20 +150,73 @@ async function codeAgent (d, ctx) {
   // 입력: 보고서 에이전트의 문제 정의서(있으면) + 측정·진단·지식·원본 사실
   const j = d.judge || {}
   const spec = j.status === 'ok' ? `[문제 정의(보고서 에이전트)]\n문제: ${j.problem}\n원본(기대): ${j.expected}\n판정: ${j.verdict} — ${j.reason}\n\n` : ''
+  const images = (ctx.images || []).filter(f => fs.existsSync(f) && fs.statSync(f).size < 2_000_000).map(f => fs.readFileSync(f).toString('base64'))
   let sourceFiles = ''
   try { sourceFiles = execFileSync('rg', ['--files', '--glob', '*.{html,css,scss,js,jsx,ts,tsx,vue,svelte}', '--glob', '!node_modules/**', '--glob', '!dist*/**'], { cwd: srcRoot, encoding: 'utf8', timeout: 5000 }).split('\n').slice(0, 60).join('\n') } catch (e) {}
   const mapping = require('../code/source-context').sourceContext(d,{srcRoot,srcDir,hints:ctx.sourceHints||[]})
   const consumer = mapping.candidates[0]
   const consumerEvidence = consumer ? '[데이터가 있는 위치와 표시 코드 후보 — 정적 연결, 원인 미확정]\n'+JSON.stringify(mapping.data)+'\n'+consumer.file+'\n'+consumer.snippet : ''
   const interaction = require('../code/interaction-source').interactionContext(d,{srcRoot,srcDir})
+  const journeyFiles = d.kind === 'journey' && ctx.sourceHints?.length ? '[현재 화면에서 사용하는 프런트 소스 후보] ' + ctx.sourceHints.join(', ') : ''
+  const journeyEvidence = ctx.journeyEvidence?.length
+    ? '[같은 요소를 검증한 각 브라우저 실행]\n' + JSON.stringify(ctx.journeyEvidence) +
+      '\n지나간 API 요청이 있으면 응답을 읽고 화면에 전달하는 함수부터 확인한다. 여러 응답을 모두 만족해야 한다.\n'
+    : ''
+  const journeySearch = ctx.journeyEvidence?.flatMap(row => [
+    ...(row.request || []).map(call => call.path),
+    row.trigger?.click?.match(/data-action=["']([^:"']+:)/)?.[1],
+    row.expected?.selector?.split(/\s+/)[0]
+  ]) || []
+  const journeyAnchors = [...new Set(journeySearch.filter(Boolean))].slice(0, 5).map(term => observeSearch(srcRoot, srcDir, { text: term })).join('\n')
   const interactionFacts = interaction.scripts.length ? '[클릭 대상 HTML에서 실제로 불러오는 로컬 동작 코드 — 정적 연결, 원인 미확정]\n'+JSON.stringify(interaction) : ''
   const inputDefect = interaction.scripts.length ? {...d,causes:{...d.causes,candidates:interaction.scripts.map((x,i)=>({...x,rank:i+1,why:[x.why]}))}} : d
   const compact = cfg.performance?.compact_source_context
   const anchors = compact ? (inputDefect.causes?.candidates || []).slice(0, 2).map(c => `${c.file}:${c.line} — read로 해당 파일을 읽어 확인하세요`).join('\n') : (inputDefect.causes?.candidates || []).slice(0, 2).map(c => observeRead(srcRoot, srcDir, { file: c.file, start: Math.max(1, c.line - 8), end: c.line + 20 })).join('\n\n')
   const routeEvidence = (d.interact?.expected?.actions || []).filter(a => a.dest_name).map(a => observeSearch(srcRoot, srcDir, { text: a.dest_name })).join('\n')
   const grouped = '[이번 공통 작업에서 함께 해결해야 하는 모든 결함]\n'+JSON.stringify(ctx.taskTargets||[{id:d.id,screen:d.screen,labels:d.labels}])+'\n하나의 대표 요소만 고치면 성공이 아니다. 이 목록의 모든 화면 결함을 해결하고 다른 화면의 정상 변형은 보존한다.'
-  const fact = grouped + '\n' + interactionFacts + '\n' + consumerEvidence + '\n' + spec + facts(compact ? { ...inputDefect, causes: { ...inputDefect.causes, candidates: (inputDefect.causes?.candidates || []).map(({ snippet, context, ...c }) => c) } } : inputDefect, d.screen_title) + '\n[앱 시안 계약: 고장 나지 않은 화면도 보존]\n' + JSON.stringify(ctx.appContracts || []) + '\n[등록 화면의 실제 버튼 소스: 변경 전]\n' + JSON.stringify(ctx.appSources || []) + '\n[실제 소스 파일 목록]\n' + sourceFiles + '\n[원인 후보 위치와 코드]\n' + anchors + '\n[시안 목적지 문구의 실제 소스 검색]\n' + routeEvidence
-  const prior = attempts.filter((a) => a.edits).map((a) => `- 규칙 수정안 ${a.edits[0].file}:${a.edits[0].line} "${a.edits[0].replace.trim().slice(0, 120)}" → ${brief(a)}`).join('\n')
+  const fact = grouped + '\n' + journeyFiles + '\n' + journeyEvidence + interactionFacts + '\n' + consumerEvidence + '\n' + spec + facts(compact ? { ...inputDefect, causes: { ...inputDefect.causes, candidates: (inputDefect.causes?.candidates || []).map(({ snippet, context, ...c }) => c) } } : inputDefect, d.screen_title) + '\n[앱 시안 계약: 고장 나지 않은 화면도 보존]\n' + JSON.stringify(d.kind === 'journey' ? [] : (ctx.appContracts || []).filter(c => ctx.taskTargets?.some(t => t.screen === c.screen)).slice(0, 25)) + '\n[등록 화면의 실제 버튼 소스: 변경 전]\n' + JSON.stringify(d.kind === 'journey' ? [] : (ctx.appSources || []).filter(c => ctx.taskTargets?.some(t => t.screen === c.screen)).slice(0, 20)) + '\n[실제 소스 파일 목록]\n' + sourceFiles + '\n[원인 후보 위치와 코드]\n' + anchors + '\n[시안 목적지 문구의 실제 소스 검색]\n' + routeEvidence
+  const localJourney = cfg.ollama?.local_only && d.kind === 'journey'
+  const window = localJourney ? findJourneyWindow(srcRoot, srcDir, [...new Set([...(ctx.sourceHints || []), ...sourceFiles.split('\n')])], journeySearch) : null
+  if (window) {
+    const fields = ACTION.properties
+    const schema = { type: 'object', properties: {
+      action: { enum: ['edit_lines', 'give_up'], type: 'string' }, start: fields.start, end: fields.end,
+      replace: fields.replace, why: fields.why
+    }, required: ['action', 'start', 'end', 'replace', 'why'] }
+    try {
+      say(`${d.rule} ${d.labels[0]}: 관측한 요청 또는 클릭과 일치하는 ${window.file} 내용을 읽습니다`)
+      ctx.onObservation?.({ action: 'read', file: window.file, content: window.content })
+      trail.push({ step: trail.length + 1, action: 'read', detail: `${window.file}:${window.start}-${window.end}`, result: window.term })
+      const msg = [
+        { role: 'system', content: 'Repair a real frontend browser failure. The numbered source was just read. Return a minimal replacement for the exact numbered line that causes the failure. Prefer a single line (start equals end). For different API responses, bind the displayed value to the parsed response field. For an unchanged list after clicking, correct the state set by the actual click branch using the action value. Preserve the rest of the selected line. Do not hardcode expected outputs. If this window cannot be safely edited, return give_up with start/end 0 and replace empty.' },
+        { role: 'user', content: `${d.evidence[0]?.text || ''}\nBrowser cases: ${JSON.stringify(ctx.journeyEvidence)}\nSource search matched "${window.term}" in ${window.file}.\n${window.content}\nReturn a JSON action with the replacement line and original line number.` }
+      ]
+      const reply = await askJSON(cfg, schema, msg)
+      const a = reply.ans
+      ctx.onModelCall?.({ step: 1, ...reply.timing, prompt_tokens: reply.prompt_eval_count, output_tokens: reply.eval_count, action: a?.action || 'invalid-json' })
+      if (a?.action === 'edit_lines' && a.start >= window.start && a.end <= window.end) {
+        a.file = window.file
+        ctx.onAction?.(a)
+        const edit = require('./source-edit').lineEdit(a, { ...ctx, readRanges: [[window.start, window.end]] })
+        const r = await tryEdits([edit], `${d.rule} 브라우저 근거로 좁힌 모델 수정`, targetIds)
+        attempts.push({ source: 'llm', edits: [edit], ...r })
+        trail.push({ step: trail.length + 1, action: 'edit_lines', detail: `${edit.file}:${edit.line}`, result: brief(r) })
+        say(`${d.rule} ${d.labels[0]}: ${brief(r)}`)
+        if (r.ok) return { attempts, trail, verified: attempts.length - 1 }
+        needsReplan = true
+      }
+    } catch (error) {
+      trail.push({ step: trail.length + 1, action: 'edit_lines', detail: window.file, result: error.message })
+      say(`${d.rule} ${d.labels[0]}: 읽은 범위에서 바로 수정하지 못해 다른 근거를 찾습니다`)
+    }
+  }
+  const modelConfig = localJourney && /^qwen3\.5(?::|$)/i.test(cfg.ollama.model)
+    ? { ...cfg, ollama: { ...cfg.ollama, repair_think: true } }
+    : cfg
+  const repairEvidence = localJourney
+    ? `Browser failure: ${d.labels.join(', ')}.\n${d.evidence[0]?.text || ''}\n${journeyEvidence}\nExisting source matches:\n${journeyAnchors}\n${journeyFiles}\n${sourceFiles}\nRead the source around the best match before choosing an edit.`
+    : fact
+  const prior = attempts.filter((a) => a.edits).map((a) => `- 이전 수정안 ${a.edits[0].file}:${a.edits[0].line} "${a.edits[0].replace.trim().slice(0, 120)}" → ${brief(a)}`).join('\n')
   // 갈래(branch): 같은 사실에서 방향을 달리한 독립 시도를 차례로 돌리고, 검증을 통과한 첫 수정을 채택한다. 기본 1갈래 = 기존 동작
   const nBranch = Math.max(1, Math.min(BRANCH_HINTS.length, Number(process.env.DQA_BRANCHES || cfg.fix?.branches || 1)))
   const tried = new Set(attempts.filter((a) => a.edits).map((a) => a.edits[0].replace.replace(/\s+/g, ' ').trim()))
@@ -137,8 +226,14 @@ async function codeAgent (d, ctx) {
   const hint = BRANCH_HINTS[branch]
   needsReplan = needsReplan0; scopedOnly = scopedOnly0
   if (branch) { say(`${d.rule}: 새 갈래 ${branch + 1}/${nBranch} — ${hint.split('\n')[1]}`); trail.push({ step: trail.length + 1, action: 'branch', detail: `${branch + 1}/${nBranch}`, result: hint.split('\n')[1] }) }
-  const msgs = [{ role: 'system', content: SYSTEM }, { role: 'user', content: `${fact}${prior ? `\n\n[이미 해 본 수정]\n${prior}` : ''}${hint ? '\n\n' + hint : ''}\n\n첫 행동을 JSON으로 써라.` }]
-  const readFiles = new Set();
+  const system = localJourney ? JOURNEY_SYSTEM : cfg.ollama.local_only ? SYSTEM.split('\n').filter(line => !line.startsWith('- {"action":"edit",') && !line.startsWith('1. find')).join('\n').replace('후에 edit한다', '후에 edit_lines를 사용한다') : SYSTEM
+  const msgs = [{ role: 'system', content: system }, { role: 'user', content: `${repairEvidence}${prior ? `\n\n[이미 해 본 수정]\n${prior}` : ''}${hint ? '\n\n' + hint : ''}\n\n첫 행동을 JSON으로 써라.` }]
+  if (images.length === 2) {
+    msgs[1].images = images
+    msgs[1].content += '\n첫 이미지는 Figma 시안, 두 번째는 현재 구현 캡처다.'
+  }
+  const readFiles = new Set()
+  const readRanges = new Map()
   let reads = 0; let edits = 0; const maxSteps = 12
   const failedActions = new Map()
   for (let step = 0; step < maxSteps; step++) {
@@ -147,20 +242,21 @@ async function codeAgent (d, ctx) {
     if (scopedOnly) view.push({role:'user',content:'[소스와 Figma에서 계산한 선택자 영향 범위]\n'+JSON.stringify(scopes)+'\n'+grouped+'\nconflicting=true인 선택자는 화면별 시안 색이 달라 전체 변경할 수 없다. 대상 결함의 기대 색과 일치하며 covers_all_target_screens=true인 범위를 선택하라. 한 화면만 포함하는 선택자는 공통 작업을 해결하지 못한다. '+(needsReplan?'지금은 replan으로 실패 원인과 새 선택자 범위를 정한다.':'다음 style 행동에는 선택자 전체를 사용하라. 필요한 코드와 영향 범위는 이미 제공되어 있다.')})
     let r
     say(`${d.rule} ${d.labels.slice(0, 2).join(', ')}: 코드 에이전트가 다음 행동을 선택합니다 (${step + 1}/${maxSteps})`)
-    try { r = await askJSON(cfg, readFiles.size || !ctx.modelOnly ? actionSchema(d,scopes,needsReplan,scopedOnly,reads) : {...ACTION,properties:{...ACTION.properties,action:{type:"string",enum:["read","search","give_up"]}}}, view) } catch (e) { trail.push({ step: trail.length + 1, action: '오류', result: e.message }); break }
+    try { r = await askJSON(modelConfig, readFiles.size || !ctx.modelOnly ? actionSchema(d,scopes,needsReplan,scopedOnly,reads,cfg.ollama.local_only) : {...ACTION,properties:{...ACTION.properties,action:{type:"string",enum:["read","search","give_up"]}}}, view) } catch (e) { trail.push({ step: trail.length + 1, action: '오류', result: e.message }); break }
     ctx.onModelCall?.({ step: step + 1, ...r.timing, prompt_tokens: r.prompt_eval_count, output_tokens: r.eval_count, action: r.ans?.action || 'invalid-json' })
     const a = r.ans
+    if (a?.action === 'edit' && !a.find && Number.isInteger(a.start) && Number.isInteger(a.end) && typeof a.replace === 'string') a.action = 'edit_lines'
     if (!a) { msgs.push({ role: 'assistant', content: String(r.raw).slice(0, 500) }, { role: 'user', content: 'JSON 행동 하나만 써라.' }); continue }
     const actionKey=JSON.stringify(a, Object.keys(a).filter(k=>!['why','reason'].includes(k)).sort())
     if((failedActions.get(actionKey)||0)>=2){needsReplan=true;msgs.push({role:'user',content:'같은 실패 행동을 두 번 반복했습니다. 다른 도구나 범위를 선택하거나 give_up 하세요.'});continue}
     ctx.onAction?.(a)
     say(`모델 행동: ${a.action} ${a.file || a.text || a.scope || ''}${a.start ? ':'+a.start : ''}${a.why ? ' — '+a.why : ''}`)
-    if(ctx.modelOnly && ['edit','style','rn_style','jsx_prop'].includes(a.action) && !readFiles.has(a.file)){msgs.push({role:'user',content:'수정 대상 파일을 먼저 read로 직접 읽으세요.'});continue}
+    if((ctx.modelOnly || cfg.ollama.local_only) && ['edit','edit_lines','style','rn_style','jsx_prop'].includes(a.action) && !readFiles.has(a.file)){msgs.push({role:'user',content:'수정 대상 파일을 먼저 read로 직접 읽으세요.'});continue}
     msgs.push({ role: 'assistant', content: JSON.stringify(a) })
     let obs
     if (a.action === 'read') {
       if (reads >= 5) obs = '읽기·검색 횟수를 다 썼다. 허용된 수정 행동 또는 give_up을 선택한다'
-      else { obs = observeRead(srcRoot, srcDir, a); if (!obs.startsWith('읽기 실패')) { reads++; readFiles.add(a.file); ctx.onObservation?.({action:'read',file:a.file,content:obs}) } } // 실패한 읽기는 세지 않는다
+      else { obs = observeRead(srcRoot, srcDir, a); if (!obs.startsWith('읽기 실패')) { reads++; readFiles.add(a.file); const [, first, last] = obs.split('\n')[0].match(/ (\d+)~(\d+)줄/) || []; readRanges.set(a.file, [...(readRanges.get(a.file) || []), [Number(first), Number(last)]]); ctx.onObservation?.({action:'read',file:a.file,content:obs}) } } // 실패한 읽기는 세지 않는다
       trail.push({ step: trail.length + 1, action: 'read', detail: `${a.file} ${a.start || 1}~${a.end || ''}`, result: obs.split('\n')[0] })
     } else if (a.action === 'search') {
       if (reads >= 5) obs = '읽기·검색 횟수를 다 썼다. 허용된 수정 행동 또는 give_up을 선택한다'
@@ -180,19 +276,23 @@ async function codeAgent (d, ctx) {
         if(res.ok){say('모델 수정 검증 통과: '+brief(res));return {attempts,trail,verified:attempts.length-1}}
         if(edits>=3) break
       } catch (e) { obs = '범위 수정 실패: ' + e.message }
-    } else if (a.action === 'edit') {
+    } else if (a.action === 'edit' || a.action === 'edit_lines') {
       if (needsReplan) { msgs.push({ role: 'user', content: '직전 수정이 실패했다. 먼저 replan 행동으로 검증 근거와 새 수정 범위를 설명하라.' }); continue }
 
       try {
-        const e=require('./source-edit').anchoredEdit(a,ctx),norm=JSON.stringify([e.file,e.range.start,e.replace])
+        const { anchoredEdit, lineEdit } = require('./source-edit')
+        if (localJourney && ctx.journeyEvidence?.some(row => row.request?.length) && /\.(?:css|scss)$/.test(a.file)) throw Error('API 응답을 표시하는 데이터 바인딩의 소스를 읽고 수정하세요')
+        if (a.action === 'edit_lines' && !(readRanges.get(a.file) || []).some(([first, last]) => first <= a.start && last >= a.end)) throw Error('같은 read 응답에 해당 줄 전체가 있어야 합니다')
+        const e = a.action === 'edit_lines' ? lineEdit(a, { ...ctx, readRanges: readRanges.get(a.file) }) : anchoredEdit(a, ctx)
+        const norm=JSON.stringify([e.file,e.range.start,e.replace])
         if(tried.has(norm))throw Error('이미 실패한 동일 수정입니다. 위치나 값을 반복하지 말고 새 근거로 재계획하세요')
         tried.add(norm);edits++
         const res=await tryEdits([e],`${d.rule} 코드 에이전트 수정 ${edits}`,targetIds)
         attempts.push({source:'llm',edits:[e],...res});needsReplan=!res.ok;obs='검증 결과: '+brief(res)
-        trail.push({step:trail.length+1,action:'edit',detail:`${e.file}:${e.line}`,result:brief(res)})
+        trail.push({step:trail.length+1,action:a.action,detail:`${e.file}:${e.line}`,result:brief(res)})
         if(res.ok){say('모델 수정 검증 통과: '+brief(res));return {attempts,trail,verified:attempts.length-1}}
         if(edits>=3)break
-      }catch(e){obs='수정 실패: '+e.message;needsReplan=true;trail.push({step:trail.length+1,action:'edit',detail:a.file,result:obs})}
+      }catch(e){obs='수정 실패: '+e.message;needsReplan=true;trail.push({step:trail.length+1,action:a.action,detail:a.file,result:obs})}
     } else if (a.action === 'rn_style' || a.action === 'jsx_prop') {
       if(needsReplan){msgs.push({role:'user',content:'먼저 replan으로 실패 근거와 바꿀 접근을 정하세요'});continue}
       try{

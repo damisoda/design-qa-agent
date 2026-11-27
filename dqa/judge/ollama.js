@@ -11,13 +11,14 @@ const { knowledgeFor } = require('./knowledge')
 async function http (url, body, timeoutMs) {
   const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), timeoutMs)
   try {
-    const r = await fetch(url, { method: body ? 'POST' : 'GET', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined, signal: ctl.signal })
+    const r = await fetch(url, { method: body ? 'POST' : 'GET', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined, signal: ctl.signal, redirect: 'error' })
     if (!r.ok) throw new Error(`HTTP ${r.status}`)
     return await r.json()
   } finally { clearTimeout(t) }
 }
 
 function macFree (cfg) {
+  if (!cfg.mac_mini?.ssh) return null
   try {
     const out = execFileSync('ssh', ['-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', cfg.mac_mini.ssh, 'memory_pressure | tail -1'], { encoding: 'utf8', timeout: 20000 })
     const m = out.match(/(\d+)%/); return m ? Number(m[1]) : null
@@ -29,7 +30,9 @@ async function preflight (cfg) {
   const o = cfg.ollama
   try {
     const tags = await http(`${o.url}/api/tags`, null, 4000)
-    if (!(tags.models || []).some((m) => m.name === o.model || m.model === o.model)) return { ok: false, reason: `모델 ${o.model}이 Ollama에 없다` }
+    const selected = (tags.models || []).find(m => m.name === o.model || m.model === o.model)
+    if (!selected) return { ok: false, reason: `모델 ${o.model}이 Ollama에 없다` }
+    if (o.local_only && (selected.remote_model || selected.remote_host)) return { ok: false, reason: '외부에서 추론하는 Ollama 모델은 사용할 수 없습니다' }
     const ps = await http(`${o.url}/api/ps`, null, 4000)
     const others = (ps.models || []).map((m) => m.name).filter((n) => n !== o.model)
     if (others.length) return { ok: false, reason: `다른 모델이 올라가 있다(${others.join(', ')}). 맥미니 보호를 위해 건너뜀` }
@@ -137,7 +140,7 @@ function numbersOk (texts, factText) {
 async function askJSON (cfg, schema, msgs) {
   const o = cfg.ollama
   const t0 = Date.now()
-  const r = await http(`${o.url}/api/chat`, { model: o.model, stream: false, think: false, format: schema, options: { temperature: 0 }, messages: msgs }, o.timeout_ms)
+  const r = await http(`${o.url}/api/chat`, { model: o.model, stream: false, think: o.repair_think === true, format: schema, options: { temperature: 0, ...(o.repair_think ? { num_predict: 2500 } : {}), ...(o.num_ctx ? { num_ctx: o.num_ctx } : {}) }, messages: msgs }, o.timeout_ms)
   let ans = null; try { ans = JSON.parse(r.message && r.message.content) } catch (e) {}
   return { ans, raw: r.message && r.message.content, eval_count: r.eval_count, prompt_eval_count: r.prompt_eval_count, timing: { ms: Date.now() - t0, load_ms: r.load_duration / 1e6, prompt_ms: r.prompt_eval_duration / 1e6, generation_ms: r.eval_duration / 1e6 } }
 }

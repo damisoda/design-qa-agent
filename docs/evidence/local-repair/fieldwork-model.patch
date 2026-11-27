@@ -1,0 +1,34 @@
+diff --git a/style.css b/style.css
+--- a/style.css
++++ b/style.css
+@@ -45,7 +45,7 @@
+ .fw-158{font-size:24px;font-weight:700;line-height:32px;color:var(--ink);flex-shrink:0}
+ .fw-157{gap:12px;padding:0px}
+ .fw-62{font-size:13px;font-weight:400;line-height:20px;color:var(--muted);flex-shrink:0}
+-.fw-63{font-size:38px;font-weight:700;line-height:35px;color:var(--ink);flex-shrink:0}
++.fw-63{font-size:26px;font-weight:700;line-height:35px;color:var(--ink);flex-shrink:0}
+ .fw-64{font-size:14px;font-weight:400;line-height:20px;color:var(--muted);flex-shrink:0}
+ .fw-61{gap:10px;padding:0px}
+ .fw-65{font-size:16px;font-weight:400;line-height:24px;color:var(--ink);flex-shrink:0}
+
+diff --git a/app.js b/app.js
+--- a/app.js
++++ b/app.js
+@@ -13,7 +13,7 @@ async function refreshVisitPrice() {
+   if (!response.ok) return;
+   const quote = await response.json();
+   if (typeof quote.price !== 'number') return;
+-  productPriceElement.textContent = money(product.price) + ' / guest';
++productPriceElement.textContent = money(quote.price) + ' / guest';
+ }
+ if (screen === 'product') refreshVisitPrice().catch(() => {});
+ function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+@@ -49,7 +49,7 @@ document.getElementById('search')?.addEventListener('input',filterProducts);
+ document.getElementById('visit-date')?.addEventListener('change',e=>{state.date=e.target.value;save()});
+ document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action;
+- if(a.startsWith('filter:')){filter='All';document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('selected',x===b));filterProducts();return}
++if(a.startsWith('filter:')){filter=a.slice(7);document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('selected',x===b));filterProducts();return}
+  if(a.startsWith('slot:')){state.slot=a.slice(5);save();document.querySelectorAll('[data-action^="slot:"]').forEach(x=>x.classList.toggle('selected',x===b));render();return}
+  if(a==='quantity-up'||a==='quantity-down'){state.guests=Math.max(1,Math.min(6,state.guests+(a==='quantity-up'?1:-1)));state.discount=0;save();render();return}
+  if(a==='add-to-cart'){

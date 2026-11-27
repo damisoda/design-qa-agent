@@ -1,0 +1,154 @@
+{
+  "run_id": "repair-a3e66dc9-c4cd-4aeb-9d3d-00fdb75c08e0",
+  "runtime": {
+    "hardware": "Apple M5, 16 GB",
+    "model": "qwen3.5:4b",
+    "mode": "model",
+    "elapsed_seconds": 341.56
+  },
+  "figma_frames": [
+    {
+      "frame_id": "5:32",
+      "frame": "Catalog",
+      "base": "375x2148",
+      "exported_at": "2026-11-27T05:58:31.318Z"
+    },
+    {
+      "frame_id": "5:148",
+      "frame": "Experience details",
+      "base": "375x1398",
+      "exported_at": "2026-11-27T05:58:33.671Z"
+    },
+    {
+      "frame_id": "5:206",
+      "frame": "Your bag",
+      "base": "375x1191",
+      "exported_at": "2026-11-27T05:58:35.642Z"
+    },
+    {
+      "frame_id": "5:265",
+      "frame": "Checkout",
+      "base": "375x1247",
+      "exported_at": "2026-11-27T05:58:37.629Z"
+    },
+    {
+      "frame_id": "5:313",
+      "frame": "My bookings",
+      "base": "375x1169",
+      "exported_at": "2026-11-27T05:58:39.613Z"
+    }
+  ],
+  "viewports": [
+    "320x700",
+    "375x812",
+    "430x932",
+    "1024x900"
+  ],
+  "rules_only": {
+    "candidate_fixed": 3,
+    "final_verified": false,
+    "journeys_passed": 2
+  },
+  "model_only": {
+    "patches": 3,
+    "model_action_calls": 7,
+    "rule_patches": 0,
+    "findings_before": 7,
+    "findings_fixed": 7,
+    "regressions": 0,
+    "journey_checks": {
+      "before": 2,
+      "total": 10,
+      "after": 10
+    },
+    "coverage_errors": [],
+    "paired_screenshots": 46
+  },
+  "verified_edits": [
+    {
+      "file": "style.css",
+      "line": 48
+    },
+    {
+      "file": "app.js",
+      "line": 16
+    },
+    {
+      "file": "app.js",
+      "line": 52
+    }
+  ],
+  "filter_replay": [
+    {
+      "side": "before",
+      "action": "Craft",
+      "size": "375x812",
+      "observed": "4 experiences",
+      "visible_cards": 4,
+      "screenshot": "catalog-filter-before.png"
+    },
+    {
+      "side": "after",
+      "action": "Craft",
+      "size": "375x812",
+      "observed": "2 experiences",
+      "visible_cards": 2,
+      "screenshot": "catalog-filter-after.png"
+    }
+  ],
+  "quote_replay": [
+    {
+      "width": 320,
+      "height": 700,
+      "price": 49170,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "price": 86240,
+      "ok": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "price": 49170,
+      "ok": true,
+      "screenshot": "api-price-49170.png"
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "price": 86240,
+      "ok": true,
+      "screenshot": "api-price-86240.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "price": 49170,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "price": 86240,
+      "ok": true
+    }
+  ],
+  "hermes": {
+    "start": {
+      "tool": "mcp__dqa__dqa_start",
+      "duration_ms": 164,
+      "state": "queued"
+    },
+    "status": {
+      "tool": "mcp__dqa__dqa_status",
+      "duration_ms": 310,
+      "state": "verified",
+      "fixed": 7,
+      "regressions": 0
+    }
+  },
+  "original_source_sha256": "567821db5ce369efffb46db952c62913f3530d4b11bb995074d04f6e0ce65126"
+}

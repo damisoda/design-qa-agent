@@ -10,6 +10,8 @@
 //   dqa pr --run <실행 ID> [--onto <브랜치>] [--push --confirm "PR 올리기"]   (검증된 패치로 수정 브랜치·커밋·PR 본문, 올리기는 확인 필요)
 //   dqa apply --run <실행 ID> [--defect <ID>] [--confirm "적용"] | --undo --confirm "되돌리기"   (로컬 모드: 검증된 수정을 작업 폴더에)
 //   dqa design list | dqa design pull --url <Figma 프레임 링크> [--name <이름>] [--group <묶음>]   (토큰은 환경 변수 FIGMA_TOKEN)
+//   dqa local-repair --profile <JSON> [--mode inspect|rules|model|hybrid]
+//   dqa repair-status --run <실행 ID>
 //   dqa doctor | dqa up | dqa serve [--port 8792]
 const { loadConfig } = require('./core/util')
 
@@ -31,7 +33,13 @@ async function main () {
   const args = parseArgs(process.argv.slice(2))
   const cfg = loadConfig()
   const [cmd, sub] = args._
-  if (cmd === 'check') {
+  if (cmd === 'local-repair') {
+    const job = await require('./workflow/local-repair').localRepair(args, cfg)
+    console.log(JSON.stringify(job, null, 2))
+    process.exitCode = ['clean', 'inspected', 'verified'].includes(job.state) ? 0 : 1
+  } else if (cmd === 'repair-status') {
+    console.log(JSON.stringify(require('./workflow/local-repair').status(args.run), null, 2))
+  } else if (cmd === 'check') {
     const { check } = require('./core/run')
     const r = await check(args, cfg)
     process.exitCode = r.exit_code
@@ -60,7 +68,7 @@ async function main () {
   } else if (cmd === 'serve') {
     await require('./server/http').serve(args, cfg)
   } else {
-    console.log(require('fs').readFileSync(__filename, 'utf8').split('\n').slice(1, 13).map((l) => l.replace(/^\/\/ ?/, '')).join('\n'))
+    console.log(require('fs').readFileSync(__filename, 'utf8').split('\n').slice(1, 15).map((l) => l.replace(/^\/\/ ?/, '')).join('\n'))
     process.exitCode = cmd ? 2 : 0
   }
 }

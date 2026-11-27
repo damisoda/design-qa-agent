@@ -21,7 +21,7 @@ async function openAndExtract (browser, { origin, recipe, w, h, cfg, widths }) {
   try {
     await enterScreen(page, recipe, { origin, stepMs: cfg.timeouts.step_ms, gotoMs: cfg.timeouts.goto_ms, settleMs: cfg.timeouts.settle_ms })
     await fonts(page); await settle(page, { stableMs: 200, timeoutMs: 2000 })
-    const dom = await page.evaluate(dqaDesignDom, { widths })
+    const dom = await page.evaluate(dqaDesignDom, { widths, runtime_text: recipe.runtime_text })
     dom.blocked = blocked
     return { ctx, page, dom }
   } catch (e) { await ctx.close().catch(() => {}); throw e }
@@ -30,6 +30,12 @@ async function openAndExtract (browser, { origin, recipe, w, h, cfg, widths }) {
 // 한 화면·한 쪽(변경 전·후)의 시안 비교. spec은 design.json, 결과는 결함 레코드와 요약
 async function designPass (browser, { origin, recipe, spec, side, ref, run, cfg, altWidth }) {
   const base = baseOf(spec); if (!base) return { defects: [], summary: { skipped: '시안 기준 크기를 모른다' } }
+  if (recipe.runtime_text) {
+    const texts = new Set()
+    const walk = nodes => { for (const node of nodes || []) { if (node.text?.content) texts.add(node.id); walk(node.children) } }
+    walk(spec.nodes)
+    for (const id of Object.keys(recipe.runtime_text)) if (!texts.has(id)) throw new Error(`런타임 요소에 연결된 Figma 글자 노드가 없습니다: ${id}`)
+  }
   const [w, h] = base
   const tag = `${side}/${recipe.id.replace(/\//g, '_')}_design_${w}x${h}`
   const a = await openAndExtract(browser, { origin, recipe, w, h, cfg, widths: true })
