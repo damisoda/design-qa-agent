@@ -76,6 +76,7 @@ async function check (args, cfg) {
     recipes: recipes.map((r) => ({ id: r.id, title: r.title, version: r.version || 1 })),
     llm: { mode: args.llm || 'auto' }, stages: {}, failures: [], status: 'running'
   }
+  writeJSON(run.file('recipe-snapshot.json'), recipes)
   if (t.build) m.build = t.build
   if (t.local) m.local = t.local
   // 시안(Figma 내보내기 design.json·design.png)이 있으면 실행 폴더에 붙인다. 검토 화면의 비교 기준이 된다
@@ -88,7 +89,7 @@ async function check (args, cfg) {
   const stage = async (name, fn) => {
     const labels = { ios: '아이폰 사파리에서 키보드·확대·글리프·안전영역을 확인하고 있습니다', measure: '화면을 크기별로 측정하고 있습니다', design: 'Figma 시안 값과 구현 값을 비교하고 있습니다', interact: '버튼과 링크를 눌러 반응을 확인하고 있습니다', verify: '재측정과 변경 비교를 확인하고 있습니다', cause: '원인 파일과 줄을 찾고 있습니다', judge: '문제 설명 단계를 준비하고 있습니다' }
     const t0 = Date.now(); progress.stage(name, 'running', labels[name] || name)
-    try { const out = await fn(); progress.stage(name, m.failures.length && ['measure', 'design', 'interact', 'ios'].includes(name) ? 'incomplete' : 'done', (labels[name] || name).replace('하고 있습니다', '했습니다')); return out }
+    try { const out = await fn(); progress.stage(name, m.failures.length && ['measure', 'design', 'interact', 'ios', 'journey'].includes(name) ? 'incomplete' : 'done', (labels[name] || name).replace('하고 있습니다', '했습니다')); return out }
     catch (e) { progress.stage(name, 'failed', e.message); throw e }
     finally { m.stages[name] = Math.round((Date.now() - t0) / 100) / 10; save() }
   }
@@ -97,6 +98,7 @@ async function check (args, cfg) {
   try {
     const sizesBy = new Map(recipes.map((r) => [r.id, parseSizes(args.widths || t.widths, r, cfg, args.safe)]))
     m.sizes = [...new Map([...sizesBy.values()].flat().map((s) => [s.join('x'), s])).values()]
+    m.recipe_sizes = Object.fromEntries(sizesBy)
     const sides = t.base ? [['base', t.base], ['head', t.head]] : [['head', t.head]]
     const measured = { base: [], head: [] }
     const early = { head: new Map(), design: [], interact: [] }
@@ -180,6 +182,24 @@ async function check (args, cfg) {
         }
       })
     }
+    const journeyDs = { base: [], head: [] }
+    if (recipes.some(r => r.journeys?.length)) {
+      const { runJourneys, journeyDefects } = require('../recipes/journeys')
+      await stage('journey', async () => {
+        m.journeys = []
+        for (const [side, target] of sides) {
+          for (const recipe of recipes.filter(r => r.journeys?.length)) {
+            try {
+              const rows = await runJourneys(browser, { origin: target.origin, recipe, sizes: sizesBy.get(recipe.id), run, side })
+              journeyDs[side].push(...journeyDefects(rows, recipe))
+              if (side === 'head') m.journeys.push(...rows)
+            } catch (err) {
+              m.failures.push({ side, screen: recipe.id, size: 'journey', error: err.message })
+            }
+          }
+        }
+      })
+    }
     // 아이폰 사파리(--device ios): iOS 시뮬레이터의 실제 사파리에서 같은 레시피로 들어가 폰에서만 생기는 결함을 잰다
     // (Appium 서버 cfg.ios.appium, 기본 http://127.0.0.1:4723 필요). 키보드 가림 K1·입력 확대 Z1·글리프 없음 G2·안전영역 S1
     const iosDs = { base: [], head: [] }
@@ -228,8 +248,8 @@ async function check (args, cfg) {
       return [...ds, ...crossWidth(res, ds, { screen: recipe.id, side, ref })].map((d) => ({ ...d, screen_title: recipe.title }))
     })
     const mergeClicks = rows => [...rows.reduce((m,d) => { const old=m.get(d.id); if(old) { old.widths.push(...d.widths); old.max_px=Math.max(old.max_px||0,d.max_px||0) } else m.set(d.id,d); return m }, new Map()).values()]
-    defects = [...toDefects('head'), ...designDs.head, ...mergeClicks(interactDs.head), ...iosDs.head]
-    const baseDefects = t.base ? [...toDefects('base'), ...designDs.base, ...mergeClicks(interactDs.base), ...iosDs.base] : []
+    defects = [...toDefects('head'), ...designDs.head, ...mergeClicks(interactDs.head), ...iosDs.head, ...journeyDs.head]
+    const baseDefects = t.base ? [...toDefects('base'), ...designDs.base, ...mergeClicks(interactDs.base), ...iosDs.base, ...journeyDs.base] : []
     run.event('cluster', `결함 묶음: 변경 후 ${defects.length}건${t.base ? `, 변경 전 ${baseDefects.length}건` : ''}`)
 
     writeJSON(run.file('defects.json'), defects) // 설명을 기다리지 않고 최종 묶음을 먼저 공개

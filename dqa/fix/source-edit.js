@@ -30,6 +30,37 @@ function anchoredEdit(a,ctx){const abs=fileIn(ctx,a.file),text=fs.readFileSync(a
  else if(start<0||text.indexOf(find,start+1)>=0)throw Error('문자열이 없거나 중복입니다. read에서 확인한 start 줄과 정확한 find 블록을 지정하세요')
  if(find===a.replace)throw Error('바뀌는 것이 없습니다');const e=rangeEdit(a.file,text,start,start+find.length,a.replace,a.why||'코드 에이전트 수정');if(/\.[jt]sx?$/.test(a.file))ast(applyRanges(text,[e]));return e
 }
+// If a replacement repeats surrounding source, use that unchanged context to
+// locate an inclusive range inside a read window. Ambiguous matches keep the explicit range.
+function alignedLines (lines, replacement, start, end, readRanges) {
+  const next = replacement.split('\n')
+  if (next.length < 4 || next.length === end - start + 1 || !readRanges?.length) return [start, end]
+  const matches = []
+  for (let from = Math.max(1, start - 5); from <= start; from++) {
+    const to = from + next.length - 1
+    if (to < end || !readRanges.some(([first, last]) => first <= from && last >= to)) continue
+    if (lines[from - 1]?.trim() !== next[0].trim() || lines[to - 1]?.trim() !== next.at(-1).trim()) continue
+    const unchanged = next.filter((line, i) => /[a-zA-Z0-9]/.test(line) && line.trim() === lines[from + i - 1]?.trim()).length
+    if (unchanged >= 3 && unchanged >= next.length * 0.6) matches.push([from, to, unchanged])
+  }
+  matches.sort((a, b) => b[2] - a[2])
+  return matches[0] && matches[0][2] !== matches[1]?.[2] ? matches[0].slice(0, 2) : [start, end]
+}
+
+// The model supplies replacement code and references lines it has seen.
+function lineEdit (action, ctx) {
+  const { file, start, end, replace } = action
+  const text = fs.readFileSync(fileIn(ctx, file), 'utf8')
+  const lines = text.split('\n')
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 1 || end < start || end > lines.length || end - start >= 40 || typeof replace !== 'string') throw Error('유효한 읽은 줄 범위와 교체 코드가 필요합니다')
+  const [first, last] = alignedLines(lines, replace, start, end, ctx.readRanges)
+  const offset = first === 1 ? 0 : lines.slice(0, first - 1).join('\n').length + 1
+  const old = lines.slice(first - 1, last).join('\n')
+  if (old === replace) throw Error('바뀌는 것이 없습니다')
+  const edit = rangeEdit(file, text, offset, offset + old.length, replace, action.why || '읽은 줄 범위 수정')
+  if (/\.[jt]sx?$/.test(file)) ast(applyRanges(text, [edit]))
+  return edit
+}
 // Resolve currentColor back to source SVG paints and the local transformer config.
 // No application names, labels, PRs or predetermined corrected source are used.
 function svgColorEdits(d,srcRoot){
@@ -47,4 +78,4 @@ function svgColorEdits(d,srcRoot){
  if(!edits.length||!targetMatched)return [];ast(applyRanges(text,edits));return [{source:'rule',file:c.file,line:edits[0].line,edits,why:'실제 SVG 색이 currentColor로 치환되지만 사용하는 컴포넌트에 색이 없어 상속값이 달라집니다. 같은 원본 색 자산의 사용처에 시안 색을 전달합니다.'}]
 }
 function uniqueEdits(edits){return [...new Map(edits.map(e=>[JSON.stringify([e.file,e.range||e.line||null,e.find,e.replace]),e])).values()]}
-module.exports={uniqueEdits,ast,visit,hash,applyRanges,structuredEdit,anchoredEdit,svgColorEdits}
+module.exports={uniqueEdits,ast,visit,hash,applyRanges,structuredEdit,anchoredEdit,lineEdit,svgColorEdits}

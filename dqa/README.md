@@ -4,6 +4,10 @@
 
 ## 빠른 시작
 
+실제 Figma 프레임과 로컬 프런트 수정을 함께 실행할 때는 저장소 루트에서 `node dqa/cli.js local-repair --profile dqa/workflow/fieldwork.json --mode model`을 사용한다. 이 경로는 Node.js, Chromium과 로컬 Ollama로 실행된다. Hermes를 붙이면 대화에서 같은 실행을 시작하고 상태를 조회할 수 있다. 기존 웹 화면에서 새 검사나 수정을 시작하는 경로에는 Dify 설정이 필요하다. [로컬 실행과 Hermes 사용법](../docs/local-repair-architecture.md)
+
+기존 개별 명령과 웹 화면을 준비하는 방법은 다음과 같다.
+
 ```bash
 cd dqa
 npm install                        # playwright-core 1개(크롬은 Playwright 캐시의 chromium을 찾아 쓴다)

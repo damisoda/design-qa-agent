@@ -107,6 +107,11 @@ function dqaDesignDom (opt) {
   if (opt.widths) out.widths = Object.fromEntries(all.filter((el) => visible(el)).map((el) => [ids.get(el), R(el.getBoundingClientRect().width)]))
   // 부모 안 위치 비교용: 보이는 모든 요소의 상자(왼쪽·위·폭·높이, 문서 좌표)
   out.rects = Object.fromEntries(all.filter((el) => visible(el)).map((el) => { const q = el.getBoundingClientRect(); return [ids.get(el), [R(q.left + sx), R(q.top + sy), R(q.width), R(q.height)]] }))
+  const selections = Object.entries(opt.runtime_text || {}).map(([node, selector]) => {
+    const matches = document.querySelectorAll(selector)
+    return [node, matches.length === 1 ? ids.get(matches[0]) ?? null : null]
+  })
+  out.runtime_text = Object.fromEntries(selections)
   return out
 }
 

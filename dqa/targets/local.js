@@ -102,7 +102,7 @@ async function openLocal (args, cfg) {
   if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) throw new Error(`작업 폴더가 없다: ${args.local}`)
   const proj = detectProject(dir)
   const gi = gitInfo(dir)
-  const base = path.join(LOCAL, `${String(proj.name).replace(/[^\w.-]+/g, '-').slice(0, 30)}-${h(dir, 8)}`)
+  const base = path.join(cfg.local_snapshots || LOCAL, `${String(proj.name).replace(/[^\w.-]+/g, '-').slice(0, 30)}-${h(dir, 8)}`)
   assertAllowedPath(base, cfg)
   const say = (m) => { if (!process.env.DQA_QUIET) console.log(`[local] ${m}`) }
   const timeout = (cfg.fix && cfg.fix.build_timeout_ms) || 600000

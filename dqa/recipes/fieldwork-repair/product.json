@@ -1,0 +1,176 @@
+{
+  "id": "fieldwork-repair/product",
+  "version": 1,
+  "app": "fieldwork-repair",
+  "title": "Experience details",
+  "start": {
+    "path": "/product.html"
+  },
+  "set_storage": {
+    "fieldwork-state": {
+      "guests": 2,
+      "date": "2026-10-24",
+      "slot": "14:00",
+      "cart": true,
+      "discount": 0,
+      "item": "clay",
+      "booking": {
+        "id": "FW-1042",
+        "name": "Jamie Park",
+        "email": "jamie@example.test",
+        "date": "2026-10-24",
+        "guests": 2,
+        "total": 116000,
+        "cancelled": false
+      }
+    }
+  },
+  "steps": [],
+  "ready": {
+    "stable_ms": 350
+  },
+  "scan": {
+    "root": "body",
+    "scroll": "auto",
+    "ignore": []
+  },
+  "widths": "mobile5",
+  "design": "../../../eval/fieldwork-service/designs/product/design.json",
+  "source_hints": [
+    "app.js"
+  ],
+  "stubs": [
+    {
+      "path": "/api/visit-price",
+      "method": "GET",
+      "json": {
+        "price": 58000
+      }
+    }
+  ],
+  "runtime_text": {
+    "5:196": ".booking-action p"
+  },
+  "journeys": [
+    {
+      "id": "visit-price-1",
+      "stubs": [
+        {
+          "path": "/api/visit-price",
+          "method": "GET",
+          "json": {
+            "price": 46250
+          }
+        }
+      ],
+      "steps": [
+        {
+          "goto": "/product.html?item=clay"
+        },
+        {
+          "expect": {
+            "request": "/api/visit-price"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".booking-action p",
+            "text": "KRW 46,250 / guest"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".product-title",
+            "contains": "Clay & conversation"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".availability",
+            "contains": "2 places available"
+          }
+        }
+      ]
+    },
+    {
+      "id": "visit-price-2",
+      "stubs": [
+        {
+          "path": "/api/visit-price",
+          "method": "GET",
+          "json": {
+            "price": 73500
+          }
+        }
+      ],
+      "steps": [
+        {
+          "goto": "/product.html?item=clay"
+        },
+        {
+          "expect": {
+            "request": "/api/visit-price"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".booking-action p",
+            "text": "KRW 73,500 / guest"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".product-title",
+            "contains": "Clay & conversation"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".availability",
+            "contains": "2 places available"
+          }
+        }
+      ]
+    },
+    {
+      "id": "visit-price-3",
+      "stubs": [
+        {
+          "path": "/api/visit-price",
+          "method": "GET",
+          "json": {
+            "price": 58000
+          }
+        }
+      ],
+      "steps": [
+        {
+          "goto": "/product.html?item=clay"
+        },
+        {
+          "expect": {
+            "request": "/api/visit-price"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".booking-action p",
+            "text": "KRW 58,000 / guest"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".product-title",
+            "contains": "Clay & conversation"
+          }
+        },
+        {
+          "expect": {
+            "selector": ".availability",
+            "contains": "2 places available"
+          }
+        }
+      ]
+    }
+  ]
+}

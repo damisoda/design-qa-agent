@@ -43,7 +43,7 @@ module.exports = { groupTargets, designContracts, finalState, componentUsages }
 
 function prioritize(tasks,targets){
  const byId=new Map(targets.map(d=>[d.id,d]));
- const score=t=>{const ds=t.target_ids.map(id=>byId.get(id));return (t.source?200:0)+(ds.some(d=>d.kind==='design')?100:0)+(ds.some(d=>/^I/.test(d.rule))?80:0)+(ds.some(d=>(d.evidence||[]).some(e=>e.metric==='text_overflow_px'))?40:0)+t.affected_screens.length*10+t.target_ids.length}
+ const score=t=>{const ds=t.target_ids.map(id=>byId.get(id));return (t.source?200:0)+(ds.some(d=>d.design?.values?.some(v=>v.prop==='font-size'))?150:0)+(ds.some(d=>d.kind==='design')?100:0)+(ds.some(d=>/^I/.test(d.rule))?80:0)+(ds.some(d=>(d.evidence||[]).some(e=>e.metric==='text_overflow_px'))?40:0)+t.affected_screens.length*10+t.target_ids.length}
  return [...tasks].sort((a,b)=>score(b)-score(a)||a.id.localeCompare(b.id)).map(t=>({...t,priority_score:score(t),priority_reason:t.target_ids.some(id=>(byId.get(id)?.evidence||[]).some(e=>e.metric==='text_overflow_px'))?'direct text overflow evidence before aggregate page overflow':t.source?'source-anchored shared repair':byId.get(t.representative)?.kind==='design'?'design discrepancy':'measured layout or interaction'}))
 }
 module.exports.prioritize=prioritize

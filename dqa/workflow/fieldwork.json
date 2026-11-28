@@ -1,0 +1,24 @@
+{
+  "local": "../state/fieldwork-repair/frontend",
+  "recipes": [
+    "fieldwork-repair/catalog",
+    "fieldwork-repair/product",
+    "fieldwork-repair/cart",
+    "fieldwork-repair/checkout",
+    "fieldwork-repair/bookings"
+  ],
+  "widths": "320x700,375x812,430x932,1024x900",
+  "ollama": {
+    "url": "http://127.0.0.1:11434",
+    "model": "qwen3.5:4b",
+    "num_ctx": 16384
+  },
+  "figma": "https://www.figma.com/design/Yz8NzeU2wjqmzuYkRvvSfm?node-id=5-6",
+  "frame_ids": {
+    "fieldwork-repair/catalog": "5:32",
+    "fieldwork-repair/product": "5:148",
+    "fieldwork-repair/cart": "5:206",
+    "fieldwork-repair/checkout": "5:265",
+    "fieldwork-repair/bookings": "5:313"
+  }
+}
